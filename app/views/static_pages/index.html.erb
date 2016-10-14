@@ -2,6 +2,7 @@
 
 <form action="/guides" method="get">
   <input type="text" name="location">
+
    <select name='location'>
     <option value="" default selected>Language</option>
     <% @languages.each do |language| %>
@@ -10,6 +11,5 @@
   </select>
 
   <input type="submit" value="Search">
-  <input type="date">
 </form>
 

@@ -1,5 +1,6 @@
 class GuidesController < ApplicationController
   def index
+    p params[:date]
     @location = params[:location]
     @guides = Guide.all.where(location: @location)
   end
@@ -15,6 +16,7 @@ class GuidesController < ApplicationController
     if @guide.save
       redirect_to guide_path(@guide)
     else
+      @errors = @guide.errors.full_messages
       render 'new'
     end
   end

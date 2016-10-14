@@ -1,5 +1,18 @@
 <h1>Create Guide Account</h1>
 
+<% if @guide.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-danger">
+      The form contains <%= pluralize(@guide.errors.count, "error") %>.
+    </div>
+    <ul>
+    <% @guide.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for :guide, url: '/guides' do |f| %>
 
   First name: <%= f.text_field :first_name %><br>
