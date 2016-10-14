@@ -1,9 +1,16 @@
 class GuidesController < ApplicationController
+  def index
+    @location = params[:location]
+    @guides = Guide.all.where(location: @location)
+  end
+
   def new
     @guide = Guide.new
   end
 
   def create
+    #################################
+    # Make sure to add error messages
     @guide = Guide.new(guide_params)
     if @guide.save
       redirect_to guide_path(@guide)
