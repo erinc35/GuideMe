@@ -9,11 +9,13 @@
   </head>
 <!-- Comment for push to Development.  -->
   <body>
+    <%= link_to 'Home', root_path %>
     <% if session[:guide_id] || session[:traveler_id] %>
       <%= link_to 'Log out', sessions_path, method: :delete, data: { confirm: 'Are you sure?'} %>
     <% else %>
       <%= link_to 'Sign up as a Guide!', new_guide_path %>
       <%= link_to 'Sign up as a Traveler!', new_traveler_path %>
+      <%= link_to 'Log in', new_sessions_path %>
     <% end %>
     <%= yield %>
   </body>

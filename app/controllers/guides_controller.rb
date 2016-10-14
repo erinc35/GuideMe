@@ -1,4 +1,9 @@
 class GuidesController < ApplicationController
+  def index
+    @location = params[:location]
+    @guides = Guide.all.where(location: @location)
+  end
+
   def new
     @guide = Guide.new
   end

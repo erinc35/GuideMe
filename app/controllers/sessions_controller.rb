@@ -4,13 +4,9 @@ class SessionsController < ApplicationController
 
   def create
     guide = Guide.find_by_email(params[:email])
-    p guide
     traveler = Traveler.find_by_email(params[:email])
-    p traveler
     if guide
-      "-" * 50
       if guide.save
-        "*" * 50
         session[:guide_id] = guide.id
         redirect_to guide_path(guide)
       end
