@@ -4,6 +4,8 @@ class TravelersController < ApplicationController
   end
 
   def create
+    #################################
+    # Make sure to add error messages
     @traveler = Traveler.new(traveler_params)
     if @traveler.save
       redirect_to traveler_path(@traveler)

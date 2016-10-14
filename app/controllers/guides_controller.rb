@@ -9,6 +9,8 @@ class GuidesController < ApplicationController
   end
 
   def create
+    #################################
+    # Make sure to add error messages
     @guide = Guide.new(guide_params)
     if @guide.save
       redirect_to guide_path(@guide)
