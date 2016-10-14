@@ -1,15 +1,17 @@
 <h1>GuideMe</h1>
 
 <form action="/guides" method="get">
-  <input type="text" name="location">
-
+  <input id = "city" type="text" name="location" placeholder= "Destination City">
    <select name='location'>
     <option value="" default selected>Language</option>
     <% @languages.each do |language| %>
       <option value=<%= language %>><%= language %></option>
     <% end %>
   </select>
-
   <input type="submit" value="Search">
 </form>
 
+
+
+<!-- <input id = "city" type="text" name="email" placeholder="Email">
+ -->
