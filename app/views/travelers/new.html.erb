@@ -1,0 +1,14 @@
+<h1>Create Account</h1>
+
+<%= form_for :traveler, url: '/travelers' do |f| %>
+
+  First name: <%= f.text_field :first_name %><br>
+  Last name: <%= f.text_field :last_name %><br>
+  Email: <%= f.text_field :email %><br>
+  Language: <%= f.text_field :language %><br>
+  Phone: <%= f.text_field :phone %><br>
+  Password: <%= f.password_field :password %><br>
+  Password Confirmation: <%= f.password_field :password_confirmation %><br>
+  <%= f.submit "Submit" %>
+
+<% end %>
