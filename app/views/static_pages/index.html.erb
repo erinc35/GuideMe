@@ -2,6 +2,13 @@
 
 <form action="/guides" method="get">
   <input type="text" name="location">
+  <div class="col-md-6 row">
+    <div class="form-group">
+      <label for="StartDate">Start Date</label>
+      <input  type="text" id="StartDate" class="form-control" data-provide="datepicker" data-date-start-date="-45d" data-date-end-date="0d">
+      <label for="EndDate">End Date </label>
+      <input  type="text" id="EndDate" class="form-control" data-provide="datepicker" data-date-start-date="-45d" data-date-end-date="0d">
+      </div>
+  </div>
   <input type="submit" value="Search">
-  <input type="date">
 </form>
