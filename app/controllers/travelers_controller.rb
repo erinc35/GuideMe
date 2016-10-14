@@ -37,6 +37,6 @@ class TravelersController < ApplicationController
   private
 
   def traveler_params
-    params.require(:traveler).permit(:first_name, :last_name, :email, :password, :password_confirmation, :language, :phone, :photo)
+    params.require(:traveler).permit(:first_name, :last_name, :email, :password, :password_confirmation, :language, :phone)
   end
 end

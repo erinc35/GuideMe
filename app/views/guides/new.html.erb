@@ -1,2 +1,16 @@
-<h1>Guides#new</h1>
-<p>Find me in app/views/guides/new.html.erb</p>
+<h1>Create Guide Account</h1>
+
+<%= form_for :guide, url: '/guides' do |f| %>
+
+  First name: <%= f.text_field :first_name %><br>
+  Last name: <%= f.text_field :last_name %><br>
+  Email: <%= f.text_field :email %><br>
+  Language: <%= f.text_field :language %><br>
+  Phone: <%= f.text_field :phone %><br>
+  Location: <%= f.text_field :location %><br>
+  Do you have a car? <%= f.text_field :has_car %><br>
+  Password: <%= f.password_field :password %><br>
+  Password Confirmation: <%= f.password_field :password_confirmation %><br>
+  <%= f.submit "Submit" %>
+
+<% end %>

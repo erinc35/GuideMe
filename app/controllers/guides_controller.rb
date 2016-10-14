@@ -1,29 +1,29 @@
 class GuidesController < ApplicationController
   def new
-    @Guide = Guide.new
+    @guide = Guide.new
   end
 
   def create
-    @Guide = Guide.new(guide_path)
-    if @Guide.save
-      redirect_to guide_path(@Guide)
+    @guide = Guide.new(guide_params)
+    if @guide.save
+      redirect_to guide_path(@guide)
     else
       render 'new'
     end
   end
 
   def show
-    @Guide = Guide.find(params[:id])
+    @guide = Guide.find(params[:id])
   end
 
   def edit
-    @Guide = Guide.find(params[:id])
+    @guide = Guide.find(params[:id])
   end
 
   def update
-    @Guide = Guide.find(params[:id])
-    if @Guide.update(guide_params)
-      redirect_to guide_path(@Guide)
+    @guide = Guide.find(params[:id])
+    if @guide.update(guide_params)
+      redirect_to guide_path(@guide)
     else
       render 'edit'
     end
@@ -37,6 +37,6 @@ class GuidesController < ApplicationController
   private
 
   def guide_params
-    params.require(:Guide).permit(:first_name, :last_name, :email, :password, :password_confirmation, :language, :phone, :location, :has_car, :photo, :online)
+    params.require(:guide).permit(:first_name, :last_name, :email, :password, :password_confirmation, :language, :phone, :location, :has_car)
   end
 end

@@ -1,15 +1,7 @@
 Rails.application.routes.draw do
-  get 'guides/new'
+  resources :sessions
 
-  get 'guides/create'
-
-  get 'guides/show'
-
-  get 'guides/edit'
-
-  get 'guides/update'
-
-  get 'guides/destroy'
+  resources :guides
 
   resources :travelers
 
