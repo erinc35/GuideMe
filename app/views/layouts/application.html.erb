@@ -18,5 +18,7 @@
       <%= link_to 'Log in', new_sessions_path %>
     <% end %>
     <%= yield %>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALqSmO1xJNlwCa63fvBl8rWMl8GWxefy8&libraries=places&callback=initMap"
+    async defer></script>
   </body>
 </html>
