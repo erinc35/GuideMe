@@ -4,8 +4,8 @@
     <title>GuideMe</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
   </head>
 <!-- Comment for push to Development.  -->
   <body>
@@ -18,5 +18,7 @@
       <%= link_to 'Log in', new_sessions_path %>
     <% end %>
     <%= yield %>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALqSmO1xJNlwCa63fvBl8rWMl8GWxefy8&libraries=places&callback=initMap"
+    async defer></script>
   </body>
 </html>

@@ -1,5 +1,43 @@
 <h1>Login</h1>
 
+<% if @errors %>
+  <ul>
+    <% @errors.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<% if @guide %>
+  <% if @guide.errors.any? %>
+    <div id="error_explanation">
+      <div class="alert alert-danger">
+        The form contains <%= pluralize(@guide.errors.count, "error") %>.
+      </div>
+      <ul>
+      <% @guide.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<% end %>
+
+<% if @traveler %>
+  <% if @traveler.errors.any? %>
+    <div id="error_explanation">
+      <div class="alert alert-danger">
+        The form contains <%= pluralize(@traveler.errors.count, "error") %>.
+      </div>
+      <ul>
+      <% @traveler.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<% end %>
+
 <%= form_tag sessions_path do %>
 
   Email: <%= text_field_tag :email %><br>
