@@ -27,6 +27,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'private_pub'
+gem 'thin'
 
 gem 'dotenv-rails'
 # Use Capistrano for deployment
