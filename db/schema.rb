@@ -10,10 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161014001559) do
+ActiveRecord::Schema.define(version: 20161014233331) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "conversations", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "guides", force: :cascade do |t|
     t.string   "first_name"
@@ -27,6 +32,12 @@ ActiveRecord::Schema.define(version: 20161014001559) do
     t.string   "photo"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string   "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "reviews", force: :cascade do |t|
