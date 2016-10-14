@@ -4,6 +4,7 @@ function initMap(){
           center: {lat: -34.397, lng: 150.644},
           zoom: 8
         });
+  console.log("mapped")
   var autocomplete = new google.maps.places.Autocomplete($("#city")[0]);
   autocomplete.bindTo('bound', map);
 
