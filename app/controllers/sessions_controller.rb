@@ -25,6 +25,13 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    if session[:guide_id]
+      session[:guide_id] = nil
+      redirect_to root_path
+    elsif session[:traveler_id]
+      session[:traveler_id] = nil
+      redirect_to root_path
+    end
   end
 
 end
