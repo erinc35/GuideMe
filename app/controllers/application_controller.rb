@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
  def current_traveler
    return unless session[:traveler_id]
-   @current_traveler ||= Traveler.find(session[:traveler_id]
+   @current_traveler ||= Traveler.find(session[:traveler_id])
  end
 end
 
