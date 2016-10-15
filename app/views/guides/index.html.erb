@@ -1,18 +1,22 @@
+
 <h1>Guides in <%= @location %> who speak <%= @language %> </h1>
 
-<% @guides.each do |guide| %>
-  <div class="guide">
-    <p>
-      <b>Guide name:</b> <%= guide.first_name + " " + guide.last_name %>
-    </p>  
+  <% @guides.each do |guide| %>
+    <div class="guide">
+      <p>
+        <b>Guide name:</b> <%= guide.first_name + " " + guide.last_name %>
+      </p>
 
-    <p>
-     <b>Email:</b> <%= guide.email %>
-    </p>
+      <p>
+       <b>Email:</b> <%= guide.email %>
+      </p>
 
-    <p>
-      <b>Car Available:</b> <%= guide.has_car %>
-    </p>
-  </div>
-<% end %>
+      <p>
+        <b>Car Available:</b> <%= guide.has_car %>
+      </p>
+    </div>
+  <% end %>
+
+  <div id='map'></div>
+  <div id='city'></div>
 
