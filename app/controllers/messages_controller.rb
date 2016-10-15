@@ -1,13 +1,10 @@
 class MessagesController < ApplicationController
 
   def create
-    p @conversation
     message = Message.new(message_params)
     if current_guide
-      p "*******HERE******"
       message.guide = current_guide
-      p message.guide
-      p "***** getting close ****"
+      p message.valid?
       if message.save
         ActionCable.server.broadcast 'messages',
         message: message.body,
