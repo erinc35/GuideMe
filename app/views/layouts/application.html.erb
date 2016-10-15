@@ -28,17 +28,7 @@
 
   } -->
   <body>
-    <style>
-      body{
-      background-image: url("pichu.jpg");
-      background-repeat: no-repeat;
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
-      background-size: cover;
-      background-position: center center;
-      }
-    </style>
+
     <%= link_to 'Home', root_path %>
     <% if session[:guide_id] || session[:traveler_id] %>
       <%= link_to 'Log out', sessions_path, method: :delete, data: { confirm: 'Are you sure?'} %>
