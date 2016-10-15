@@ -6,9 +6,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
-    <link rel="stylesheet" href="jquery-ui.min.css">
-<script src="external/jquery/jquery.js"></script>
-<script src="jquery-ui.min.js"></script>
+
 
 
   </head>
@@ -18,12 +16,10 @@
     <% if session[:guide_id] || session[:traveler_id] %>
       <%= link_to 'Log out', sessions_path, method: :delete, data: { confirm: 'Are you sure?'} %>
     <% else %>
-      <%= link_to 'Sign up as a Guide!', new_guide_path %>
-      <%= link_to 'Sign up as a Traveler!', new_traveler_path %>
-      <%= link_to 'Log in', new_sessions_path %>
     <% end %>
     <%= yield %>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALqSmO1xJNlwCa63fvBl8rWMl8GWxefy8&libraries=places&callback=initMap"
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['google_api']%>&libraries=places&callback=initMap"
     async defer></script>
   </body>
 </html>
+

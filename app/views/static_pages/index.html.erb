@@ -19,7 +19,7 @@
       .on( "change", function() {
         from.datepicker( "option", "maxDate", getDate( this ) );
       });
- 
+
     function getDate( element ) {
       var date;
       try {
@@ -27,25 +27,31 @@
       } catch( error ) {
         date = null;
       }
- 
+
       return date;
     }
   } );
   </script>
 <form action="/guides" method="get">
-  <input type="text" name="location">
-  <label for="from">From</label>
-<input type="text" id="from" name="from">
-<label for="to">to</label>
-<input type="text" id="to" name="to">
 
-   <select name='location'>
+  <input id = "city" type="text" name="location" placeholder= "Destination City" required>
+  <label for="from">From</label>
+  <input type="text" id="from" name="from">
+  <label for="to">to</label>
+  <input type="text" id="to" name="to">
+
+   <select name='language' required>
     <option value="" default selected>Language</option>
     <% @languages.each do |language| %>
       <option value=<%= language %>><%= language %></option>
     <% end %>
   </select>
-
-  <input type="submit" value="Search">
+  <input id = "guide-search-but" type="submit" value="Search">
 </form>
+ <div id='map'></div>
+<div id='city'></div>
 
+
+
+<!-- <input id = "city" type="text" name="email" placeholder="Email">
+ -->
