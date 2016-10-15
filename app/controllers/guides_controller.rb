@@ -2,6 +2,7 @@ class GuidesController < ApplicationController
   def index
     p params[:date]
     @location = params[:location]
+    @language = params[:language]
     @guides = Guide.all.where(location: @location)
   end
 
@@ -48,4 +49,5 @@ class GuidesController < ApplicationController
   def guide_params
     params.require(:guide).permit(:first_name, :last_name, :email, :password, :password_confirmation, :language, :phone, :location, :has_car)
   end
+
 end
