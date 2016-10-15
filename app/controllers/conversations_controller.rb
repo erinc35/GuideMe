@@ -1,21 +1,21 @@
 class ConversationsController < ApplicationController
   def index
-    @chatroom = Chatroom.new
-    @chatrooms = Chatroom.all
+    @conversation = Conversation.new
+    @conversations = Conversation.all
   end
 
   def new
-    if request.referrer.split("/").last == "chatrooms"
+    if request.referrer.split("/").last == "conversations"
       flash[:notice] = nil
     end
-    @chatroom = Chatroom.new
+    @conversation = Conversation.new
   end
 
   def edit
-    @chatroom = Chatroom.find_by(slug: params[:slug])
+    @conversation = Conversation.find_by(slug: params[:slug])
   end
 
-  
+
 def create
   @conversation = Conversation.new(conversation_params)
   if @conversation.save
@@ -32,13 +32,13 @@ def create
 end
 
 def show
-  @chatroom = Chatroom.find_by(slug: params[:slug])
+  @conversation = Conversation.find_by(slug: params[:slug])
   @message = Message.new
 end
 
 private
 
   def conversation_params
-    params.require(:chatroom).permit(:topic)
+    params.require(:conversation).permit(:topic)
   end
 end

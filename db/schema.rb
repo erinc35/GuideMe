@@ -16,12 +16,10 @@ ActiveRecord::Schema.define(version: 20161014233331) do
   enable_extension "plpgsql"
 
   create_table "conversations", force: :cascade do |t|
-    t.integer  "guide_id"
-    t.integer  "traveler_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["guide_id"], name: "index_conversations_on_guide_id", using: :btree
-    t.index ["traveler_id"], name: "index_conversations_on_traveler_id", using: :btree
+    t.string   "topic"
+    t.string   "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "guides", force: :cascade do |t|
@@ -86,8 +84,6 @@ ActiveRecord::Schema.define(version: 20161014233331) do
     t.index ["traveler_id"], name: "index_trips_on_traveler_id", using: :btree
   end
 
-  add_foreign_key "conversations", "guides"
-  add_foreign_key "conversations", "travelers"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "guides"
   add_foreign_key "messages", "travelers"

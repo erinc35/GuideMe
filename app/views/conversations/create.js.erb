@@ -1,0 +1,3 @@
+$("input#conversation_topic").val(" ")
+$("#conversation-errors").html(" ")
+$("#conversation-index").append('<li><%= link_to @conversation.topic, conversation_path(@conversation) %></li>')
