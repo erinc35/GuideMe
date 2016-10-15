@@ -28,21 +28,14 @@
 
   } -->
   <body>
-    <style>
-      body{
-      background-image: url("pichu.jpg");
-      background-repeat: no-repeat;
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
-      background-size: cover;
-      background-position: center center;
-      }
-    </style>
+
     <%= link_to 'Home', root_path %>
     <% if session[:guide_id] || session[:traveler_id] %>
       <%= link_to 'Log out', sessions_path, method: :delete, data: { confirm: 'Are you sure?'} %>
     <% else %>
+      <%= link_to 'Guide Sign up', new_guide_path %>
+      <%= link_to 'Traveler Sign up', new_traveler_path %>
+      <%= link_to 'Log in', new_sessions_path %> 
     <% end %>
     <%= yield %>
     <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['google_api']%>&libraries=places&callback=initMap"
