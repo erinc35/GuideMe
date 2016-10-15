@@ -1,27 +1,25 @@
 class MessagesController < ApplicationController
 
   def create
-    p @conversation
     message = Message.new(message_params)
     if current_guide
-      p "*******HERE******"
-      message.guide = current_guide
-      p message.guide
-      p "***** getting close ****"
+      message.messenger_id = current_guide.id
+      message.messenger_type = current_guide.class
       if message.save
         ActionCable.server.broadcast 'messages',
         message: message.body,
-        guide: message.guide.first_name
+        guide: message.messenger.first_name
         head :ok
       else
         redirect_to conversations_path
       end
     elsif current_traveler
-      message.traveler = current_traveler
+      message.messenger_id = current_traveler.id
+      message.messenger_type = current_traveler.class
       if message.save
         ActionCable.server.broadcast 'messages',
         message: message.body,
-        traveler: message.traveler.first_name
+        traveler: message.messenger.first_name
         head :ok
       else
         redirect_to conversations_path
