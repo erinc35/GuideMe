@@ -1,7 +1,6 @@
 class Message < ApplicationRecord
   belongs_to :conversation
-  belongs_to :traveler
-  belongs_to :guide
+  belongs_to :messenger, polymorphic: true
 
-  validates_presence_of :body, :conversation_id, :user_id, :traveler_id
+  validates_presence_of :body, :conversation_id, :messenger_id
 end

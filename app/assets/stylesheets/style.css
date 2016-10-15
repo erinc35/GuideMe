@@ -7,6 +7,23 @@ html,body{
   height: 100%;
 /*  background: url(<%=@pic%>) no-repeat center center fixed;
 */
+}
+/*------------*/
+.homeform{
+  width: 60%;
+  height: 20%;
+  text-align: center;
+  margin-top: 30%;
+  margin-left: 18%;
+  border-radius: 4px;
+  opacity: 0.8;
+  background-color: #ffffff;
+}
 
-
+.form-radius{
+  border-radius: 4px;
+}
+#guide-search-but{
+  background-color: #1f3e70;
+  color: #ffffff ;
 }
