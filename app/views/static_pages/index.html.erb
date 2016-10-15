@@ -33,13 +33,14 @@
   } );
   </script>
 <form action="/guides" method="get">
-  <input id = "city" type="text" name="location" placeholder= "Destination City">
+
+  <input id = "city" type="text" name="location" placeholder= "Destination City" required>
   <label for="from">From</label>
   <input type="text" id="from" name="from">
   <label for="to">to</label>
   <input type="text" id="to" name="to">
 
-   <select name='location'>
+   <select name='language' required>
     <option value="" default selected>Language</option>
     <% @languages.each do |language| %>
       <option value=<%= language %>><%= language %></option>
