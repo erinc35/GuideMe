@@ -1,0 +1,31 @@
+------Add it to your Gemfile:
+
+gem 'simple_form'
+
+------Run the following command to install it:
+
+bundle install
+
+------Run the generator:
+
+rails generate simple_form:install
+
+------Bootstrap
+rails generate simple_form:install --bootstrap
+
+------Placeholder:
+
+<%= f.input :email, placeholder: 'user@domain.com' %>
+
+------Error:
+
+<%= f.input :username, label: 'Your username please', error: 'Username is mandatory, please specify one' %>
+
+------Validation override:
+
+  <%= f.input :name, required: false %>
+
+-----Collections
+  <%= f.input :age, collection: 18..60 %>
+
+
