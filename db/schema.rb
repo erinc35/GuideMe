@@ -15,13 +15,6 @@ ActiveRecord::Schema.define(version: 20161015214010) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "add_start_date_and_end_date_to_trips", force: :cascade do |t|
-    t.datetime "start_date"
-    t.datetime "end_date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "available_dates", force: :cascade do |t|
     t.datetime "start_date"
     t.datetime "end_date"
@@ -33,7 +26,6 @@ ActiveRecord::Schema.define(version: 20161015214010) do
 
   create_table "conversations", force: :cascade do |t|
     t.string   "topic"
-
     t.string   "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
