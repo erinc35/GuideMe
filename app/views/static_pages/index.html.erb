@@ -1,40 +1,39 @@
 <h1>GuideMe</h1>
 <script>
-  // $( function() {
-  //   var dateFormat = "mm/dd/yy",
-  //     from = $( "#from" )
-  //       .datepicker({
-  //         defaultDate: "+1w",
-  //         changeMonth: true,
-  //         numberOfMonths: 3
-  //       })
-  //       .on( "change", function() {
-  //         to.datepicker( "option", "minDate", getDate( this ) );
-  //       }),
-  //     to = $( "#to" ).datepicker({
-  //       defaultDate: "+1w",
-  //       changeMonth: true,
-  //       numberOfMonths: 3
-  //     })
-  //     .on( "change", function() {
-  //       from.datepicker( "option", "maxDate", getDate( this ) );
-  //     });
+  $( function() {
+    var dateFormat = "mm/dd/yy",
+      from = $( "#from" )
+        .datepicker({
+          defaultDate: "+1w",
+          changeMonth: true,
+          numberOfMonths: 3
+        })
+        .on( "change", function() {
+          to.datepicker( "option", "minDate", getDate( this ) );
+        }),
+      to = $( "#to" ).datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 3
+      })
+      .on( "change", function() {
+        from.datepicker( "option", "maxDate", getDate( this ) );
+      });
 
-  //   function getDate( element ) {
-  //     var date;
-  //     try {
-  //       date = $.datepicker.parseDate( dateFormat, element.value );
-  //     } catch( error ) {
-  //       date = null;
-  //     }
+    function getDate( element ) {
+      var date;
+      try {
+        date = $.datepicker.parseDate( dateFormat, element.value );
+      } catch( error ) {
+        date = null;
+      }
 
-  //     return date;
-  //   }
-  // } );
+      return date;
+    }
+  } );
   </script>
 <form action="/guides" method="get">
   <input id = "city" type="text" name="location" placeholder= "Destination City">
-  <input type="text" name="location">
   <label for="from">From</label>
   <input type="text" id="from" name="from">
   <label for="to">to</label>
@@ -46,9 +45,10 @@
       <option value=<%= language %>><%= language %></option>
     <% end %>
   </select>
-  <input type="submit" value="Search">
+  <input id = "guide-search-but" type="submit" value="Search">
 </form>
  <div id='map'></div>
+<div id='city'></div>
 
 
 

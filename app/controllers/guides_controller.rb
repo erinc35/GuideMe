@@ -1,7 +1,13 @@
 class GuidesController < ApplicationController
+
+  include HTTParty
+
   def index
-    p params[:date]
     @location = params[:location]
+    p params[:location]
+    @images = HTTParty.get("https://pixabay.com/api/?key=#{ENV['pixabay_api']}&q=#{params[:location]}+cityscape&image_type=photo")
+    p "*********"
+    p @images
     @guides = Guide.all.where(location: @location)
   end
 
