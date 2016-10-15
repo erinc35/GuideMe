@@ -14,3 +14,6 @@
 //= require jquery_ujs
 //= require_tree .
 //= require jquery-ui
+// app/assets/javascripts/application.js
+
+//= require_tree ./channels

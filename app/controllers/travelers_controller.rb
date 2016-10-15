@@ -8,6 +8,7 @@ class TravelersController < ApplicationController
     # Make sure to add error messages
     @traveler = Traveler.new(traveler_params)
     if @traveler.save
+      session[:traveler_id] = @traveler.id
       redirect_to traveler_path(@traveler)
     else
       render 'new'
