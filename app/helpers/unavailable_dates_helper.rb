@@ -1,0 +1,2 @@
+module UnavailableDatesHelper
+end
