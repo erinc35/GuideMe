@@ -43,7 +43,7 @@
       <label for="to">to</label>
       <input type="text" class="form-radius" id="to" name="to">
 
-       <select name='language' required>
+       <select class="form-language" name='language' required>
         <option value="" default selected>Language</option>
         <% @languages.each do |language| %>
           <option value=<%= language %>><%= language %></option>
