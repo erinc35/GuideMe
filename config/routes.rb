@@ -3,10 +3,7 @@ Rails.application.routes.draw do
 
   resource :sessions
 
-  resources :guides do
-    resources :available_dates
-    resources :unavailable_dates
-  end
+  resources :guides
 
   resources :travelers
 
