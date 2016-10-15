@@ -33,6 +33,8 @@ gem 'redis', '~> 3.0'
 gem 'jquery-ui-rails'
 gem 'httparty'
 
+gem 'yelp'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'dotenv-rails'
