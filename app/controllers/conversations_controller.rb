@@ -1,7 +1,7 @@
 class ConversationsController < ApplicationController
 
 def create
-  @conversation = Chatroom.new(chatroom_params)
+  @conversation = Conversation.new(conversation_params)
   if @conversation.save
     respond_to do |format|
       format.html { redirect_to @conversation }
@@ -22,7 +22,7 @@ end
 
 private
 
-  def chatroom_params
+  def conversation_params
     params.require(:chatroom).permit(:topic)
   end
 end
