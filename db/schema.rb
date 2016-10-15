@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161014001559) do
+ActiveRecord::Schema.define(version: 20161015202904) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "available_dates", force: :cascade do |t|
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "guide_id"
+    t.index ["guide_id"], name: "index_available_dates_on_guide_id", using: :btree
+  end
 
   create_table "guides", force: :cascade do |t|
     t.string   "first_name"
@@ -65,8 +74,19 @@ ActiveRecord::Schema.define(version: 20161014001559) do
     t.index ["traveler_id"], name: "index_trips_on_traveler_id", using: :btree
   end
 
+  create_table "unavailable_dates", force: :cascade do |t|
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "guide_id"
+    t.index ["guide_id"], name: "index_unavailable_dates_on_guide_id", using: :btree
+  end
+
+  add_foreign_key "available_dates", "guides"
   add_foreign_key "reviews", "guides"
   add_foreign_key "reviews", "travelers"
   add_foreign_key "trips", "guides"
   add_foreign_key "trips", "travelers"
+  add_foreign_key "unavailable_dates", "guides"
 end
