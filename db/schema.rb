@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20161015003435) do
     t.datetime "updated_at", null: false
   end
 
+
   create_table "guides", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
