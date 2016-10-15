@@ -1,0 +1,14 @@
+
+<% if search_result %>
+  <ul>
+    <% search_result.businesses.each do |business| %>
+    <li><%= business.name %></li>
+    <li><%= business.image_url %></li>
+    <li><%= business.review_count %></li>
+    <li><%= business.rating %></li>
+    <li><%= business.location %></li>
+  </ul>
+
+  <% else %>
+    <h1>No Results Found, please search again.</h1>
+<% end %>

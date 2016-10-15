@@ -1,5 +1,18 @@
+<style>
+  body{
+    background-image: url(<%=@pic%>);
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center center;
 
-<h1>Guides in <%= @location %> who speak <%= @language %> </h1>
+  }
+</style>
+<div class="guide-page">
+
+  <h1>Guides in <%= @location %> who speak <%= @language %> </h1>
 
   <% @guides.each do |guide| %>
     <div class="guide">
@@ -19,4 +32,4 @@
 
   <div id='map'></div>
   <div id='city'></div>
-
+</div>

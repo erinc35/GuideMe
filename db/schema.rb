@@ -11,9 +11,11 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20161015202904) do
+# ActiveRecord::Schema.define(version: 20161014233331) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
 
   create_table "available_dates", force: :cascade do |t|
     t.datetime "start_date"
@@ -22,6 +24,13 @@ ActiveRecord::Schema.define(version: 20161015202904) do
     t.datetime "updated_at", null: false
     t.integer  "guide_id"
     t.index ["guide_id"], name: "index_available_dates_on_guide_id", using: :btree
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.string   "topic"
+    t.string   "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "guides", force: :cascade do |t|
@@ -36,6 +45,18 @@ ActiveRecord::Schema.define(version: 20161015202904) do
     t.string   "photo"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string   "body"
+    t.integer  "guide_id"
+    t.integer  "traveler_id"
+    t.integer  "conversation_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id", using: :btree
+    t.index ["guide_id"], name: "index_messages_on_guide_id", using: :btree
+    t.index ["traveler_id"], name: "index_messages_on_traveler_id", using: :btree
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -84,6 +105,9 @@ ActiveRecord::Schema.define(version: 20161015202904) do
   end
 
   add_foreign_key "available_dates", "guides"
+  add_foreign_key "messages", "conversations"
+  add_foreign_key "messages", "guides"
+  add_foreign_key "messages", "travelers"
   add_foreign_key "reviews", "guides"
   add_foreign_key "reviews", "travelers"
   add_foreign_key "trips", "guides"

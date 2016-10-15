@@ -4,16 +4,16 @@ class GuidesController < ApplicationController
 
   def index
     @location = params[:location]
+     p "*********"
+    p @location
+    @images = HTTParty.get("https://pixabay.com/api/?key=#{ENV['pixabay_api']}&q=#{params[:location].split(",")[0]}+cityscape&image_type=photo")
 
-    p params[:location]
-    @images = HTTParty.get("https://pixabay.com/api/?key=#{ENV['pixabay_api']}&q=#{params[:location]}+cityscape&image_type=photo")
-    p "*********"
-    p @images
-
+    @pic = @images["hits"][0]["webformatURL"]
     @language = params[:language]
-
     @guides = Guide.all.where(location: @location)
   end
+
+
 
   def new
     @guide = Guide.new
@@ -24,6 +24,7 @@ class GuidesController < ApplicationController
     # Make sure to add error messages
     @guide = Guide.new(guide_params)
     if @guide.save
+      session[:guide_id] = @guide.id
       redirect_to guide_path(@guide)
     else
       @errors = @guide.errors.full_messages
