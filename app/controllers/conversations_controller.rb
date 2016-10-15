@@ -1,5 +1,21 @@
 class ConversationsController < ApplicationController
+  def index
+    @chatroom = Chatroom.new
+    @chatrooms = Chatroom.all
+  end
 
+  def new
+    if request.referrer.split("/").last == "chatrooms"
+      flash[:notice] = nil
+    end
+    @chatroom = Chatroom.new
+  end
+
+  def edit
+    @chatroom = Chatroom.find_by(slug: params[:slug])
+  end
+
+  
 def create
   @conversation = Conversation.new(conversation_params)
   if @conversation.save
