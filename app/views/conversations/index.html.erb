@@ -1,0 +1,17 @@
+<div class="row col-md-8 col-md-offset-2" id="conversation-title">
+  <h1>Conversations</h1>
+</div>
+
+<div class="row col-md-8 col-md-offset-2" id="conversations">
+  <%= render partial: 'conversation_form', locals: {conversation: @conversation} %>
+  <div id="conversation-errors">
+
+  </div>
+    <ul id="conversation-index">
+  <% if @conversations.any? %>
+      <%= render @conversations%>
+  <%else %>
+    </ul>
+    <p>Be the first one to make a conversation!</p>
+  <% end %>
+</div>

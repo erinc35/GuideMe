@@ -11,6 +11,3 @@ class ApplicationController < ActionController::Base
    @current_traveler ||= Traveler.find(session[:traveler_id])
  end
 end
-
-
-# Push to heroku

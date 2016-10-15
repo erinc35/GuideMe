@@ -24,6 +24,7 @@ class GuidesController < ApplicationController
     # Make sure to add error messages
     @guide = Guide.new(guide_params)
     if @guide.save
+      session[:guide_id] = @guide.id
       redirect_to guide_path(@guide)
     else
       @errors = @guide.errors.full_messages
@@ -60,5 +61,3 @@ class GuidesController < ApplicationController
   end
 
 end
-
-
