@@ -10,10 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161014233331) do
+ActiveRecord::Schema.define(version: 20161015214010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "add_start_date_and_end_date_to_trips", force: :cascade do |t|
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "available_dates", force: :cascade do |t|
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "guide_id"
+    t.index ["guide_id"], name: "index_available_dates_on_guide_id", using: :btree
+  end
 
   create_table "conversations", force: :cascade do |t|
     t.string   "topic"
@@ -81,10 +97,22 @@ ActiveRecord::Schema.define(version: 20161014233331) do
     t.text     "requests"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.index ["guide_id"], name: "index_trips_on_guide_id", using: :btree
     t.index ["traveler_id"], name: "index_trips_on_traveler_id", using: :btree
   end
 
+  create_table "unavailable_dates", force: :cascade do |t|
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "guide_id"
+    t.index ["guide_id"], name: "index_unavailable_dates_on_guide_id", using: :btree
+  end
+
+  add_foreign_key "available_dates", "guides"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "guides"
   add_foreign_key "messages", "travelers"
@@ -92,4 +120,5 @@ ActiveRecord::Schema.define(version: 20161014233331) do
   add_foreign_key "reviews", "travelers"
   add_foreign_key "trips", "guides"
   add_foreign_key "trips", "travelers"
+  add_foreign_key "unavailable_dates", "guides"
 end
