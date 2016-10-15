@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
     <title>GuideMe</title>
     <%= csrf_meta_tags %>
 
@@ -11,7 +16,28 @@
 
   </head>
 <!-- Comment for push to Development.  -->
+ <!-- body{
+    background-image: url(<%=@pic%>);
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center center;
+
+  } -->
   <body>
+    <style>
+      body{
+      background-image: url("pichu.jpg");
+      background-repeat: no-repeat;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      background-position: center center;
+      }
+    </style>
     <%= link_to 'Home', root_path %>
     <% if session[:guide_id] || session[:traveler_id] %>
       <%= link_to 'Log out', sessions_path, method: :delete, data: { confirm: 'Are you sure?'} %>
@@ -20,6 +46,7 @@
     <%= yield %>
     <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['google_api']%>&libraries=places&callback=initMap"
     async defer></script>
+
   </body>
 </html>
 

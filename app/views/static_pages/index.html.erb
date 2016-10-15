@@ -1,3 +1,4 @@
+
 <h1>GuideMe</h1>
 <script>
   $( function() {
@@ -32,23 +33,25 @@
     }
   } );
   </script>
-<form action="/guides" method="get">
+  <div class="homeform">
+    <form action="/guides" method="get">
 
-  <input id = "city" type="text" name="location" placeholder= "Destination City" required>
-  <label for="from">From</label>
-  <input type="text" id="from" name="from">
-  <label for="to">to</label>
-  <input type="text" id="to" name="to">
+      <input id = "city" class="form-radius" type="text" name="location" placeholder= "Destination City" required>
+      <label for="from">From</label>
+      <input type="text" class="form-radius" id="from" name="from">
+      <label for="to">to</label>
+      <input type="text" class="form-radius" id="to" name="to">
 
-   <select name='language' required>
-    <option value="" default selected>Language</option>
-    <% @languages.each do |language| %>
-      <option value=<%= language %>><%= language %></option>
-    <% end %>
-  </select>
-  <input id = "guide-search-but" type="submit" value="Search">
-</form>
- <div id='map'></div>
+       <select name='language' required>
+        <option value="" default selected>Language</option>
+        <% @languages.each do |language| %>
+          <option value=<%= language %>><%= language %></option>
+        <% end %>
+      </select>
+      <input id = "guide-search-but" class="form-radius" type="submit" value="Search">
+    </form>
+  </div>
+<div id='map'></div>
 <div id='city'></div>
 
 
