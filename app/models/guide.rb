@@ -1,7 +1,9 @@
 class Guide < ApplicationRecord
   has_many :trips
   has_many :reviews
-  has_one :user, through: :trip
+  has_many :messages, foreign_key:
+  has_many :conversations, through: :messages
+  has_one :traveler, through: :trip
 
   validates :first_name, presence: true
   validates :last_name, presence: true
