@@ -2,6 +2,11 @@
   background-color: yellow;
 }
 
-/*.guide-page{
-  background-image: url("https://upload.wikimedia.org/wikipedia/commons/5/53/Colosseum_in_Rome,_Italy_-_April_2007.jpg");
-}*/
+
+html,body{
+  height: 100%;
+/*  background: url(<%=@pic%>) no-repeat center center fixed;
+*/
+
+
+}
