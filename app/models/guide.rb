@@ -1,7 +1,7 @@
 class Guide < ApplicationRecord
   has_many :trips
   has_many :reviews
-  has_many :messages, foreign_key:
+  has_many :messages
   has_many :conversations, through: :messages
   has_one :traveler, through: :trip
 
