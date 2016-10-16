@@ -11,13 +11,30 @@
   }
 </style>
 <div class="guide-page">
+    <form id="search_form" action="/guides" method="get">
+
+      <input id="city" class="form-radius" type="text" name="location" placeholder= "Destination City" size="50" required>
+      <label for="from">From</label>
+      <input type="text" class="form-radius" id="from" name="from">
+      <label for="to">to</label>
+      <input type="text" class="form-radius" id="to" name="to">
+
+       <select class="form-language" name='language' required>
+        <option value="" default selected>Language</option>
+        <% @languages.each do |language| %>
+          <option value=<%= language %>><%= language %></option>
+        <% end %>
+      </select>
+      <input id = "guide-search-but" class="form-radius" type="submit" value="Search">
+    </form>
 
   <h1>Guides in <%= @location %> who speak <%= @language %> </h1>
+  <h3>Dates chosen: <%= @start_date %> - <%= @end_date %></h3>
 
   <% @guides.each do |guide| %>
     <div class="guide">
       <p>
-        <b>Guide name:</b> <%= guide.first_name + " " + guide.last_name %>
+        <b>Guide name:</b> <%= link_to guide.first_name + " " + guide.last_name, guide_path(guide, from: @start_date, to: @end_date) %>
       </p>
 
       <p>

@@ -10,39 +10,7 @@
       }
     </style>
 <!-- <h1 class="center_h1">GuideMe</h1> -->
-<script>
-  $( function() {
-    var dateFormat = "mm/dd/yy",
-      from = $( "#from" )
-        .datepicker({
-          defaultDate: "+1w",
-          changeMonth: true,
-          numberOfMonths: 2
-        })
-        .on( "change", function() {
-          to.datepicker( "option", "minDate", getDate( this ) );
-        }),
-      to = $( "#to" ).datepicker({
-        defaultDate: "+1w",
-        changeMonth: true,
-        numberOfMonths: 2
-      })
-      .on( "change", function() {
-        from.datepicker( "option", "maxDate", getDate( this ) );
-      });
 
-    function getDate( element ) {
-      var date;
-      try {
-        date = $.datepicker.parseDate( dateFormat, element.value );
-      } catch( error ) {
-        date = null;
-      }
-
-      return date;
-    }
-  } );
-  </script>
   <div class="homeform">
     <!-- <h3 class="form-header">LET'S FIND A GUIDE..</h3> -->
     <form id="search_form" action="/guides" method="get">
