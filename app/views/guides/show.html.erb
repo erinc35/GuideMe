@@ -2,3 +2,25 @@
 <p>Find me in app/views/guides/show.html.erb</p>
 
 <%= render "partials/available_dates" %>
+
+<% @guide = Guide.find(params[:id]) %>
+<% if @guide.id == session[:guide_id] %>
+
+<% else %>
+<!--Put in form for chat now button.  -->
+<!--Create chat now button, if @guide.online == "yes"  -->
+<div class="row col-md-8 col-md-offset-2">
+    <div class="well">
+      <div class="conversation-form">
+        <%= form_for @conversation do |f| %>
+          <div class="input-group">
+            <span class="input-group-addon">topic:</span>
+            <%= f.text_field :topic, class: "form-control"%>
+          </div>
+          <%= f.submit class: "btn btn-primary", id: "create-conversation" %>
+        <% end %>
+      </div>
+    </div>
+</div>
+<!--Else, allow to send the guide a message.  -->
+<% end %>

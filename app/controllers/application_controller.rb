@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :null_session
+  protect_from_forgery with: :null_session, only: Proc.new{|c| c.request.json?}
 
  def current_guide
    return unless session[:guide_id]
