@@ -1,34 +1,27 @@
 class MessagesController < ApplicationController
+before_action :get_messages
+
+
+def index
+end
 
 def create
-  message = Message.new(message_params)
-  if current_guide
-    message.messenger_id = current_guide.id
-    message.messenger_type = current_guide.class
-    if message.save
-      ActionCable.server.broadcast 'messages',
-      message: message.body,
-      guide: message.messenger.first_name
-      head :ok
-    end
-  elsif current_traveler
-    message.messenger_id = current_traveler.id
-    message.messenger_type = current_traveler.class
-    if message.save
-      ActionCable.server.broadcast 'messages',
-      message: message.body,
-      traveler: message.messenger.first_name
-      head :ok
-    end
-  else
-    redirect_to conversations_path
-    alert("Your not signed in to chat with a traveler or guide.")
-  end
-end
+   message = current_user.messages.build(message_params)
+   if message.save
+     redirect_to messages_url
+   else
+     render 'index'
+   end
+ end
 
 private
 
+  def get_messages
+    @messages = Message.for_display
+    @message = current_user.messages.build
+  end
+
   def message_params
-    params.require(:message).permit(:body, :conversation_id)
+    params.require(:message).permit(:content)
   end
 end

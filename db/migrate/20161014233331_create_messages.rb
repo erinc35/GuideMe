@@ -3,7 +3,6 @@ class CreateMessages < ActiveRecord::Migration[5.0]
     create_table :messages do |t|
       t.string :content
       t.references :messenger, polymorphic: true, index:true
-      t.references :conversation, index: true, foreign_key: true
 
       t.timestamps
     end
