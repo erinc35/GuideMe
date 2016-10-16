@@ -7,15 +7,17 @@ class AvailableDatesController < ApplicationController
   end
 
   def create
-    # @guide = Guide.find(session[:guide_id])
-    p "***************"
+    @guide = Guide.find(session[:guide_id])
+    p "*************************************"
+    p @guide
     p params
     @availabledate = AvailableDate.new(available_params)
+    p @availabledate
     if @availabledate.save
       redirect_to guide_path(@guide)
     else
       @errors = @availabledate.errors.full_messages
-      render ''
+      p @errors
     end
   end
 
@@ -39,6 +41,6 @@ class AvailableDatesController < ApplicationController
 
   def available_params
     p params
-    params.permit(:start_date, :end_date, :guide_id)
+    params.require(:available_date).permit(:start_date, :end_date, :guide_id)
   end
 end
