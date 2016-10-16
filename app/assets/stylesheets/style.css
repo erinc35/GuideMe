@@ -75,7 +75,10 @@ html,body{
   position: absolute;
   background-color: white;
   display: none;
-
+  border-radius: 8px;
+  height: 250px;
+  width:200px;
+  opacity: 0.8;
 }
 
 /*----------------------------*/
