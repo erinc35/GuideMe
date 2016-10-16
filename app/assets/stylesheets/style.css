@@ -8,7 +8,7 @@ html,body{
 /*  background: url(<%=@pic%>) no-repeat center center fixed;
 */
 }
-/*------------*/
+
 .homeform{
   width: 55%;
   height: 20%;
@@ -19,7 +19,16 @@ html,body{
   opacity: 0.9;
   background-color: #5a6370;
 }
-
+.loginform{
+  width: 25%;
+  height: 15%;
+  text-align: center;
+  margin-top: 10%;
+  /*margin-left: 18%;*/
+  border-radius: 4px;
+  opacity: 0.9;
+  background-color: #5a6370;
+}
 .form-radius{
   border-radius: 4px;
 }
@@ -33,16 +42,13 @@ html,body{
 .form-language{
 /*  position: relative;
 */  line-height: 100px;
-  height: 100px !important;
 }
 
 .navbar{
   background-color: #5a6370;
   list-style: none;
   text-align: center;
-  padding: 30px 0 0 0 ;
-
-
+  padding: 25px 0 0 0 ;
 }
 .navbar > li {
   display: inline-block;
@@ -59,3 +65,58 @@ html,body{
     1px 1px 0 #000;
 }
 }
+
+/*----------------------------*/
+
+#login-dp{
+    min-width: 250px;
+    padding: 14px 14px 0;
+    overflow:hidden;
+    background-color:rgba(255,255,255,.8);
+}
+#login-dp .help-block{
+    font-size:12px
+}
+#login-dp .bottom{
+    background-color:rgba(255,255,255,.8);
+    border-top:1px solid #ddd;
+    clear:both;
+    padding:14px;
+}
+#login-dp .social-buttons{
+    margin:12px 0
+}
+#login-dp .social-buttons a{
+    width: 49%;
+}
+#login-dp .form-group {
+    margin-bottom: 10px;
+}
+.btn-fb{
+    color: #fff;
+    background-color:#3b5998;
+}
+.btn-fb:hover{
+    color: #fff;
+    background-color:#496ebc
+}
+.btn-tw{
+    color: #fff;
+    background-color:#55acee;
+}
+.btn-tw:hover{
+    color: #fff;
+    background-color:#59b5fa;
+}
+@media(max-width:768px){
+    #login-dp{
+        background-color: inherit;
+        color: #fff;
+    }
+    #login-dp .bottom{
+        background-color: inherit;
+        border-top:0 none;
+    }
+}
+
+
