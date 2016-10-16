@@ -34,6 +34,7 @@ class GuidesController < ApplicationController
 
   def show
     @guide = Guide.find(params[:id])
+    @conversation = Conversation.new
   end
 
   def edit
