@@ -37,16 +37,4 @@
     </div>
   <% end %>
 <% end %>
-<div class="loginform">
-  <div class="social-buttons">
-    <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
-    <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
-  </div>
-  <%= form_tag sessions_path do %>
 
-    Email: <%= text_field_tag :email %><br>
-    Password: <%= password_field_tag :password %><br>
-    <%= submit_tag "Submit" %>
-
-  <% end %>
-</div>

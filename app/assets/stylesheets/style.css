@@ -71,6 +71,13 @@ html,body{
     1px 1px 0 #000;
 }
 
+.login-form{
+  position: absolute;
+  background-color: white;
+  display: none;
+
+}
+
 /*----------------------------*/
 
 #login-dp{
