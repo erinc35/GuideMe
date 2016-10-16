@@ -20,7 +20,7 @@ def create
   @conversation = Conversation.new(conversation_params)
   if @conversation.save
     respond_to do |format|
-      format.html { redirect_to @conversation }
+      format.html { redirect_to @guide }
       format.js
     end
   else

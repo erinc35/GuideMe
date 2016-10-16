@@ -2,9 +2,6 @@ class MessagesController < ApplicationController
 
 def create
   message = Message.new(message_params)
-  p current_guide.first_name
-  puts current_guide
-  puts params[:id]
   if current_guide
     message.messenger_id = current_guide.id
     message.messenger_type = current_guide.class
