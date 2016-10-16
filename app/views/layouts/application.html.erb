@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
+<!--     <script>"https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css"</script>
+ -->    <!-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!--     <link href="css/bootstrap.min.css" rel="stylesheet">
+ -->    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 
     <title>GuideMe</title>
@@ -12,34 +14,26 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
-
-
-
   </head>
-<!-- Comment for push to Development.  -->
- <!-- body{
-    background-image: url(<%=@pic%>);
-    background-repeat: no-repeat;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    background-position: center center;
-
-  } -->
   <body>
-
-    <%= link_to 'Home', root_path %>
-    <% if session[:guide_id] || session[:traveler_id] %>
-      <%= link_to 'Log out', sessions_path, method: :delete, data: { confirm: 'Are you sure?'} %>
-    <% else %>
-      <%= link_to 'Guide Sign up', new_guide_path %>
-      <%= link_to 'Traveler Sign up', new_traveler_path %>
-      <%= link_to 'Log in', new_sessions_path %> 
-    <% end %>
+    <div>
+      <ul class="navbar">
+        <li><%= link_to 'Home', root_path %></li>
+        <% if session[:guide_id] || session[:traveler_id] %>
+          <li><%= link_to 'Log out', sessions_path, method: :delete, data: { confirm: 'Are you sure?'} %></li>
+        <% else %>
+          <li><%= link_to 'Guide Sign up', new_guide_path %></li>
+          <li><%= link_to 'Traveler Sign up', new_traveler_path %></li>
+          <li ><%= link_to 'Log in', new_sessions_path %></li>
+        <% end %>
+      </ul>
+    </div>
     <%= yield %>
     <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['google_api']%>&libraries=places&callback=initMap"
     async defer></script>
 
   </body>
 </html>
+
+
+
