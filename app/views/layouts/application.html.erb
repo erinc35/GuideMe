@@ -28,15 +28,18 @@
 
   } -->
   <body>
-
-    <%= link_to 'Home', root_path %>
-    <% if session[:guide_id] || session[:traveler_id] %>
-      <%= link_to 'Log out', sessions_path, method: :delete, data: { confirm: 'Are you sure?'} %>
-    <% else %>
-      <%= link_to 'Guide Sign up', new_guide_path %>
-      <%= link_to 'Traveler Sign up', new_traveler_path %>
-      <%= link_to 'Log in', new_sessions_path %> 
-    <% end %>
+    <div>
+      <ul class="navbar">
+        <li><%= link_to 'Home', root_path %></li>
+        <% if session[:guide_id] || session[:traveler_id] %>
+          <li><%= link_to 'Log out', sessions_path, method: :delete, data: { confirm: 'Are you sure?'} %></li>
+        <% else %>
+          <li><%= link_to 'Guide Sign up', new_guide_path %></li>
+          <li><%= link_to 'Traveler Sign up', new_traveler_path %></li>
+          <li><%= link_to 'Log in', new_sessions_path %></li>
+        <% end %>
+      </ul>
+    </div>
     <%= yield %>
     <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['google_api']%>&libraries=places&callback=initMap"
     async defer></script>
