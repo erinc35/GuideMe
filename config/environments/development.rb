@@ -7,6 +7,7 @@ Rails.application.configure do
   config.cache_classes = false
 
   config.action_cable.url = "ws://localhost:3000/cable"
+  config.action_cable.allowed_request_origins = ["https://localhost:3000/cable", "http://localhost:3000/cable"]
 
   # Do not eager load code on boot.
   config.eager_load = false

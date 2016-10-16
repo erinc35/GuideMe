@@ -8,7 +8,10 @@ end
 def create
    message = current_user.messages.build(message_params)
    if message.save
-     redirect_to messages_url
+     ActionCable.server.broadcast 'messages',
+      content:  message.content,
+      username: message.messenger.first_name
+      head :ok
    else
      render 'index'
    end
