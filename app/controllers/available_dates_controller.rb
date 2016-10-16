@@ -39,7 +39,6 @@ class AvailableDatesController < ApplicationController
 
   def available_params
     p params
-    p :availabledate
-    params.require(:available_date).permit(:start_date, :end_date, :guide_id)
+    params.permit(:start_date, :end_date, :guide_id)
   end
 end
