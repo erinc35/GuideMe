@@ -8,6 +8,18 @@ var chatSubmitListener = function () {
     event.preventDefault();
     var buttonTarget = $(this);
     var formTarget = buttonTarget.parent();
-    console.log(formTarget);
+    var formMethod = formTarget.attr("method");
+    var formURL = formTarget.attr("action");
+    var formData = formTarget.serialize();
+
+    var request = $.ajax({
+        url: formURL,
+        type: formMethod,
+        data: formData
+    });
+
+    request.done(function(response){
+      console.log(response);
+    });
   });
 };

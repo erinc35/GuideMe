@@ -17,10 +17,19 @@ class ConversationsController < ApplicationController
 
 
 def create
+  @message = Message.new
   @conversation = Conversation.new(conversation_params)
+  if request.xhr?
+    if @conversation.save
+      respond_to do |format|
+        format.html { redirect_to @conversation,layout: false }
+        format.js
+      end
+    end
+  end
   if @conversation.save
     respond_to do |format|
-      format.html { redirect_to @guide }
+      format.html { redirect_to @conversation }
       format.js
     end
   else
