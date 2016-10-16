@@ -1,0 +1,13 @@
+<div>
+  <ul class="navbar">
+    <li><%= link_to 'Home', root_path %></li>
+    <% if session[:guide_id] || session[:traveler_id] %>
+      <li><%= link_to 'Log out', sessions_path, method: :delete, data: { confirm: 'Are you sure?'} %></li>
+    <% else %>
+      <li><%= link_to 'Guide Sign up', new_guide_path %></li>
+      <li><%= link_to 'Traveler Sign up', new_traveler_path %></li>
+      <li><%= link_to 'Log in', new_sessions_path, class: "login-link" %>
+        <%= render partial: "/sessions/login_form"%></li>
+    <% end %>
+  </ul>
+</div>
