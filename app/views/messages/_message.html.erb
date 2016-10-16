@@ -1,1 +1,8 @@
-<p><strong><%=message.messenger.first_name%>:</strong> <%=message.body%></p>
+<div class="message">
+  <div class="message-user">
+    <%= message.messenger.first_name %>:
+  </div>
+  <div class="message-content">
+    <%= message.content %>
+  </div>
+</div>
