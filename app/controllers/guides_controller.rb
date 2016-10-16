@@ -5,6 +5,8 @@ class GuidesController < ApplicationController
   def index
     @languages = %w(English Spanish German French Italian Portuguese Japanese Korean Turkish Mandarin Cantonese)
     @location = params[:location].split(",")[0]
+    @full_location = params[:location]
+
     p "*" * 100
     p params
     @start_date = params[:from]
@@ -14,6 +16,7 @@ class GuidesController < ApplicationController
 
     @pic = @images["hits"][0]["webformatURL"]
     @language = params[:language]
+    @languages.delete(@language)
     @guides = Guide.all.where(location: @location)
   end
 
