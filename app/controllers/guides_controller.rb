@@ -3,9 +3,13 @@ class GuidesController < ApplicationController
   include HTTParty
 
   def index
-    @location = params[:location]
-     p "*********"
-    p @location
+    @languages = %w(English Spanish German French Italian Portuguese Japanese Korean Turkish Mandarin Cantonese)
+    @location = params[:location].split(",")[0]
+    p "*" * 100
+    p params
+    @start_date = params[:from]
+    @end_date = params[:to]
+
     @images = HTTParty.get("https://pixabay.com/api/?key=#{ENV['pixabay_api']}&q=#{params[:location].split(",")[0]}+cityscape&image_type=photo")
 
     @pic = @images["hits"][0]["webformatURL"]
@@ -33,6 +37,8 @@ class GuidesController < ApplicationController
   end
 
   def show
+    p "*" * 200
+    p params
     @guide = Guide.find(params[:id])
     @conversation = Conversation.new
   end
