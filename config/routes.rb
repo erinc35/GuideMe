@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
+resource :sessions
 
-  resource :sessions
+  resources :guides do
+    resources :charges
+  end
 
-  resources :guides
 
   resources :travelers
 
