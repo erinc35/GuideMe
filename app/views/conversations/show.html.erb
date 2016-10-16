@@ -6,11 +6,10 @@
       <%= render partial: 'messages/message', collection: @conversation.messages%>
     </div>
   <%else%>
-  <%= @conversation.messages %>
-    <div class="panel-body hidden" id="messages">
-    </div>
-  <%end%>
-</div>
+      <div class="panel-body hidden" id="messages">
+      </div>
+    <%end%>
+  </div>
 
   <%= render partial: 'messages/message_form', locals: {message: @message, conversation: @conversation}%>
 </div>
