@@ -18,8 +18,7 @@ require 'yelp'
 
     ##########---------YELP---------##########
     
-    p "+" * 100
-    p @api_call = Yelp.client.search(@location, { term: 'events', limit: 16 }).businesses
+    @api_call = Yelp.client.search(@location, { term: 'events', limit: 16 }).businesses
 
   end
 

@@ -52,17 +52,9 @@
     <div class="events">
       <% @api_call.each do |event| %>
         <% if session["events"].include?(event.name) %>
-          <div class="saved_event">
-            <img src="<%= event.image_url %>" alt="edit" />
-            <%= event.name %>
-            <%= link_to 'Remove', yelp_path(session[:traveler_id], event: event.name) %>
-          </div>
+          <%= render partial: 'add_event', locals: { event: event, location: @location } %>
         <% else %>
-          <div class="event">
-            <img src="<%= event.image_url %>" alt="edit" />
-            <%= event.name %>
-            <%= link_to 'Add', yelps_path(session[:traveler_id], event: event.name), method: :post %>
-          </div>
+          <%= render partial: 'remove_event', locals: { event: event, location: @location } %>
         <% end %>
       <% end %>
     </div>

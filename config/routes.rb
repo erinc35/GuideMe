@@ -24,10 +24,9 @@ Rails.application.routes.draw do
 
   resources :messages
 
-  resources :yelps do
-    post :remove, on: :member
-    post :add, on: :member
-  end
+  post '/yelps/remove'
+
+  resources :yelps
 
   resources :available_dates
 

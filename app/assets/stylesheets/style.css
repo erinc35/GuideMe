@@ -143,13 +143,13 @@ html,body{
 }
 
 .saved_event {
-  background-color: green;
+  background-color: #98FB98;
 }
 
 .events {
   float: right;
   background-color: white;
-  opacity: 0.8;
+  opacity: 0.9;
   border-radius: 10px;
 }
 
