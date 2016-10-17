@@ -1,13 +1,23 @@
 <div class="login-form">
+  Login via
   <div class="social-buttons">
     <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
     <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
   </div>
-  <%= form_tag sessions_path do %>
-
-    Email: <%= text_field_tag :email %><br>
-    Password: <%= password_field_tag :password %><br>
-    <%= submit_tag "Submit" %>
-
+  or
+  <div class="form-group">
+    <%= form_tag sessions_path do %>
+    <div class="form-group"><%= text_field_tag :email,nil , placeholder: "Email address" %><br></div>
+    <div class="form-group"><%= password_field_tag :password, nil, placeholder: "Password" %><br></div>
+    <div ><a href>Forget the password ?</a></div>
+      <%= submit_tag "Login", class: "btn btn-primary btn-block" %>
   <% end %>
+    <div class="checkbox">
+     <label>
+     <input type="checkbox"> keep me logged-in
+     </label>
+    </div>
+  </div>
 </div>
+
+

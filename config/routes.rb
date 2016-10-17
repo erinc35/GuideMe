@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 
   root 'static_pages#index'
 
+  get 'static_pages/about_us',  as: 'about_us'
+
   resources :conversations, param: :slug
 
   resources :messages
