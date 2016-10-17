@@ -1,4 +1,10 @@
 class TravelersController < ApplicationController
+
+  def index
+     @travelers = Traveler.where.not("id = ?",current_user.id).order("created_at DESC")
+     @conversations = Conversation.involving(current_user).order("created_at DESC")
+   end
+
   def new
     @traveler = Traveler.new
   end
