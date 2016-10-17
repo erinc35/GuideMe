@@ -2,8 +2,8 @@ class Guide < ApplicationRecord
   has_many :trips
   has_many :reviews
   has_many :available_dates
+ 
   has_many :unavailable_dates
-  has_one :user, through: :trip
   has_many :messages, as: :messenger
   has_many :conversations, through: :messages
   has_one :traveler, through: :trip

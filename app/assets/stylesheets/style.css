@@ -12,6 +12,7 @@
 }*/
 .guide {
   background-color: yellow;
+  float: left;
 }
 
 
@@ -174,5 +175,13 @@ html,body{
         background-color: inherit;
         border-top:0 none;
     }
+}
+
+
+/* YELP CSS */
+
+.events {
+  float: right;
+  background-color: red;
 }
 

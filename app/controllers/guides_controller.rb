@@ -1,12 +1,12 @@
 class GuidesController < ApplicationController
-
+require 'yelp'
   include HTTParty
 
   def index
     @languages = %w(English Spanish German French Italian Portuguese Japanese Korean Turkish Mandarin Cantonese)
     @location = params[:location].split(",")[0]
-    p "*" * 100
-    p params
+    @full_location = params[:location]
+
     @start_date = params[:from]
     @end_date = params[:to]
 
@@ -14,10 +14,15 @@ class GuidesController < ApplicationController
 
     @pic = @images["hits"][0]["webformatURL"]
     @language = params[:language]
+    @languages.delete(@language)
     @guides = Guide.all.where(location: @location)
+
+    ##########---------YELP---------##########
+    
+    p "+" * 100
+    p @api_call = Yelp.client.search('San Francisco', { term: 'events', limit: 16 }).businesses
+
   end
-
-
 
   def new
     @guide = Guide.new
@@ -58,7 +63,7 @@ class GuidesController < ApplicationController
 
   def destroy
     Guide.find(params[:id]).destroy
-    redirect_to root_path
+    redirect_to root_pa th
   end
 
   private
