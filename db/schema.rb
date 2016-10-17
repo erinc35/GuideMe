@@ -15,13 +15,6 @@ ActiveRecord::Schema.define(version: 20161016213519) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "add_start_date_and_end_date_to_trips", force: :cascade do |t|
-    t.datetime "start_date"
-    t.datetime "end_date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "available_dates", force: :cascade do |t|
     t.datetime "start_date"
     t.datetime "end_date"
@@ -54,14 +47,13 @@ ActiveRecord::Schema.define(version: 20161016213519) do
 
   create_table "messages", force: :cascade do |t|
     t.string   "body"
-    t.integer  "guide_id"
-    t.integer  "traveler_id"
+    t.string   "messenger_type"
+    t.integer  "messenger_id"
     t.integer  "conversation_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.index ["conversation_id"], name: "index_messages_on_conversation_id", using: :btree
-    t.index ["guide_id"], name: "index_messages_on_guide_id", using: :btree
-    t.index ["traveler_id"], name: "index_messages_on_traveler_id", using: :btree
+    t.index ["messenger_type", "messenger_id"], name: "index_messages_on_messenger_type_and_messenger_id", using: :btree
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -127,8 +119,6 @@ ActiveRecord::Schema.define(version: 20161016213519) do
 
   add_foreign_key "available_dates", "guides"
   add_foreign_key "messages", "conversations"
-  add_foreign_key "messages", "guides"
-  add_foreign_key "messages", "travelers"
   add_foreign_key "reservations", "guides"
   add_foreign_key "reservations", "travelers"
   add_foreign_key "reviews", "guides"

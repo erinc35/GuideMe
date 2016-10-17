@@ -9,13 +9,15 @@ require 'yelp'
 
     @start_date = params[:from]
     @end_date = params[:to]
+    p "P" * 100
+    p params
 
     @images = HTTParty.get("https://pixabay.com/api/?key=#{ENV['pixabay_api']}&q=#{params[:location].split(",")[0]}+cityscape&image_type=photo")
 
     session["events"] ||= (session["events"] = [])
     @pic = @images["hits"][0]["webformatURL"]
     @language = params[:language]
-    @guides = Guide.all.where(location: @location, language: @language.downcase)
+    @guides = Guide.all.where(location: @location, language: @language)
     
     ##########---------YELP---------##########
     
