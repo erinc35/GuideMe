@@ -20,11 +20,12 @@ Rails.application.routes.draw do
 
   root 'static_pages#index'
 
+  resources :conversations do
+     resources :messages
+   end
+
   get 'static_pages/about_us',  as: 'about_us'
 
-  resources :conversations, param: :slug
-
-  resources :messages
 
   post '/yelps/remove'
 
@@ -36,7 +37,6 @@ Rails.application.routes.draw do
 
   resources :unavailable_dates
 
-  mount ActionCable.server => '/cable'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

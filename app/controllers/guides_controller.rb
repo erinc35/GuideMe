@@ -3,21 +3,27 @@ require 'yelp'
   include HTTParty
 
   def index
-    @languages = %w(English Spanish German French Italian Portuguese Japanese Korean Turkish Mandarin Cantonese)
-    @location = params[:location].split(",")[0]
-    @full_location = params[:location]
+     @location = params[:location]
+     @languages = %w(English Spanish German French Italian Portuguese Japanese Korean Turkish Mandarin Cantonese)
+     @location = params[:location].split(",")[0]
+     @full_location = params[:location]
 
-    @start_date = params[:from]
-    @end_date = params[:to]
+     @start_date = params[:from]
+     @end_date = params[:to]
 
-    @images = HTTParty.get("https://pixabay.com/api/?key=#{ENV['pixabay_api']}&q=#{params[:location].split(",")[0]}+cityscape&image_type=photo")
+     @images = HTTParty.get("https://pixabay.com/api/?key=#{ENV['pixabay_api']}&q=#{params[:location].split(",")[0]}+cityscape&image_type=photo")
 
-    @pic = @images["hits"][0]["webformatURL"]
-    @language = params[:language]
-    @guides = Guide.all.where(location: @location)
+    #  @pic = @images["hits"][0]["webformatURL"]
+    session["events"] ||= (session["events"] = [])
+     @language = params[:language]
+     @guides = Guide.all.where(location: @location)
+     @language = params[:language]
+    if current_user
+      @guides = Guide.where.not("id = ?",current_user.id).order("created_at DESC")
+      @conversations = Conversation.involving(current_user).order("created_at DESC")
+    end
 
     ##########---------YELP---------##########
-    
     @api_call = Yelp.client.search(@location, { term: 'events', limit: 16 }).businesses
 
   end
@@ -30,6 +36,7 @@ require 'yelp'
     @guide = Guide.new(guide_params)
     if @guide.save
       session[:guide_id] = @guide.id
+      @guide.online = "yes"
       redirect_to guide_path(@guide)
     else
       @errors = @guide.errors.full_messages
@@ -38,8 +45,6 @@ require 'yelp'
   end
 
   def show
-    p "*" * 200
-    p params
     @guide = Guide.find(params[:id])
     @conversation = Conversation.new
   end
@@ -65,7 +70,7 @@ require 'yelp'
   private
 
   def guide_params
-    params.require(:guide).permit(:first_name, :last_name, :email, :password, :password_confirmation, :language, :phone, :location, :has_car)
+    params.require(:guide).permit(:first_name, :last_name, :email, :password, :password_confirmation, :language, :phone, :location, :has_car, :online)
   end
 
 end
