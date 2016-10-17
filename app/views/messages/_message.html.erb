@@ -1,1 +1,11 @@
-<p><strong><%=message.messenger.first_name%>:</strong> <%=message.body%></p>
+<li class="<%=  self_or_other(message) %>">
+  <div class="avatar">
+    <%= current_user.photo %>
+  </div>
+  <div class="chatboxmessagecontent">
+    <p><%= message.content %></p>
+    <time datetime="<%= message.created_at %>" title="<%= message.created_at.strftime("%d %b  %Y at %I:%M%p") %>">
+      <%= message_interlocutor(message).first_name %> • <%= message.created_at.strftime("%H:%M %p") %>
+    </time>
+  </div>
+</li>

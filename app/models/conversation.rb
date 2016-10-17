@@ -1,21 +1,17 @@
 class Conversation < ApplicationRecord
 has_many :messages, dependent: :destroy
 
-has_many :guides, through: :messages
-has_many :travelers, through: :messages
-validates :topic, presence: true, uniqueness: true, case_sensitive: false
-before_validation :sanitize, :slugify
+belongs_to :sender, polymorphic: true
+belongs_to :recipient, polymorphic: true
 
+validates_uniqueness_of :sender_id, :scope => :recipient_id
 
-  def to_param
-    self.slug
-  end
+scope :involving, -> (user) do
+  where("conversations.sender_id =? OR conversations.recipient_id =?",user.id,user.id)
+end
 
-  def slugify
-    self.slug = self.topic.downcase.gsub(" ", "-")
-  end
+scope :between, -> (sender_id,recipient_id) do
+  where("(conversations.sender_id = ? AND conversations.recipient_id =?) OR (conversations.sender_id = ? AND conversations.recipient_id =?)", sender_id,recipient_id, recipient_id, sender_id)
+end
 
-  def sanitize
-    self.topic = self.topic.strip
-  end
 end

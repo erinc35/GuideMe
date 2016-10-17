@@ -1,12 +1,13 @@
 <h1>Guides#show</h1>
 <p>Find me in app/views/guides/show.html.erb</p>
 
-<p><a href="/guides/<%= @guide.id %>/charges/new">Charge</a></p>
-<%= render "partials/available_dates" %>
 
+<%= current_user.id %>
+<%= render "partials/available_dates" %>
+<p><a href="/guides/<%= @guide.id %>/charges/new">Charge</a></p>
 <% @guide = Guide.find(params[:id]) %>
 <% if @guide.id == session[:guide_id] %>
-
+  <%= render "partials/available_dates" %>
 <% else %>
 <!--Put in form for chat now button.  -->
 <!--Create chat now button, if @guide.online == "yes"  -->
