@@ -1,3 +1,3 @@
 class AvailableDate < ApplicationRecord
-	belongs_to :guides
+  belongs_to :guide
 end

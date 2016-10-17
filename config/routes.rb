@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resource :sessions
+resource :sessions
 
   resources :guides do
     resources :charges
@@ -16,6 +16,10 @@ Rails.application.routes.draw do
   resources :messages
 
   resources :yelps
+
+  resources :available_dates
+
+  resources :unavailable_dates
 
   mount ActionCable.server => '/cable'
 

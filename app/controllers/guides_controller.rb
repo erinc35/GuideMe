@@ -58,7 +58,7 @@ class GuidesController < ApplicationController
 
   def destroy
     Guide.find(params[:id]).destroy
-    redirect_to root_path
+    redirect_to root_pa th
   end
 
   private
