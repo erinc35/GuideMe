@@ -1,6 +1,15 @@
 *{
   font-family: cursive;
 }
+/*.sth{
+  background-image: url("valley_aboutus.jpg");
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: center center;
+}*/
 .guide {
   background-color: yellow;
 }
@@ -19,8 +28,8 @@ html,body{
 .homeform{
   height: 18%;
   width: 70%;
-  /*padding-top: 20px;
-  padding-bottom: 20px;*/
+/*  padding-top: 20px;
+*/  /*padding-bottom: 20px;*/
   margin: 30% 20%;
   text-align: center;
   border-radius: 10px;
@@ -63,7 +72,7 @@ html,body{
   background-color: #5a6370;
   list-style: none;
   text-align: center;
-  padding: 25px 0 0 0 ;
+  /*padding: 25px 0 0 0 ;*/
 }
 .navbar > li {
   display: inline-block;
@@ -105,10 +114,15 @@ html,body{
   padding-top: 5%;
 
 }
-/*.signup-elements-font{
-  color: white;
-}*/
-
+.aboutus-text{
+  height: 70%;
+  width: 40%;
+  margin: auto;
+  text-align: center;
+  border-radius: 10px;
+  opacity: 0.8;
+  background-color: #e9e9e9;
+}
 /*----------------------------*/
 
 #login-dp{
