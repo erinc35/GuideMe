@@ -13,14 +13,14 @@
 <div class="guide-page">
     <form id="search_form" action="/guides" method="get">
 
-      <input id="city" class="form-radius" type="text" name="location" placeholder= "Destination City" size="50" required>
+      <input id="city" class="form-radius" type="text" name="location" placeholder= "Destination City" size="50" value="<%= @full_location %>" required>
       <label for="from">From</label>
-      <input type="text" class="form-radius" id="from" name="from">
+      <input type="text" class="form-radius" id="from" name="from" value="<%= @start_date %>">
       <label for="to">to</label>
-      <input type="text" class="form-radius" id="to" name="to">
+      <input type="text" class="form-radius" id="to" name="to" value="<%= @end_date %>">
 
        <select class="form-language" name='language' required>
-        <option value="" default selected>Language</option>
+        <option value="" default selected><%= @language %></option>
         <% @languages.each do |language| %>
           <option value=<%= language %>><%= language %></option>
         <% end %>
@@ -38,7 +38,7 @@
       </p>
 
       <p>
-       <b>Email:</b> <%= guide.email %>
+        <b>Email:</b> <%= guide.email %>
       </p>
 
       <p>
@@ -46,6 +46,15 @@
       </p>
     </div>
   <% end %>
+
+  <div class="events">
+    <% @api_call.each do |event| %>
+      <div class="event">
+        <img src="<%= event.image_url %>" alt="edit" />
+        <%= event.name %>
+      </div>
+    <% end %>
+  </div>
 
   <div id='map'></div>
   <div id='city'></div>

@@ -1,6 +1,7 @@
 <h1>Guides#show</h1>
 <p>Find me in app/views/guides/show.html.erb</p>
 
+<p><a href="/guides/<%= @guide.id %>/charges/new">Charge</a></p>
 <%= render "partials/available_dates" %>
 
 <% @guide = Guide.find(params[:id]) %>
@@ -23,4 +24,5 @@
     </div>
 </div>
 <!--Else, allow to send the guide a message.  -->
+
 <% end %>
