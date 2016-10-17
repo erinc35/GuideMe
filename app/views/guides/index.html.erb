@@ -28,7 +28,7 @@
       <input id = "guide-search-but" class="form-radius" type="submit" value="Search">
     </form>
 
-  <h1>Guides in <%= @location %> who speak <%= @language %> </h1>
+  <h1 class="guides-in-header">Guides in <%= @location %> who speak <%= @language %> </h1>
   <h3>Dates chosen: <%= @start_date %> - <%= @end_date %></h3>
 
   <% @guides.each do |guide| %>
