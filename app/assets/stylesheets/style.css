@@ -13,6 +13,9 @@
 .guide {
   background-color: yellow;
   float: left;
+  opacity: 0.8;
+  border-radius: 5px;
+  padding: 10px;
 }
 
 
@@ -20,6 +23,8 @@ html,body{
   height: 100%;
 /*  background: url(<%=@pic%>) no-repeat center center fixed;
 */
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
 .center_h1 {
@@ -180,8 +185,18 @@ html,body{
 
 /* YELP CSS */
 
+.event {
+  margin: 10px;
+}
+
+.saved_event {
+  background-color: #98FB98;
+}
+
 .events {
   float: right;
-  background-color: red;
+  background-color: white;
+  opacity: 0.9;
+  border-radius: 10px;
 }
 
