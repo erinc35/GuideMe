@@ -65,6 +65,15 @@ ActiveRecord::Schema.define(version: 20161017200810) do
     t.index ["traveler_id"], name: "index_messages_on_traveler_id", using: :btree
   end
 
+  create_table "registrations", force: :cascade do |t|
+    t.text     "notification_params"
+    t.string   "status"
+    t.string   "transaction_id"
+    t.datetime "purchased_at"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
   create_table "reservations", force: :cascade do |t|
     t.datetime "start_date"
     t.datetime "end_date"
