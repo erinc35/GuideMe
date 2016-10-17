@@ -4,7 +4,7 @@
     <% if session[:guide_id] || session[:traveler_id] %>
       <li><%= link_to 'Log out', sessions_path, method: :delete, data: { confirm: 'Are you sure?'} %></li>
     <% else %>
-      <li><%= link_to 'Sign up',new_sessions_path, class: "signup-link" %>
+      <li><%= link_to 'Sign up',"#", class: "signup-link" %>
         <%= render partial: "/layouts/signup" %></li>
       <li><%= link_to 'Login', new_sessions_path, class: "login-link" %>
         <%= render partial: "/sessions/login_form"%></li>

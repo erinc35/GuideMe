@@ -81,7 +81,7 @@ html,body{
 
 .login-form{
   position: absolute;
-  background-color: #99aac6;
+  background-color: #eaecef;
   display: none;
   border-radius: 8px;
   height: 290px;
@@ -91,13 +91,23 @@ html,body{
 
 .signup-drop{
   position: absolute;
-  background-color: #99aac6;
+  background-color: #eaecef;
   display: none;
   border-radius: 8px;
-  height: 290px;
-  width:20%;
+  height: 70px;
+  width:9%;
   opacity: 0.8;
 }
+
+.signup-elements {
+  font-size: 15px;
+  text-align: left;
+  padding-top: 5%;
+
+}
+/*.signup-elements-font{
+  color: white;
+}*/
 
 /*----------------------------*/
 
