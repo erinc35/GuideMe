@@ -14,13 +14,12 @@ require 'yelp'
 
     @pic = @images["hits"][0]["webformatURL"]
     @language = params[:language]
-    @languages.delete(@language)
     @guides = Guide.all.where(location: @location)
 
     ##########---------YELP---------##########
     
     p "+" * 100
-    p @api_call = Yelp.client.search('San Francisco', { term: 'events', limit: 16 }).businesses
+    p @api_call = Yelp.client.search(@location, { term: 'events', limit: 16 }).businesses
 
   end
 
@@ -29,8 +28,6 @@ require 'yelp'
   end
 
   def create
-    #################################
-    # Make sure to add error messages
     @guide = Guide.new(guide_params)
     if @guide.save
       session[:guide_id] = @guide.id

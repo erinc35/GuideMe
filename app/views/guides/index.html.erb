@@ -1,7 +1,6 @@
 <style>
   body{
     background-image: url(<%=@pic%>);
-    background-repeat: no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -10,6 +9,10 @@
 
   }
 </style>
+
+  <h1>Guides in <%= @location %> who speak <%= @language %> </h1>
+  <h3>Dates chosen: <%= @start_date %> - <%= @end_date %></h3>
+
 <div class="guide-page">
     <form id="search_form" action="/guides" method="get">
 
@@ -20,41 +23,40 @@
       <input type="text" class="form-radius" id="to" name="to" value="<%= @end_date %>">
 
        <select class="form-language" name='language' required>
-        <option value="" default selected><%= @language %></option>
+        <option value="" default selected>Language</option>
         <% @languages.each do |language| %>
           <option value=<%= language %>><%= language %></option>
         <% end %>
       </select>
       <input id = "guide-search-but" class="form-radius" type="submit" value="Search">
     </form>
+    
+    <div class="guides">
+      <% @guides.each do |guide| %>
+        <div class="guide">
+          <p>
+            <b>Guide name:</b> <%= link_to guide.first_name + " " + guide.last_name, guide_path(guide, from: @start_date, to: @end_date) %>
+          </p>
 
-  <h1>Guides in <%= @location %> who speak <%= @language %> </h1>
-  <h3>Dates chosen: <%= @start_date %> - <%= @end_date %></h3>
+          <p>
+            <b>Email:</b> <%= guide.email %>
+          </p>
 
-  <% @guides.each do |guide| %>
-    <div class="guide">
-      <p>
-        <b>Guide name:</b> <%= link_to guide.first_name + " " + guide.last_name, guide_path(guide, from: @start_date, to: @end_date) %>
-      </p>
-
-      <p>
-        <b>Email:</b> <%= guide.email %>
-      </p>
-
-      <p>
-        <b>Car Available:</b> <%= guide.has_car %>
-      </p>
-    </div>
-  <% end %>
-
-  <div class="events">
-    <% @api_call.each do |event| %>
-      <div class="event">
-        <img src="<%= event.image_url %>" alt="edit" />
-        <%= event.name %>
+          <p>
+            <b>Car Available:</b> <%= guide.has_car %>
+          </p>
+        </div>
       </div>
     <% end %>
-  </div>
+
+    <div class="events">
+      <% @api_call.each do |event| %>
+        <div class="event">
+          <img src="<%= event.image_url %>" alt="edit" />
+          <%= event.name %>
+        </div>
+      <% end %>
+    </div>
 
   <div id='map'></div>
   <div id='city'></div>
