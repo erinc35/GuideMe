@@ -1,7 +1,6 @@
 <style>
   body{
     background-image: url(<%=@pic%>);
-    background-repeat: no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -10,6 +9,10 @@
 
   }
 </style>
+
+  <h1>Guides in <%= @location %> who speak <%= @language %> </h1>
+  <h3>Dates chosen: <%= @start_date %> - <%= @end_date %></h3>
+
 <div class="guide-page">
     <form id="search_form" action="/guides" method="get">
 
@@ -20,7 +23,7 @@
       <input type="text" class="form-radius" id="to" name="to" value="<%= @end_date %>">
 
        <select class="form-language" name='language' required>
-        <option value="" default selected><%= @language %></option>
+        <option value="" default selected>Language</option>
         <% @languages.each do |language| %>
           <option value=<%= language %>><%= language %></option>
         <% end %>
@@ -28,34 +31,102 @@
       <input id = "guide-search-but" class="form-radius" type="submit" value="Search">
     </form>
 
-  <h1>Guides in <%= @location %> who speak <%= @language %> </h1>
-  <h3>Dates chosen: <%= @start_date %> - <%= @end_date %></h3>
+    <div class="guides">
+      <% @guides.each do |guide| %>
+        <div class="guide">
+          <p>
+            <b>Guide name:</b> <%= link_to guide.first_name + " " + guide.last_name, guide_path(guide, from: @start_date, to: @end_date) %>
+          </p>
 
-  <% @guides.each do |guide| %>
-    <div class="guide">
-      <p>
-        <b>Guide name:</b> <%= link_to guide.first_name + " " + guide.last_name, guide_path(guide, from: @start_date, to: @end_date) %>
-      </p>
+          <p>
+            <b>Email:</b> <%= guide.email %>
+          </p>
 
-      <p>
-        <b>Email:</b> <%= guide.email %>
-      </p>
-
-      <p>
-        <b>Car Available:</b> <%= guide.has_car %>
-      </p>
-    </div>
-  <% end %>
-
-  <div class="events">
-    <% @api_call.each do |event| %>
-      <div class="event">
-        <img src="<%= event.image_url %>" alt="edit" />
-        <%= event.name %>
+          <p>
+            <b>Car Available:</b> <%= guide.has_car %>
+          </p>
+        </div>
       </div>
     <% end %>
-  </div>
+
+    <div class="events">
+      <% @api_call.each do |event| %>
+        <% if session["events"].include?(event.name) %>
+          <%= render partial: 'add_event', locals: { event: event, location: @location } %>
+        <% else %>
+          <%= render partial: 'remove_event', locals: { event: event, location: @location } %>
+        <% end %>
+      <% end %>
+    </div>
 
   <div id='map'></div>
   <div id='city'></div>
 </div>
+
+<div class="row">
+  <!-- Not implemented on tutorial -->
+  <div class="col-md-4">
+    <div style="height: 300px; overflow-y: auto;">
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Registered Users</div>
+
+        <!-- Table -->
+        <table class="table">
+          <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @guides.each_with_index do |guide, index| %>
+              <tr>
+                <td><%= index +=1 %></td>
+                <td><%= guide.first_name %></td>
+                <td>
+                  <%= link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversation",
+                              "data-sid" => current_user.id, "data-rip" => guide.id %>
+                </td>
+              </tr>
+          <% end %>
+
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+    <hr>
+
+    <% if current_user %>
+    <h3>Your Conversations</h3>
+
+    <div style="height: 400px; overflow-y: auto;">
+      <% if @conversations.any? %>
+          <ul class="media-list">
+            <% @conversations.each do |conversation| %>
+                <li class="media">
+                  <%= image_tag("http://placehold.it/50x50", class: "media-object pull-left") %>
+                  <div class="media-body">
+                    <%= link_to "", conversation_path(conversation), class: "conversation", "data-cid" => conversation.id %>
+                        <h4 class="media-heading"><%= conversation_interlocutor(conversation).first_name %></h4>
+                        <p><%= conversation.messages.last.nil? ? "No messages" : truncate(conversation.messages.last.content, length: 45) %></p>
+                  </div>
+                </li>
+
+            <% end %>
+          </ul>
+      <% else %>
+          <p>You have no conversations. Click send message with any user to create one.</p>
+      <% end %>
+    </div>
+
+  </div>
+
+  <div class="col-md-4">
+
+  </div>
+
+</div>
+<% end %>

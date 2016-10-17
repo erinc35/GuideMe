@@ -1,15 +1,25 @@
-<div class="row col-md-8 col-md-offset-2">
+<div class="chatboxhead">
+  <div class="chatboxtitle">
+    <i class="fa fa-comments"></i>
 
-<div class="panel panel-default">
-  <% if @conversation.messages.any? %>
-    <div class="panel-body" id="messages">
-      <%= render partial: 'messages/message', collection: @conversation.messages%>
-    </div>
-  <%else%>
-      <div class="panel-body hidden" id="messages">
-      </div>
-    <%end%>
+    <h1><%= @reciever.first_name %> </h1>
   </div>
-
-  <%= render partial: 'messages/message_form', locals: {message: @message, conversation: @conversation}%>
+  <div class="chatboxoptions">
+    <%= link_to "<i class='fa  fa-minus'></i> ".html_safe, "#", class: "toggleChatBox", "data-cid" => @conversation.id %>
+    &nbsp;&nbsp;
+    <%= link_to "<i class='fa  fa-times'></i> ".html_safe, "#", class: "closeChat", "data-cid" => @conversation.id %>
+  </div>
+  <br clear="all"/>
 </div>
+<div class="chatboxcontent">
+  <% if @messages.any? %>
+      <%= render @messages %>
+  <% end %>
+</div>
+<div class="chatboxinput">
+  <%= form_for([@conversation, @message], :remote => true, :html => {id: "conversation_form_#{@conversation.id}"}) do |f| %>
+      <%= f.text_area :content, class: "chatboxtextarea", "data-cid" => @conversation.id %>
+  <% end %>
+</div>
+
+<%= subscribe_to conversation_path(@conversation) %>

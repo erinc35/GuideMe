@@ -1,34 +1,22 @@
 class MessagesController < ApplicationController
+  def create
+      @conversation = Conversation.find(params[:conversation_id])
+      @message = @conversation.messages.build(message_params)
+      @message.messenger_id = current_user.id
+      @message.messenger_type = current_user.class
+      @message.save!
 
-def create
-  message = Message.new(message_params)
-  if current_guide
-    message.messenger_id = current_guide.id
-    message.messenger_type = current_guide.class
-    if message.save
-      ActionCable.server.broadcast 'messages',
-      message: message.body,
-      guide: message.messenger.first_name
-      head :ok
-    end
-  elsif current_traveler
-    message.messenger_id = current_traveler.id
-    message.messenger_type = current_traveler.class
-    if message.save
-      ActionCable.server.broadcast 'messages',
-      message: message.body,
-      traveler: message.messenger.first_name
-      head :ok
-    end
-  else
-    redirect_to conversations_path
-    alert("Your not signed in to chat with a traveler or guide.")
-  end
+      rip = current_user == @conversation.recipient ? @conversation.sender : @conversation.recipient
+      PrivatePub.publish_to("/notifications" + rip.id.to_s, cid: @conversation.id, sid: current_user.id, rip:  rip.id)
+
+
+      @path = conversation_path(@conversation)
+
 end
 
-private
+    private
 
-  def message_params
-    params.require(:message).permit(:body, :conversation_id)
+    def message_params
+      params.require(:message).permit(:content)
+    end
   end
-end
