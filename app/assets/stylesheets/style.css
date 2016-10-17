@@ -89,6 +89,16 @@ html,body{
   opacity: 0.8;
 }
 
+.signup-drop{
+  position: absolute;
+  background-color: #99aac6;
+  display: none;
+  border-radius: 8px;
+  height: 290px;
+  width:20%;
+  opacity: 0.8;
+}
+
 /*----------------------------*/
 
 #login-dp{
@@ -141,5 +151,4 @@ html,body{
         border-top:0 none;
     }
 }
-
 
