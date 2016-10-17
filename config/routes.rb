@@ -1,18 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'trips/index'
-
-  get 'trips/new'
-
-  get 'trips/create'
-
-  get 'trips/show'
-
-  get 'trips/edit'
-
-  get 'trips/update'
-
-  get 'trips/destroy'
+  resources :trips
 
   resource :sessions
 
@@ -37,6 +25,10 @@ Rails.application.routes.draw do
   resources :messages
 
   resources :yelps
+
+  resources :available_dates
+
+  resources :unavailable_dates
 
   mount ActionCable.server => '/cable'
 
