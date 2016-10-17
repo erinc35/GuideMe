@@ -3,14 +3,19 @@ class GuidesController < ApplicationController
   include HTTParty
 
   def index
-    @location = params[:location]
-     p "*********"
-    p @location
-    @images = HTTParty.get("https://pixabay.com/api/?key=#{ENV['pixabay_api']}&q=#{params[:location].split(",")[0]}+cityscape&image_type=photo")
-
-    @pic = @images["hits"][0]["webformatURL"]
-    @language = params[:language]
-    @guides = Guide.all.where(location: @location)
+     @location = params[:location]
+    #  p "*********"
+    # p @location
+    # @images = HTTParty.get("https://pixabay.com/api/?key=#{ENV['pixabay_api']}&q=#{params[:location].split(",")[0]}+cityscape&image_type=photo")
+    #
+    # @pic = @images["hits"][0]["webformatURL"]
+     @language = params[:language]
+    if current_user
+      @guides = Guide.where.not("id = ?",current_user.id).order("created_at DESC")
+      @conversations = Conversation.involving(current_user).order("created_at DESC")
+    else
+      @guides = Guide.all.where(location: @location)
+    end
   end
 
 

@@ -11,9 +11,9 @@ Rails.application.routes.draw do
 
   root 'static_pages#index'
 
-  resources :conversations, param: :slug
-
-  resources :messages
+  resources :conversations do
+     resources :messages
+   end
 
   resources :yelps
 

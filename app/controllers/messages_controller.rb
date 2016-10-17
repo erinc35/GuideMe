@@ -1,30 +1,16 @@
 class MessagesController < ApplicationController
-before_action :get_messages
+  def create
+      @conversation = Conversation.find(params[:conversation_id])
+      @message = @conversation.messages.build(message_params)
+      @message.messenger_id = current_user.id
+      @message.save!
 
+      @path = conversation_path(@conversation)
+    end
 
-def index
-end
+    private
 
-def create
-   message = current_user.messages.build(message_params)
-   if message.save
-     ActionCable.server.broadcast 'messages',
-      content:  message.content,
-      username: message.messenger.first_name
-      head :ok
-   else
-     render 'index'
-   end
- end
-
-private
-
-  def get_messages
-    @messages = Message.for_display
-    @message = current_user.messages.build
+    def message_params
+      params.require(:message).permit(:content)
+    end
   end
-
-  def message_params
-    params.require(:message).permit(:content)
-  end
-end
