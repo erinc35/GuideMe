@@ -30,7 +30,7 @@
       </select>
       <input id = "guide-search-but" class="form-radius" type="submit" value="Search">
     </form>
-    
+
     <div class="guides">
       <% @guides.each do |guide| %>
         <div class="guide">
@@ -51,10 +51,19 @@
 
     <div class="events">
       <% @api_call.each do |event| %>
-        <div class="event">
-          <img src="<%= event.image_url %>" alt="edit" />
-          <%= event.name %>
-        </div>
+        <% if session["events"].include?(event.name) %>
+          <div class="saved_event">
+            <img src="<%= event.image_url %>" alt="edit" />
+            <%= event.name %>
+            <%= link_to 'Remove', yelp_path(session[:traveler_id], event: event.name) %>
+          </div>
+        <% else %>
+          <div class="event">
+            <img src="<%= event.image_url %>" alt="edit" />
+            <%= event.name %>
+            <%= link_to 'Add', yelps_path(session[:traveler_id], event: event.name), method: :post %>
+          </div>
+        <% end %>
       <% end %>
     </div>
 

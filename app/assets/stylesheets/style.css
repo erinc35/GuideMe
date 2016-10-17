@@ -142,6 +142,10 @@ html,body{
   margin: 10px;
 }
 
+.saved_event {
+  background-color: green;
+}
+
 .events {
   float: right;
   background-color: white;
