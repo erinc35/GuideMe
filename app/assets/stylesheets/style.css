@@ -1,3 +1,6 @@
+*{
+  font-family: cursive;
+}
 .guide {
   background-color: yellow;
 }
@@ -14,10 +17,11 @@ html,body{
 }
 
 .homeform{
+  height: 18%;
   width: 70%;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  margin: 20% auto;
+  /*padding-top: 20px;
+  padding-bottom: 20px;*/
+  margin: 30% 20%;
   text-align: center;
   border-radius: 10px;
   opacity: 0.8;
@@ -33,6 +37,9 @@ html,body{
   border-radius: 4px;
   opacity: 0.9;
   background-color: #5a6370;
+}
+.search-form{
+  margin-bottom: 15%;
 }
 
 .form-radius{
@@ -61,6 +68,7 @@ html,body{
 .navbar > li {
   display: inline-block;
   padding-right: 150px;
+  font-size: 20px;
 }
 
 .navbar > li > a{
@@ -73,11 +81,11 @@ html,body{
 
 .login-form{
   position: absolute;
-  background-color: white;
+  background-color: #99aac6;
   display: none;
   border-radius: 8px;
-  height: 250px;
-  width:200px;
+  height: 290px;
+  width:20%;
   opacity: 0.8;
 }
 

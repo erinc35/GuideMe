@@ -10,8 +10,13 @@
     <div class="form-group"><%= text_field_tag :email,nil , placeholder: "Email address" %><br></div>
     <div class="form-group"><%= password_field_tag :password, nil, placeholder: "Password" %><br></div>
     <div ><a href>Forget the password ?</a></div>
-      <%= submit_tag "Submit", class: "btn btn-primary btn-block" %>
+      <%= submit_tag "Login", class: "btn btn-primary btn-block" %>
   <% end %>
+    <div class="checkbox">
+     <label>
+     <input type="checkbox"> keep me logged-in
+     </label>
+    </div>
   </div>
 </div>
 
