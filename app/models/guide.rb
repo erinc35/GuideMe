@@ -4,8 +4,10 @@ class Guide < ApplicationRecord
   has_many :available_dates
   has_many :unavailable_dates
   has_one :user, through: :trip
-  has_many :messages, as: :messenger
   has_one :traveler, through: :trip
+
+  has_many :conversations, as: :sender
+  has_many :conversations, as: :recipient
 
   validates :first_name, presence: true
   validates :last_name, presence: true
