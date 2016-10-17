@@ -20,7 +20,16 @@ require 'yelp'
      @language = params[:language]
 
     ##########---------YELP---------##########
-    @api_call = Yelp.client.search(@location, { term: 'events', limit: 16 }).businesses
+    p "-" * 200
+    p @events_call = Yelp.client.search(@location, { term: 'events', limit: 16 }).businesses
+    p "*" * 200
+    p @events_call[0].image_url
+    p "*" * 200
+    p "-" * 200
+    p @restaurants_call = Yelp.client.search(@location, { term: 'restaurants', limit: 16 }).businesses
+    p "-" * 200
+    p @monuments_call = Yelp.client.search(@location, { term: 'monuments', limit: 16 }).businesses
+    p "-" * 200
 
   end
 
