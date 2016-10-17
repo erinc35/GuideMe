@@ -1,13 +1,22 @@
 Rails.application.routes.draw do
 
-resource :sessions
+  resources :trips
+
+  resource :sessions
 
   resources :guides do
+
+    resources :reservations
+
     resources :charges
+
   end
 
+  resources :travelers do
 
-  resources :travelers
+    resources :reservations
+
+  end
 
   root 'static_pages#index'
 
