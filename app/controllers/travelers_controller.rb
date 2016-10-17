@@ -15,6 +15,7 @@ class TravelersController < ApplicationController
     @traveler = Traveler.new(traveler_params)
     if @traveler.save
       session[:traveler_id] = @traveler.id
+      @traveler.online = "yes"
       redirect_to traveler_path(@traveler)
     else
       render 'new'

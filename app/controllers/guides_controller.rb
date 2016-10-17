@@ -30,6 +30,7 @@ class GuidesController < ApplicationController
     @guide = Guide.new(guide_params)
     if @guide.save
       session[:guide_id] = @guide.id
+      @guide.online = "yes"
       redirect_to guide_path(@guide)
     else
       @errors = @guide.errors.full_messages

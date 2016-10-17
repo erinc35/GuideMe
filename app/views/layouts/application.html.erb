@@ -29,9 +29,35 @@
         <% end %>
       </ul>
     </div>
+    <div class="container">
+    <% if alert %>
+        <div class="alert alert-danger" role="alert"><%= alert %></div>
+    <% end %>
+    <% if notice %>
+        <div class="alert alert-success" role="alert"><%= notice %></div>
+    <% end %>
+  </div>
+
     <%= yield %>
     <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['google_api']%>&libraries=places&callback=initMap"
     async defer></script>
 
-  </body>
+
+
+<audio id="chatAudio"><source src="/sounds/back_to_the_future.mp3" type="audio/mpeg"></audio>
+</body>
+    <% if current_user %>
+    <script type="text/javascript">
+        channel = <%= raw ('"' + '/notifications' + current_user.id.to_s + '"') %>
+        PrivatePub.subscribe(channel, function(data) {
+        var sender_id = data.sid;
+        var recipient_id = data.rip;
+        var conversation_id = data.cid;
+        $.post("/conversations", { sender_id: sender_id, recipient_id: recipient_id }, function (data) {
+            chatBox.chatWith(conversation_id);
+        });
+        });
+    </script>
+    <%= subscribe_to "/notifications" + current_user.id.to_s %>
+    <% end %>
 </html>
