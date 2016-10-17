@@ -1,26 +1,29 @@
 class GuidesController < ApplicationController
 require 'yelp'
+require 'unsplash'
+
   include HTTParty
 
   def index
     @languages = %w(English Spanish German French Italian Portuguese Japanese Korean Turkish Mandarin Cantonese)
     @location = params[:location].split(",")[0]
+    p @location
     @full_location = params[:location]
 
     @start_date = params[:from]
     @end_date = params[:to]
 
     @images = HTTParty.get("https://pixabay.com/api/?key=#{ENV['pixabay_api']}&q=#{params[:location].split(",")[0]}+cityscape&image_type=photo")
-
-    @pic = @images["hits"][0]["webformatURL"]
+    # @pic = @images["hits"][0]["webformatURL"]
     @language = params[:language]
     @languages.delete(@language)
     @guides = Guide.all.where(location: @location)
-
+    @unsplash_object = Unsplash::Photo.search(@location)
+    @pic = @unsplash_object[0].urls["full"]
     ##########---------YELP---------##########
-    
-    p "+" * 100
-    p @api_call = Yelp.client.search('San Francisco', { term: 'events', limit: 16 }).businesses
+
+    # p "+" * 100
+    # p @api_call = Yelp.client.search('San Francisco', { term: 'events', limit: 16 }).businesses
 
   end
 

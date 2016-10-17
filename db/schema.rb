@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 20161016213519) do
 
   create_table "conversations", force: :cascade do |t|
     t.string   "topic"
-    t.string   "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -55,15 +54,6 @@ ActiveRecord::Schema.define(version: 20161016213519) do
     t.index ["conversation_id"], name: "index_messages_on_conversation_id", using: :btree
     t.index ["guide_id"], name: "index_messages_on_guide_id", using: :btree
     t.index ["traveler_id"], name: "index_messages_on_traveler_id", using: :btree
-  end
-
-  create_table "registrations", force: :cascade do |t|
-    t.text     "notification_params"
-    t.string   "status"
-    t.string   "transaction_id"
-    t.datetime "purchased_at"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
   end
 
   create_table "reservations", force: :cascade do |t|

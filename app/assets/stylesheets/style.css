@@ -18,6 +18,7 @@
 
 html,body{
   height: 100%;
+  margin:0;
 /*  background: url(<%=@pic%>) no-repeat center center fixed;
 */
 }
@@ -73,6 +74,7 @@ html,body{
   background-color: #5a6370;
   list-style: none;
   text-align: center;
+  margin: 0;
   /*padding: 25px 0 0 0 ;*/
 }
 .navbar > li {
@@ -118,7 +120,7 @@ html,body{
 .aboutus-text{
   height: 70%;
   width: 40%;
-  margin: auto;
+  margin: auto ;
   text-align: center;
   border-radius: 10px;
   opacity: 0.8;
