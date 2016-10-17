@@ -15,7 +15,7 @@ require 'yelp'
     @pic = @images["hits"][0]["webformatURL"]
     @language = params[:language]
     @languages.delete(@language)
-    @guides = Guide.all.where(location: @location)
+    @guides = Guide.all.where(location: @location, language: @language.downcase)
 
     ##########---------YELP---------##########
     
