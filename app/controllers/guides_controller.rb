@@ -13,7 +13,8 @@ require 'yelp'
 
      @images = HTTParty.get("https://pixabay.com/api/?key=#{ENV['pixabay_api']}&q=#{params[:location].split(",")[0]}+cityscape&image_type=photo")
 
-     @pic = @images["hits"][0]["webformatURL"]
+    #  @pic = @images["hits"][0]["webformatURL"]
+    session["events"] ||= (session["events"] = [])
      @language = params[:language]
      @guides = Guide.all.where(location: @location)
      @language = params[:language]

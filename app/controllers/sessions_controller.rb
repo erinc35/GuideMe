@@ -30,10 +30,12 @@ class SessionsController < ApplicationController
 
   def destroy
     if session[:guide_id]
+      @guide = Guide.find(session[:guide_id])
       @guide.online = "no"
       session[:guide_id] = nil
       redirect_to root_path
     elsif session[:traveler_id]
+      @traveler = Traveler.find(session[:traveler_id])
       @traveler.online = "no"
       session[:traveler_id] = nil
       redirect_to root_path

@@ -7,8 +7,6 @@ class YelpsController < ApplicationController
 
   def add
     @location = params[:location]
-
-    session["events"] ||= (session["events"] = [])
     @api_call = Yelp.client.search(@location, { term: 'events', limit: 16 }).businesses
 
     if params[:event]

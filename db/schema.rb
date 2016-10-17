@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20161016213519) do
+ActiveRecord::Schema.define(version: 20161017200810) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -124,9 +123,6 @@ ActiveRecord::Schema.define(version: 20161016213519) do
   end
 
   add_foreign_key "available_dates", "guides"
-  add_foreign_key "messages", "conversations"
-  add_foreign_key "messages", "guides"
-  add_foreign_key "messages", "travelers"
   add_foreign_key "reservations", "guides"
   add_foreign_key "reservations", "travelers"
   add_foreign_key "reviews", "guides"
