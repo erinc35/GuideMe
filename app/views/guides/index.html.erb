@@ -38,7 +38,7 @@
       </p>
 
       <p>
-       <b>Email:</b> <%= guide.email %>
+        <b>Email:</b> <%= guide.email %>
       </p>
 
       <p>
@@ -46,6 +46,15 @@
       </p>
     </div>
   <% end %>
+
+  <div class="events">
+    <% @api_call.each do |event| %>
+      <div class="event">
+        <img src="<%= event.image_url %>" alt="edit" />
+        <%= event.name %>
+      </div>
+    <% end %>
+  </div>
 
   <div id='map'></div>
   <div id='city'></div>

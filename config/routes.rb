@@ -1,13 +1,34 @@
 Rails.application.routes.draw do
 
+  get 'trips/index'
+
+  get 'trips/new'
+
+  get 'trips/create'
+
+  get 'trips/show'
+
+  get 'trips/edit'
+
+  get 'trips/update'
+
+  get 'trips/destroy'
+
   resource :sessions
 
   resources :guides do
+
+    resources :reservations
+
     resources :charges
+
   end
 
+  resources :travelers do
 
-  resources :travelers
+    resources :reservations
+
+  end
 
   root 'static_pages#index'
 

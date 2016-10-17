@@ -1,6 +1,7 @@
 <h1>Guides#show</h1>
 <p>Find me in app/views/guides/show.html.erb</p>
 
+<p><a href="/guides/<%= @guide.id %>/charges/new">Charge</a></p>
 
 <% @guide = Guide.find(params[:id]) %>
 <% if @guide.id == session[:guide_id] %>
@@ -23,3 +24,4 @@
 </div>
 <!--Else, allow to send the guide a message.  -->
 <% end %>
+

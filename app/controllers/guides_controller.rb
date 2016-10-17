@@ -1,5 +1,5 @@
 class GuidesController < ApplicationController
-
+require 'yelp'
   include HTTParty
 
   def index
@@ -7,8 +7,6 @@ class GuidesController < ApplicationController
     @location = params[:location].split(",")[0]
     @full_location = params[:location]
 
-    p "*" * 100
-    p params
     @start_date = params[:from]
     @end_date = params[:to]
 
@@ -18,9 +16,13 @@ class GuidesController < ApplicationController
     @language = params[:language]
     @languages.delete(@language)
     @guides = Guide.all.where(location: @location)
+
+    ##########---------YELP---------##########
+    
+    p "+" * 100
+    p @api_call = Yelp.client.search('San Francisco', { term: 'events', limit: 16 }).businesses
+
   end
-
-
 
   def new
     @guide = Guide.new

@@ -1,5 +1,6 @@
 .guide {
   background-color: yellow;
+  float: left;
 }
 
 
@@ -131,4 +132,10 @@ html,body{
     }
 }
 
+/* YELP CSS */
+
+.events {
+  float: right;
+  background-color: red;
+}
 
