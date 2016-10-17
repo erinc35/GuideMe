@@ -10,9 +10,6 @@
   }
 </style>
 
-  <h1>Guides in <%= @location %> who speak <%= @language %> </h1>
-  <h3>Dates chosen: <%= @start_date %> - <%= @end_date %></h3>
-
 <div class="guide-page">
     <form id="search_form" action="/guides" method="get">
 
@@ -31,36 +28,26 @@
       <input id = "guide-search-but" class="form-radius" type="submit" value="Search">
     </form>
 
-
-  <h1 class="guides-in-header">Guides in <%= @location %> who speak <%= @language %> </h1>
-  <h3>Dates chosen: <%= @start_date %> - <%= @end_date %></h3>
-
-  <% @guides.each do |guide| %>
-    <div class="guide">
-      <p>
-        <b>Guide name:</b> <%= link_to guide.first_name + " " + guide.last_name, guide_path(guide, from: @start_date, to: @end_date) %>
-      </p>
-
+  <div class="gudies-in-header">
+    <h1>Guides in <%= @location %> who speak <%= @language %> </h1>
+    <h3>Dates chosen: <%= @start_date %> - <%= @end_date %></h3>
+  </div>
     <div class="guides">
       <% @guides.each do |guide| %>
         <div class="guide">
           <p>
             <b>Guide name:</b> <%= link_to guide.first_name + " " + guide.last_name, guide_path(guide, from: @start_date, to: @end_date) %>
           </p>
-
-
-          <p>
-            <b>Email:</b> <%= guide.email %>
-          </p>
-          <p>
-            <b>Car Available:</b> <%= guide.has_car %>
-          </p>
+          <p><b>Email:</b> <%= guide.email %></p>
+          <p><b>Car Available:</b> <%= guide.has_car %></p>
           <p>
             <b> <img src="<%= guide.photo %>"> </b>
           </p>
         </div>
       </div>
     <% end %>
+
+
 
     <div class="events">
       <% @api_call.each do |event| %>
@@ -77,11 +64,11 @@
   <div id='city'></div>
 </div>
 
-<div class="row">
-  <!-- Not implemented on tutorial -->
-
-
+<div class="row"></div>
 
 </div>
-
 </div>
+
+
+
+

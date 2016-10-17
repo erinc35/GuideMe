@@ -17,9 +17,11 @@
   border-radius: 5px;
   padding: 10px;
 }
-.guides-in-header{
-  /*text-shadow: 2px 2px white;*/
-}
+/*.guides-in-header{
+  width: 200px;
+  border-radius: 8px;
+  background-color: white;
+}*/
 
 html,body{
   height: 100%;
@@ -227,7 +229,7 @@ a {
 }
 .social {
   position: fixed;
-  top: 30%;
+  top: 40%;
   left: 1%;
 }
 .social ul {
