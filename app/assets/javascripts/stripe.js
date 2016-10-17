@@ -1,1 +1,1 @@
-<%= stripe_javascript_tag %>
+// <%= stripe_javascript_tag %>

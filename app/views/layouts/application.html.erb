@@ -38,6 +38,7 @@
     <% end %>
   </div>
 
+    <%= render partial: "/layouts/header" %>
     <%= yield %>
     <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['google_api']%>&libraries=places&callback=initMap"
     async defer></script>

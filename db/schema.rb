@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161017200810) do
+
+ActiveRecord::Schema.define(version: 20161016213519) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +62,20 @@ ActiveRecord::Schema.define(version: 20161017200810) do
     t.index ["messenger_type", "messenger_id"], name: "index_messages_on_messenger_type_and_messenger_id", using: :btree
   end
 
+  create_table "reservations", force: :cascade do |t|
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.decimal  "cost"
+    t.integer  "guide_id"
+    t.integer  "traveler_id"
+    t.string   "language"
+    t.string   "location"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["guide_id"], name: "index_reservations_on_guide_id", using: :btree
+    t.index ["traveler_id"], name: "index_reservations_on_traveler_id", using: :btree
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.integer  "rating"
     t.text     "comment"
@@ -109,6 +124,11 @@ ActiveRecord::Schema.define(version: 20161017200810) do
   end
 
   add_foreign_key "available_dates", "guides"
+  add_foreign_key "messages", "conversations"
+  add_foreign_key "messages", "guides"
+  add_foreign_key "messages", "travelers"
+  add_foreign_key "reservations", "guides"
+  add_foreign_key "reservations", "travelers"
   add_foreign_key "reviews", "guides"
   add_foreign_key "reviews", "travelers"
   add_foreign_key "trips", "guides"
