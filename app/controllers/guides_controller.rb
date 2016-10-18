@@ -33,8 +33,6 @@ require 'unsplash'
 
      @monuments_call = Yelp.client.search(@location, { term: 'monuments', limit: 16 }).businesses
 
-
-
   end
 
   def new
