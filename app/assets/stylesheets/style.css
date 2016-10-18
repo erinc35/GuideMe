@@ -223,9 +223,7 @@ html,body{
 }
 
 .events {
-  float: right;
   background-color: white;
-  opacity: 0.9;
   border-radius: 10px;
 }
 /*------------------------

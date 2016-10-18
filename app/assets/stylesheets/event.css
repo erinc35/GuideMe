@@ -3,7 +3,7 @@
       margin: 0 auto;
       border: 1px solid black;
       background-color: white;
-      opacity: 0.8;
+      opacity: 0.9;
       border-radius: 8px;
     }
 
@@ -30,7 +30,6 @@
     .tab-content{
       display: none;
       background: #ededed;
-      padding: 15px;
     }
 
     .tab-content.current{
