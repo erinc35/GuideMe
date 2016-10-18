@@ -14,7 +14,13 @@ end
 	guides = Guide.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: "password", password_confirmation: "password", phone: Faker::PhoneNumber.cell_phone, language: languages.sample, location: locations.sample, has_car: "yes", photo: Faker::Avatar.image("my-own-slug", "50x50"))
 end
 
+50.times do
+	trips = Trip.create(guide_id: rand(1..50), traveler_id: rand(1..50), location: locations.sample)
+end
 
+# 100.times do
+# 	reviews = Review.create(rating:)	
+# end
 
 
 
