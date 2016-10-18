@@ -24,6 +24,7 @@
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Sue+Ellen+Francisco" rel="stylesheet">
 
+
   <nav class="social">
     <ul>
       <li><a href="http://twitter.com">Twitter <i class="fa fa-twitter"></i></a></li>
@@ -34,6 +35,7 @@
 
     </ul>
   </nav>
+
 
 
 
@@ -56,6 +58,7 @@
 
 <audio id="chatAudio"><source src="/sounds/back_to_the_future.mp3" type="audio/mpeg"></audio>
 </body>
+
 <% if current_user %>
 <script type="text/javascript">
   channel = <%= raw ('"' + '/notifications' + current_user.id.to_s + '"') %>

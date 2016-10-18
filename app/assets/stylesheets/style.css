@@ -7,8 +7,6 @@
 }
 body{
   padding-top: 0;
-  height: 100%;
-  font-size: 2em;
 }
 
 .guide {
@@ -150,6 +148,7 @@ html,body{
   background-color: #eaecef;
   display: none;
   border-radius: 8px;
+<<<<<<< HEAD
   height: 310px;
   width: 12%;
   opacity: 0.8;
@@ -172,6 +171,7 @@ html,body{
   width: 28%;
   height: 620px;
   opacity: 0.8;
+
 }
 .signup-drop{
   position: absolute;

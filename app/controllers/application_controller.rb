@@ -25,6 +25,19 @@ class ApplicationController < ActionController::Base
     @current_traveler ||= Traveler.find_by(id: session[:traveler_id])
   end
 
+
+  def events_call
+    Yelp.client.search(@location, { term: 'events', limit: 16 }).businesses
+  end
+
+  def restaurants_call
+    Yelp.client.search(@location, { term: 'restaurants', limit: 16 }).businesses
+  end
+
+  def attractions_call
+    Yelp.client.search(@location, { term: 'attractions', limit: 16 }).businesses
+  end
+
   private
 
   def require_login
