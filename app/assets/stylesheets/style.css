@@ -1,6 +1,10 @@
 *{
   font-family: "Sue Ellen Francisco", cursive;
 }
+
+#ui-datepicker-div{
+  width: 25em !important;
+}
 body{
   padding-top: 0;
   height: 100%;
@@ -67,7 +71,7 @@ html,body{
 }
 
 .homeform{
-  height: 10%;
+  height: 100px;
   width: 70%;
 /*  padding-top: 20px;
 */  /*padding-bottom: 20px;*/
@@ -85,7 +89,6 @@ html,body{
   margin-top: 10%;
   /*margin-left: 18%;*/
   border-radius: 4px;
-  opacity: 0.9;
   background-color: #5a6370;
 }
 
@@ -133,7 +136,7 @@ html,body{
   text-decoration: none;
 }
 
-.navbar > li a:hover:not(.active) {
+.navbar > li > a:hover:not(.active) {
   background-color: #111;
 }
 
