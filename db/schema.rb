@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20161017200810) do
 
   create_table "conversations", force: :cascade do |t|
     t.string   "topic"
+    t.string   "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
