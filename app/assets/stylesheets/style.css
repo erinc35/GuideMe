@@ -163,7 +163,7 @@ html,body{
   margin: auto;
   border: 1px solid black;
   z-index: 999;
-  background-color: #60A5DD;
+  background-color: #c7cfdb;
   border-radius: 8px;
   /*height: 310px;*/
   width: 28%;
@@ -180,6 +180,8 @@ html,body{
   opacity: 0.8;
 }
 .signup-but{
+  margin-left: 2%;
+  background-color: #7ba9f2;
   float: right;
   border-radius: 8px;
 }
