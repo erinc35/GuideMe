@@ -9,6 +9,12 @@
 </p>
 <% end %>
 
+
+
+<% @trips.each do |trip| %>
+	<%= link_to trip.location,trip_path(trip) %><br>
+<% end %>
+
 <% if current_user.class == Traveler %>
   <% @traveler = Traveler.find(params[:id]) %>
   <% if @traveler.id == current_user.id %>
