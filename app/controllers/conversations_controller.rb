@@ -21,7 +21,6 @@ class ConversationsController < ApplicationController
         @conversation.recipient_type = recipient_type[0].class
         @conversation.save
       end
-
       render json: { conversation_id: @conversation.id }
     end
 

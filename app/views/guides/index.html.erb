@@ -49,17 +49,25 @@
       <input id = "guide-search-but" class="form-radius" type="submit" value="Search">
     </form>
 
-    <div class="events">
-      <% @events_call.each do |event| %>
-        <% if session["events"].include?(event.name) %>
-          <%= render partial: 'add_event', locals: { event: event, location: @location } %>
-        <% else %>
-          <%= render partial: 'remove_event', locals: { event: event, location: @location } %>
+    <div class="container">
+      <div class="events">
+        <% @events_call.each do |event| %>
+          <% if session["events"].include?(event.name) %>
+            <%= render partial: 'add_event', locals: { event: event, location: @location } %> 
+          <% else %>
+            <%= render partial: 'remove_event', locals: { event: event, location: @location } %>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
 
-      <div class="">
-
+      <div class="restaurants">
+        <% @restaurants_call.each do |restaurant| %>
+          <% if session["events"].include?(restaurant.name) %>
+            <%= render partial: 'add_restaurant', locals: { restaurant: restaurant, location: @location } %>
+          <% else %>
+            <%= render partial: 'remove_restaurant', locals: { restaurant: restaurant, location: @location } %>
+          <% end %>
+        <% end %>
       </div>
     </div>
 
@@ -67,6 +75,8 @@
   <div id='map'></div>
   <div id='city'></div>
 </div>
+<<<<<<< HEAD
+=======
 
 <div class="row"></div>
 
@@ -76,3 +86,4 @@
 
 
 
+>>>>>>> f59bab2f597532846aca4da5785a7c2dcf4211e0
