@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-//= require private_pub
 //= require chat
 //= require jquery-ui
 // app/assets/javascripts/application.js
