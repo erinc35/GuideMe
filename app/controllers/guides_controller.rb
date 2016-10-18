@@ -1,8 +1,11 @@
 class GuidesController < ApplicationController
 require 'yelp'
+require 'unsplash'
+
   include HTTParty
 
   def index
+    @location = params[:location]
     @languages = %w(English Spanish German French Italian Portuguese Japanese Korean Turkish Mandarin Cantonese)
     @location = params[:location].split(",")[0]
     @full_location = params[:location]
@@ -18,10 +21,21 @@ require 'yelp'
     @pic = @images["hits"][0]["webformatURL"]
     @language = params[:language]
     @guides = Guide.all.where(location: @location, language: @language)
-    
+    @unsplash_object = Unsplash::Photo.search(@location)
+    @pic = @unsplash_object[0].urls["full"]
+
     ##########---------YELP---------##########
-    
-    @api_call = Yelp.client.search(@location, { term: 'events', limit: 16 }).businesses
+    p "-" * 200
+    p @events_call = Yelp.client.search(@location, { term: 'events', limit: 16 }).businesses
+    p "*" * 200
+    p @events_call[0].image_url
+    p "*" * 200
+    p "-" * 200
+    p @restaurants_call = Yelp.client.search(@location, { term: 'restaurants', limit: 16 }).businesses
+    p "-" * 200
+    p @monuments_call = Yelp.client.search(@location, { term: 'monuments', limit: 16 }).businesses
+    p "-" * 200
+
 
   end
 
@@ -33,6 +47,7 @@ require 'yelp'
     @guide = Guide.new(guide_params)
     if @guide.save
       session[:guide_id] = @guide.id
+      @guide.online = "yes"
       redirect_to guide_path(@guide)
     else
       @errors = @guide.errors.full_messages
@@ -41,8 +56,6 @@ require 'yelp'
   end
 
   def show
-    p "*" * 200
-    p params
     @guide = Guide.find(params[:id])
     @conversation = Conversation.new
   end
@@ -68,7 +81,7 @@ require 'yelp'
   private
 
   def guide_params
-    params.require(:guide).permit(:first_name, :last_name, :email, :password, :password_confirmation, :language, :phone, :location, :has_car)
+    params.require(:guide).permit(:first_name, :last_name, :email, :password, :password_confirmation, :language, :phone, :location, :has_car, :online)
   end
 
 end

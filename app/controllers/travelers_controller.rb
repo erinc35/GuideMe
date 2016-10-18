@@ -1,4 +1,10 @@
 class TravelersController < ApplicationController
+
+  def index
+     @travelers = Traveler.where.not("id = ?",current_user.id).order("created_at DESC")
+     @conversations = Conversation.involving(current_user).order("created_at DESC")
+   end
+
   def new
     @traveler = Traveler.new
   end
@@ -9,6 +15,7 @@ class TravelersController < ApplicationController
     @traveler = Traveler.new(traveler_params)
     if @traveler.save
       session[:traveler_id] = @traveler.id
+      @traveler.online = "yes"
       redirect_to traveler_path(@traveler)
     else
       render 'new'
@@ -40,6 +47,6 @@ class TravelersController < ApplicationController
   private
 
   def traveler_params
-    params.require(:traveler).permit(:first_name, :last_name, :email, :password, :password_confirmation, :language, :phone)
+    params.require(:traveler).permit(:first_name, :last_name, :email, :password, :password_confirmation, :language, :phone, :online)
   end
 end

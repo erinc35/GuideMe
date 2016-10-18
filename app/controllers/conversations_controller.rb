@@ -1,53 +1,43 @@
 class ConversationsController < ApplicationController
-  def index
-    @conversation = Conversation.new
-    @conversations = Conversation.all
-  end
+    layout false
 
-  def new
-    if request.referrer.split("/").last == "conversations"
-      flash[:notice] = nil
-    end
-    @conversation = Conversation.new
-  end
+    def create
+      if Conversation.between(params[:sender_id],params[:recipient_id]).present?
+        @conversation = Conversation.between(params[:sender_id],params[:recipient_id]).first
+      else
+        # Add logic for when recipient is not a guide.
+        sender_id = params[:sender_id]
+        recipient_id =  params[:recipient_id]
+        @conversation = Conversation.new
+        @conversation.recipient_id = recipient_id
+        @conversation.sender_id = current_user.id
+        @conversation.sender_type = current_user.class
 
-  def edit
-    @conversation = Conversation.find_by(slug: params[:slug])
-  end
+        # Logic will need to go here:
+        recipient_type = Guide.where(id: params[:recipient_id])
+        #Logc for recipient not being a guide, only starts with regards to conversations.
+        #Guides do not start conversations with users, so the logic is not needed.
 
-
-def create
-  @message = Message.new
-  @conversation = Conversation.new(conversation_params)
-  if request.xhr?
-    if @conversation.save
-      respond_to do |format|
-        format.html { redirect_to @conversation,layout: false }
-        format.js
+        @conversation.recipient_type = recipient_type[0].class
+        @conversation.save
       end
+
+      render json: { conversation_id: @conversation.id }
+    end
+
+    def show
+      @conversation = Conversation.find(params[:id])
+      @reciever = interlocutor(@conversation)
+      @messages = @conversation.messages
+      @message = Message.new
+    end
+
+    private
+    def conversation_params
+      params.permit(:sender_id, :recipient_id)
+    end
+
+    def interlocutor(conversation)
+      current_user == conversation.recipient ? conversation.sender : conversation.recipient
     end
   end
-  if @conversation.save
-    respond_to do |format|
-      format.html { redirect_to @conversation }
-      format.js
-    end
-  else
-    respond_to do |format|
-      flash[:notice] = {error: ["Guide is not online."]}
-      format.html { redirect_to :back }
-    end
-  end
-end
-
-def show
-  @conversation = Conversation.find_by(slug: params[:slug])
-  @message = Message.new
-end
-
-private
-
-  def conversation_params
-    params.require(:conversation).permit(:topic)
-  end
-end

@@ -4,11 +4,9 @@ $(document).ready(function(){
 });
 
 function signUpHover()  {
-   $(".signup-link").hover(function () {
-     $('.signup-drop').slideDown('medium');
-  },
-  function () {
-     $('.signup-drop').slideUp('medium');
-  })
+   $(".signup-link").mouseover(function () {
+     $('.signup-drop').toggle()
+   }
+     )
 
 }

@@ -1,17 +1,18 @@
 class Traveler < ApplicationRecord
   has_many :trips
   has_many :reviews
-  has_many :messages, as: :messenger
-  has_many :conversations, through: :messages
   has_one :guide, through: :trip
+  has_many :conversations, as: :sender
+  has_many :conversations, as: :recipient
 
-  # validates :first_name, presence: true
-  # validates :last_name, presence: true
-  # validates :email, presence: true
-  # validates :password, presence: true
-  # validates :password_confirmation, presence: true
-  # validates :language, presence: true
-  # validates :phone, presence: true
+
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :email, presence: true
+  validates :password, presence: true
+  validates :password_confirmation, presence: true
+  validates :language, presence: true
+  validates :phone, presence: true
 
   has_secure_password
 end

@@ -7,12 +7,10 @@ class YelpsController < ApplicationController
 
   def add
     @location = params[:location]
-
-    session["events"] ||= (session["events"] = [])
-    @api_call = Yelp.client.search(@location, { term: 'events', limit: 16 }).businesses
+    @events_call = Yelp.client.search(@location, { term: 'events', limit: 16 }).businesses
 
     if params[:event]
-      yelp_object = @api_call.select { |business| business.name == params[:event]}[0]
+      yelp_object = @events_call.select { |business| business.name == params[:event]}[0]
       session["events"] << yelp_object.name
       if request.xhr?
         render partial: 'guides/add_event', layout: false, locals: {event: yelp_object}
@@ -26,10 +24,10 @@ class YelpsController < ApplicationController
     @location = params[:location]
 
     session["events"] ||= (session["events"] = [])
-    @api_call = Yelp.client.search(@location, { term: 'events', limit: 16 }).businesses
+    @events_call = Yelp.client.search(@location, { term: 'events', limit: 16 }).businesses
 
     if params[:event]
-      yelp_object = @api_call.select { |business| business.name == params[:event]}[0]
+      yelp_object = @events_call.select { |business| business.name == params[:event]}[0]
       session["events"].delete(params[:event])
       if request.xhr?
         render partial: 'guides/remove_event', layout: false, locals: {event: yelp_object}
