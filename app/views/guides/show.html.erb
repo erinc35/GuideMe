@@ -1,29 +1,54 @@
 <h1>Guides#show</h1>
 <p>Find me in app/views/guides/show.html.erb</p>
 
-<%= current_user.id %>
-<p><a href="/guides/<%= @guide.id %>/charges/new">Charge</a></p>
-<%= render "partials/available_dates" %>
+<% if current_user.class != Guide %>
+  <p><a href="/guides/<%= @guide.id %>/charges/new">Charge</a></p>
+<% end %>
 
-<% @guide = Guide.find(params[:id]) %>
-<% if @guide.id == session[:guide_id] %>
+<% if current_user.class == Guide %>
+  <% @guide = Guide.find(params[:id]) %>
+  <% if @guide.id == current_user.id %>
+  <%= render "partials/available_dates" %>
 
-<% else %>
-<!--Put in form for chat now button.  -->
-<!--Create chat now button, if @guide.online == "yes"  -->
-<div class="row col-md-8 col-md-offset-2">
-    <div class="well">
-      <div class="conversation-form">
-        <%= form_for @conversation do |f| %>
-          <div class="input-group">
-            <span class="input-group-addon">topic:</span>
-            <%= f.text_field :topic, class: "form-control"%>
-          </div>
-          <%= f.submit class: "btn btn-primary", id: "create-conversation" %>
+        <h3>Your Conversations</h3>
+
+      <div style="height: 400px; overflow-y: auto;">
+        <% if @conversations.any? %>
+            <ul class="media-list">
+              <% @conversations.each do |conversation| %>
+                  <li class="media">
+                    <%= image_tag("http://placehold.it/50x50", class: "media-object pull-left") %>
+                    <div class="media-body">
+                      <%= link_to "", conversation_path(conversation), class: "conversation", "data-cid" => conversation.id %>
+                          <h4 class="media-heading"><%= conversation_interlocutor(conversation).first_name %></h4>
+                          <p><%= conversation.messages.last.nil? ? "No messages" : truncate(conversation.messages.last.content, length: 45) %></p>
+                    </div>
+                  </li>
+
+              <% end %>
+            </ul>
         <% end %>
       </div>
     </div>
-</div>
-<!--Else, allow to send the guide a message.  -->
+    <div class="col-md-4">
+    </div>
+  </div>
+
+  <% else %>
+<%= link_to "Chat Now", "#", class: "btn btn-success btn-xs start-conversation",
+                                "data-sid" => current_user.id, "data-rip" => @guide.id %>
+  <!--Put in form for chat now button.  -->
+  <!--Create chat now button, if @guide.online == "yes"  -->
+  <!--Else, allow to send the guide a message.  -->
+
+  <% end %>
+
+  <% else %>
+  <%= link_to "Chat Now", "#", class: "btn btn-success btn-xs start-conversation",
+                                  "data-sid" => current_user.id, "data-rip" => @guide.id %>
+
+  <!--Put in form for chat now button.  -->
+  <!--Create chat now button, if @guide.online == "yes"  -->
+  <!--Else, allow to send the guide a message.  -->
 
 <% end %>

@@ -18,11 +18,6 @@ require 'yelp'
      @language = params[:language]
      @guides = Guide.all.where(location: @location)
      @language = params[:language]
-    if current_user
-      @guides = Guide.where.not("id = ?",current_user.id).order("created_at DESC")
-      @conversations = Conversation.involving(current_user).order("created_at DESC")
-    end
-
     ##########---------YELP---------##########
     @api_call = Yelp.client.search(@location, { term: 'events', limit: 16 }).businesses
 
@@ -46,7 +41,8 @@ require 'yelp'
 
   def show
     @guide = Guide.find(params[:id])
-    @conversation = Conversation.new
+    @guides = Guide.where.not("id = ?",current_user.id).order("created_at DESC")
+    @conversations = Conversation.involving(current_user).order("created_at DESC")
   end
 
   def edit
