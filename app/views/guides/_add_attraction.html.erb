@@ -1,0 +1,5 @@
+<div class="saved_attraction">
+  <img src="<%= attraction.image_url %>" alt="edit" />
+  <%= attraction.name %>
+  <%= link_to 'Remove', yelps_remove_path(attraction: attraction.name, location: @location), method: :post, id: 'remove_attraction' %>
+</div>

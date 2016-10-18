@@ -24,6 +24,17 @@ ActiveRecord::Schema.define(version: 20161017200810) do
     t.index ["guide_id"], name: "index_available_dates_on_guide_id", using: :btree
   end
 
+  create_table "conversations", force: :cascade do |t|
+    t.string   "sender_type"
+    t.integer  "sender_id"
+    t.string   "recipient_type"
+    t.integer  "recipient_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["recipient_type", "recipient_id"], name: "index_conversations_on_recipient_type_and_recipient_id", using: :btree
+    t.index ["sender_type", "sender_id"], name: "index_conversations_on_sender_type_and_sender_id", using: :btree
+  end
+
   create_table "guides", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -40,10 +51,10 @@ ActiveRecord::Schema.define(version: 20161017200810) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.string   "body"
+    t.string   "content"
+    t.integer  "conversation_id"
     t.string   "messenger_type"
     t.integer  "messenger_id"
-    t.integer  "conversation_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.index ["conversation_id"], name: "index_messages_on_conversation_id", using: :btree
@@ -112,7 +123,6 @@ ActiveRecord::Schema.define(version: 20161017200810) do
   end
 
   add_foreign_key "available_dates", "guides"
-  add_foreign_key "messages", "conversations"
   add_foreign_key "reservations", "guides"
   add_foreign_key "reservations", "travelers"
   add_foreign_key "reviews", "guides"

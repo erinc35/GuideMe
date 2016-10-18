@@ -1,0 +1,13 @@
+<div class="saved_guide guide">
+  <p>
+    <%= link_to guide.first_name + " " + guide.last_name, guide_path(guide, from: @start_date, to: @end_date) %>
+  </p>
+
+  <p>
+    <b> <img src="<%= guide.photo %>"> </b>
+  </p>
+  <p><b>Rating:</b> *****</p>
+  <p><b>Email:</b> <%= guide.email %></p>
+  <p><b>Car Available:</b> <%= guide.has_car %></p>
+  <%= link_to 'Remove', guide_remove_guide_path(guide), method: :post, id: "remove_guide" %>
+</div>
