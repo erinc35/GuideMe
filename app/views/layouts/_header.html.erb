@@ -1,8 +1,11 @@
 <div>
   <ul class="navbar">
     <li><%= link_to 'HOME', root_path %></li>
-    <% if session[:guide_id] || session[:traveler_id] %>
+    <% if session[:guide_id] %>
       <li><%= link_to 'PROFILE', guide_path(session[:guide_id]) %></li>
+      <li><%= link_to 'LOG OUT', sessions_path, method: :delete, data: { confirm: 'Are you sure?'} %></li>
+    <% elsif session[:traveler_id] %>
+      <li><%= link_to 'PROFILE', traveler_path(session[:traveler_id]) %></li>
       <li><%= link_to 'LOG OUT', sessions_path, method: :delete, data: { confirm: 'Are you sure?'} %></li>
     <% else %>
       <li><%= link_to 'SIGN UP',"#", class: "signup-link"  %>
