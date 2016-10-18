@@ -22,8 +22,12 @@
       cursor: pointer;
     }
 
+  .tabs{
+    border-bottom: 1px solid black;
+  }
+
     ul.tabs li.current{
-      background: #ededed;
+      background: #e1e8f4;
       color: black;
     }
 

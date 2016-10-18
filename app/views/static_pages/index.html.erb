@@ -1,4 +1,20 @@
- <style>
+<header class="slide">
+  <script>
+//Array of images which you want to show: Use path you want.
+var images=new Array('bbb.jpg','ddd.jpg','ccc.jpg');
+var nextimage=0;
+doSlideshow();
+
+function doSlideshow(){
+    if(nextimage>=images.length){nextimage=0;}
+    $('.slide')
+    .css('background-image','url("'+images[nextimage++]+'")')
+    .fadeIn(100,function(){
+        setTimeout(doSlideshow,10000);
+    });
+}
+</script>
+ <!-- <style>
   body{
   background-image: url("pichu.jpg");
   background-repeat: no-repeat;
@@ -8,7 +24,7 @@
   background-size: cover;
   background-position: center center;
   }
-</style>
+</style> -->
 <!-- <h1 class="center_h1">GuideMe</h1> -->
 
   <div class="homeform">
@@ -36,6 +52,6 @@
 <div id='city'></div>
 
 
-
+</header>
 <!-- <input id = "city" type="text" name="email" placeholder="Email">
  -->
