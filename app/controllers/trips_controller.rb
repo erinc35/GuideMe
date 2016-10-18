@@ -11,7 +11,9 @@ class TripsController < ApplicationController
   end
 
   def show
-    trips = Trip.all.where(traveler_id: params[:id])
+    @trip = Trip.new(location: params[:location], start_date: params[:start_date], end_date: params[:end_date])
+    @trip.guide = Guide.find_by(email: session["guide"])
+
   end
 
   def edit
