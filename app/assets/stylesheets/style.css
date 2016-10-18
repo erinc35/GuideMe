@@ -6,22 +6,7 @@ body{
   height: 100%;
   font-size: 2em;
 }
-/*.slide{
-  background-image: url('bbb.jpg');
-  z-index: -100;
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-}*/
-/*.sth{
-  background-image: url("valley_aboutus.jpg");
-  background-repeat: no-repeat;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  background-position: center center;
-}*/
+
 .guide {
   display: inline-block;
   border: 1px solid black;
@@ -103,6 +88,7 @@ html,body{
   opacity: 0.9;
   background-color: #5a6370;
 }
+
 .search-form{
   margin-bottom: 15%;
 }
@@ -161,11 +147,29 @@ html,body{
   background-color: #eaecef;
   display: none;
   border-radius: 8px;
-  height: 290px;
-  width:20%;
+  height: 310px;
+  width: 12%;
   opacity: 0.8;
 }
-
+.login-form > *{
+  font-size: 20px;
+}
+.login-via{
+  font-size: 20px;
+}
+.signup-form{
+  /*position: absolute;*/
+  padding-left: 2%;
+  margin: auto;
+  border: 1px solid black;
+  z-index: 999;
+  background-color: #60A5DD;
+  border-radius: 8px;
+  /*height: 310px;*/
+  width: 28%;
+  height: 620px;
+  opacity: 0.8;
+}
 .signup-drop{
   position: absolute;
   background-color: #eaecef;
@@ -175,9 +179,25 @@ html,body{
   width:9%;
   opacity: 0.8;
 }
-
+.signup-but{
+  float: right;
+  border-radius: 8px;
+}
+.buu{
+  width: auto;
+  margin-right: 3%;
+  float: right;
+  border-radius: 8%;
+}
+.signup-atts{
+  margin: 0;
+}
+.signup-group{
+  margin: 0;
+}
 .signup-elements {
-  font-size: 15px;
+  font-size: 20px;
+  margin-left: 7%;
   text-align: left;
   padding-top: 5%;
 
@@ -190,6 +210,9 @@ html,body{
   border-radius: 10px;
   opacity: 0.8;
   background-color: #e9e9e9;
+}
+.aboutus-header{
+  padding-top: 2%;
 }
 /*----------------------------*/
 
@@ -217,6 +240,8 @@ html,body{
 #login-dp .form-group {
     margin-bottom: 10px;
 }
+
+
 .btn-fb{
     color: #fff;
     background-color:#3b5998;
