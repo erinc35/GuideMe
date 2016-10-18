@@ -50,6 +50,17 @@
     </form>
   </div>
 
+    <div class="container">
+      <div class="events">
+        <% @events_call.each do |event| %>
+          <% if session["events"].include?(event.name) %>
+            <%= render partial: 'add_event', locals: { event: event, location: @location } %>
+          <% else %>
+            <%= render partial: 'remove_event', locals: { event: event, location: @location } %>
+          <% end %>
+        <% end %>
+      </div>
+
 
     <div class="container">
       <ul class="tabs">
@@ -58,8 +69,8 @@
         <li class="tab-link" data-tab="tab-3">Tab Three</li>
         <li class="tab-link" data-tab="tab-4">Tab Four</li>
       </ul>
-      
-      
+
+
       <%= render 'events' %>
       <%= render 'restaurants' %>
     </div>
@@ -72,7 +83,12 @@
 
 <div class="row"></div>
 
+<<<<<<< HEAD
+</div>
+</div>
+=======
 
 
 
 
+>>>>>>> 137d1d799710e2f7f05a8effb7ac07814a1d14a7
