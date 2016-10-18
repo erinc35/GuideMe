@@ -4,6 +4,18 @@ require 'unsplash'
 
   include HTTParty
 
+  def add_guide
+    session["guide"] = Guide.find(params[:guide_id]).email
+    if request.xhr?
+      p "%" * 200
+      render partial: 'remove_guide', layout: false, locals: { guide: Guide.find_by(email: session["guide"]) }
+    end
+  end
+
+  def remove_guide
+    session["guide"] = ""
+  end
+
   def index
     @location = params[:location]
     @languages = %w(English Spanish German French Italian Portuguese Japanese Korean Turkish Mandarin Cantonese)
@@ -16,9 +28,12 @@ require 'unsplash'
     @images = HTTParty.get("https://pixabay.com/api/?key=#{ENV['pixabay_api']}&q=#{params[:location].split(",")[0]}+cityscape&image_type=photo")
 
     session["events"] ||= (session["events"] = [])
+    session["guide"] ||= (session["guide"] = "")
 
     @language = params[:language]
-    @guides = Guide.all.where(location: @location, language: @language)
+    # @guides = Guide.all.where(location: @location, language: @language)
+    @guides = Guide.all.where(location: @location)
+
     @unsplash_object = Unsplash::Photo.search(@location)
     @pic = @unsplash_object[0].urls["full"]
 
@@ -28,13 +43,9 @@ require 'unsplash'
 
      @events_call[0].image_url
 
-
      @restaurants_call = Yelp.client.search(@location, { term: 'restaurants', limit: 16 }).businesses
 
      @monuments_call = Yelp.client.search(@location, { term: 'monuments', limit: 16 }).businesses
-
-
-
   end
 
   def new

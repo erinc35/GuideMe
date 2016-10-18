@@ -14,12 +14,20 @@ body{
   background-position: center center;
 }*/
 .guide {
-  background-color: yellow;
+  display: inline-block;
+  border: 1px solid black;
+  margin: 10px;
   float: left;
   opacity: 0.8;
   border-radius: 5px;
   padding: 10px;
 }
+
+.saved_guide {
+  width: 100%;
+  background-color: #98fb98;
+}
+
 .guides-in-header{
   width: auto;
   border: 1px solid white;
