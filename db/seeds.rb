@@ -4,7 +4,7 @@ Traveler.destroy_all
 # Guide.destroy_all
 
 languages = ["English", "Spanish", "German", "French", "Italian", "Portuguese", "Japanese", "Korean", "Turkish", "Mandarin", "Cantonese"]
-locations = ["Chicago", "Tokyo", "San Francisco", "New York", "Istanbul"]
+locations = ["Hong Kong", "Las Vegas", "San Francisco", "New York", "Paris"]
 
 25.times do
 	travelers = Traveler.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: "password", password_confirmation: "password", phone: Faker::PhoneNumber.cell_phone, photo: Faker::Avatar.image("my-own-slug", "50x50"))
