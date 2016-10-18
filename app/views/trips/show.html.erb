@@ -1,2 +1,15 @@
 <h1>Trips#show</h1>
 <p>Find me in app/views/trips/show.html.erb</p>
+<div class="container">
+Guide: <%= @trip.guide.first_name + " " + @trip.guide.last_name %><br>
+Traveler: <%= @trip.traveler.first_name + " " + @trip.traveler.last_name %><br>
+Location: <%= @trip.location %><br>
+Start Date: <%= @trip.start_date %><br>
+End Date: <%= @trip.end_date %><br>
+
+Here are your events:
+
+<% sessions["events"].each do |event| %>
+	<p> <%= event %></p>
+<% end %>
+</div>
