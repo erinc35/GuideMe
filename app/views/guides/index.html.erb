@@ -10,11 +10,29 @@
   }
 </style>
 
-  <h1>Guides in <%= @location %> who speak <%= @language %> </h1>
-  <h3>Dates chosen: <%= @start_date %> - <%= @end_date %></h3>
-
 <div class="guide-page">
-    <form id="search_form" action="/guides" method="get">
+
+
+  <div class="guides-in-header">
+    <h2>Guides in <%= @location %> who speak <%= @language %> </h2>
+    <h3>Dates chosen: <%= @start_date %> - <%= @end_date %></h3>
+  </div>
+    <div class="guides">
+      <% @guides.each do |guide| %>
+        <div class="guide">
+          <p>
+            <b>Guide name:</b> <%= link_to guide.first_name + " " + guide.last_name, guide_path(guide, from: @start_date, to: @end_date) %>
+          </p>
+          <p><b>Email:</b> <%= guide.email %></p>
+          <p><b>Car Available:</b> <%= guide.has_car %></p>
+          <p>
+            <b> <img src="<%= guide.photo %>"> </b>
+          </p>
+        </div>
+      </div>
+    <% end %>
+  <div class="guides-in-header">
+  <form id="search_form" action="/guides" method="get">
 
       <input id="city" class="form-radius" type="text" name="location" placeholder= "Destination City" size="50" value="<%= @full_location %>" required>
       <label for="from">From</label>
@@ -30,32 +48,12 @@
       </select>
       <input id = "guide-search-but" class="form-radius" type="submit" value="Search">
     </form>
-
-    <div class="guides">
-      <% @guides.each do |guide| %>
-        <div class="guide">
-          <p>
-            <b>Guide name:</b> <%= link_to guide.first_name + " " + guide.last_name, guide_path(guide, from: @start_date, to: @end_date) %>
-          </p>
-
-          <p>
-            <b>Email:</b> <%= guide.email %>
-          </p>
-
-          <p>
-            <b>Car Available:</b> <%= guide.has_car %>
-          </p>
-          <p>
-            <b> <img src="<%= guide.photo %>"> </b>
-          </p>
-        </div>
-      </div>
-    <% end %>
+  </div>
 
     <div class="events">
       <% @events_call.each do |event| %>
         <% if session["events"].include?(event.name) %>
-          <%= render partial: 'add_event', locals: { event: event, location: @location } %> 
+          <%= render partial: 'add_event', locals: { event: event, location: @location } %>
         <% else %>
           <%= render partial: 'remove_event', locals: { event: event, location: @location } %>
         <% end %>
@@ -66,15 +64,16 @@
       </div>
     </div>
 
+
   <div id='map'></div>
   <div id='city'></div>
 </div>
 
-<div class="row">
-  <!-- Not implemented on tutorial -->
-
-
+<div class="row"></div>
 
 </div>
-
 </div>
+
+
+
+

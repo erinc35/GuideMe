@@ -18,6 +18,21 @@
   </head>
   <body>
 
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,200' rel='stylesheet' type='text/css'>
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<nav class="social">
+  <ul>
+      <li><a href="http://twitter.com/gian_michelle">Twitter <i class="fa fa-twitter"></i></a></li>
+      <li><a href="http://facebook.com/gian.michelle">Facebook <i class="fa fa-facebook"></i></a></li>
+      <li><a href="http://dribbble.com/gian_michelle">Pinterest <i class="fa fa-pinterest"></i></a></li>
+      <li><a href="http://behance.net">Google-plus <i class="fa fa-google-plus"></i></a></li>
+      <li><a href="http://behance.net">Instagram <i class="fa fa-instagram"></i></a></li>
+
+  </ul>
+</nav>
+
+
     </div>
     <div class="container">
     <% if alert %>
@@ -30,8 +45,7 @@
 
     <%= render partial: "/layouts/header" %>
     <%= yield %>
-    <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['google_api']%>&libraries=places&callback=initMap"
-    async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['google_api']%>&libraries=places&callback=initMap" async defer></script>
 
 
 
