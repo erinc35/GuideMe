@@ -12,7 +12,7 @@
 }
 
 .chatboxhead {
-    background: #666;
+    background: #333;
     color: white;
     padding: 0.5rem;
     overflow: hidden;
@@ -23,7 +23,7 @@
 
 .chatboxhead h1 {
     display: inline;
-    font-size: 17px;
+    font-size: 14px;
     font-weight: 700;
 }
 
@@ -38,11 +38,11 @@
     height: 280px;
     width: 280px;
     overflow-y: auto;
-    padding: 7px;
+    padding: 5px;
     border-left: 1px solid #cccccc;
     border-right: 1px solid #cccccc;
     border-bottom: 1px solid #eeeeee;
-    background: #e5e5e5;
+    background: white;
     line-height: 1.3em;
     list-style: none;
 }
@@ -61,6 +61,8 @@
 .chatboxcontent .avatar img {
     display: block;
     width: 100%;
+    border-radius: 50%;
+
 }
 
 .other .avatar:after {
@@ -81,8 +83,11 @@
 }
 
 .self .chatboxmessagecontent {
+    background: #1E90FF;
+    color: white !important;
     order: 1;
     border-bottom-right-radius: 0;
+    padding: 5px 8px 4px;
 }
 
 .self .avatar {
@@ -103,9 +108,11 @@
 }
 
 .chatboxmessagecontent {
-    background: white;
+    background: #f1f0f0;
+    color: black;
+
     padding: 10px;
-    border-radius: 2px;
+    border-radius: 5px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
@@ -124,7 +131,7 @@
 
 .chatboxmessagecontent time {
     font-size: 9px;
-    color: #ccc;
+    color: black;
 }
 
 .chatboxinput {
@@ -137,7 +144,7 @@
 
 .chatboxtextarea {
     width: 262px;
-    height: 44px;
+    height: 30px;
     padding: 3px 0pt 3px 3px;
     border: 1px solid #eeeeee;
     margin: 1px;
