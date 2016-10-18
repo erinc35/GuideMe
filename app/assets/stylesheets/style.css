@@ -1,5 +1,5 @@
 *{
-  font-family: arial;
+  font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;;
 }
 body{
   padding-top: 0;
@@ -93,9 +93,6 @@ html,body{
   color: #ffffff ;
 }
 
-.form-header{
-  padding-bottom: 5%;
-}
 .form-language{
 /*  position: relative;
 */  line-height: 100px;
