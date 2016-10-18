@@ -24,19 +24,6 @@
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Sue+Ellen+Francisco" rel="stylesheet">
 
-  <nav class="social">
-    <ul>
-      <li><a href="http://twitter.com/gian_michelle">Twitter <i class="fa fa-twitter"></i></a></li>
-      <li><a href="http://facebook.com/gian.michelle">Facebook <i class="fa fa-facebook"></i></a></li>
-      <li><a href="http://dribbble.com/gian_michelle">Pinterest <i class="fa fa-pinterest"></i></a></li>
-      <li><a href="http://behance.net">Google-plus <i class="fa fa-google-plus"></i></a></li>
-      <li><a href="http://behance.net">Instagram <i class="fa fa-instagram"></i></a></li>
-
-    </ul>
-  </nav>
-
-
-
 </div>
 <div class="container">
   <% if alert %>
@@ -56,6 +43,7 @@
 
 <audio id="chatAudio"><source src="/sounds/back_to_the_future.mp3" type="audio/mpeg"></audio>
 </body>
+
 <% if current_user %>
 <script type="text/javascript">
   channel = <%= raw ('"' + '/notifications' + current_user.id.to_s + '"') %>

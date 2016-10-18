@@ -1,28 +1,9 @@
 *{
-  font-family: "Sue Ellen Francisco", cursive;
+  font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;;
 }
-#ui-datepicker-div {
-  height: 16em !important;
-  width: 18em !important;
-} 
-
-.ui-datepicker-calendar {
-  height: 11em !important;
-  width: 8em !important;
-}
-
 body{
   padding-top: 0;
-  height: 100%;
-  font-size: 2em;
 }
-/*.slide{
-  background-image: url('bbb.jpg');
-  z-index: -100;
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-}*/
 /*.sth{
   background-image: url("valley_aboutus.jpg");
   background-repeat: no-repeat;
@@ -92,7 +73,7 @@ html,body{
 }
 
 .homeform{
-  height: 10%;
+  height: 100px;
   width: 70%;
 /*  padding-top: 20px;
 */  /*padding-bottom: 20px;*/
@@ -364,5 +345,4 @@ html,body{
   -o-transform: rotate(0deg);
   transform: rotate(0deg);
 }
-
 
