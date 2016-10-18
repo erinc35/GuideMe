@@ -51,6 +51,7 @@
 
 <audio id="chatAudio"><source src="/sounds/back_to_the_future.mp3" type="audio/mpeg"></audio>
 </body>
+
     <% if current_user %>
     <script type="text/javascript">
         channel = <%= raw ('"' + '/notifications' + current_user.id.to_s + '"') %>

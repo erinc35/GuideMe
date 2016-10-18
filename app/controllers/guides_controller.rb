@@ -45,8 +45,6 @@ require 'unsplash'
 
      @events_call = Yelp.client.search(@location, { term: 'events', limit: 16 }).businesses
 
-     @events_call[0].image_url
-
      @restaurants_call = Yelp.client.search(@location, { term: 'restaurants', limit: 16 }).businesses
 
      @attractions_call = Yelp.client.search(@location, { term: 'attractions', limit: 16 }).businesses
