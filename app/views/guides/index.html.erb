@@ -16,7 +16,7 @@
     <h3>Guides in <%= @location %> who speak <%= @language %> </h3>
     <h4>Dates chosen: <%= @start_date %> - <%= @end_date %></h4>
   </div>
-    
+
   <div class="form-header">
     <form id="search_form" action="/guides" method="get">
 
@@ -36,10 +36,6 @@
     </form>
   </div>
 
-  <div id="map_wrapper">
-    <div id="map_canvas" class="mapping"></div>
-  </div>
-
   <div class="container">
     <ul class="tabs">
       <li class="tab-link current" data-tab="tab-1">Guides</li>
@@ -47,7 +43,7 @@
       <li class="tab-link" data-tab="tab-3">Restaurants</li>
       <li class="tab-link" data-tab="tab-4">Events</li>
     </ul>
-    
+
     <%= render 'guides' %>
     <%= render 'attractions' %>
     <%= render 'events' %>
