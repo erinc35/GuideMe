@@ -1,6 +1,16 @@
 *{
   font-family: "Sue Ellen Francisco", cursive;
 }
+#ui-datepicker-div {
+  height: 16em !important;
+  width: 18em !important;
+} 
+
+.ui-datepicker-calendar {
+  height: 11em !important;
+  width: 8em !important;
+}
+
 body{
   padding-top: 0;
   height: 100%;
@@ -354,4 +364,5 @@ html,body{
   -o-transform: rotate(0deg);
   transform: rotate(0deg);
 }
+
 
