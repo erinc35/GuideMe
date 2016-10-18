@@ -3,7 +3,12 @@ class MailMessagesController < ApplicationController
 
   def create
     receipt = current_user.reply_to_conversation(@mail_conversation, params[:body])
-    redirect_to mail_conversation_path(receipt.conversation)
+    if params[:body] == ""
+      flash[:notice] = "Your reply is empty"
+      redirect_back(fallback_location: root_path)
+    else
+      redirect_to mail_conversation_path(receipt.conversation)
+    end
   end
 
   private
