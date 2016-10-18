@@ -1,0 +1,9 @@
+<div class="container">
+  <h2>Inbox:</h2>
+
+  <% @mailbox_conversations.each do |email| %>
+    <p>
+     <%= link_to email.subject, mail_conversation_path(email) %>
+    </p>
+  <% end %>
+</div>
