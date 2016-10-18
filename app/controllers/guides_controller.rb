@@ -13,7 +13,11 @@ require 'unsplash'
   end
 
   def remove_guide
+    current_guide = Guide.find_by(email: session["guide"])
     session["guide"] = ""
+    if request.xhr?
+      render partial: 'add_guide', layout: false, locals: { guide: Guide.find(current_guide.id) }
+    end
   end
 
   def index
@@ -45,7 +49,7 @@ require 'unsplash'
 
      @restaurants_call = Yelp.client.search(@location, { term: 'restaurants', limit: 16 }).businesses
 
-     @monuments_call = Yelp.client.search(@location, { term: 'monuments', limit: 16 }).businesses
+     @attractions_call = Yelp.client.search(@location, { term: 'attractions', limit: 16 }).businesses
   end
 
   def new
