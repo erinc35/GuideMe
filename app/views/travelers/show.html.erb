@@ -8,3 +8,35 @@
   <%= submit_tag "Search", :name => nil %>
 </p>
 <% end %>
+
+<% if current_user.class == Traveler %>
+  <% @traveler = Traveler.find(params[:id]) %>
+  <% if @traveler.id == current_user.id %>
+        <h3>Your Conversations</h3>
+
+      <div style="height: 400px; overflow-y: auto;">
+        <% if @conversations.any? %>
+            <ul class="media-list">
+              <% @conversations.each do |conversation| %>
+                  <li class="media">
+                    <%= image_tag("http://placehold.it/50x50", class: "media-object pull-left") %>
+                    <div class="media-body">
+                      <%= link_to "", conversation_path(conversation), class: "conversation", "data-cid" => conversation.id %>
+                          <h4 class="media-heading"><%= conversation_interlocutor(conversation).first_name %></h4>
+                          <p><%= conversation.messages.last.nil? ? "No messages" : truncate(conversation.messages.last.content, length: 45) %></p>
+                    </div>
+                  </li>
+
+              <% end %>
+            </ul>
+
+            <% else %>
+            <h2>You haven't talked to anyone yet, go talk to one of our guides!</h2>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>
+<% end %>
+<% end %>
