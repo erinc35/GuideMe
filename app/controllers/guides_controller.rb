@@ -1,8 +1,24 @@
 class GuidesController < ApplicationController
-require 'yelp'
-require 'unsplash'
+  require 'yelp'
+  require 'unsplash'
 
   include HTTParty
+
+  def add_guide
+    session["guide"] = Guide.find(params[:guide_id]).email
+    if request.xhr?
+      p "%" * 200
+      render partial: 'remove_guide', layout: false, locals: { guide: Guide.find_by(email: session["guide"]) }
+    end
+  end
+
+  def remove_guide
+    current_guide = Guide.find_by(email: session["guide"])
+    session["guide"] = ""
+    if request.xhr?
+      render partial: 'add_guide', layout: false, locals: { guide: Guide.find(current_guide.id) }
+    end
+  end
 
   def index
     @location = params[:location]
@@ -16,23 +32,24 @@ require 'unsplash'
     @images = HTTParty.get("https://pixabay.com/api/?key=#{ENV['pixabay_api']}&q=#{params[:location].split(",")[0]}+cityscape&image_type=photo")
 
     session["events"] ||= (session["events"] = [])
+    session["guide"] ||= (session["guide"] = "")
 
     @language = params[:language]
-    @guides = Guide.all.where(location: @location, language: @language)
+    # @guides = Guide.all.where(location: @location, language: @language)
+    @guides = Guide.all.where(location: @location)
+
     @unsplash_object = Unsplash::Photo.search(@location)
     @pic = @unsplash_object[0].urls["full"]
 
     ##########---------YELP---------##########
 
-     @events_call = Yelp.client.search(@location, { term: 'events', limit: 16 }).businesses
+    @events_call = Yelp.client.search(@location, { term: 'events', limit: 16 }).businesses
 
-     @events_call[0].image_url
+    @events_call[0].image_url
 
+    @restaurants_call = Yelp.client.search(@location, { term: 'restaurants', limit: 16 }).businesses
 
-     @restaurants_call = Yelp.client.search(@location, { term: 'restaurants', limit: 16 }).businesses
-
-     @monuments_call = Yelp.client.search(@location, { term: 'monuments', limit: 16 }).businesses
-
+    @attractions_call = Yelp.client.search(@location, { term: 'attractions', limit: 16 }).businesses
   end
 
   def new
@@ -53,8 +70,10 @@ require 'unsplash'
 
   def show
     @guide = Guide.find(params[:id])
-    @guides = Guide.where.not("id = ?",current_user.id).order("created_at DESC")
-    @conversations = Conversation.involving(current_user).order("created_at DESC")
+    if current_user
+      @guides = Guide.where.not("id = ?",current_user.id).order("created_at DESC")
+      @conversations = Conversation.involving(current_user).order("created_at DESC")
+    end
   end
 
   def edit
