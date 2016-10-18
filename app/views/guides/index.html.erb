@@ -53,7 +53,7 @@
       <div class="events">
         <% @events_call.each do |event| %>
           <% if session["events"].include?(event.name) %>
-            <%= render partial: 'add_event', locals: { event: event, location: @location } %> 
+            <%= render partial: 'add_event', locals: { event: event, location: @location } %>
           <% else %>
             <%= render partial: 'remove_event', locals: { event: event, location: @location } %>
           <% end %>
@@ -75,15 +75,8 @@
   <div id='map'></div>
   <div id='city'></div>
 </div>
-<<<<<<< HEAD
-=======
 
 <div class="row"></div>
 
 </div>
 </div>
-
-
-
-
->>>>>>> f59bab2f597532846aca4da5785a7c2dcf4211e0

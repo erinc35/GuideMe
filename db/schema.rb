@@ -24,13 +24,6 @@ ActiveRecord::Schema.define(version: 20161017200810) do
     t.index ["guide_id"], name: "index_available_dates_on_guide_id", using: :btree
   end
 
-  create_table "conversations", force: :cascade do |t|
-    t.string   "topic"
-    t.string   "slug"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "guides", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
