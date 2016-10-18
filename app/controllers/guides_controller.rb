@@ -17,7 +17,6 @@ require 'unsplash'
 
     session["events"] ||= (session["events"] = [])
 
-    @pic = @images["hits"][0]["webformatURL"]
     @language = params[:language]
     @guides = Guide.all.where(location: @location, language: @language)
     @unsplash_object = Unsplash::Photo.search(@location)
