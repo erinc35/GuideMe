@@ -1,7 +1,29 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
+Traveler.destroy_all
+# Guide.destroy_all
+
+languages = ["English", "Spanish", "German", "French", "Italian", "Portuguese", "Japanese", "Korean", "Turkish", "Mandarin", "Cantonese"]
+locations = ["Chicago", "Tokyo", "San Francisco", "New York", "Istanbul"]
+
+25.times do
+	travelers = Traveler.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: "password", password_confirmation: "password", phone: Faker::PhoneNumber.cell_phone, photo: Faker::Avatar.image("my-own-slug", "50x50"))
+end
+
+75.times do
+	guides = Guide.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: "password", password_confirmation: "password", phone: Faker::PhoneNumber.cell_phone, language: languages.sample, location: locations.sample, has_car: "yes", photo: Faker::Avatar.image("my-own-slug", "50x50"))
+end
+
+50.times do
+	trips = Trip.create(guide_id: rand(1..50), traveler_id: rand(1..50), location: locations.sample)
+end
+
+# 100.times do
+# 	reviews = Review.create(rating:)	
+# end
+
+
+
+
+
+# Traveler.create(first_name: "Bob", last_name: "Bob", email: "Bob@bob.com", password: "password", phone: "1234567")

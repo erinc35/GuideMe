@@ -2,9 +2,9 @@ class Traveler < ApplicationRecord
   has_many :trips
   has_many :reviews
   has_one :guide, through: :trip
-
   has_many :conversations, as: :sender
   has_many :conversations, as: :recipient
+
 
   validates :first_name, presence: true
   validates :last_name, presence: true
