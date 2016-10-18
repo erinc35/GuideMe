@@ -3,17 +3,18 @@ $(document).ready(function() {
   removeEvent();
   addRestaurant();
   removeRestaurant();
+  tabContent();
 })
 
 function addEvent() {
-  $(".events").on('click', '#add_event', function(event) {
-    event.preventDefault;
+  $(".container").on('click', '#add_event', function(event) {
+    event.preventDefault();
     var that = this;
     var saveAction = $(this).attr('href');
     var saveMethod = $(this).attr('data-method');
     var data = $(this).parent().serialize();
     console.log(data);
-
+    // $('.saved_event').css("background-color", "#98FB98")
     $.ajax({
       url: saveAction,
       method: saveMethod,
@@ -21,7 +22,7 @@ function addEvent() {
     })
     .done(function(result) {
       $(that).parent().remove();
-      $('.events').prepend(result);
+      $('.container').children('.events').prepend(result);
       // $('.events').prepend('.saved_event')
     })
   });
@@ -50,8 +51,10 @@ function removeEvent() {
 }
 
 function addRestaurant() {
-  $(".restaurants").on('click', '#add_restaurant', function(event) {
+  $(".container").on('click', '#add_restaurant', function(event) {
     event.preventDefault;
+    console.log("bbbbb")
+    
     var that = this;
     var addAction = $(this).attr('href');
     var addMethod = $(this).attr('data-method');
@@ -66,6 +69,7 @@ function addRestaurant() {
     .done(function(result) {
       $(that).parent().remove();
       $('.restaurants').prepend(result);
+
       // $('.events').prepend('.saved_event')
     })
   });
@@ -92,4 +96,16 @@ function removeRestaurant() {
       // $('.events').prepend('.saved_event')
     })
   });
+}
+
+function tabContent() {
+  $('ul.tabs li').click(function(){
+    var tab_id = $(this).attr('data-tab');
+
+    $('ul.tabs li').removeClass('current');
+    $('.tab-content').removeClass('current');
+
+    $(this).addClass('current');
+    $("#"+tab_id).addClass('current');
+  })
 }
