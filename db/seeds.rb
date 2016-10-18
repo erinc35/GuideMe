@@ -1,9 +1,10 @@
 require 'faker'
 
-Traveler.destroy_all
+# Traveler.destroy_all
 
 languages = ["English", "Spanish", "German", "French", "Italian", "Portuguese", "Japanese", "Korean", "Turkish", "Mandarin", "Cantonese"]
 locations = ["Hong Kong", "Las Vegas", "San Francisco", "New York", "Paris"]
+has_car = ["yes", "no"]
 
 
 25.times do

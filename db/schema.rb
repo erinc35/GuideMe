@@ -176,15 +176,9 @@ ActiveRecord::Schema.define(version: 20161018040827) do
   end
 
   add_foreign_key "available_dates", "guides"
-<<<<<<< HEAD
-=======
   add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id", name: "mb_opt_outs_on_conversations_id"
   add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id", name: "notifications_on_conversation_id"
   add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id", name: "receipts_on_notification_id"
-  add_foreign_key "messages", "conversations"
-  add_foreign_key "messages", "guides"
-  add_foreign_key "messages", "travelers"
->>>>>>> f505678f149ab9155020f16662d25edbb2f41305
   add_foreign_key "reservations", "guides"
   add_foreign_key "reservations", "travelers"
   add_foreign_key "reviews", "guides"
