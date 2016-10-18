@@ -37,7 +37,7 @@ class YelpsController < ApplicationController
     @events_call = Yelp.client.search(@location, { term: 'events', limit: 16 }).businesses
     @restaurants_call = Yelp.client.search(@location, { term: 'restaurants', limit: 16 }).businesses
 
-    if params[:event] || params[:restaurant]
+    if params[:event] || params[:restaurant] || params[:monument]
       yelp_event = @events_call.select { |business| business.name == params[:event]}[0]
       session["events"].delete(params[:event])
       session["events"].delete(params[:restaurant])
@@ -48,8 +48,6 @@ class YelpsController < ApplicationController
         elsif session["events"].include?(params[:restaurant])
           render partial: 'guides/remove_restaurant', layout: false, locals: {event: yelp_restaurant}
         end
-      # else
-      #   session["events"].delete(params[:event])
       end
     end
   end
