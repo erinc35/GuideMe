@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'mailboxer'
 gem 'private_pub'
 gem 'thin'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

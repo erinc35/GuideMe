@@ -4,6 +4,8 @@ $(document).ready(function() {
   addRestaurant();
   removeRestaurant();
   tabContent();
+  addAttraction();
+  removeAttraction();
 })
 
 function addEvent() {
@@ -76,14 +78,12 @@ function addRestaurant() {
 }
 
 function removeRestaurant() {
-  $(".restaurants").on('click', '#remove_restaurant', function(event) {
+  $(".container").on('click', '#remove_restaurant', function(event) {
     event.preventDefault;
     var that = this;
     var removeAction = $(this).attr('href');
     var removeMethod = $(this).attr('data-method');
     var data = $(this).parent().serialize();
-    console.log(data);
-    console.log("fidsjfadfjsaf");
 
     $.ajax({
       url: removeAction,
@@ -108,4 +108,49 @@ function tabContent() {
     $(this).addClass('current');
     $("#"+tab_id).addClass('current');
   })
+}
+
+function addAttraction() {
+  $(".container").on('click', '#add_attraction', function(event) {
+    event.preventDefault;
+    
+    var that = this;
+    var addAction = $(this).attr('href');
+    var addMethod = $(this).attr('data-method');
+    var data = $(this).parent().serialize();
+
+    $.ajax({
+      url: addAction,
+      method: addMethod,
+      data: data
+    })
+    .done(function(result) {
+      $(that).parent().remove();
+      $('.attractions').prepend(result);
+      // $('.events').prepend('.saved_event')
+    })
+  });
+}
+
+function removeAttraction() {
+  $(".container").on('click', '#remove_attraction', function(event) {
+    event.preventDefault;
+    var that = this;
+    var removeAction = $(this).attr('href');
+    var removeMethod = $(this).attr('data-method');
+    var data = $(this).parent().serialize();
+    console.log(data);
+    console.log("fidsjfadfjsaf");
+
+    $.ajax({
+      url: removeAction,
+      method: removeMethod,
+      data: data
+    })
+    .done(function(result) {
+      $(that).parent().remove();
+      $('.attractions').append(result);
+      // $('.events').prepend('.saved_event')
+    })
+  });
 }

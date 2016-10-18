@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 
   resources :guides do
 
+    post 'add_guide'
+
+    post 'remove_guide'
+
     resources :reservations
 
     resources :charges
@@ -18,6 +22,10 @@ Rails.application.routes.draw do
 
   end
 
+  resources :mail_conversations do
+    resources :mail_messages
+  end
+
   root 'static_pages#index'
 
   resources :conversations do
@@ -25,7 +33,6 @@ Rails.application.routes.draw do
    end
 
   get 'static_pages/about_us',  as: 'about_us'
-
 
   post '/yelps/remove'
 
