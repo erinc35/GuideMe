@@ -15,28 +15,24 @@ require 'unsplash'
 
     @images = HTTParty.get("https://pixabay.com/api/?key=#{ENV['pixabay_api']}&q=#{params[:location].split(",")[0]}+cityscape&image_type=photo")
 
-   #  @pic = @images["hits"][0]["webformatURL"]
-   session["events"] ||= (session["events"] = [])
-    @language = params[:language]
-    @guides = Guide.all.where(location: @location)
-    @language = params[:language]
+    session["events"] ||= (session["events"] = [])
 
-   ##########---------YELP---------##########
-
+    @language = params[:language]
+    @guides = Guide.all.where(location: @location, language: @language)
     @unsplash_object = Unsplash::Photo.search(@location)
     @pic = @unsplash_object[0].urls["full"]
 
     ##########---------YELP---------##########
-    p "-" * 200
-    p @events_call = Yelp.client.search(@location, { term: 'events', limit: 16 }).businesses
-    p "*" * 200
-    p @events_call[0].image_url
-    p "*" * 200
-    p "-" * 200
-    p @restaurants_call = Yelp.client.search(@location, { term: 'restaurants', limit: 16 }).businesses
-    p "-" * 200
-    p @monuments_call = Yelp.client.search(@location, { term: 'monuments', limit: 16 }).businesses
-    p "-" * 200
+
+     @events_call = Yelp.client.search(@location, { term: 'events', limit: 16 }).businesses
+
+     @events_call[0].image_url
+
+
+     @restaurants_call = Yelp.client.search(@location, { term: 'restaurants', limit: 16 }).businesses
+
+     @monuments_call = Yelp.client.search(@location, { term: 'monuments', limit: 16 }).businesses
+
 
 
   end
@@ -59,7 +55,8 @@ require 'unsplash'
 
   def show
     @guide = Guide.find(params[:id])
-    @conversation = Conversation.new
+    @guides = Guide.where.not("id = ?",current_user.id).order("created_at DESC")
+    @conversations = Conversation.involving(current_user).order("created_at DESC")
   end
 
   def edit

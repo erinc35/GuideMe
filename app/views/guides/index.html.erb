@@ -14,8 +14,8 @@
 
 
   <div class="guides-in-header">
-    <h2>Guides in <%= @location %> who speak <%= @language %> </h2>
-    <h3>Dates chosen: <%= @start_date %> - <%= @end_date %></h3>
+    <h3>Guides in <%= @location %> who speak <%= @language %> </h3>
+    <h4>Dates chosen: <%= @start_date %> - <%= @end_date %></h4>
   </div>
     <div class="guides">
       <% @guides.each do |guide| %>
@@ -31,8 +31,8 @@
         </div>
       </div>
     <% end %>
-  <div class="guides-in-header">
-  <form id="search_form" action="/guides" method="get">
+  <div class="form-header">
+    <form id="search_form" action="/guides" method="get">
 
       <input id="city" class="form-radius" type="text" name="location" placeholder= "Destination City" size="50" value="<%= @full_location %>" required>
       <label for="from">From</label>
@@ -50,29 +50,28 @@
     </form>
   </div>
 
-    <div class="events">
-      <% @events_call.each do |event| %>
-        <% if session["events"].include?(event.name) %>
-          <%= render partial: 'add_event', locals: { event: event, location: @location } %>
-        <% else %>
-          <%= render partial: 'remove_event', locals: { event: event, location: @location } %>
-        <% end %>
-      <% end %>
 
-      <div class="">
-
-      </div>
+    <div class="container">
+      <ul class="tabs">
+        <li class="tab-link current" data-tab="tab-1">Events</li>
+        <li class="tab-link" data-tab="tab-2">Restaurants</li>
+        <li class="tab-link" data-tab="tab-3">Tab Three</li>
+        <li class="tab-link" data-tab="tab-4">Tab Four</li>
+      </ul>
+      
+      
+      <%= render 'events' %>
+      <%= render 'restaurants' %>
     </div>
 
 
-  <div id='map'></div>
-  <div id='city'></div>
+    <div id='map'></div>
+    <div id='city'></div>
+
 </div>
 
 <div class="row"></div>
 
-</div>
-</div>
 
 
 
