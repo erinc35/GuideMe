@@ -1,0 +1,5 @@
+<div class="restaurant">
+  <img src="<%= restaurant.image_url %>" alt="edit" />
+  <%= restaurant.name %>
+  <%= link_to 'Add', yelps_add_path(session[:traveler_id], restaurant: restaurant.name, location: @location), method: :post, id: 'add_restaurant' %>
+</div>
