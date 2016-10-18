@@ -125,7 +125,6 @@ function addAttraction() {
       data: data
     })
     .done(function(result) {
-      console.log(result);
       $(that).parent().remove();
       $('.attractions').prepend(result);
       // $('.events').prepend('.saved_event')
@@ -150,7 +149,7 @@ function removeAttraction() {
     })
     .done(function(result) {
       $(that).parent().remove();
-      $('.container').children('.attractions').append(result);
+      $('.attractions').append(result);
       // $('.events').prepend('.saved_event')
     })
   });

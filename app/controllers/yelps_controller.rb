@@ -43,18 +43,18 @@ class YelpsController < ApplicationController
 
     if params[:event] || params[:restaurant] || params[:attraction]
       yelp_event = @events_call.select { |business| business.name == params[:event]}[0]
-      yelp_restaurant = @events_call.select { |business| business.name == params[:event]}[0]
-      yelp_attraction = @events_call.select { |business| business.name == params[:event]}[0]
-      session["events"].delete(params[:event])
-      session["events"].delete(params[:restaurant])
-      session["events"].delete(params[:attraction])
+      yelp_restaurant = @restaurants_call.select { |restaurant| restaurant.name == params[:restaurant]}[0]
+      yelp_attraction = @attractions_call.select { |attraction| attraction.name == params[:attraction]}[0]
       if request.xhr?
         if session["events"].include?(params[:event])
+          session["events"].delete(params[:event])
           render partial: 'guides/remove_event', layout: false, locals: {event: yelp_event}
         elsif session["events"].include?(params[:restaurant])
-          render partial: 'guides/remove_restaurant', layout: false, locals: {event: yelp_restaurant}
+          session["events"].delete(params[:restaurant])
+          render partial: 'guides/remove_restaurant', layout: false, locals: {restaurant: yelp_restaurant}
         elsif session["events"].include?(params[:attraction])
-          render partial: 'guides/remove_attraction', layout: false, locals: {event: yelp_attraction}
+          session["events"].delete(params[:attraction])
+          render partial: 'guides/remove_attraction', layout: false, locals: {attraction: yelp_attraction}
         end
       end
     end
