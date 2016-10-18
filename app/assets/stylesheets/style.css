@@ -1,5 +1,5 @@
 *{
-  font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;;
+  font-family: "Sue Ellen Francisco";
 }
 body{
   padding-top: 0;
@@ -138,7 +138,7 @@ html,body{
   text-decoration: none;
 }
 
-.navbar > li a:hover:not(.active) {
+.navbar > li > a:hover:not(.active) {
   background-color: #111;
 }
 
@@ -153,8 +153,7 @@ html,body{
   display: none;
   border-radius: 8px;
   height: 290px;
-  width:20%;
-  opacity: 0.8;
+  width:200px;
 }
 
 .signup-drop{
