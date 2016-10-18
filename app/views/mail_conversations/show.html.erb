@@ -1,0 +1,17 @@
+<div class="container">
+  <h2><%= @mailbox_conversation.subject %></h2>
+
+  <% @mailbox_conversation.receipts_for(current_user).each do |receipt| %>
+    <div>
+      <%= receipt.message.body %><br> From: <%= receipt.message.sender.first_name %><br> at:
+      <%= receipt.created_at %>
+    </div>
+  <% end %>
+
+<%= form_tag mail_conversation_mail_messages_path(@mailbox_conversation), method: :post do %>
+  <div>
+    <%= text_area_tag :body %>
+  </div>
+  <%= submit_tag 'Reply'%>
+  <% end %>
+</div>

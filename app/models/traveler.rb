@@ -1,4 +1,6 @@
 class Traveler < ApplicationRecord
+  acts_as_messageable
+
   has_many :trips
   has_many :reviews
   has_one :guide, through: :trip
@@ -14,4 +16,16 @@ class Traveler < ApplicationRecord
   validates :phone, presence: true
 
   has_secure_password
+
+  def name
+    return :first_name
+  end
+
+  def mailboxer_email(object)
+    #Check if an email should be sent for that object
+    #if true
+    return :email
+    #if false
+    #return nil
+  end
 end

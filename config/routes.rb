@@ -22,6 +22,10 @@ Rails.application.routes.draw do
 
   end
 
+  resources :mail_conversations do
+    resources :mail_messages
+  end
+
   root 'static_pages#index'
 
   resources :conversations do
