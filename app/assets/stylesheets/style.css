@@ -90,6 +90,7 @@ html,body{
 }
 
 .navbar{
+  vertical-align: bottom;
   background-color: #5a6370;
   list-style: none;
   text-align: center;
@@ -100,6 +101,7 @@ html,body{
   display: inline-block;
   padding-right: 150px;
   font-size: 20px;
+  margin-top: 2%;
 }
 
 .navbar > li > a{
