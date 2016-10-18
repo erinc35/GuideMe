@@ -1,10 +1,17 @@
 *{
-  font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;;
+  font-family: "Sue Ellen Francisco", cursive;
 }
 body{
   padding-top: 0;
   height: 100%;
 }
+/*.slide{
+  background-image: url('bbb.jpg');
+  z-index: -100;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+}*/
 /*.sth{
   background-image: url("valley_aboutus.jpg");
   background-repeat: no-repeat;
