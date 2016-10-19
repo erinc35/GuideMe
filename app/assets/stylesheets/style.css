@@ -150,6 +150,11 @@ html,body{
   height: 310px;
   width: 250px;
 }
+#traveler{
+  position: absolute;
+  /*z-index: 999;*/
+  display: none;
+}
 .login-form > *{
   font-size: 20px;
 }
@@ -168,6 +173,21 @@ html,body{
   width: 28%;
   height: 620px;
   opacity: 0.8;
+
+}
+.traveler-signup-form{
+  /*position: absolute;*/
+  padding-left: 2%;
+  margin-top: -500px;
+  margin-left: 600px;
+  border: 1px solid black;
+  z-index: 999;
+  background-color: #c7cfdb;
+  border-radius: 8px;
+  /*height: 310px;*/
+ /* width: 28%;
+  height: 620px;*/
+
 
 }
 .signup-drop{
@@ -380,5 +400,22 @@ html,body{
   -ms-transform: rotate(0deg);
   -o-transform: rotate(0deg);
   transform: rotate(0deg);
+}
+.blur   {
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+}
+#overlay    {
+    position: fixed;
+    display: none;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: rgba(255,255,255,.8);
+    z-index: 999;
 }
 

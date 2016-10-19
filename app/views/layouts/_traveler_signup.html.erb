@@ -1,0 +1,21 @@
+<div id="traveler" class="signup-form">
+    <h1>Create Guide Account</h1>
+
+
+    <div class="signup-atts">
+
+      <%= form_for :guide, url: '/guides' do |f| %>
+
+        <div class="signup-group">First name: <%= f.text_field :first_name, class: "buu"%></div><br>
+        <div class="signup-group">Last name: <%= f.text_field :last_name, class: "buu" %></div><br>
+        <div class="signup-group">Email: <%= f.text_field :email, class: "buu" %></div><br>
+        <div class="signup-group">Language: <%= f.text_field :language, class: "buu" %></div><br>
+        <div class="signup-group">Phone: <%= f.text_field :phone, class: "buu" %></div><br>
+        <div class="signup-group">Location: <%= f.text_field :location, class: "buu" %></div><br>
+        <div class="signup-group">Do you have a car? <%= f.text_field :has_car, class: "buu" %></div><br>
+        <div class="signup-group">Password: <%= f.password_field :password , class: "buu"%></div><br>
+        <div class="signup-group">Password Confirmation: <%= f.password_field :password_confirmation , class: "buu"%><br><br>
+        <%= f.submit "Submit", class: "signup-but"%>
+
+    <% end %>
+    </div>

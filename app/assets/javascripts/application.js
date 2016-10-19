@@ -17,3 +17,4 @@
 //= require jquery-ui
 // app/assets/javascripts/application.js
 //= require private_pub
+
