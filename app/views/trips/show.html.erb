@@ -1,15 +1,15 @@
-<h1>Trips#show</h1>
-<p>Find me in app/views/trips/show.html.erb</p>
+<center><h1 text-align:"center"><%= @trip.guide.first_name + " " + @trip.guide.last_name %><br></h1></center>
+
 <div class="container">
-Guide: <%= @trip.guide.first_name + " " + @trip.guide.last_name %><br>
-Traveler: <%= @trip.traveler.first_name + " " + @trip.traveler.last_name %><br>
-Location: <%= @trip.location %><br>
-Start Date: <%= @trip.start_date %><br>
-End Date: <%= @trip.end_date %><br>
+  Guide: <%= @trip.guide.first_name + " " + @trip.guide.last_name %><br>
+  Traveler: <%= @traveler.first_name + " " + @traveler.last_name %><br>
+  Location: <%= @trip.location %><br>
+  Start Date: <%= @trip.start_date %><br>
+  End Date: <%= @trip.end_date %><br>
 
-Here are your events:
+  <h2>Here are your events:</h2>
 
-<% sessions["events"].each do |event| %>
-	<p> <%= event %></p>
-<% end %>
+  <% session["events"].each do |event| %>
+  	<p> <%= event %></p>
+  <% end %>
 </div>
