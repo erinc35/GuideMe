@@ -1,16 +1,2 @@
 <%= render 'sidebar' %>
-
-
-<div class="container">
-
-  <% @mailbox_conversations.each do |email| %>
-    <p>
-     <%= link_to email.subject, mail_conversation_path(email) %>
-    </p>
-  <% end %>
-  <div>
-    <p>
-
-    </p>
-  </div>
-</div>
+<%= render 'inbox' %>

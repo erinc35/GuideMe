@@ -1,0 +1,44 @@
+
+.sideMailBar ul li {
+  list-style: none;
+}
+
+.sideMailBar ul li a{
+  text-decoration: none;
+}
+
+.sideMailBar ul li a:hover {
+
+}
+
+.btn-danger {
+  width: 130px;
+}
+
+.btn-danger a{
+  color: white;
+}
+
+.btn-success {
+  width: 100px;
+}
+
+.btn-success a {
+  color: white;
+}
+
+.btn-warning {
+  width: 100px;
+}
+
+.btn-warning a {
+  color: white;
+}
+
+.btn-primary {
+  width: 100px;
+}
+
+.btn-primary a {
+  color: white;
+}

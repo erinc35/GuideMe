@@ -1,8 +1,14 @@
 <div class="sideMailBar">
   <ul>
-    <li class="ComposeButton"><%= button_to "Compose", new_mail_conversation_path, class: "", style: "color: ", method: :get %></li>
-    <li><%= link_to "Inbox(#{current_user.mailbox.inbox.count})", mail_conversations_path %></li>
-    <li><%= link_to "Outbox(#{current_user.mailbox.sentbox.count})",mail_conversations_outbox_path %></li>
-    <li><%= link_to "Trash(#{current_user.mailbox.trash.count})", mail_conversations_trash_path %></li>
+    <li class="btn btn-danger"><%= link_to "Compose", new_mail_conversation_path, method: :get %></li>
+    <br>
+    <br>
+    <li class="btn btn-primary"><%= link_to "Inbox(#{current_user.mailbox.inbox.count})", mail_conversations_path %></li>
+    <br>
+    <br>
+    <li class= "btn btn-success"><%= link_to "Outbox(#{current_user.mailbox.sentbox.count})",mail_conversations_outbox_path %></li>
+    <br>
+    <br>
+    <li class="btn btn-warning"><%= link_to "Trash(#{current_user.mailbox.trash.count})", mail_conversations_trash_path %></li>
   </ul>
 </div>
