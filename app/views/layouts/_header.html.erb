@@ -9,6 +9,7 @@
     <% elsif session[:traveler_id] %>
       <li><%= link_to 'PROFILE', traveler_path(session[:traveler_id]) %></li>
       <li><%= link_to 'INBOX', mail_conversations_path %></li>
+      <li><%= link_to 'TRIPS', trips_path %></li>
       <li><%= link_to 'LOG OUT', sessions_path, method: :delete, data: { confirm: 'Are you sure?'} %></li>
     <% else %>
       <li><%= link_to 'SIGN UP',"#", class: "signup-link"  %>
