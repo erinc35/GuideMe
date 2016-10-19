@@ -67,8 +67,8 @@ class GuidesController < ApplicationController
   end
 
   def show
-    if current_user.class != Guide
-      @guide = Guide.find(params[:id])
+    @guide = Guide.find(params[:id])
+    if current_user.class == Guide
       if current_user.id == @guide.id
         @conversations = Conversation.involving(current_user).order("created_at DESC")
       end
