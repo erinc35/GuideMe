@@ -2,8 +2,6 @@ Rails.application.routes.draw do
 
   resources :trips
   
-  get '/trips/checkout'
-
   resource :sessions
 
   resources :guides do
@@ -17,6 +15,8 @@ Rails.application.routes.draw do
   end
 
   resources :travelers do
+
+    get 'checkout'
 
     resources :charges
 
