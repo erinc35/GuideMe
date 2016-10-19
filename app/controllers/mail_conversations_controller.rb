@@ -1,7 +1,7 @@
 class MailConversationsController < ApplicationController
 
   def index
-    @mailbox_conversations = current_user.mailbox.conversations
+    @mailbox_conversations = current_user.mailbox.inbox
   end
 
   def new
