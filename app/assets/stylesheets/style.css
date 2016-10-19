@@ -10,6 +10,18 @@ body{
 
 }
 
+.modal-content{
+
+      background-image: url("traveler.jpg");
+      background-repeat: no-repeat;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      background-position: center center;
+
+}
+
 .guide {
   display: inline-block;
   border: 1px solid black;
@@ -198,6 +210,7 @@ html,body{
   height: 70px;
   width:9%;
   z-index: 100;
+  overflow: auto;
 }
 .signup-but{
   margin-left: 2%;
