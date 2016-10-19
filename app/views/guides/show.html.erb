@@ -47,17 +47,8 @@
 <% end %>
 
 <% else %>
- <%= p "im here" %>
- <% if @guide.online == "yes" %>
    <%= link_to "Chat Now", "#", class: "btn btn-success btn-xs start-conversation",
    "data-sid" => current_user.id, "data-rip" => @guide.id %>
- <% else %>
-   <%= link_to "Send A Message", new_mail_conversation_path %>
- <% end %>
-
-<!--Put in form for chat now button.  -->
-<!--Create chat now button, if @guide.online == "yes"  -->
-<!--Else, allow to send the guide a message.  -->
 
 <% end %>
 
