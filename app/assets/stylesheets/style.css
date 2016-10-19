@@ -1,12 +1,15 @@
-*{
-  font-family: "Sue Ellen Francisco", cursive;
+/**{
+  font-family: "Sue Ellen Francisco";
+}*/
+
+.navbar {
+  font-family: "Sue Ellen Francisco";
+  font-size: 1.5em;
 }
 
-#ui-datepicker-div{
-  width: 25em !important;
-}
 body{
   padding-top: 0;
+<<<<<<< HEAD
 
 }
 
@@ -20,6 +23,11 @@ body{
       background-size: cover;
       background-position: center center;
 
+
+}
+
+.checkout {
+  padding: 10px;
 }
 
 .guide {
@@ -95,6 +103,7 @@ html,body{
   opacity: 0.8;
   background-color: #e9e9e9;
 }
+
 .search-form{
   margin-bottom: 15%;
 }
@@ -161,6 +170,7 @@ html,body{
   border-radius: 8px;
   height: 310px;
   width: 250px;
+
 }
 #traveler{
   position: absolute;
@@ -170,6 +180,7 @@ html,body{
 .login-form > *{
   font-size: 20px;
 }
+
 .login-via{
   font-size: 20px;
 }
@@ -419,6 +430,7 @@ html,body{
   -o-transform: rotate(0deg);
   transform: rotate(0deg);
 }
+
 .blur   {
     filter: blur(5px);
     -webkit-filter: blur(5px);
