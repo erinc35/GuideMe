@@ -7,40 +7,40 @@
 <% end %>
 
 <% if current_user.class == Guide %>
-<% @guide = Guide.find(params[:id]) %>
-<% if @guide.id == current_user.id %>
-<%= render "partials/available_dates" %>
+  <% @guide = Guide.find(params[:id]) %>
+  <% if @guide.id == current_user.id %>
+    <%= render "partials/available_dates" %>
+    <div class="chatbar pull-right">
+      <% if @conversations.any? %>
+        <ul class="media-list">
+          <% @conversations.each do |conversation| %>
+          <li class="media">
+            <div class="chatbarphoto">
+              <img src="<%= conversation_interlocutor(conversation).photo %>">
+            </div>
+            <div class="media-body">
+              <%= link_to "", conversation_path(conversation), class: "conversation", "data-cid" => conversation.id %>
+              <h4 class="media-heading" style=""><%= conversation_interlocutor(conversation).first_name %></h4>
+              <% if conversation_interlocutor(conversation).online == "yes" %>
+                <i class='fa fa-asterisk' style="color:green"></i>
+              <% end %>
+            </div>
+          </li>
 
-<h3>Your Conversations</h3>
-
-<div style="height: 400px; overflow-y: auto;">
-  <% if @conversations.any? %>
-  <ul class="media-list">
-    <% @conversations.each do |conversation| %>
-    <li class="media">
-      <%= image_tag("http://placehold.it/50x50", class: "media-object pull-left") %>
-      <div class="media-body">
-        <%= link_to "", conversation_path(conversation), class: "conversation", "data-cid" => conversation.id %>
-        <h4 class="media-heading"><%= conversation_interlocutor(conversation).first_name %></h4>
-        <p><%= conversation.messages.last.nil? ? "No messages" : truncate(conversation.messages.last.content, length: 45) %></p>
-      </div>
-    </li>
-
-    <% end %>
-  </ul>
-  <% end %>
+          <% end %>
+        </ul>
+      <% end %>
 </div>
 </div>
 <div class="col-md-4">
 </div>
 </div>
-
-<% else %>
-<%= link_to "Chat Now", "#", class: "btn btn-success btn-xs start-conversation",
-"data-sid" => current_user.id, "data-rip" => @guide.id %>
-<!--Put in form for chat now button.  -->
-<!--Create chat now button, if @guide.online == "yes"  -->
-<!--Else, allow to send the guide a message.  -->
+  <% else %>
+  <%= link_to "Chat Now", "#", class: "btn btn-success btn-xs start-conversation",
+  "data-sid" => current_user.id, "data-rip" => @guide.id %>
+  <!--Put in form for chat now button.  -->
+  <!--Create chat now button, if @guide.online == "yes"  -->
+  <!--Else, allow to send the guide a message.  -->
 
 <% end %>
 
