@@ -36,7 +36,17 @@ class GuidesController < ApplicationController
 
     @language = params[:language]
     # @guides = Guide.all.where(location: @location, language: @language)
-    @guides = Guide.all.where(location: @location)
+    @potential_guides = Guide.all.where(location: @location)
+    @potential_guides.each do |guide|
+      logged_trips = guide.trips
+      p "bitch" * 50
+      p logged_trips
+      logged_trips.each do |trip|
+        if trip.end_date < params[:start_date]
+          @guides << trip.guide
+        end
+      end
+    end
 
     @unsplash_object = Unsplash::Photo.search(@location)
     @pic = @unsplash_object[0].urls["full"]
