@@ -1,6 +1,7 @@
 <div>
   <ul class="navbar">
     <li><%= link_to 'HOME', root_path %></li>
+
     <% if session[:guide_id] %>
       <li><%= link_to 'PROFILE', guide_path(session[:guide_id]) %></li>
       <li><%= link_to 'INBOX', mail_conversations_path %></li>
@@ -11,11 +12,13 @@
       <li><%= link_to 'LOG OUT', sessions_path, method: :delete, data: { confirm: 'Are you sure?'} %></li>
     <% else %>
       <li><%= link_to 'SIGN UP',"#", class: "signup-link"  %>
+
         <%= render partial: "/layouts/signup" %></li>
-      <li><%= link_to 'LOGIN', new_sessions_path, class: "login-link" %>
+    <li><%= link_to 'LOGIN', new_sessions_path, class: "login-link" %>
+
         <%= render partial: "/sessions/login_form"%></li>
     <% end %>
     <li><%= link_to 'ABOUT US', about_us_path%></li>
   </ul>
 
-</div>
+</div><br>

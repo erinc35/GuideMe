@@ -4,7 +4,11 @@
 }
 
 .media:hover {
-  color: #333;
+  color: green;
+}
+
+.fa:hover {
+  color:green;
 }
 
  .chatbar {

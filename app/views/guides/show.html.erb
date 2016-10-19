@@ -1,8 +1,9 @@
 <h1>Guides#show</h1>
 <p>Find me in app/views/guides/show.html.erb</p>
 
+<% if current_user %>
 <% if current_user.class != Guide %>
-  <p><a href="/guides/<%= @guide.id %>/charges/new">Charge</a></p>
+<p><a href="/guides/<%= @guide.id %>/charges/new">Charge</a></p>
 <% end %>
 
 <% if current_user.class == Guide %>
@@ -41,14 +42,16 @@
   <!--Create chat now button, if @guide.online == "yes"  -->
   <!--Else, allow to send the guide a message.  -->
 
-  <% end %>
+<% end %>
 
 <% else %>
-  <%= link_to "Chat Now", "#", class: "btn btn-success btn-xs start-conversation",
-  "data-sid" => current_user.id, "data-rip" => @guide.id %>
+<%= link_to "Chat Now", "#", class: "btn btn-success btn-xs start-conversation",
+"data-sid" => current_user.id, "data-rip" => @guide.id %>
 
-  <!--Put in form for chat now button.  -->
-  <!--Create chat now button, if @guide.online == "yes"  -->
-  <!--Else, allow to send the guide a message.  -->
+<!--Put in form for chat now button.  -->
+<!--Create chat now button, if @guide.online == "yes"  -->
+<!--Else, allow to send the guide a message.  -->
+
+<% end %>
 
 <% end %>
