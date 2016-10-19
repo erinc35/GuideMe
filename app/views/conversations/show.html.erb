@@ -1,7 +1,11 @@
 <div class="chatboxhead">
   <div class="chatboxtitle">
 
-    <h1><%= @reciever.first_name %> </h1>
+    <% if @reciever.online == "yes"%>
+      <h1><%= @reciever.first_name %><i class='fa fa-asterisk' style="color:green"></i></h1>
+    <% else %>
+      <h1><%= @reciever.first_name %></h1>
+    <% end %>
   </div>
   <div class="chatboxoptions">
     <%= link_to "<i class='fa  fa-minus'></i> ".html_safe, "#", class: "toggleChatBox", "data-cid" => @conversation.id %>
