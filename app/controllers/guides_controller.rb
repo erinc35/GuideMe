@@ -36,6 +36,7 @@ class GuidesController < ApplicationController
 
     @language = params[:language]
     @guides = Guide.all.where(location: @location)
+<<<<<<< HEAD
     @guides_array = []
     p "*" * 50
     p params
