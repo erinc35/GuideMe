@@ -5,12 +5,15 @@ class MailConversationsController < ApplicationController
   end
 
   def inbox
+    @mailbox_conversations = current_user.mailbox.conversations
   end
 
   def outbox
+    @mailbox_conversations = current_user.mailbox.sentbox
   end
 
-  def trashcan
+  def trash
+    @mailbox_conversations = current_user.mailbox.trash
   end
 
   def new
