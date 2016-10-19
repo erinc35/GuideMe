@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :trips do
-
-    get 'checkout'
-    
-  end
+  resources :trips
+  
+  get '/trips/checkout'
 
   resource :sessions
 
