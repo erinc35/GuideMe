@@ -16,10 +16,14 @@
 <% end %>
 
 <% if current_user.class == Traveler %>
+<%= p "here" %>
   <% @traveler = Traveler.find(params[:id]) %>
+  <%= p "here again" %>
   <% if @traveler.id == current_user.id %>
+  <%= p "still here!!!" %>
       <div class="chatbar pull-right">
         <% if @conversations.any? %>
+          <%= p "we got some convos" %>
             <ul class="media-list">
               <% @conversations.each do |conversation| %>
                   <li class="media">
