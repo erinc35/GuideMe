@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :trips do
 
     get 'checkout'
-    
+
   end
 
   resource :sessions
@@ -25,6 +25,10 @@ Rails.application.routes.draw do
     resources :reservations
 
   end
+
+  get 'mail_conversations/inbox'
+  get 'mail_conversations/trash'
+  get 'mail_conversations/outbox'
 
   resources :mail_conversations do
     resources :mail_messages
