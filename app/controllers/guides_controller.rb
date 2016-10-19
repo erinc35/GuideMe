@@ -36,7 +36,6 @@ class GuidesController < ApplicationController
 
     @language = params[:language]
     @guides = Guide.all.where(location: @location)
-<<<<<<< HEAD
     @guides_array = []
     p "*" * 50
     p params
@@ -85,7 +84,7 @@ class GuidesController < ApplicationController
   end
 
   def show
-    guide = Guide.find(params[:id])
+    @guide = Guide.find(params[:id])
     if current_user && current_user.class == Guide
       if current_user.id == @guide.id
         @conversations = Conversation.involving(current_user).order("created_at DESC")

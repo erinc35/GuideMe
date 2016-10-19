@@ -5,6 +5,9 @@ require 'faker'
 languages = ["English", "Spanish", "German", "French", "Italian", "Portuguese", "Japanese", "Korean", "Turkish", "Mandarin", "Cantonese"]
 locations = ["Hong Kong", "Las Vegas", "San Francisco", "New York", "Paris"]
 has_car = ["yes", "no"]
+comments = ["Was a great guide", "Very pleasant experience", "Had a great time"]
+start_dates = [2016-01-10 00:00:00, 2016-15-10 00:00:00]
+end_dates = [2016-20-10 00:00:00, 2016-25-10 00:00:00]
 
 
 25.times do
@@ -16,5 +19,9 @@ end
 end
 
 50.times do
-	trips = Trip.create(guide_id: rand(1..50), traveler_id: rand(1..50), location: locations.sample)
+	trips = Trip.create(guide_id: rand(1..50), traveler_id: rand(1..50), location: locations.sample, start_date: start_dates.sample, end_date: end_dates.sample)
+end
+
+100.times do
+	reviews = Review.create(rating: rand(1..5), comment: comments.sample, guide_id: rand(1..50), traveler_id: rand(1..50))
 end
