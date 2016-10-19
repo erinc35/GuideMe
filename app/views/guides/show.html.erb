@@ -13,7 +13,7 @@
 
     <%= render "partials/available_dates" %>
     <div class="chatbar pull-right">
-      <% if @conversations.any? %>
+      <% if @conversations != nil %>
         <ul class="media-list">
           <% @conversations.each do |conversation| %>
           <li class="media">
