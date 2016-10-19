@@ -5,6 +5,7 @@ $(document).ready(function() {
 function signupPop(){
   $("#signup").on("click", function(event){
     event.preventDefault();
+    $(".modal-content").css("background-image", url("pichu.jpg"))
     // var containerElement = document.getElementById('main_container');
     //   $("#traveler").css("display", "block");
 

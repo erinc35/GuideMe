@@ -212,9 +212,11 @@ html,body{
   border-radius: 8%;
 }
 .signup-atts{
+  padding-top: 5%;
   margin: 0;
 }
 .signup-group{
+  font-size: 25px;
   margin: 0;
 }
 .signup-elements {
@@ -223,6 +225,9 @@ html,body{
   text-align: left;
   padding-top: 5%;
 
+}
+.text-center{
+  text-align: center;
 }
 .aboutus-text{
   height: 70%;
