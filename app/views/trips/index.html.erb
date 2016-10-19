@@ -1,4 +1,20 @@
 <div class="container">
   <h1>Trips</h1>
+    <% if @trips.length == 0 %>
+      <p>You haven't booked any trips yet!</p>
+      <p><%= link_to 'Book a Trip!', root_path %></p>
+    <% end %>
 
+    <% @trips.each do |trip| %>
+      <div>
+        <p>
+          <%= trip.interests %>
+        </p>
+        <p>
+          <%= link_to 'show', trip_path(session[:traveler_id], guide_id: trip.guide_id) %>
+        </p>
+      </div>
+    <% end %>
+
+</div>
 
