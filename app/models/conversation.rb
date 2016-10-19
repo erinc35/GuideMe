@@ -5,7 +5,7 @@ belongs_to :sender, polymorphic: true
 belongs_to :recipient, polymorphic: true
 
 scope :involving, -> (user) do
-  where("conversations.sender_id =? OR conversations.recipient_id =?",user.id,user.id)
+  where("conversations.sender_id =? AND conversations.sender_type =? OR conversations.recipient_id =? AND conversations.recipient_type =?",user.id, user.class, user.id, user.class)
 end
 
 scope :between, -> (sender_id, sender_type, recipient_type, recipient_id) do

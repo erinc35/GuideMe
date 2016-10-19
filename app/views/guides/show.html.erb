@@ -47,9 +47,12 @@
 <% end %>
 
 <% else %>
-   <%= link_to "Chat Now", "#", class: "btn btn-success btn-xs start-conversation",
-   "data-sid" => current_user.id, "data-rip" => @guide.id %>
-
+  <% if @guide.online == "yes" %>
+    <%= link_to "Chat Now", "#", class: "btn btn-success btn-xs start-conversation",
+    "data-sid" => current_user.id, "data-rip" => @guide.id %>
+  <% else %>
+    <%= link_to "Send A Message", new_mail_conversation_path %>
+  <% end %>
 <% end %>
 
 <% end %>

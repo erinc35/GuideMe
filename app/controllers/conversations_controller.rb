@@ -19,12 +19,7 @@ class ConversationsController < ApplicationController
         @conversation.sender_id = current_user.id
         @conversation.sender_type = current_user.class
 
-        # Logic will need to go here:
-        #Logc for recipient not being a guide, only starts with regards to conversations.
-        #Guides do not start conversations with users, so the logic is not needed.
         @conversation.recipient_type = recipient_type
-        p @conversation
-        p @conversation.valid?
         @conversation.save
       end
       render json: { conversation_id: @conversation.id }

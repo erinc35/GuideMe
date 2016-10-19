@@ -70,7 +70,7 @@ class GuidesController < ApplicationController
     if current_user.class != Guide
       @guide = Guide.find(params[:id])
       if current_user.id == @guide.id
-        @conversations = @guide.conversations
+        @conversations = Conversation.involving(current_user).order("created_at DESC")
       end
     end
   end

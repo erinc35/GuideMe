@@ -24,9 +24,7 @@ class TravelersController < ApplicationController
 
   def show
     @traveler = Traveler.find(params[:id])
-    p "here..."
-    @conversations = @traveler.conversations
-    p @conversations
+    @conversations = Conversation.involving(current_user).order("created_at DESC")
     @trips = Trip.all.where(traveler_id: params[:id])
   end
 
