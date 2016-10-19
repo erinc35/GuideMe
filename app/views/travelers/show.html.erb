@@ -22,9 +22,11 @@
                     </div>
                     <div class="media-body">
                       <%= link_to "", conversation_path(conversation), class: "conversation", "data-cid" => conversation.id %>
-                          <h4 class="media-heading"><%= conversation_interlocutor(conversation).first_name %></h4>
-                          <p><%= conversation.messages.last.nil? ? "No messages" : truncate(conversation.messages.last.content, length: 45) %></p>
-                    </div>
+                      <h4 class="media-heading"><%= conversation_interlocutor(conversation).first_name %></h4>
+                        <% if conversation_interlocutor(conversation).online == "yes" %>
+                          <i class='fa fa-asterisk' style="color:green"></i>
+                        <% end %>
+                        </div>
                   </li>
 
               <% end %>
