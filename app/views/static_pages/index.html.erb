@@ -11,37 +11,39 @@
         .fadeIn(100,function(){
           setTimeout(doSlideshow,10000);
         });
-      }
-    </script>
-    <style>
-      border-style: {
-        /*background-image: url("pichu.jpg");*/
-        background-repeat: no-repeat;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-        background-position: center center;
-      }
-    </style>
-    <!-- <h1 class="center_h1">GuideMe</h1> -->
 
-    <%= render 'social_media' %>
+    }
+  </script>
+ <style>
+    border-style: {
+    /*background-image: url("pichu.jpg");*/
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center center;
+    }
+</style>
+<!-- <h1 class="center_h1">GuideMe</h1> -->
 
-    <div class="homeform">
-      <h3 class="form-header">LET'S FIND A GUIDE..</h3>
-      <div class="search-form">
-        <form id="search_form" action="/guides" method="get">
+  <%= render 'social_media' %>
 
-          <input id="city" class="form-radius" type="text" name="location" placeholder= "Destination City" size="50" required>
-          <label for="from">From</label>
-          <input type="text" class="form-radius" id="from" name="from">
-          <label for="to">to</label>
-          <input type="text" class="form-radius" id="to" name="to">
+  <div class="homeform">
+    <h3 class="form-header">LET'S FIND A GUIDE..</h3>
+    <div class="search-form">
+      <form id="search_form" action="/guides" method="get">
 
-          <select class="form-language" name='language' required>
-            <option value="" default selected>Language</option>
-            <% @languages.each do |language| %>
+        <input id="city" class="form-radius" type="text" name="location" placeholder= "Destination City" size="50" required>
+        <label for="from">From</label>
+        <input type="text" class="form-radius" id="from" name="from">
+        <label for="to">to</label>
+        <input type="text" class="form-radius" id="to" name="to">
+
+         <select class="form-language" name='language' required>
+          <option value="" default selected>Language</option>
+          <% @languages.each do |language| %>
+
             <option value=<%= language %>><%= language %></option>
             <% end %>
           </select>
