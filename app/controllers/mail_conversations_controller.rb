@@ -4,6 +4,15 @@ class MailConversationsController < ApplicationController
     @mailbox_conversations = current_user.mailbox.conversations
   end
 
+  def inbox
+  end
+
+  def outbox
+  end
+
+  def trashcan
+  end
+
   def new
     @recipients = Guide.where.not("id = ?", current_user.id)
   end
