@@ -26,7 +26,6 @@ Rails.application.routes.draw do
 
   end
 
-  get 'mail_conversations/inbox'
   get 'mail_conversations/trash'
   get 'mail_conversations/outbox'
 
