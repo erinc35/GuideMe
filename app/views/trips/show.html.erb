@@ -4,6 +4,8 @@
   <p><%= @traveler.first_name + " " + @traveler.last_name %></p>
 
   <p><b>Guide: </b><%= @guide.first_name + " " + @guide.last_name %></p>
+  <p><b>Start Date: </b><%= @trip.start_date %></p>
+  <p><b>End Date: </b><%= @trip.end_date %></p>
 
   <h3>Interests</h3>
   <% @trip.interests.split(", ").each do |interest| %>

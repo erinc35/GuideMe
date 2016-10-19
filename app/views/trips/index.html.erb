@@ -1,4 +1,12 @@
 <div class="container">
   <h1>Trips</h1>
 
+  <% @trips.each do |trip| %>
+    <div>
+      <%= trip.interests %>
+      <%= link_to 'show', trip_path(session[:traveler_id], guide_id: trip.guide_id) %>
+    </div>
+  <% end %>
+
+</div>
 

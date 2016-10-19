@@ -11,8 +11,10 @@ class TripsController < ApplicationController
   end
 
   def show
+    p "*%$" * 200
+    p params[:guide_id]
     @trip = Trip.find_by(traveler_id: session[:traveler_id], guide_id: params[:guide_id])
-    @traveler = Traveler.find(@trip.traveler_id)
+    @traveler = Traveler.find(session[:traveler_id])
     @guide = Guide.find(@trip.guide_id)
   end
 
