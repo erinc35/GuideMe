@@ -1,5 +1,5 @@
 <div class="saved_attraction">
   <img src="<%= attraction.image_url %>" alt="edit" />
   <a href="<%=attraction.url%>" target="_blank"><%= attraction.name %></a>
-  <%= link_to 'Remove', yelps_remove_path(attraction: attraction.name, location: @location), method: :post, id: 'remove_attraction' %>
+  <%= link_to 'Remove', yelps_remove_path(attraction: attraction.name, location: @location), method: :post, id: 'remove_attraction', class: 'add-remove-but' %>
 </div>
