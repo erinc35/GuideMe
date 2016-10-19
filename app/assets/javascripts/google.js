@@ -79,6 +79,13 @@ function initialize() {
             map: map
         });
 
+        google.maps.event.addListener(marker, 'click', function() {
+        return function() {
+          infowindow.setContent();
+          infowindow.open(map, marker);
+        }
+      });
+
     })
 
     // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
