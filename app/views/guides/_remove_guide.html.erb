@@ -6,8 +6,20 @@
   <p>
     <b> <img src="<%= guide.photo %>"> </b>
   </p>
-  <p><b>Rating:</b> *****</p>
+
+  <% if guide.reviews != [] %>
+    <p><b>Rating: </b><%= (guide.reviews.where(guide_id: guide.id).pluck(:rating).reduce(0) {|total, rating| total + rating}) / guide.reviews.where(guide_id: guide.id).pluck(:rating).count %></p>
+  <% else %>
+    <p>No reviews yet!</p>
+  <% end %>
   <p><b>Email:</b> <%= guide.email %></p>
   <p><b>Car Available:</b> <%= guide.has_car %></p>
   <%= link_to 'Remove', guide_remove_guide_path(guide), method: :post, id: "remove_guide" %>
+  <h3>Comments</h3>
+  <% guide.reviews.each do |review| %>
+    <p>
+      <% traveler = Traveler.find(review.traveler_id) %>
+      <b><%= traveler.first_name + " " + traveler.last_name %></b>: <%= review.comment %>
+    </p>
+  <% end %>
 </div>
