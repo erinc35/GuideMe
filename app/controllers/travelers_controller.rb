@@ -10,11 +10,12 @@ class TravelersController < ApplicationController
   end
 
   def checkout
-    p "-*_" * 200
-    p params[:end_date]
-    p params[:start_date]
-    @trip = Trip.new(location: params[:location], start_date: params[:start_date], end_date: params[:end_date])
-    @trip.guide = Guide.find_by(email: session["guide"])
+    @location = params[:location]
+    @start_date = params[:start_date]
+    @end_date = params[:end_date]
+
+    # @trip = Trip.new(location: params[:location], start_date: params[:start_date], end_date: params[:end_date])
+    @guide = Guide.find_by(email: session["guide"])
 
     if session[:traveler_id]
       @traveler = Traveler.find(session[:traveler_id])

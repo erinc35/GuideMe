@@ -1,11 +1,11 @@
-<center><h1><%= @trip.guide.first_name + " " + @trip.guide.last_name %><br></h1></center>
+<center><h1><%= @guide.first_name + " " + @guide.last_name %><br></h1></center>
 
 <div class="container">
-  Guide: <%= @trip.guide.first_name + " " + @trip.guide.last_name %><br>
-  Traveler: <%= @traveler.first_name + " " + @traveler.last_name %><br>
-  Location: <%= @trip.location %><br>
-  Start Date: <%= @trip.start_date %><br>
-  End Date: <%= @trip.end_date %><br>
+  <p><b>Guide: </b><%= @guide.first_name + " " + @guide.last_name %></p>
+  <p><b>Traveler: </b><%= @traveler.first_name + " " + @traveler.last_name %></p>
+  <p><b>Location: </b><%= @location %><br></p>
+  <p><b>Start Date: </b><%= @start_date %><br></p>
+  <p><b>End Date: </b><%= @end_date %><br></p>
 
   <h2>Here are your events:</h2>
 
@@ -15,14 +15,14 @@
 </div>
 
 <center><div class="checkout">
-  <%= form_tag traveler_charges_path(session[:traveler_id], guide_id: @trip.guide.id, location: @location, interests: session["events"].join(", "), requests: "", start_date: @trip.start_date, end_date: @trip.end_date), method: :post do %>
+  <%= form_tag traveler_charges_path(session[:traveler_id], guide_id: @guide.id, location: @location, interests: session["events"].join(", "), requests: "", start_date: @start_date, end_date: @end_date), method: :post do %>
     <article>
       <% if flash[:error].present? %>
         <div id="error_explanation">
           <p><%= flash[:error] %></p>
         </div>
       <% end %>
-      <p>Booking Guide <b><%= @trip.guide.first_name + " " + @trip.guide.last_name %></b></p>
+      <p>Booking Guide <b><%= @guide.first_name + " " + @guide.last_name %></b></p>
       <label class="amount">
         <span>Amount: $20.00</span>
       </label>
