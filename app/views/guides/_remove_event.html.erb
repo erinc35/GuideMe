@@ -1,5 +1,6 @@
 <div class="event">
   <img src="<%= event.image_url %>" alt="edit" />
-  <%= event.name %>
-  <%= link_to 'Add', yelps_add_path(session[:traveler_id], event: event.name, location: @location), method: :post, id: 'add_event' %>
+  <a href="<%=event.url%>" target="_blank"><%= event.name %></a>
+  <%= link_to 'Add', yelps_add_path(session[:traveler_id], event: event.name, location: @location), method: :post, id: 'add_event', class: "add-remove-but" %>
 </div>
+<a href="<%=event.url%>" target="_blank"><%= event.name %></a>
