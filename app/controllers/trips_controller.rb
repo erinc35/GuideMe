@@ -1,7 +1,7 @@
 class TripsController < ApplicationController
   def index
-    @trips = Trip.all
-
+    traveler = Traveler.find(session[:traveler_id])
+    @trips = traveler.trips
   end
 
   def new
@@ -11,6 +11,12 @@ class TripsController < ApplicationController
   end
 
   def show
+    @trip = Trip.find_by(traveler_id: session[:traveler_id], guide_id: params[:guide_id])
+    @traveler = Traveler.find(@trip.traveler_id)
+    @guide = Guide.find(@trip.guide_id)
+  end
+
+  def checkout
     @trip = Trip.new(location: params[:location], start_date: params[:start_date], end_date: params[:end_date])
     @trip.guide = Guide.find_by(email: session["guide"])
 
