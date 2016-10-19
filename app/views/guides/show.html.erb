@@ -3,15 +3,17 @@
 
 <% if current_user %>
 <% if current_user.class != Guide %>
-<p><a href="/guides/<%= @guide.id %>/charges/new">Charge</a></p>
+  <p><a href="/guides/<%= @guide.id %>/charges/new">Charge</a></p>
 <% end %>
 
 <% if current_user.class == Guide %>
   <% @guide = Guide.find(params[:id]) %>
+
   <% if @guide.id == current_user.id %>
+
     <%= render "partials/available_dates" %>
     <div class="chatbar pull-right">
-      <% if @conversations.any? %>
+      <% if @conversations != nil %>
         <ul class="media-list">
           <% @conversations.each do |conversation| %>
           <li class="media">
@@ -36,22 +38,21 @@
 </div>
 </div>
   <% else %>
-  <%= link_to "Chat Now", "#", class: "btn btn-success btn-xs start-conversation",
-  "data-sid" => current_user.id, "data-rip" => @guide.id %>
-  <!--Put in form for chat now button.  -->
-  <!--Create chat now button, if @guide.online == "yes"  -->
-  <!--Else, allow to send the guide a message.  -->
-
+    <% if @guide.online == "yes" %>
+      <%= link_to "Chat Now", "#", class: "btn btn-success btn-xs start-conversation",
+      "data-sid" => current_user.id, "data-rip" => @guide.id %>
+    <% else %>
+      <%= link_to "Send A Message", new_mail_conversation_path %>
+    <% end %>
 <% end %>
 
 <% else %>
-<%= link_to "Chat Now", "#", class: "btn btn-success btn-xs start-conversation",
-"data-sid" => current_user.id, "data-rip" => @guide.id %>
-
-<!--Put in form for chat now button.  -->
-<!--Create chat now button, if @guide.online == "yes"  -->
-<!--Else, allow to send the guide a message.  -->
-
+  <% if @guide.online == "yes" %>
+    <%= link_to "Chat Now", "#", class: "btn btn-success btn-xs start-conversation",
+    "data-sid" => current_user.id, "data-rip" => @guide.id %>
+  <% else %>
+    <%= link_to "Send A Message", new_mail_conversation_path %>
+  <% end %>
 <% end %>
 
 <% end %>

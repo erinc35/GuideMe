@@ -67,10 +67,11 @@ class GuidesController < ApplicationController
   end
 
   def show
-    @guide = Guide.find(params[:id])
-    if current_user
-      @guides = Guide.where.not("id = ?",current_user.id).order("created_at DESC")
-      @conversations = Conversation.involving(current_user).order("created_at DESC")
+    if current_user.class != Guide
+      @guide = Guide.find(params[:id])
+      if current_user.id == @guide.id
+        @conversations = Conversation.involving(current_user).order("created_at DESC")
+      end
     end
   end
 
@@ -89,7 +90,7 @@ class GuidesController < ApplicationController
 
   def destroy
     Guide.find(params[:id]).destroy
-    redirect_to root_pa th
+    redirect_to root_path
   end
 
   private
