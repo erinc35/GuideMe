@@ -1,5 +1,5 @@
 <div class="saved_event">
   <img src="<%= event.image_url %>" alt="edit" />
-  <%= event.name %>
+  <a href="<%=event.url%>" target="_blank"><%= event.name %></a>
   <%= link_to 'Remove', yelps_remove_path(session[:traveler_id], event: event.name, location: @location), method: :post, id: 'remove_event', class: "add-remove-but" %>
 </div>
