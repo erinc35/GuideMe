@@ -1,8 +1,11 @@
 <div class="chatboxhead">
   <div class="chatboxtitle">
-    <i class="fa fa-comments"></i>
 
-    <h1><%= @reciever.first_name %> </h1>
+    <% if @reciever.online == "yes"%>
+      <h1><%= @reciever.first_name %><i class='fa fa-asterisk' style="color:green"></i></h1>
+    <% else %>
+      <h1><%= @reciever.first_name %></h1>
+    <% end %>
   </div>
   <div class="chatboxoptions">
     <%= link_to "<i class='fa  fa-minus'></i> ".html_safe, "#", class: "toggleChatBox", "data-cid" => @conversation.id %>
@@ -18,7 +21,7 @@
 </div>
 <div class="chatboxinput">
   <%= form_for([@conversation, @message], :remote => true, :html => {id: "conversation_form_#{@conversation.id}"}) do |f| %>
-      <%= f.text_area :content, class: "chatboxtextarea", "data-cid" => @conversation.id %>
+      <%= f.text_area :content, class: "chatboxtextarea", "data-cid" => @conversation.id, placeholder: "Type a message..." %>
   <% end %>
 </div>
 
