@@ -42,3 +42,11 @@
 .btn-primary a {
   color: white;
 }
+
+.mailList ul li {
+  list-style: none;
+}
+
+.mailList ul li a {
+  text-decoration: none;
+}
