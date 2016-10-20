@@ -6,6 +6,8 @@ class Guide < ApplicationRecord
   has_many :available_dates
   has_many :conversations, as: :sender
   has_many :conversations, as: :recipient
+  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   has_many :unavailable_dates
   has_one :user, through: :trip
