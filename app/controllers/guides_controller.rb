@@ -35,10 +35,25 @@ class GuidesController < ApplicationController
     session["guide"] ||= (session["guide"] = "")
 
     @language = params[:language]
-    # @guides = Guide.all.where(location: @location, language: @language)
     @guides = Guide.all.where(location: @location)
-    p "*-_" * 200
-    p @guides
+    @guides_array = []
+    p "*" * 50
+    p params
+   
+    @potential_guides = Guide.all.where(location: @location)
+    @potential_guides.each do |guide|
+      logged_trips = guide.trips
+      p logged_trips
+      logged_trips.each do |trip|
+        if trip.end_date
+          if trip.end_date < @start_date
+            @guides_array << trip.guide
+            p "guides" * 30
+            p @guides
+          end
+        end
+      end
+    end
 
     @unsplash_object = Unsplash::Photo.search(@location)
     @pic = @unsplash_object[0].urls["full"]
