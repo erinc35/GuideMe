@@ -1,13 +1,32 @@
-*{
-  font-family: "Sue Ellen Francisco", cursive;
+/**{
+  font-family: "Sue Ellen Francisco";
+}*/
+
+.navbar {
+  font-family: "Sue Ellen Francisco";
+  font-size: 1.5em;
 }
 
-#ui-datepicker-div{
-  width: 25em !important;
-}
 body{
   padding-top: 0;
-  font-size: 2em;
+
+}
+
+.modal-content{
+
+      background-image: url("traveler.jpg");
+      background-repeat: no-repeat;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      background-position: center center;
+
+
+}
+
+.checkout {
+  padding: 10px;
 }
 
 .guide {
@@ -19,19 +38,22 @@ body{
   opacity: 0.8;
   border-radius: 5px;
   padding: 10px;
+
 }
 
 .saved_guide {
   margin: auto;
   width: 100%;
-  background-color: #98fb98;
+  background-color: #c9cefd;
+  font-size: 1.3em;
 }
 
 .saved_attraction {
-  background-color: #98fb98;
+  background-color: #c9cefd;
 }
 
 .guides-in-header{
+  font-size: 1.8em;
   width: auto;
   border: 1px solid white;
   border-radius: 8px;
@@ -81,18 +103,11 @@ html,body{
   background-color: #e9e9e9;
 }
 
-.loginform{
-  width: 25%;
-  height: 15%;
-  text-align: center;
-  margin-top: 10%;
-  /*margin-left: 18%;*/
-  border-radius: 4px;
-  background-color: #5a6370;
-}
-
 .search-form{
   margin-bottom: 15%;
+}
+#search_form{
+  font-size: 1.5em;
 }
 
 .form-radius{
@@ -102,11 +117,13 @@ html,body{
 #guide-search-but{
   background-color: #1f3e70;
   color: #ffffff ;
+  width: 4%;
 }
 
 .form-language{
 /*  position: relative;
 */  line-height: 100px;
+  width: 6%;
 }
 
 .navbar{
@@ -128,6 +145,7 @@ html,body{
 }
 
 .navbar > li > a{
+  font-size: 1.5em;
   display: block;
   color: white;
   text-align: center;
@@ -150,12 +168,18 @@ html,body{
   display: none;
   border-radius: 8px;
   height: 310px;
-  width: 12%;
-  opacity: 0.8;
+  width: 250px;
+
+}
+#traveler{
+  position: absolute;
+  /*z-index: 999;*/
+  display: none;
 }
 .login-form > *{
   font-size: 20px;
 }
+
 .login-via{
   font-size: 20px;
 }
@@ -168,9 +192,24 @@ html,body{
   background-color: #c7cfdb;
   border-radius: 8px;
   /*height: 310px;*/
-  width: 28%;
-  height: 620px;
+  width: 40%;
+  height: 670px;
   opacity: 0.8;
+
+}
+.traveler-signup-form{
+  /*position: absolute;*/
+  padding-left: 2%;
+  margin-top: -500px;
+  margin-left: 600px;
+  border: 1px solid black;
+  z-index: 999;
+  background-color: #c7cfdb;
+  border-radius: 8px;
+  /*height: 310px;*/
+ /* width: 28%;
+  height: 620px;*/
+
 
 }
 .signup-drop{
@@ -180,7 +219,8 @@ html,body{
   border-radius: 8px;
   height: 70px;
   width:9%;
-  opacity: 0.8;
+  z-index: 100;
+  overflow: auto;
 }
 .signup-but{
   margin-left: 2%;
@@ -195,9 +235,11 @@ html,body{
   border-radius: 8%;
 }
 .signup-atts{
+  padding-top: 5%;
   margin: 0;
 }
 .signup-group{
+  font-size: 25px;
   margin: 0;
 }
 .signup-elements {
@@ -206,6 +248,9 @@ html,body{
   text-align: left;
   padding-top: 5%;
 
+}
+.text-center{
+  text-align: center;
 }
 .aboutus-text{
   height: 70%;
@@ -283,7 +328,7 @@ html,body{
 }
 
 .saved_event {
-  background-color: #98FB98;
+  background-color: #c9cefd;
 }
 
 .events {
@@ -384,3 +429,22 @@ html,body{
   -o-transform: rotate(0deg);
   transform: rotate(0deg);
 }
+
+.blur   {
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+}
+#overlay    {
+    position: fixed;
+    display: none;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: rgba(255,255,255,.8);
+    z-index: 999;
+}
+

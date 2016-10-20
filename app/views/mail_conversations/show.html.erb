@@ -1,17 +1,35 @@
-<div class="container">
-  <h2><%= @mailbox_conversation.subject %></h2>
-
-  <% @mailbox_conversation.receipts_for(current_user).each do |receipt| %>
-    <div>
-      <%= receipt.message.body %><br> From: <%= receipt.message.sender.first_name %><br> at:
-      <%= receipt.created_at %>
-    </div>
-  <% end %>
-
-<%= form_tag mail_conversation_mail_messages_path(@mailbox_conversation), method: :post do %>
-  <div>
-    <%= text_area_tag :body %>
+<%= render 'sidebar' %>
+<div id="messageContainer">
+  <div id="mailTitle">
+    <h2><%= @mailbox_conversation.subject %></h2>
   </div>
-  <%= submit_tag 'Reply'%>
-  <% end %>
+  <br>
+  <br>
+  <% @mailbox_conversation.receipts_for(current_user).each do |receipt| %>
+    <div id="senderPhoto">
+      <img src="<%= receipt.message.sender.photo %>" />
+    </div>
+    <div id="senderName">
+      <b><%= receipt.message.sender.first_name %></b>
+      <p>Date: <%= receipt.message.created_at.strftime("%m/%d/%Y") %></p>
+      <p>Time: <%= receipt.message.created_at.strftime("%I:%M%p")%></p>
+    </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    <div id="senderBody">
+      <%= receipt.message.body %><br><br>
+    </div>
+    <% end %>
+
+<div id="replyForm">
+  <%= form_tag mail_conversation_mail_messages_path(@mailbox_conversation), method: :post do %>
+    <div>
+      <%= text_area_tag :body %>
+    </div>
+    <%= submit_tag 'Reply'%>
+    <% end %>
+  </div>
 </div>

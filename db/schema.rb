@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 20161018040827) do
   enable_extension "plpgsql"
 
   create_table "available_dates", force: :cascade do |t|
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.string   "start_date"
+    t.string   "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "guide_id"
@@ -160,15 +160,15 @@ ActiveRecord::Schema.define(version: 20161018040827) do
     t.text     "requests"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.string   "start_date"
+    t.string   "end_date"
     t.index ["guide_id"], name: "index_trips_on_guide_id", using: :btree
     t.index ["traveler_id"], name: "index_trips_on_traveler_id", using: :btree
   end
 
   create_table "unavailable_dates", force: :cascade do |t|
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.string   "start_date"
+    t.string   "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "guide_id"

@@ -9,6 +9,21 @@ class TravelersController < ApplicationController
     @traveler = Traveler.new
   end
 
+  def checkout
+    @location = params[:location]
+    @start_date = params[:start_date]
+    @end_date = params[:end_date]
+
+    # @trip = Trip.new(location: params[:location], start_date: params[:start_date], end_date: params[:end_date])
+    @guide = Guide.find_by(email: session["guide"])
+
+    if session[:traveler_id]
+      @traveler = Traveler.find(session[:traveler_id])
+    else
+      redirect_to new_traveler_path
+    end
+  end
+
   def create
     #################################
     # Make sure to add error messages
@@ -26,7 +41,6 @@ class TravelersController < ApplicationController
     @traveler = Traveler.find(params[:id])
     @conversations = Conversation.involving(current_user).order("created_at DESC")
     @trips = Trip.all.where(traveler_id: params[:id])
-
   end
 
   def edit

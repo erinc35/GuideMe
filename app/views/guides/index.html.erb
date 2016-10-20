@@ -13,8 +13,14 @@
 <div class="guide-page">
 
   <div class="guides-in-header">
+
     <h3>Guides in <%= @location %> who speak <%= @language %> </h3>
     <h4>Dates chosen: <%= @start_date %> - <%= @end_date %></h4>
+    <% if session[:traveler_id] %>
+      <%= link_to 'Checkout', traveler_checkout_path(session[:traveler_id], location: @location, start_date: @start_date, end_date: @end_date) %>
+    <% else %>
+      <%= link_to 'Checkout', "#" %>
+    <% end %>
   </div>
 
   <div class="form-header">

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   resources :trips
 
   resource :sessions
@@ -12,15 +13,20 @@ Rails.application.routes.draw do
 
     resources :reservations
 
-    resources :charges
-
   end
 
   resources :travelers do
 
+    get 'checkout'
+
+    resources :charges
+
     resources :reservations
 
   end
+
+  get 'mail_conversations/trash'
+  get 'mail_conversations/outbox'
 
   resources :mail_conversations do
     resources :mail_messages

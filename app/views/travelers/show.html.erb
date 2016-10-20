@@ -19,7 +19,7 @@
   <% @traveler = Traveler.find(params[:id]) %>
   <% if @traveler.id == current_user.id %>
       <div class="chatbar pull-right">
-        <% if @conversations.any? %>
+        <% if @conversations != nil %>
             <ul class="media-list">
               <% @conversations.each do |conversation| %>
                   <li class="media">
