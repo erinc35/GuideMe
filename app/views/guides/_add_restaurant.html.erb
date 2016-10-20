@@ -1,5 +1,7 @@
 <div class="saved_event">
   <img src="<%= restaurant.image_url %>" alt="edit" />
-  <%= restaurant.name %>
-  <%= link_to 'Remove', yelps_remove_path(restaurant: restaurant.name, location: @location), method: :post, id: 'remove_restaurant' %>
+  <a href="<%=restaurant.url%>" target="_blank"><%= restaurant.name %></a>
+
+  <%= link_to 'Remove', yelps_remove_path(restaurant: restaurant.name, location: @location), method: :post, id: 'remove_restaurant', class: "add-remove-but" %><br>
+
 </div>

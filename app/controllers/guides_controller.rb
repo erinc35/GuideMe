@@ -37,6 +37,8 @@ class GuidesController < ApplicationController
     @language = params[:language]
     # @guides = Guide.all.where(location: @location, language: @language)
     @guides = Guide.all.where(location: @location)
+    p "*-_" * 200
+    p @guides
 
     @unsplash_object = Unsplash::Photo.search(@location)
     @pic = @unsplash_object[0].urls["full"]
