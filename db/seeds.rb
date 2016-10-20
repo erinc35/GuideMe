@@ -3,7 +3,7 @@ require 'faker'
 # Traveler.destroy_all
 
 languages = ["English", "Spanish", "German", "French", "Italian", "Portuguese", "Japanese", "Korean", "Turkish", "Mandarin", "Cantonese"]
-locations = ["Hong Kong", "Las Vegas", "San Francisco", "New York", "Paris"]
+locations = ["Hong Kong", "Las Vegas", "San Francisco", "New York", "Paris", "Los Angeles"]
 has_car = ["yes", "no"]
 comments = ["Was a great guide", "Very pleasant experience", "Had a great time"]
 start_dates = ["2016-10-01 00:00:00 -0500", "2016-10-05 00:00:00 -0500"]
