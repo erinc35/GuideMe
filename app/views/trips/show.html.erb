@@ -3,7 +3,7 @@
 
   <p><%= @traveler.first_name + " " + @traveler.last_name %></p>
 
-  <p><b>Guide: </b><%= @guide.first_name + " " + @guide.last_name %></p>
+  <p><b>Guide: </b><%= link_to @guide.first_name + " " + @guide.last_name, guide_path(@guide) %>
   <p><b>Location: </b><%= @trip.location %></p>
   <p><b>Start Date: </b><%= @trip.start_date %></p>
   <p><b>End Date: </b><%= @trip.end_date %></p>
