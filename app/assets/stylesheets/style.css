@@ -9,7 +9,6 @@
 
 body{
   padding-top: 0;
-<<<<<<< HEAD
 
 }
 
@@ -329,6 +328,7 @@ html,body{
 }
 
 .saved_event {
+  /*font-size:16px;*/
   background-color: #c9cefd;
 }
 
