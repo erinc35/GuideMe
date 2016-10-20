@@ -64,3 +64,10 @@ ul.tabs li.current{
   position: relative;
   bottom: 37px;
 }
+.event > img{
+  position: relative;
+}
+.restaurant-name{
+  position: relative;
+  bottom: 37px;
+}
