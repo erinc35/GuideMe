@@ -1,2 +1,6 @@
 <h1>Travelers#edit</h1>
 <p>Find me in app/views/travelers/edit.html.erb</p>
+
+<%= form_for @traveler, url: travelers_path, html: { multipart: true } do |form| %>
+  <%= form.file_field :avatar %>
+<% end %>

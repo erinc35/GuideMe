@@ -131,11 +131,8 @@ class GuidesController < ApplicationController
   end
 
   def guide_params
-<<<<<<< HEAD
-    params.require(:guide).permit(:first_name, :last_name, :email, :password, :password_confirmation, :language, :phone, :location, :has_car, :online, :avatar)
-=======
+
     params.require(:guide).permit(:first_name, :last_name, :email, :password, :password_confirmation, :phone, :location, :has_car, :online)
->>>>>>> 346e81b8394bd5f7ba74ccfd066fffd7091c0a32
   end
 
 end

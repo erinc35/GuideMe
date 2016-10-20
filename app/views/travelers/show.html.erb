@@ -9,12 +9,6 @@
 </p>
 <% end %>
 
-<%= form_for @traveler, url: travelers_path, html: { multipart: true } do |form| %>
-  <%= form.file_field :avatar %>
-<% end %>
-
-
-
 <% @trips.each do |trip| %>
 	<%= link_to trip.location, trip_path(trip) %><br>
 <% end %>
