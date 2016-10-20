@@ -2,6 +2,14 @@
   font-family: "Sue Ellen Francisco";
 }*/
 
+.h1-guide {
+  font-family: 'Nunito', sans-serif !important;
+  background: #3f3f3f;
+  color: #edf6f8;
+  padding: 15px;
+  opacity: 0.8;
+}
+
 .navbar {
   font-family: "Sue Ellen Francisco";
 }
@@ -19,8 +27,7 @@ input {
 }
 
 .modal-content{
-
-      background-image: url("traveler.jpg");
+      background-image: url("pichu.jpg");
       background-repeat: no-repeat;
       -webkit-background-size: cover;
       -moz-background-size: cover;
@@ -185,11 +192,13 @@ html,body{
   width: 250px;
 
 }
+
 #traveler{
   position: absolute;
   /*z-index: 999;*/
   display: none;
 }
+
 .login-form > *{
   font-size: 20px;
 }
@@ -198,20 +207,18 @@ html,body{
   font-size: 20px;
 }
 
-.signup-form{
-  /*position: absolute;*/
+/*.signup-form{
   padding-left: 2%;
   margin: auto;
   border: 1px solid black;
   z-index: 999;
   background-color: #c7cfdb;
   border-radius: 8px;
-  /*height: 310px;*/
   width: 40%;
   height: 670px;
   opacity: 0.8;
 
-}
+}*/
 
 .traveler-signup-form{
   /*position: absolute;*/
@@ -241,7 +248,6 @@ html,body{
 }
 
 .signup-drop{
-  font-family: ;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
   position: absolute;
   background-color: #eaecef;
@@ -258,12 +264,14 @@ html,body{
   float: right;
   border-radius: 8px;
 }
+
 .buu{
   width: auto;
   margin-right: 3%;
   float: right;
   border-radius: 8%;
 }
+
 .signup-atts{
   padding-top: 5%;
   margin: 0;
