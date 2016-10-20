@@ -6,9 +6,8 @@ languages = ["English", "Spanish", "German", "French", "Italian", "Portuguese", 
 locations = ["Hong Kong", "Las Vegas", "San Francisco", "New York", "Paris"]
 has_car = ["yes", "no"]
 comments = ["Was a great guide", "Very pleasant experience", "Had a great time"]
-start_dates = [2016-01-10 00:00:00, 2016-15-10 00:00:00]
-end_dates = [2016-20-10 00:00:00, 2016-25-10 00:00:00]
-
+start_dates = ["2016-10-01 00:00:00 -0500", "2016-10-05 00:00:00 -0500"]
+end_dates = ["2016-10-25 00:00:00 -0500", "2016-10-30 00:00:00 -0500"]
 
 25.times do
 	travelers = Traveler.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: "password", password_confirmation: "password", phone: Faker::PhoneNumber.cell_phone, photo: Faker::Avatar.image("my-own-slug", "50x50"))
