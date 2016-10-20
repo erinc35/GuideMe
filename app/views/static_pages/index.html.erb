@@ -3,7 +3,7 @@
   <header>
 
        <div id="myCarousel" class="carousel slide ">
-      <div class="carousel-inner ">
+      <div class="carousel-inner" style="overflow: visible !important;">
         <div class="item active ">
           <span class="carousel-images"><%= image_tag("bbb.jpg")%><span>
           <div class="container">
@@ -11,7 +11,7 @@
           </div>
         </div>
         <div class="item">
-          <<span class="carousel-images"><%= image_tag("eee.jpeg")%></span>
+          <span class="carousel-images"><%= image_tag("eee.jpeg")%></span>
           <div class="container">
 
           </div>
@@ -25,7 +25,7 @@
       </div>
       <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
       <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
-      <style>
+      <!-- <style>
       border-style: {
         /*background-image: url("pichu.jpg");*/
         background-repeat: no-repeat !important;
@@ -35,7 +35,7 @@
         background-size: cover !important;
         background-position: center center !important;
       }
-    </style>
+    </style> -->
 
     <%= render 'social_media' %>
 
@@ -62,6 +62,7 @@
       </div>
     </div>
 </div>
+</div>
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
@@ -79,7 +80,7 @@
       <div id='map'></div>
       <div id='city'></div>
     </header>
-  </div>
+
 
 
 

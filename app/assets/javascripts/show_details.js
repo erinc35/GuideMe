@@ -4,10 +4,13 @@ $(document).ready(function(){
 });
 
 function showDetails(){
+  // $('.tabs).on('click', '.click-detail', function(e){
   $(".click-detail").on("click", function(e){
+    console.log("ffff")
     e.preventDefault();
     // console.log($(this));
     $(this).siblings('.saved-event').slideDown();
+    console.log("zzzz")
       $(this).hide();
         $(this).siblings(".hide-detail").show();
   })
