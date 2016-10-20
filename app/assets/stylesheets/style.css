@@ -63,6 +63,8 @@ body{
 }
 
 .form-header{
+  font-family: "Sue Ellen Francisco";
+  font-size: 30px;
   width: auto;
   background-color: white;
   text-align: center;
@@ -191,6 +193,7 @@ html,body{
   opacity: 0.8;
 
 }
+
 .traveler-signup-form{
   /*position: absolute;*/
   padding-left: 2%;
@@ -203,9 +206,8 @@ html,body{
   /*height: 310px;*/
  /* width: 28%;
   height: 620px;*/
-
-
 }
+
 .signup-drop{
   position: absolute;
   background-color: #eaecef;
@@ -216,6 +218,7 @@ html,body{
   z-index: 100;
   overflow: auto;
 }
+
 .signup-but{
   margin-left: 2%;
   background-color: #7ba9f2;
@@ -236,13 +239,14 @@ html,body{
   font-size: 25px;
   margin: 0;
 }
+
 .signup-elements {
   font-size: 20px;
   margin-left: 7%;
   text-align: left;
   padding-top: 5%;
-
 }
+
 .text-center{
   text-align: center;
 }
@@ -266,6 +270,7 @@ html,body{
     overflow:hidden;
     background-color:rgba(255,255,255,.8);
 }
+
 #login-dp .help-block{
     font-size:12px
 }
