@@ -25,6 +25,7 @@ ul.tabs li{
 }
 
 ul.tabs li.current{
+  border-radius: 8px;
   background: #e1e8f4;
   color: black;
 }
