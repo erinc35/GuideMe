@@ -3,11 +3,12 @@
 }*/
 
 .h1-guide {
-  font-family: 'Nunito', sans-serif !important;
+  font-family: 'Sue Ellen Francisco' !important;
   background: #3f3f3f;
   color: #edf6f8;
   padding: 15px;
   opacity: 0.8;
+  font-size: 60px;
 }
 
 .navbar {
@@ -27,6 +28,7 @@ input {
 }
 
 .modal-content{
+      border: 8px solid #f4f7f8;
       background-image: url("pichu.jpg");
       background-repeat: no-repeat;
       -webkit-background-size: cover;
