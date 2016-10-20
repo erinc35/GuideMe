@@ -42,6 +42,8 @@
     </form>
   </div>
 
+  <center><img id='imgmap' src="https://maps.googleapis.com/maps/api/staticmap?center=<%= @full_location %>&zoom=12&size=1000x400&markers=<%= @full_location %>&markers=<%= @events_locations %>&markers=<%= @restaurants_locations %>&markers=<%= @attractions_locations %>"></center>
+
   <div class="container">
     <ul class="tabs">
       <li class="tab-link current" data-tab="tab-1">Guides</li>
