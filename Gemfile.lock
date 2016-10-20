@@ -95,6 +95,7 @@ GEM
       eventmachine (>= 0.12.0)
       websocket-driver (>= 0.5.1)
     ffi (1.9.14)
+    geocoder (1.4.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     http-cookie (1.0.3)
@@ -245,6 +246,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   dotenv-rails
   faker (~> 1.6.6)
+  geocoder
   httparty
   jbuilder (~> 2.5)
   jquery-rails

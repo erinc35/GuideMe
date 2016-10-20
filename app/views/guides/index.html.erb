@@ -14,16 +14,16 @@
 
   <div class="guides-in-header">
 
-    <h3>Guides in <%= @location %> who speak <%= @language %> </h3>
-    <h4>Dates chosen: <%= @start_date %> - <%= @end_date %></h4>
+    <h1>Guides in <%= @location %> who speak <%= @language %> </h1>
+    <h3>Dates chosen: <%= @start_date %> - <%= @end_date %></h3>
     <% if session[:traveler_id] %>
-      <%= link_to 'Checkout', traveler_checkout_path(session[:traveler_id], location: @location, start_date: @start_date, end_date: @end_date) %>
+      <h3><%= link_to 'Checkout', traveler_checkout_path(session[:traveler_id], location: @location, start_date: @start_date, end_date: @end_date) %></h3>
     <% else %>
-      <%= link_to 'Checkout', "#" %>
+      <h3><%= link_to 'Checkout', "#" %></h3>
     <% end %>
   </div>
 
-  <div class="form-header">
+  <div class="g-index-form">
     <form id="search_form" action="/guides" method="get">
 
       <input id="city" class="form-radius" type="text" name="location" placeholder= "Destination City" size="50" value="<%= @full_location %>" required>
@@ -41,6 +41,8 @@
       <input id = "guide-search-but" class="form-radius" type="submit" value="Search">
     </form>
   </div>
+
+  <center><img id='imgmap' src="https://maps.googleapis.com/maps/api/staticmap?center=<%= @full_location %>&zoom=12&size=1000x400&markers=<%= @full_location %>&markers=<%= @events_locations %>&markers=<%= @restaurants_locations %>&markers=<%= @attractions_locations %>"></center>
 
   <div class="container">
     <ul class="tabs">

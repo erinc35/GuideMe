@@ -1,0 +1,96 @@
+.sideMailBar {
+  float:left;
+}
+
+.sideMailBar ul li {
+  list-style: none;
+}
+
+.sideMailBar ul li a{
+  text-decoration: none;
+}
+
+.sideMailBar ul li a:hover {
+
+}
+
+.btn-danger {
+  width: 130px;
+}
+
+.btn-danger a{
+  color: white;
+}
+
+.btn-success {
+  width: 100px;
+}
+
+.btn-success a {
+  color: white;
+}
+
+.btn-warning {
+  width: 100px;
+}
+
+.btn-warning a {
+  color: white;
+}
+
+.btn-primary {
+  width: 100px;
+}
+
+.btn-primary a {
+  color: white;
+}
+
+.mailList {
+  float: left;
+  margin-left: -40px;
+}
+
+.mailList ul li {
+  list-style: none;
+}
+
+.mailList ul li a {
+  text-decoration: none;
+}
+
+.mailItem {
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+}
+
+#mailTitle {
+  border-bottom: 3px solid black;
+}
+
+#senderPhoto {
+  float: left;
+}
+
+#senderName {
+  float: left;
+  margin-left: 20px;
+}
+
+#messageContainer {
+  float:left;
+  margin-left: 20px;
+  margin-top: -30px;
+}
+
+#outboxTitle {
+  border-bottom: 3px solid black;
+  margin-left: 0px;
+  margin-top: -60px;
+}
+
+#newMessage {
+  float: left;
+  margin-left: 20px;
+  margin-top: -30px;
+}

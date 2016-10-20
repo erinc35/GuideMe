@@ -21,7 +21,6 @@ ul.tabs li{
 
 .tabs{
   border-bottom: 1px solid black;
-  font-size: 1.8em;
 }
 
 ul.tabs li.current{
@@ -33,8 +32,6 @@ ul.tabs li.current{
 .tab-content{
   display: none;
   background: #ededed;
-   font-size: 1.2em;
-
 }
 
 .tab-content.current{
