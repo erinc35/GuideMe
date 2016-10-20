@@ -1,9 +1,13 @@
-
+<style>
+  a:hover {
+    background-color: none;
+}
+</style>
  <div class="main-container ">
   <header>
 
        <div id="myCarousel" class="carousel slide ">
-      <div class="carousel-inner" style="overflow: visible !important;">
+      <div class="carousel-inner" style="overflow: visible !important; bottom: 20px !important;">
         <div class="item active ">
           <span class="carousel-images"><%= image_tag("bbb.jpg")%><span>
           <div class="container">
@@ -24,18 +28,7 @@
         </div>
       </div>
       <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
-      <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
-      <!-- <style>
-      border-style: {
-        /*background-image: url("pichu.jpg");*/
-        background-repeat: no-repeat !important;
-        -webkit-background-size: cover !important;
-        -moz-background-size: cover !important;
-        -o-background-size: cover !important;
-        background-size: cover !important;
-        background-position: center center !important;
-      }
-    </style> -->
+      <a class="right carousel-control" href="#myCarousel" data-slide="next" >›</a>
 
     <%= render 'social_media' %>
 

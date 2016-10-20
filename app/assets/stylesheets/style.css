@@ -158,7 +158,7 @@ html,body{
 }
 
 .active {
-  background-color: #4CAF50;
+ /* background-color: #4CAF50;*/
 }
 
 .login-form{
@@ -520,12 +520,18 @@ html,body{
       z-index: 9;
     }
 
+    .carousel-control:hover{
+      background: transparent;
+    }
+
     .carousel-control {
+
+      opacity: 0;
       height: 80px;
       margin-top: 0;
       font-size: 120px;
       text-shadow: 0 1px 1px rgba(0,0,0,.4);
-      background-color: transparent;
+      /*background-color: black;*/
       border: 0;
       z-index: 10;
     }
@@ -538,7 +544,7 @@ html,body{
       top: 0;
       left: 0;
       width: 100vw;
-      height: 90vh;
+      height: 100vh;
     }
 
     .carousel-caption {
@@ -670,6 +676,7 @@ html,body{
         margin-top: 100px;
       }
       .carousel-inner{
+        bottom: 20px !important;
         overflow: visible !important;
       }
       .carousel-caption h1 {
