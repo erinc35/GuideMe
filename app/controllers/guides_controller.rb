@@ -83,7 +83,11 @@ class GuidesController < ApplicationController
   end
 
   def create
+    @languages = %w(English Spanish German French Italian Portuguese Japanese Korean Turkish Mandarin Cantonese)
+    p "&0_" * 100
+    p params
     @guide = Guide.new(guide_params)
+    @guide.language = params[:language]
     if @guide.save
       session[:guide_id] = @guide.id
       @guide.online = "yes"
@@ -123,8 +127,12 @@ class GuidesController < ApplicationController
 
   private
 
+  def location_params
+    params.permit(:language)
+  end
+
   def guide_params
-    params.require(:guide).permit(:first_name, :last_name, :email, :password, :password_confirmation, :language, :phone, :location, :has_car, :online)
+    params.require(:guide).permit(:first_name, :last_name, :email, :password, :password_confirmation, :phone, :location, :has_car, :online)
   end
 
 end
