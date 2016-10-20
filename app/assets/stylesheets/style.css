@@ -11,6 +11,13 @@ body{
 
 }
 
+input {
+  border: 1px solid #999;
+  border-radius: 0;
+
+  -webkit-appearance: none;
+}
+
 .modal-content{
 
       background-image: url("traveler.jpg");
@@ -44,7 +51,6 @@ body{
   margin: auto;
   width: 100%;
   background-color: #c9cefd;
-  font-size: 1.3em;
 }
 
 .saved_attraction {
@@ -52,7 +58,7 @@ body{
 }
 
 .guides-in-header{
-  font-size: 1.8em;
+  font-family: "Sue Ellen Francisco";
   width: auto;
   border: 1px solid white;
   border-radius: 8px;
@@ -100,6 +106,17 @@ html,body{
   text-align: center;
   margin: 20% auto;
   border-radius: 10px;
+  opacity: 0.8;
+  background-color: #e9e9e9;
+}
+
+.g-index-form {
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  width: 100%;
+/*  padding-top: 20px;
+*/  /*padding-bottom: 20px;*/
+  text-align: center;
   opacity: 0.8;
   background-color: #e9e9e9;
 }
@@ -158,6 +175,7 @@ html,body{
 }
 
 .login-form{
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
   position: absolute;
   z-index: 999;
   background-color: #eaecef;
@@ -179,6 +197,7 @@ html,body{
 .login-via{
   font-size: 20px;
 }
+
 .signup-form{
   /*position: absolute;*/
   padding-left: 2%;
@@ -208,13 +227,27 @@ html,body{
   height: 620px;*/
 }
 
+.signup-style {
+  padding: 10px;
+  border-top: 1px solid #696969;
+}
+
+.signup-style a {
+  text-decoration: none;
+}
+
+.signup-style:hover {
+  background-color: #d3d3d3;
+}
+
 .signup-drop{
+  font-family: ;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
   position: absolute;
   background-color: #eaecef;
   display: none;
   border-radius: 8px;
-  height: 70px;
-  width:9%;
+  height: auto;
   z-index: 100;
   overflow: auto;
 }
@@ -242,9 +275,7 @@ html,body{
 
 .signup-elements {
   font-size: 20px;
-  margin-left: 7%;
   text-align: left;
-  padding-top: 5%;
 }
 
 .text-center{
