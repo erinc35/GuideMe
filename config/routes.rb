@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
+
   resources :trips
-  
+
   resource :sessions
 
   resources :guides do
@@ -23,6 +24,9 @@ Rails.application.routes.draw do
     resources :reservations
 
   end
+
+  get 'mail_conversations/trash'
+  get 'mail_conversations/outbox'
 
   resources :mail_conversations do
     resources :mail_messages

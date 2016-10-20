@@ -31,14 +31,36 @@ class GuidesController < ApplicationController
 
     @images = HTTParty.get("https://pixabay.com/api/?key=#{ENV['pixabay_api']}&q=#{params[:location].split(",")[0]}+cityscape&image_type=photo")
 
+    session["location"] ||= (session["location"] = "")
     session["events"] ||= (session["events"] = [])
     session["guide"] ||= (session["guide"] = "")
 
+    if session["location"] != @location
+      session["events"] = []
+      session["guide"] = ""
+      session["location"] = @location
+    end
+
     @language = params[:language]
-    # @guides = Guide.all.where(location: @location, language: @language)
     @guides = Guide.all.where(location: @location)
-    p "*-_" * 200
-    p @guides
+    @guides_array = []
+    p "*" * 50
+    p params
+   
+    @potential_guides = Guide.all.where(location: @location)
+    @potential_guides.each do |guide|
+      logged_trips = guide.trips
+      p logged_trips
+      logged_trips.each do |trip|
+        if trip.end_date
+          if trip.end_date < @start_date
+            @guides_array << trip.guide
+            p "guides" * 30
+            p @guides
+          end
+        end
+      end
+    end
 
     @unsplash_object = Unsplash::Photo.search(@location)
     @pic = @unsplash_object[0].urls["full"]
@@ -46,10 +68,13 @@ class GuidesController < ApplicationController
     ##########---------YELP---------##########
 
     @events_call = Yelp.client.search(@location, { term: 'events', limit: 16 }).businesses
-
     @restaurants_call = Yelp.client.search(@location, { term: 'restaurants', limit: 16 }).businesses
-
     @attractions_call = Yelp.client.search(@location, { term: 'attractions', limit: 16 }).businesses
+
+    p @events_locations = @events_call.map { |event| event.location.display_address[0] }.join("&markers=")
+    p @restaurants_locations = @restaurants_call.map { |restaurant| restaurant.location.display_address[0] }.join("&markers=")
+    p @attractions_locations = @attractions_call.map { |attraction| attraction.location.display_address[0] }.join("&markers=")
+
   end
 
   def new
@@ -69,8 +94,8 @@ class GuidesController < ApplicationController
   end
 
   def show
-    if current_user.class != Guide
-      @guide = Guide.find(params[:id])
+    @guide = Guide.find(params[:id])
+    if current_user && current_user.class == Guide
       if current_user.id == @guide.id
         @conversations = Conversation.involving(current_user).order("created_at DESC")
       end
