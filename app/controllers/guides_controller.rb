@@ -31,7 +31,7 @@ class GuidesController < ApplicationController
 
     @images = HTTParty.get("https://pixabay.com/api/?key=#{ENV['pixabay_api']}&q=#{params[:location].split(",")[0]}+cityscape&image_type=photo")
 
-    session["location"] ||= (session["location"] = "")
+    session["location"] ||= (session["location"] = @location)
     session["events"] ||= (session["events"] = [])
     session["guide"] ||= (session["guide"] = "")
 
@@ -44,8 +44,8 @@ class GuidesController < ApplicationController
     # @guides = Guide.all.where(location: @location, language: @language)
     @guides = Guide.all.where(location: @location)
 
-    # @unsplash_object = Unsplash::Photo.search(@location)
-    # @pic = @unsplash_object[0].urls["full"]
+    @unsplash_object = Unsplash::Photo.search(@location)
+    @pic = @unsplash_object[0].urls["full"]
 
     ##########---------YELP---------##########
 
