@@ -4,7 +4,6 @@
 
 .navbar {
   font-family: "Sue Ellen Francisco";
-  font-size: 1.5em;
 }
 
 body{
@@ -106,9 +105,6 @@ html,body{
 .search-form{
   margin-bottom: 15%;
 }
-#search_form{
-  font-size: 1.5em;
-}
 
 .form-radius{
   border-radius: 4px;
@@ -117,13 +113,11 @@ html,body{
 #guide-search-but{
   background-color: #1f3e70;
   color: #ffffff ;
-  width: 4%;
 }
 
 .form-language{
 /*  position: relative;
 */  line-height: 100px;
-  width: 6%;
 }
 
 .navbar{
