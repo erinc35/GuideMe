@@ -1,7 +1,11 @@
 class TripsController < ApplicationController
   def index
+    @trip = Trip.find_by(traveler_id: session[:traveler_id])
     traveler = Traveler.find(session[:traveler_id])
     @trips = traveler.trips
+    @location = @trip.location
+    @unsplash_object = Unsplash::Photo.search(@location)
+    @pic = @unsplash_object[0].urls["full"]
   end
 
   def new

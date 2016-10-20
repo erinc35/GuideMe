@@ -5,11 +5,20 @@
   margin-bottom: 10%;
 }
 
-
 .margin-top10{
   margin-top: 10%;
 }
+.margin-bot5{
+  margin-bottom: 5%;
+}
 
+.margin-top5{
+  margin-top: 5%;
+}
+
+.trip-location{
+  font-size: 20px;
+}
 .h1-guide {
   font-family: 'Sue Ellen Francisco' !important;
   background: #3f3f3f;

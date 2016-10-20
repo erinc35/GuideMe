@@ -1,20 +1,27 @@
-<div class="container">
-  <h1>Trips</h1>
+<style>
+  body{
+    background-image: url(<%=@pic%>);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center center;
+  }
+</style>
+<div class="container margin-top5">
+  <h1 class="center_h1 margin-bot5">Trips</h1>
     <% if @trips.length == 0 %>
       <p>You haven't booked any trips yet!</p>
       <p><%= link_to 'Book a Trip!', root_path %></p>
     <% end %>
 
-    <% @trips.each do |trip| %>
+    <ul><% @trips.each do |trip| %>
       <div>
-        <p>
-          <%= trip.interests %>
-        </p>
-        <p>
-          <%= link_to 'show', trip_path(session[:traveler_id], guide_id: trip.guide_id) %>
-        </p>
+        <li class="bold trip-location"><%= @location%></li>
+        <p><%= @trip.start_date.strftime("%m/%d/%Y") %></p>
+        <p><%= link_to 'show', trip_path(session[:traveler_id], guide_id: trip.guide_id) %></p>
       </div>
-    <% end %>
+    <% end %></ul>
 
 </div>
 
