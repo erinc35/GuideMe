@@ -4,9 +4,7 @@ $(document).ready(function(){
 });
 
 function showDetails(){
-  // $('.tabs).on('click', '.click-detail', function(e){
-  $(".click-detail").on("click", function(e){
-    console.log("ffff")
+  $("#tab-2").on('click', '.click-detail', function(e){
     e.preventDefault();
     // console.log($(this));
     $(this).siblings('.saved-event').slideDown();
@@ -17,7 +15,7 @@ function showDetails(){
 }
 
 function hideDetails(){
-  $(".hide-detail").click(function(e){
+  $("#tab-2").on('click', '.hide-detail', function(e){
     e.preventDefault();
     $(this).siblings('.saved-event').slideUp();
      $(this).hide();
