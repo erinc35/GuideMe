@@ -57,3 +57,27 @@
 .mailList ul li a {
   text-decoration: none;
 }
+
+.mailItem {
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+}
+
+#mailTitle {
+  border-bottom: 3px solid black;
+}
+
+#senderPhoto {
+  float: left;
+}
+
+#senderName {
+  float: left;
+  margin-left: 20px;
+}
+
+#messageContainer {
+  float:left;
+  margin-left: 20px;
+  margin-top: -30px;
+}
