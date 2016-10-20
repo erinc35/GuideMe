@@ -1,10 +1,13 @@
 <div class = "mailList" >
   <ul>
     <% @mailbox_conversations.each do |email|  %>
-      <li><%= link_to email.subject, mail_conversation_path(email)%>
+    <div class = "mailItem">
+      <li>
+        <%= link_to email.subject, mail_conversation_path(email)%>
         <%= email.sender %>
         <%= email.updated_at.strftime("%m/%d/%Y") %>
       </li>
+    </div>
     <% end %>
   </ul>
 </div>
