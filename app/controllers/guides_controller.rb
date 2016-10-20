@@ -83,6 +83,8 @@ class GuidesController < ApplicationController
   end
 
   def create
+    @languages = %w(English Spanish German French Italian Portuguese Japanese Korean Turkish Mandarin Cantonese)
+    
     @guide = Guide.new(guide_params)
     if @guide.save
       session[:guide_id] = @guide.id
