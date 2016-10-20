@@ -31,8 +31,15 @@ class GuidesController < ApplicationController
 
     @images = HTTParty.get("https://pixabay.com/api/?key=#{ENV['pixabay_api']}&q=#{params[:location].split(",")[0]}+cityscape&image_type=photo")
 
+    session["location"] ||= (session["location"] = "")
     session["events"] ||= (session["events"] = [])
     session["guide"] ||= (session["guide"] = "")
+
+    if session["location"] != @location
+      session["events"] = []
+      session["guide"] = ""
+      session["location"] = @location
+    end
 
     @language = params[:language]
     @guides = Guide.all.where(location: @location)
@@ -61,10 +68,13 @@ class GuidesController < ApplicationController
     ##########---------YELP---------##########
 
     @events_call = Yelp.client.search(@location, { term: 'events', limit: 16 }).businesses
-
     @restaurants_call = Yelp.client.search(@location, { term: 'restaurants', limit: 16 }).businesses
-
     @attractions_call = Yelp.client.search(@location, { term: 'attractions', limit: 16 }).businesses
+
+    p @events_locations = @events_call.map { |event| event.location.display_address[0] }.join("&markers=")
+    p @restaurants_locations = @restaurants_call.map { |restaurant| restaurant.location.display_address[0] }.join("&markers=")
+    p @attractions_locations = @attractions_call.map { |attraction| attraction.location.display_address[0] }.join("&markers=")
+
   end
 
   def new
