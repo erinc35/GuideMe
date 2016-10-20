@@ -52,7 +52,14 @@ ul.tabs li.current{
   position: relative;
   padding-left: 107px;
   bottom: 77px;
-  font-size: 15px;
+}
+
+.click-detail{
+  font-size: 13px;
+  position: relative;
+  padding-left: 107px;
+  bottom: 37px;
+
 }
 
 .saved_event > img{
@@ -89,4 +96,17 @@ ul.tabs li.current{
 
 .restaurant > img{
   border-radius: 8px;
+}
+.saved-event{
+  display: none;
+}
+.hide-detail{
+  display: none;
+  font-size: 13px;
+  position: relative;
+  padding-left: 107px;
+  bottom: 37px;
+}
+.detail{
+  padding-left: 3%;
 }
