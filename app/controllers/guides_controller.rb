@@ -78,6 +78,7 @@ class GuidesController < ApplicationController
   end
 
   def new
+    @languages = %w(English Spanish German French Italian Portuguese Japanese Korean Turkish Mandarin Cantonese)
     @guide = Guide.new
   end
 
