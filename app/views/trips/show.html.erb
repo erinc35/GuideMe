@@ -9,8 +9,8 @@
 
   }
 </style>
-<div class="container">
-  <h1 class="center_h1"><%= @traveler.first_name + " " + @traveler.last_name %>'s Trip Details</h1>
+<div class="container margin-top10">
+  <h1 class="center_h1 fran margin-bot10"><%= @traveler.first_name + " " + @traveler.last_name %>'s Trip Details</h1>
 
 
    <p><b>Guide: </b><%= link_to @guide.first_name + " " + @guide.last_name, guide_path(@guide) %></p>
@@ -18,8 +18,8 @@
   <p><b>Start Date: </b><%= @trip.start_date.strftime("%m/%d/%Y") %></p>
   <p><b>End Date: </b><%= @trip.end_date %></p>
 
-  <h3 class="center_h1">Interests</h3>
-  <% @trip.interests.split(", ").each do |interest| %>
-    <p><%= interest %></p>
-  <% end %>
+  <h3 class="center_h1 fran">Interests</h3>
+  <ul><% @trip.interests.split(", ").each do |interest| %>
+    <li><%= interest %></li>
+  <% end %></ul>
 </div>

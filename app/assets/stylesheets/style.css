@@ -1,7 +1,13 @@
-/**{
+.fran{
   font-family: "Sue Ellen Francisco";
-}*/
+}
+.margin-bot10{
+  margin-bottom: 10%;
+}
 
+.margin-top10{
+  margin-top: 10%;
+}
 .navbar {
   font-family: "Sue Ellen Francisco";
   font-size: 1.5em;
