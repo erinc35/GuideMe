@@ -9,3 +9,28 @@
 
     <%= render partial: '/partials/saved_detail_restaurants', locals: { restaurant: restaurant} %>
 </div>
+ <!-- <script>
+      var images = new Array('bbb.jpg','eee.jpeg','cappa.jpg', 'pichu.jpg');
+      var nextimage=0;
+      doSlideshow();
+
+      function doSlideshow(){
+        if(nextimage>=images.length){nextimage=0;}
+        $('body').css('background-image','url("'+images[nextimage++]+'")')
+        .fadeIn(100,function(){
+          setTimeout(doSlideshow,10000);
+        });
+
+      }
+    </script> -->
+    <style>
+      border-style: {
+        /*background-image: url("pichu.jpg");*/
+        background-repeat: no-repeat;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        background-position: center center;
+      }
+    </style>

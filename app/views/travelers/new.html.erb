@@ -6,12 +6,12 @@
     <div id="error_explanation">
       <div class="alert alert-danger">
         The form contains <%= pluralize(@traveler.errors.count, "error") %>.
-      </div>
       <ul>
       <% @traveler.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
+      </div>
     </div>
   <% end %>
 
