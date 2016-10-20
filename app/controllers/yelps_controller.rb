@@ -13,6 +13,8 @@ class YelpsController < ApplicationController
       yelp_restaurant = restaurants_call.select { |restaurant| restaurant.name == params[:restaurant] }[0]
       yelp_attraction = attractions_call.select { |attraction| attraction.name == params[:attraction] }[0]
       p "O*" * 200
+
+      # p yelp_restaurant.location[:@display_address]
       if request.xhr?
         if yelp_event
           p "-*-*" * 200

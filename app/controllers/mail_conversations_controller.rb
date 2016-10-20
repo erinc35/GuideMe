@@ -1,7 +1,7 @@
 class MailConversationsController < ApplicationController
 
   def index
-    @mailbox_conversations = current_user.mailbox.conversations
+    @mailbox_conversations = current_user.mailbox.inbox
   end
 
   def new
@@ -28,10 +28,6 @@ class MailConversationsController < ApplicationController
 
   def show
     @mailbox_conversation = current_user.mailbox.conversations.find(params[:id])
-  end
-
-  def inbox
-    @mailbox_conversations = current_user.mailbox.conversations
   end
 
   def outbox

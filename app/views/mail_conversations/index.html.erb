@@ -1,19 +1,9 @@
-<div class="container">
-  <h2>Inbox:</h2>
-
-  <% @mailbox_conversations.each do |email| %>
-    <p>
-     <%= link_to email.subject, mail_conversation_path(email) %>
-    </p>
-  <% end %>
-
-  <div>
-      <%= link_to 'New Message', new_mail_conversation_path %>
+<%= render 'sidebar' %>
+<div id="messageContainer">
+  <div id="mailTitle">
+    <h2>Inbox</h2>
   </div>
-
-  <div>
-    <p>
-
-    </p>
-  </div>
+<br>
+<br>
+<%= render 'inboxList', layout: false %>
 </div>

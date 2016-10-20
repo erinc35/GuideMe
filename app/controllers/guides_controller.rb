@@ -42,8 +42,25 @@ class GuidesController < ApplicationController
     end
 
     @language = params[:language]
-    # @guides = Guide.all.where(location: @location, language: @language)
     @guides = Guide.all.where(location: @location)
+    @guides_array = []
+    p "*" * 50
+    p params
+   
+    @potential_guides = Guide.all.where(location: @location)
+    @potential_guides.each do |guide|
+      logged_trips = guide.trips
+      p logged_trips
+      logged_trips.each do |trip|
+        if trip.end_date
+          if trip.end_date < @start_date
+            @guides_array << trip.guide
+            p "guides" * 30
+            p @guides
+          end
+        end
+      end
+    end
 
     @unsplash_object = Unsplash::Photo.search(@location)
     @pic = @unsplash_object[0].urls["full"]
@@ -77,10 +94,10 @@ class GuidesController < ApplicationController
   end
 
   def show
-    guide = Guide.find(params[:id])
+    @guide = Guide.find(params[:id])
     if current_user && current_user.class == Guide
-      if current_user.id == guide.id
-        @converstations = Converstation.involving(current_user)
+      if current_user.id == @guide.id
+        @conversations = Conversation.involving(current_user).order("created_at DESC")
       end
     end
   end

@@ -1,15 +1,17 @@
-<header>
-  <script>
-    var images = new Array('bbb.jpg','eee.jpeg','cappa.jpg', 'pichu.jpg');
-    var nextimage=0;
-    doSlideshow();
+ <div class="main-container">
+  <header>
+    <script>
+      var images = new Array('bbb.jpg','eee.jpeg','cappa.jpg', 'pichu.jpg');
+      var nextimage=0;
+      doSlideshow();
 
-    function doSlideshow(){
+      function doSlideshow(){
         if(nextimage>=images.length){nextimage=0;}
         $('body').css('background-image','url("'+images[nextimage++]+'")')
         .fadeIn(100,function(){
-            setTimeout(doSlideshow,10000);
+          setTimeout(doSlideshow,10000);
         });
+
     }
   </script>
  <style>
@@ -41,17 +43,35 @@
          <select class="form-language" name='language' required>
           <option value="" default selected>Language</option>
           <% @languages.each do |language| %>
+
             <option value=<%= language %>><%= language %></option>
-          <% end %>
-        </select>
-        <input id = "guide-search-but" class="form-radius" type="submit" value="Search">
-      </form>
+            <% end %>
+          </select>
+          <input id = "guide-search-but" class="form-radius" type="submit" value="Search">
+        </form>
       </div>
-  </div>
-<div id='map'></div>
-<div id='city'></div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h1 class="modal-title text-center" id="myModalLabel">Become a GuideMe Member!</h1>
+
+               <%= render '/partials/traveler_signup' %>
 
 
-</header>
-<!-- <input id = "city" type="text" name="email" placeholder="Email">
- -->
+            </div>
+          </div>
+        </div>
+        <div id='map'></div>
+        <div id='city'></div>
+      </header>
+</div>
+
+
+
+
+
