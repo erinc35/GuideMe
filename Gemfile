@@ -39,6 +39,7 @@ gem 'jquery-ui-rails'
 gem 'httparty'
 gem 'stripe'
 gem 'yelp'
+gem 'geocoder'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
