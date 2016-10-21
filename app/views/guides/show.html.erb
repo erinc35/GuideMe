@@ -1,11 +1,10 @@
 <h1>Guides#show</h1>
 <p>Find me in app/views/guides/show.html.erb</p>
-
-<% if current_user %>
-<% if current_user.class != Guide %>
-  <p><a href="/guides/<%= @guide.id %>/charges/new">Charge</a></p>
+<%= form_for @guide, url: guides_path, html: { multipart: true } do |form| %>
+  <%= form.file_field :avatar %>
 <% end %>
 
+<% if current_user %>
 <% if current_user.class == Guide %>
   <% @guide = Guide.find(params[:id]) %>
 

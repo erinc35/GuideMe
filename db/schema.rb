@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161018040827) do
+ActiveRecord::Schema.define(version: 20161020053153) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "available_dates", force: :cascade do |t|
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.string   "start_date"
+    t.string   "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "guide_id"
@@ -35,6 +35,15 @@ ActiveRecord::Schema.define(version: 20161018040827) do
     t.index ["sender_type", "sender_id"], name: "index_conversations_on_sender_type_and_sender_id", using: :btree
   end
 
+  create_table "geocodes", force: :cascade do |t|
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "full_street_address"
+  end
+
   create_table "guides", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -45,9 +54,13 @@ ActiveRecord::Schema.define(version: 20161018040827) do
     t.string   "location"
     t.string   "has_car"
     t.string   "photo"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.string   "online"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "mailboxer_conversation_opt_outs", force: :cascade do |t|
@@ -147,9 +160,13 @@ ActiveRecord::Schema.define(version: 20161018040827) do
     t.string   "language"
     t.string   "phone"
     t.string   "photo"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.string   "online"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "trips", force: :cascade do |t|
@@ -160,15 +177,15 @@ ActiveRecord::Schema.define(version: 20161018040827) do
     t.text     "requests"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.string   "start_date"
+    t.string   "end_date"
     t.index ["guide_id"], name: "index_trips_on_guide_id", using: :btree
     t.index ["traveler_id"], name: "index_trips_on_traveler_id", using: :btree
   end
 
   create_table "unavailable_dates", force: :cascade do |t|
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.string   "start_date"
+    t.string   "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "guide_id"

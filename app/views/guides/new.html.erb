@@ -11,7 +11,7 @@
 </style>
 t
 <div class="signup-form">
-    <h1>Create Guide Account</h1>
+    <center><h1 class="h1-guide">Create Guide Account</h1></center>
 
     <% if @guide.errors.any? %>
       <div id="error_explanation">
@@ -32,7 +32,13 @@ t
         <div class="signup-group">First name: <%= f.text_field :first_name, class: "buu"%></div><br>
         <div class="signup-group">Last name: <%= f.text_field :last_name, class: "buu" %></div><br>
         <div class="signup-group">Email: <%= f.text_field :email, class: "buu" %></div><br>
-        <div class="signup-group">Language: <%= f.text_field :language, class: "buu" %></div><br>
+        <label class="signup-group">Language:</label>
+        <select class="form-language buu form-padding" name='language' required>
+            <option value="" default selected>Choose a language</option>
+                <% @languages.each do |language| %>
+            <option value=<%= language %>><%= language %></option>
+            <% end %>
+        </select>
         <div class="signup-group">Phone: <%= f.text_field :phone, class: "buu" %></div><br>
         <div class="signup-group">Location: <%= f.text_field :location, class: "buu" %></div><br>
         <div class="signup-group">Do you have a car? <%= f.text_field :has_car, class: "buu" %></div><br>

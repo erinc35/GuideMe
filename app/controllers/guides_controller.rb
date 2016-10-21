@@ -31,14 +31,36 @@ class GuidesController < ApplicationController
 
     @images = HTTParty.get("https://pixabay.com/api/?key=#{ENV['pixabay_api']}&q=#{params[:location].split(",")[0]}+cityscape&image_type=photo")
 
+    session["location"] ||= (session["location"] = "")
     session["events"] ||= (session["events"] = [])
     session["guide"] ||= (session["guide"] = "")
 
+    if session["location"] != @location
+      session["events"] = []
+      session["guide"] = ""
+      session["location"] = @location
+    end
+
     @language = params[:language]
-    # @guides = Guide.all.where(location: @location, language: @language)
     @guides = Guide.all.where(location: @location)
-    p "*-_" * 200
-    p @guides
+    @guides_array = []
+    p "*" * 50
+    p params
+   
+    @potential_guides = Guide.all.where(location: @location)
+    @potential_guides.each do |guide|
+      logged_trips = guide.trips
+      p logged_trips
+      logged_trips.each do |trip|
+        if trip.end_date
+          if trip.end_date < @start_date
+            @guides_array << trip.guide
+            p "guides" * 30
+            p @guides
+          end
+        end
+      end
+    end
 
     @unsplash_object = Unsplash::Photo.search(@location)
     @pic = @unsplash_object[0].urls["full"]
@@ -46,18 +68,25 @@ class GuidesController < ApplicationController
     ##########---------YELP---------##########
 
     @events_call = Yelp.client.search(@location, { term: 'events', limit: 16 }).businesses
-
     @restaurants_call = Yelp.client.search(@location, { term: 'restaurants', limit: 16 }).businesses
-
     @attractions_call = Yelp.client.search(@location, { term: 'attractions', limit: 16 }).businesses
+
+    p @events_locations = @events_call.map { |event| event.location.display_address[0] }.join("&markers=")
+    p @restaurants_locations = @restaurants_call.map { |restaurant| restaurant.location.display_address[0] }.join("&markers=")
+    p @attractions_locations = @attractions_call.map { |attraction| attraction.location.display_address[0] }.join("&markers=")
+
   end
 
   def new
+    @languages = %w(English Spanish German French Italian Portuguese Japanese Korean Turkish Mandarin Cantonese)
     @guide = Guide.new
   end
 
   def create
+    @languages = %w(English Spanish German French Italian Portuguese Japanese Korean Turkish Mandarin Cantonese)
+
     @guide = Guide.new(guide_params)
+    @guide.language = params[:language]
     if @guide.save
       session[:guide_id] = @guide.id
       @guide.online = "yes"
@@ -79,6 +108,9 @@ class GuidesController < ApplicationController
 
   def edit
     @guide = Guide.find(params[:id])
+    @avatar = params[:avatar]
+    p @avatar
+    p params
   end
 
   def update
@@ -97,8 +129,13 @@ class GuidesController < ApplicationController
 
   private
 
+  def location_params
+    params.permit(:language)
+  end
+
   def guide_params
-    params.require(:guide).permit(:first_name, :last_name, :email, :password, :password_confirmation, :language, :phone, :location, :has_car, :online)
+
+    params.require(:guide).permit(:first_name, :last_name, :email, :password, :password_confirmation, :phone, :location, :has_car, :online)
   end
 
 end

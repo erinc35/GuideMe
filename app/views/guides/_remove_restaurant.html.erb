@@ -1,5 +1,36 @@
 <div class="restaurant">
   <img src="<%= restaurant.image_url %>" alt="edit" />
-  <a href="<%=restaurant.url%>" target="_blank"><%= restaurant.name %></a>
+  <a href="<%=restaurant.url%>" target="_blank" class="event-name"><%= restaurant.name %></a>
   <%= link_to 'Add', yelps_add_path(session[:traveler_id], restaurant: restaurant.name, location: @location), method: :post, id: 'add_restaurant', class: "add-remove-but" %>
+  <div class="address">
+    <%= restaurant.location.display_address[0] +" "+ restaurant.location.display_address[-1]%></div>
+    <a href="#"  class="click-detail">Show details</a>
+    <a href="#" class="hide-detail">Hide details</a>
+
+    <%= render partial: '/partials/saved_detail_restaurants', locals: { restaurant: restaurant} %>
 </div>
+ <!-- <script>
+      var images = new Array('bbb.jpg','eee.jpeg','cappa.jpg', 'pichu.jpg');
+      var nextimage=0;
+      doSlideshow();
+
+      function doSlideshow(){
+        if(nextimage>=images.length){nextimage=0;}
+        $('body').css('background-image','url("'+images[nextimage++]+'")')
+        .fadeIn(100,function(){
+          setTimeout(doSlideshow,10000);
+        });
+
+      }
+    </script> -->
+    <style>
+      border-style: {
+        /*background-image: url("pichu.jpg");*/
+        background-repeat: no-repeat;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        background-position: center center;
+      }
+    </style>
