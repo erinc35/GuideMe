@@ -83,13 +83,15 @@
 <h3>Reviews</h3>
 <% if @guide.reviews %>
 
-  <% @guide.reviews.each do |review| %>
-    <p>
-      <b><%= Traveler.find(review.traveler_id).first_name + " " + Traveler.find(review.traveler_id).last_name %></b>: <%= review.comment %>
-    </p>
+  <% @guide.reviews.reverse.each do |review| %>
+    <div class="border-bot">
     <p>
       <b>Rating</b>: <%= review.rating %>
     </p>  
+    <p>
+      <b><%= Traveler.find(review.traveler_id).first_name + " " + Traveler.find(review.traveler_id).last_name %></b>: <%= review.comment %>
+    </p>
+    </div>
   <% end %>
 <% else %>
   <p> No reviews yet! </p>

@@ -2,6 +2,11 @@
   font-family: "Sue Ellen Francisco";
 }
 
+.border-bot {
+  border-bottom: 1px solid black;
+  margin-bottom: 10px;
+}
+
 .float-left {
   border-radius: 8px;
   margin-left: 40px;
