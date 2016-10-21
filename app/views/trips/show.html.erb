@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Trip Details</h1>
+  <h1 class="h1-guide">Trip Details</h1>
 
   <p><%= @traveler.first_name + " " + @traveler.last_name %></p>
 
@@ -9,7 +9,11 @@
   <p><b>End Date: </b><%= @trip.end_date %></p>
 
   <h3>Interests</h3>
-  <% @trip.interests.split(", ").each do |interest| %>
-    <p><%= interest %></p>
+  <% if @trip.interests %>
+    <% @trip.interests.split(", ").each do |interest| %>
+      <p><%= interest %></p>
+    <% end %>
+  <% else %>
+    <p>No interests were selected</p>
   <% end %>
 </div>

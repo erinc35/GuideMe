@@ -1,5 +1,10 @@
-<h1>Travelers#show</h1>
-<p>Find me in app/views/travelers/show.html.erb</p>
+
+<div class="container">
+<div class="profile">
+  <h1 class="traveler-h1"><%= @traveler.first_name + " " + @traveler.last_name %></h1>
+  <%= image_tag(@traveler.photo) %>
+  <p><b>Total trips: </b><%= @traveler.trips.count %></p>
+</div>
 
 <%= form_tag yelps_path, url: url_for(action: 'create', controller: 'yelps'), :method => 'post' do %>
 <p>
@@ -9,11 +14,11 @@
 </p>
 <% end %>
 
-
-
-<% @trips.each do |trip| %>
-	<%= link_to trip.location, trip_path(trip) %><br>
-<% end %>
+<div class="interests">
+  <% @trips.each do |trip| %>
+  	<%= link_to trip.location, trip_path(trip) %><br>
+  <% end %>
+</div>
 
 <% if current_user.class == Traveler %>
   <% @traveler = Traveler.find(params[:id]) %>
@@ -42,9 +47,7 @@
             <h2>You haven't talked to anyone yet, go talk to one of our guides!</h2>
         <% end %>
       </div>
-    </div>
-    <div class="col-md-4">
-    </div>
-  </div>
 <% end %>
 <% end %>
+
+</div>
