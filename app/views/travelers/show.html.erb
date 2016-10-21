@@ -41,7 +41,7 @@
 <% end %>
 
 <% if current_user.class == Traveler %>
-  <% @traveler = Traveler.find(current_user.id) %>
+  <% @traveler = Traveler.find(params[:id]) %>
   <% if @traveler.id == current_user.id %>
       <div class="chatbar pull-right">
         <% if @conversations != nil %>
