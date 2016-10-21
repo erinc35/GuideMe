@@ -42,20 +42,24 @@
     </form>
   </div>
 
-  <div class="container">
-    <ul class="tabs">
-      <li class="tab-link current" data-tab="tab-1">Guides</li>
-      <li class="tab-link" data-tab="tab-2">Attractions</li>
-      <li class="tab-link" data-tab="tab-3">Restaurants</li>
-      <li class="tab-link" data-tab="tab-4">Events</li>
-    </ul>
-
-    <%= render 'guides' %>
-    <%= render 'attractions' %>
-    <%= render 'events' %>
-    <%= render 'restaurants' %>
+  <div class="float-right">
+    <img id='imgmap' src="https://maps.googleapis.com/maps/api/staticmap?center=<%= @full_location %>&zoom=12&size=1000x400&markers=<%= @full_location %>&markers=<%= @events_locations %>&markers=<%= @restaurants_locations %>&markers=<%= @attractions_locations %>">
   </div>
+    <div class="float-left-div">
+    <div class="float-left">
+      <ul class="tabs">
+        <li class="tab-link current" data-tab="tab-1">Guides</li>
+        <li class="tab-link" data-tab="tab-2">Attractions</li>
+        <li class="tab-link" data-tab="tab-3">Restaurants</li>
+        <li class="tab-link" data-tab="tab-4">Events</li>
+      </ul>
 
+      <%= render 'guides' %>
+      <%= render 'attractions' %>
+      <%= render 'events' %>
+      <%= render 'restaurants' %>
+    </div>
+    </div>
   <div id='map'></div>
   <div id='city'></div>
 

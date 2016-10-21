@@ -4,9 +4,11 @@
      <p class="allign"><b>Guide: </b><%= link_to @guide.first_name + " " + @guide.last_name, guide_path(@guide) %></p>
 
     <h3 class="center_h1 allign">Interests</h3>
-    <ul><% @trip.interests.split(", ").each do |interest| %>
-      <li><%= interest %></li>
-    <% end %></ul>
+    <% if @trip.interests %>
+      <ul><% @trip.interests.split(", ").each do |interest| %>
+        <li><%= interest %></li>
+      <% end %></ul>
+    <% end %>
 
   </div>
 </div>

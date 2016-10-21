@@ -43,8 +43,7 @@ class GuidesController < ApplicationController
     @language = params[:language]
     @guides = Guide.all.where(location: @location)
     @guides_array = []
-
-
+    
     @potential_guides = Guide.all.where(location: @location)
     @potential_guides.each do |guide|
       logged_trips = guide.trips
@@ -66,10 +65,9 @@ class GuidesController < ApplicationController
     @restaurants_call = Yelp.client.search(@location, { term: 'restaurants', limit: 16 }).businesses
     @attractions_call = Yelp.client.search(@location, { term: 'attractions', limit: 16 }).businesses
 
-     @events_locations = @events_call.map { |event| event.location.display_address[0] }.join("&markers=")
-     @restaurants_locations = @restaurants_call.map { |restaurant| restaurant.location.display_address[0] }.join("&markers=")
-     @attractions_locations = @attractions_call.map { |attraction| attraction.location.display_address[0] }.join("&markers=")
-
+    @events_locations = @events_call.map { |event| event.location.display_address[0] }.join("&markers=")
+    @restaurants_locations = @restaurants_call.map { |restaurant| restaurant.location.display_address[0] }.join("&markers=")
+    @attractions_locations = @attractions_call.map { |attraction| attraction.location.display_address[0] }.join("&markers=")
   end
 
   def new
@@ -79,7 +77,6 @@ class GuidesController < ApplicationController
 
   def create
     @languages = %w(English Spanish German French Italian Portuguese Japanese Korean Turkish Mandarin Cantonese)
-
     @guide = Guide.new(guide_params)
     @guide.language = params[:language]
     @guide.online = "yes"

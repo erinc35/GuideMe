@@ -1,12 +1,12 @@
 .signup-atts {
   font-family: 'Nunito', sans-serif !important;
-  color: #384047;
+  color: black;
   max-width: 600px;
   margin: 10px auto;
   padding: 10px 20px;
   background: #f4f7f8;
   border-radius: 8px;
-  opacity: 0.9;
+  opacity: 0.85;
   padding-bottom: 30px;
 }
 
@@ -30,6 +30,7 @@
 }
 
 .buu {
+  color: black;
   margin: 0 4px 8px 0;
 }
 

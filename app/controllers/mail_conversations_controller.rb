@@ -37,6 +37,9 @@ class MailConversationsController < ApplicationController
   def trashing
     @conversations = []
     emails = params[:email]
+    if emails == nil
+      redirect_to mail_conversations_trash_path
+    else
     emails.each do |number|
       @conversations.push(current_user.mailbox.conversations.find(number))
     end
@@ -44,6 +47,7 @@ class MailConversationsController < ApplicationController
        conversation.move_to_trash(current_user)
      end
     redirect_to mail_conversations_trash_path
+    end
   end
 
   def trash
@@ -53,6 +57,9 @@ class MailConversationsController < ApplicationController
   def removing
     @conversations = []
     emails = params[:email]
+    if emails == nil
+      redirect_to mail_conversations_trash_path
+    else
     emails.each do |number|
       @conversations.push(current_user.mailbox.conversations.find(number))
     end
@@ -60,5 +67,6 @@ class MailConversationsController < ApplicationController
        conversation.destroy
      end
     redirect_to mail_conversations_trash_path
+    end
   end
 end
