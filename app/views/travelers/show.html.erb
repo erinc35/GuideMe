@@ -6,17 +6,12 @@
     <%= image_tag(@traveler.photo) %>
   </div>
   <div class="profile-info">
+    <p><b>Email: </b><%= @traveler.email %></p>
     <p><b>Total trips: </b><%= @traveler.trips.count %></p>
+    <p><b>Language: </b><%= @traveler.language %></p>
+    <p><b>Phone: </b><%= @traveler.phone %></p>
   </div>
 </div>
-
-<%= form_tag yelps_path, url: url_for(action: 'create', controller: 'yelps'), :method => 'post' do %>
-<p>
-  <%= text_field_tag :location, placeholder="location"%>
-  <%= text_field_tag :keyword, placeholder="keywords" %>
-  <%= submit_tag "Search", :name => nil %>
-</p>
-<% end %>
 
 <div class="interests">
   <% @trips.each do |trip| %>
