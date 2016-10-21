@@ -4,15 +4,24 @@
 <br>
 <br>
 <div class = "mailList" >
+  <% if @mailbox_conversations.count <= 0 %>
+  <p>
+    "Empty Outbox"
+  </p>
+  <% else %>
   <ul>
+  <form action="/mail_conversations/trashing" method="post">
     <% @mailbox_conversations.each do |email|  %>
     <div class = "mailItem">
       <li>
-        <%= check_box_tag 'email_ids[]', email.id -%>
+        <input id="email[]" name="email[<% email.id %>]" type="checkbox" value="<%= email.id %>" />
         <%= link_to email.subject, mail_conversation_path(email)%>
         <%= email.updated_at.strftime("%m/%d/%Y") %>
       </li>
     </div>
     <% end %>
+    <input class="glyphicon glyphicon-trash", type="submit" value="Trash">
+  </form>
   </ul>
 </div>
+<% end %>
