@@ -6,21 +6,21 @@ $(document).ready(function(){
 });
 
 function showTripDetails(){
-  $("#tab-2").on('click', '.click-detail', function(e){
+  $("#parent-div").on('click', '.show-detail', function(e){
     e.preventDefault();
-    // console.log($(this));
-    $(this).siblings('.saved-event').slideDown();
+    console.log($(this));
+    $(this).siblings('.trip-details').slideDown();
     console.log("zzzz")
       $(this).hide();
-        $(this).siblings(".hide-detail").show();
+        $(this).siblings(".hide-tripdetail").show();
   })
 }
 
 function hideTripDetails(){
-  $("#tab-2").on('click', '.hide-detail', function(e){
+  $("#parent-div").on('click', '.hide-tripdetail', function(e){
     e.preventDefault();
-    $(this).siblings('.saved-event').slideUp();
+    $(this).siblings('.trip-details').slideUp();
      $(this).hide();
-      $(this).siblings(".click-detail").show();
+      $(this).siblings(".show-detail").show();
   })
 }

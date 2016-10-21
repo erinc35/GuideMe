@@ -104,6 +104,9 @@ ul.tabs li.current{
   padding-left: 107px;
   bottom: 37px;
 }
+.hide-tripdetail{
+  display: none;
+}
 .detail{
   padding-left: 3%;
 }
