@@ -4,7 +4,7 @@ $(document).ready(function() {
 })
 
 function addGuide() {
-  $(".container").on('click', '#add_guide', function(event) {
+  $(".float-left").on('click', '#add_guide', function(event) {
     event.preventDefault();
     var that = this;
     var addAction = $(this).attr('href');
@@ -23,14 +23,14 @@ function addGuide() {
       console.log($(that).parent());
       $(that).parent().remove();
       $('.saved_guide').remove();
-      $('.container').children('.guides').prepend(result);
+      $('.float-left').children('.guides').prepend(result);
       // $('.events').prepend('.saved_event')
     });
   });
 }
 
 function removeGuide() {
-  $(".container").on('click', '#remove_guide', function(event) {
+  $(".float-left").on('click', '#remove_guide', function(event) {
     event.preventDefault();
     var that = this;
     var removeAction = $(this).attr('href');
@@ -46,7 +46,7 @@ function removeGuide() {
       console.log($(that).parent());
       $(that).parent().remove();
       $('.saved_guide').remove();
-      $('.container').children('.guides').prepend(result);
+      $('.float-left').children('.guides').prepend(result);
       // $('.events').prepend('.saved_event')
     });
   });
