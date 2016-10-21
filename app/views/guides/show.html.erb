@@ -21,56 +21,12 @@
   <center><h2>Trips</h2></center>
 </div>
 
-<% @guide.trips.each do |trip| %>
-  <div class="trips">
-      <%= link_to trip.location, trip_path(trip) %><br>
-  </div>
-<% end %>
-
-<% if current_user.class == Traveler %>
-  <% @traveler = Traveler.find(current_user.id) %>
-  <% if @traveler.id == current_user.id %>
-      <div class="chatbar pull-right">
-        <% if @conversations != nil %>
-            <ul class="media-list">
-              <% @conversations.each do |conversation| %>
-                  <li class="media">
-                    <div class="chatbarphoto">
-                      <img src="<%= conversation_interlocutor(conversation).photo %>">
-                    </div>
-                    <div class="media-body">
-                      <%= link_to "", conversation_path(conversation), class: "conversation", "data-cid" => conversation.id %>
-                      <h4 class="media-heading"><%= conversation_interlocutor(conversation).first_name %></h4>
-                        <% if conversation_interlocutor(conversation).online == "yes" %>
-                          <i class='fa fa-asterisk' style="color:green"></i>
-                        <% end %>
-                        </div>
-                  </li>
-
-              <% end %>
-            </ul>
-
-            <% else %>
-            <h2>You haven't talked to anyone yet, go talk to one of our guides!</h2>
-        <% end %>
-      </div>
-<% end %>
-<% end %>
-
-</div>
-</div>
-
-
 <% if current_user %>
 <% if current_user.class == Guide %>
-  <% @guide = Guide.find(params[:id]) %>
+  <% @guide = Guide.find(current_user.id) %>
 
   <% if @guide.id == current_user.id %>
-
-  <%= form_for @guide, url: guides_path, html: { multipart: true } do |form| %>
-    <%= form.file_field :avatar %>
-  <% end %>
-
+  
     <%= render "partials/available_dates" %>
     <div class="chatbar pull-right">
       <% if @conversations != nil %>
@@ -116,3 +72,6 @@
 <% end %>
 
 <% end %>
+
+</div>
+</div>
