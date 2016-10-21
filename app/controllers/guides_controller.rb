@@ -43,7 +43,7 @@ class GuidesController < ApplicationController
     @language = params[:language]
     @guides = Guide.all.where(location: @location)
     @guides_array = []
-   
+    
     @potential_guides = Guide.all.where(location: @location)
     @potential_guides.each do |guide|
       logged_trips = guide.trips
@@ -68,7 +68,6 @@ class GuidesController < ApplicationController
     @events_locations = @events_call.map { |event| event.location.display_address[0] }.join("&markers=")
     @restaurants_locations = @restaurants_call.map { |restaurant| restaurant.location.display_address[0] }.join("&markers=")
     @attractions_locations = @attractions_call.map { |attraction| attraction.location.display_address[0] }.join("&markers=")
-
   end
 
   def new
@@ -101,6 +100,8 @@ class GuidesController < ApplicationController
 
   def edit
     @guide = Guide.find(params[:id])
+    @avatar = params[:avatar]
+    @avatar
   end
 
   def update
@@ -124,6 +125,7 @@ class GuidesController < ApplicationController
   end
 
   def guide_params
+
     params.require(:guide).permit(:first_name, :last_name, :email, :password, :password_confirmation, :phone, :location, :has_car, :online)
   end
 
