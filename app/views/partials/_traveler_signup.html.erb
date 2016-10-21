@@ -9,7 +9,13 @@
         <div class="signup-group">First name: <%= f.text_field :first_name, class: "buu"%></div><br>
         <div class="signup-group">Last name: <%= f.text_field :last_name, class: "buu" %></div><br>
         <div class="signup-group">Email: <%= f.text_field :email, class: "buu" %></div><br>
-        <div class="signup-group">Language: <%= f.text_field :language, class: "buu" %></div><br>
+        <label class="signup-group">Language:</label>
+        <select class="form-language buu form-padding" name='language' required>
+            <option value="" default selected>Choose a language</option>
+                <% @languages.each do |language| %>
+            <option value=<%= language %>><%= language %></option>
+            <% end %>
+        </select>
         <div class="signup-group">Phone: <%= f.text_field :phone, class: "buu" %></div><br>
         <div class="signup-group">Password: <%= f.password_field :password , class: "buu"%></div><br>
         <div class="signup-group">Password Confirmation: <%= f.password_field :password_confirmation , class: "buu"%><br><br>

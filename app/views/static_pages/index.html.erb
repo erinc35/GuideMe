@@ -1,48 +1,51 @@
- <div class="main-container">
-  <header>
-    <script>
-      var images = new Array('bbb.jpg','eee.jpeg','cappa.jpg', 'pichu.jpg');
-      var nextimage=0;
-      doSlideshow();
-
-      function doSlideshow(){
-        if(nextimage>=images.length){nextimage=0;}
-        $('body').css('background-image','url("'+images[nextimage++]+'")')
-        .fadeIn(100,function(){
-          setTimeout(doSlideshow,10000);
-        });
-
-    }
-  </script>
- <style>
-    border-style: {
-    /*background-image: url("pichu.jpg");*/
-    background-repeat: no-repeat;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    background-position: center center;
-    }
+<style>
+  a:hover {
+    background-color: none;
+}
 </style>
-<!-- <h1 class="center_h1">GuideMe</h1> -->
+ <div class="main-container ">
+  <header>
 
-  <%= render 'social_media' %>
+       <div id="myCarousel" class="carousel slide ">
+      <div class="carousel-inner" style="overflow: visible !important; bottom: 20px !important;">
+        <div class="item active ">
+          <span class="carousel-images"><%= image_tag("bbb.jpg")%><span>
+          <div class="container">
 
-  <div class="homeform">
-    <h3 class="form-header">LET'S FIND A GUIDE..</h3>
-    <div class="search-form">
-      <form id="search_form" action="/guides" method="get">
+          </div>
+        </div>
+        <div class="item">
+          <span class="carousel-images"><%= image_tag("eee.jpeg")%></span>
+          <div class="container">
 
-        <input id="city" class="form-radius" type="text" name="location" placeholder= "Destination City" size="50" required>
-        <label for="from">From</label>
-        <input type="text" class="form-radius" id="from" name="from">
-        <label for="to">to</label>
-        <input type="text" class="form-radius" id="to" name="to">
+          </div>
+        </div>
+        <div class="item">
+          <span class="carousel-images"><%= image_tag("cappa.jpg")%></span>
+          <div class="container">
 
-         <select class="form-language" name='language' required>
-          <option value="" default selected>Language</option>
-          <% @languages.each do |language| %>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next" >›</a>
+
+    <%= render 'social_media' %>
+
+    <div class="homeform">
+      <h3 class="form-header">LET'S FIND A GUIDE..</h3>
+      <div class="search-form">
+        <form id="search_form" action="/guides" method="get">
+
+          <input id="city" class="form-radius" type="text" name="location" placeholder= " Destination City" size="50" required>
+          <label for="from">From</label>
+          <input type="text" class="form-radius" id="from" name="from">
+          <label for="to">to</label>
+          <input type="text" class="form-radius" id="to" name="to">
+
+          <select class="form-language" name='language' required>
+            <option value="" default selected>Language</option>
+            <% @languages.each do |language| %>
 
             <option value=<%= language %>><%= language %></option>
             <% end %>
@@ -51,25 +54,26 @@
         </form>
       </div>
     </div>
-
+</div>
+</div>
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h1 class="modal-title text-center" id="myModalLabel">Become a GuideMe Member!</h1>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="x" aria-hidden="true">&times;</span></button>
+            <!-- <h1 class="modal-title text-center" id="myModalLabel">Become a GuideMe Member!</h1> -->
 
-               <%= render '/partials/traveler_signup' %>
+            <%= render '/partials/traveler_signup' %>
 
 
-            </div>
           </div>
         </div>
-        <div id='map'></div>
-        <div id='city'></div>
-      </header>
-</div>
+      </div>
+      <div id='map'></div>
+      <div id='city'></div>
+    </header>
+
 
 
 

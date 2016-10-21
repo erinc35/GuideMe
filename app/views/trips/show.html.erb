@@ -1,15 +1,26 @@
-<div class="container">
-  <h1>Trip Details</h1>
+<style>
+  body{
+    background-image: url(<%=@pic%>);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center center;
 
-  <p><%= @traveler.first_name + " " + @traveler.last_name %></p>
+  }
+</style>
+<div class="container margin-top10">
+  <h1 class="center_h1 fran margin-bot10"><%= @traveler.first_name + " " + @traveler.last_name %>'s Trip Details</h1>
 
-  <p><b>Guide: </b><%= @guide.first_name + " " + @guide.last_name %></p>
+
+   <p><b>Guide: </b><%= link_to @guide.first_name + " " + @guide.last_name, guide_path(@guide) %></p>
+
   <p><b>Location: </b><%= @trip.location %></p>
-  <p><b>Start Date: </b><%= @trip.start_date %></p>
+  <p><b>Start Date: </b><%= @trip.start_date.strftime("%m/%d/%Y") %></p>
   <p><b>End Date: </b><%= @trip.end_date %></p>
 
-  <h3>Interests</h3>
-  <% @trip.interests.split(", ").each do |interest| %>
-    <p><%= interest %></p>
-  <% end %>
+  <h3 class="center_h1 fran">Interests</h3>
+  <ul><% @trip.interests.split(", ").each do |interest| %>
+    <li><%= interest %></li>
+  <% end %></ul>
 </div>

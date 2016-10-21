@@ -21,10 +21,10 @@ ul.tabs li{
 
 .tabs{
   border-bottom: 1px solid black;
-  font-size: 1.8em;
 }
 
 ul.tabs li.current{
+  border-radius: 8px;
   background: #e1e8f4;
   color: black;
 }
@@ -32,8 +32,6 @@ ul.tabs li.current{
 .tab-content{
   display: none;
   background: #ededed;
-   font-size: 1.5em;
-
 }
 
 .tab-content.current{
@@ -41,8 +39,83 @@ ul.tabs li.current{
 }
 
 .add-remove-but{
-  margin-top: 34px;
+  margin-top: 0;
   float: right;
   margin-right: 2%;
 }
 
+.address{
+  font-size: 13px;
+  position: relative;
+  padding-left: 107px;
+  bottom: 77px;
+}
+
+.click-detail{
+  font-size: 13px;
+  position: relative;
+  padding-left: 107px;
+  bottom: 37px;
+
+}
+
+.saved_event > img{
+  position: relative;
+}
+.restaurant > img{
+  position: relative;
+}
+.event-name{
+  position: relative;
+  bottom: 37px;
+}
+.event > img{
+  position: relative;
+}
+.restaurant-name{
+  position: relative;
+  bottom: 37px;
+}
+.saved_attraction > img{
+  border-radius: 8px;
+}
+
+.attraction > img{
+  border-radius: 8px;
+}
+.saved_event > img{
+  border-radius: 8px;
+}
+
+.event > img{
+  border-radius: 8px;
+}
+
+.restaurant > img{
+  border-radius: 8px;
+}
+.saved-event{
+  display: none;
+}
+.hide-detail{
+  display: none;
+  font-size: 13px;
+  position: relative;
+  padding-left: 107px;
+  bottom: 37px;
+}
+.detail{
+  padding-left: 3%;
+}
+
+.carousel-images{
+  border-style: {
+        /*background-image: url("pichu.jpg");*/
+        background-repeat: no-repeat;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        background-position: center center;
+      }
+}

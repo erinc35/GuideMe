@@ -7,7 +7,11 @@
     <b> <img src="<%= guide.photo %>"> </b>
   </p>
 
-  <p><b>Rating:</b> *****</p>
+  <% if guide.reviews != [] %>
+    <p><b>Rating: </b><%= (guide.reviews.where(guide_id: guide.id).pluck(:rating).reduce(0) {|total, rating| total + rating}) / guide.reviews.where(guide_id: guide.id).pluck(:rating).count %></p>
+  <% else %>
+    <p>No reviews yet!</p>
+  <% end %>
 
   <p><b>Car Available:</b> <%= guide.has_car %></p>
 
