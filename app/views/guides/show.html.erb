@@ -27,12 +27,10 @@
 <div class="trips-header">
   <center><h2>Trips</h2></center>
 </div>
-<% p current_user %>
-<% p "*" * 255 %>
-<% p current_user.online %>
+
 <% if current_user %>
 <% if current_user.class == Guide %>
-  <% @guide = Guide.find(current_user.id) %>
+  <% @guide = Guide.find(params[:id]) %>
 
   <% if @guide.id == current_user.id %>
 

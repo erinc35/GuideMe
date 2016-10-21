@@ -10,7 +10,7 @@ li.media a {
   left: 0;
   text-decoration: none; /* No underlines on the link */
   z-index: 10; /* Places the link above everything else in the div */
-  background-color: #FFF; /* Fix to make div clickable in IE */
+  /*background-color: #FFF; /* Fix to make div clickable in IE */*/
   opacity: 0; /* Fix to make div clickable in IE */
   filter: alpha(opacity=1); /* Fix to make div clickable in IE */
 }
