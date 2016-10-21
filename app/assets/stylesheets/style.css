@@ -1,13 +1,42 @@
 .fran{
   font-family: "Sue Ellen Francisco";
 }
+.guide:hover{
+  background-color: #acc2e5;
+}
+.allign{
+  text-align: center;
+}
 .margin-bot10{
   margin-bottom: 10%;
 }
 
-
 .margin-top10{
   margin-top: 10%;
+}
+.margin-bot5{
+  margin-bottom: 5%;
+}
+
+.margin-top5{
+  margin-top: 5%;
+}
+
+.trip-location{
+  font-size: 20px;
+}
+
+.inline{
+  font-size: 16px;
+  display: inline;
+}
+
+.trip-details{
+  margin-top: 5%;
+  display: none;
+}
+.show-detail{
+
 }
 
 .h1-guide {
@@ -53,10 +82,12 @@ input {
 }
 
 .guide {
+  margin-top: 4%;
+  margin-left: 6.7%;
   display: inline-block;
   border: 1px solid black;
   width: 40%;
-  margin: 10px;
+  /*margin: 10px;*/
   float: left;
   opacity: 0.8;
   border-radius: 5px;
