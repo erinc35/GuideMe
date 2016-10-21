@@ -1,4 +1,9 @@
 <div class = "mailList" >
+  <% if @mailbox_conversations.count <= 0 %>
+  <h4>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"You have no messages."
+  </h4>
+  <% else %>
   <ul>
   <form action="/mail_conversations/removing" method="post">
     <% @mailbox_conversations.each do |email|  %>
@@ -10,7 +15,8 @@
       </li>
     </div>
     <% end %>
-    <input class="glyphicon glyphicon-trash", type="submit" value="Delete Forever">
+    <button type="submit" class="glyphicon glyphicon-trash", type="submit">
   </form>
   </ul>
 </div>
+<% end %>
