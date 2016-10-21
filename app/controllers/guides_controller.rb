@@ -108,6 +108,9 @@ class GuidesController < ApplicationController
 
   def edit
     @guide = Guide.find(params[:id])
+    @avatar = params[:avatar]
+    p @avatar
+    p params
   end
 
   def update
