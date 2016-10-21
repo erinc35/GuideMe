@@ -28,9 +28,9 @@ class TravelersController < ApplicationController
     #################################
     # Make sure to add error messages
     @traveler = Traveler.new(traveler_params)
+    @traveler.online = "yes"
     if @traveler.save
       session[:traveler_id] = @traveler.id
-      @traveler.online = "yes"
       redirect_to traveler_path(@traveler)
     else
       render 'new'
@@ -64,6 +64,6 @@ class TravelersController < ApplicationController
   private
 
   def traveler_params
-    params.require(:traveler).permit(:first_name, :last_name, :email, :password, :password_confirmation, :language, :phone, :online)
+    params.require(:traveler).permit(:first_name, :last_name, :email, :password, :password_confirmation, :language, :phone, :online, :avatar)
   end
 end
