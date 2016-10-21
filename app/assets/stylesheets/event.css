@@ -107,3 +107,15 @@ ul.tabs li.current{
 .detail{
   padding-left: 3%;
 }
+
+.carousel-images{
+  border-style: {
+        /*background-image: url("pichu.jpg");*/
+        background-repeat: no-repeat;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        background-position: center center;
+      }
+}
