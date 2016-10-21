@@ -1,9 +1,13 @@
-
+<div class="profile-bg">
 <div class="profile-container">
 <div class="profile-header">
   <h1 class="traveler-h1 fran"><%= @traveler.first_name + " " + @traveler.last_name %></h1>
   <div class="profile-img">
-    <%= image_tag(@traveler.photo) %>
+    <% if @traveler.photo %>
+      <%= image_tag(@traveler.photo) %>
+    <% else %>
+      <p>No Image</p>
+    <% end %>
   </div>
   <div class="profile-info">
     <p><b>Email: </b><%= @traveler.email %></p>
@@ -53,4 +57,5 @@
 <% end %>
 <% end %>
 
+</div>
 </div>
