@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
     if @guide && @guide.authenticate(params[:password])
       session[:guide_id] = @guide.id
       @guide.online = "yes"
+      @guide.save
       redirect_to guide_path(@guide)
     elsif @traveler && @traveler.authenticate(params[:password])
       @traveler.online = "yes"
