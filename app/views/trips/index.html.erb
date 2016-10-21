@@ -17,15 +17,15 @@
       <p><%= link_to 'Book a Trip!', root_path %></p>
     <% end %>
 
-    <ul><% @trips.each do |trip| %>
+      <ul><% @trips.each do |trip| %>
 
-        <li class="bold trip-location"><%= @location%></li>
-        <%= @trip.start_date %><br><br>
-        <%= link_to 'show', trip_path(session[:traveler_id], guide_id: trip.guide_id), class: "show-detail" %>
-        <a href="#" class="hide-tripdetail">hide</a>
-        <%= render partial: '/partials/trip_detail' %>
-
-    <% end %></ul>
+          <li class="bold trip-location"><%= @location%></li>
+          <%= @trip.start_date %><br><br>
+          <%= link_to 'show', trip_path(session[:traveler_id], guide_id: trip.guide_id), class: "show-detail" %>
+          <a href="#" class="hide-tripdetail">hide</a>
+          <%= render partial: '/partials/trip_detail' %>
+      </ul>
+    <% end %>
 
 </div>
 
