@@ -24,9 +24,13 @@ guide_array.each do |guide|
 end
 
 50.times do
-	trips = Trip.create(guide_id: rand(1..50), traveler_id: rand(1..50), location: locations.sample, start_date: start_dates.sample, end_date: end_dates.sample)
+	trips = Trip.create(guide_id: rand(1..51), traveler_id: rand(1..51), location: locations.sample, start_date: start_dates.sample, end_date: end_dates.sample)
 end
 
 100.times do
-	reviews = Review.create(rating: rand(1..5), comment: comments.sample, guide_id: rand(1..50), traveler_id: rand(1..50))
+	reviews = Review.create(rating: rand(1..5), comment: comments.sample, guide_id: rand(1..51), traveler_id: rand(1..51))
 end
+
+Traveler.create(first_name: "Katie", last_name: "Johnson", email: "katiejohnson@gmail.com", password: "password", password_confirmation: "password", phone: "1234567", photo: Faker::Avatar.image("my-own-slug", "50x50"))
+Guide.create(first_name: "Guy", last_name: "Smith", email: "guysmith@gmail.com", password: "password", password_confirmation: "password", phone: "1234567", language: languages.sample, location: locations.sample, has_car: has_car.sample, photo: Faker::Avatar.image("my-own-slug", "50x50"), online: "yes")
+Trip.create(guide_id: 51, traveler_id: 51, location: locations.sample, start_date: start_dates.sample, end_date: end_dates.sample)
