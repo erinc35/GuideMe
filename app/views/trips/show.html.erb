@@ -9,10 +9,11 @@
   }
 </style>
 <div class="container margin-top10">
-  <h1 class="center_h1 fran margin-bot10"><%= @traveler.first_name + " " + @traveler.last_name %>'s Trip Details</h1>
-
 
    <p><b>Guide: </b><%= link_to @guide.first_name + " " + @guide.last_name, guide_path(@guide) %></p>
+
+   <p><b>Traveler: </b><%= link_to @traveler.first_name + " " + @traveler.last_name, traveler_path(@traveler) %></p>
+
 
   <p><b>Location: </b><%= @trip.location %></p>
   <p><b>Start Date: </b><%= @trip.start_date %></p>
