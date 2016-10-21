@@ -39,6 +39,7 @@ gem 'jquery-ui-rails'
 gem 'httparty'
 gem 'stripe'
 gem 'yelp'
+gem "paperclip", "~> 5.0.0"
 gem 'geocoder'
 
 group :development, :test do

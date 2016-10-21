@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161020042302) do
+ActiveRecord::Schema.define(version: 20161020053153) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "available_dates", force: :cascade do |t|
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.string   "start_date"
+    t.string   "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "guide_id"
@@ -54,9 +54,13 @@ ActiveRecord::Schema.define(version: 20161020042302) do
     t.string   "location"
     t.string   "has_car"
     t.string   "photo"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.string   "online"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "mailboxer_conversation_opt_outs", force: :cascade do |t|
@@ -156,9 +160,13 @@ ActiveRecord::Schema.define(version: 20161020042302) do
     t.string   "language"
     t.string   "phone"
     t.string   "photo"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.string   "online"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "trips", force: :cascade do |t|
@@ -169,15 +177,15 @@ ActiveRecord::Schema.define(version: 20161020042302) do
     t.text     "requests"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.string   "start_date"
+    t.string   "end_date"
     t.index ["guide_id"], name: "index_trips_on_guide_id", using: :btree
     t.index ["traveler_id"], name: "index_trips_on_traveler_id", using: :btree
   end
 
   create_table "unavailable_dates", force: :cascade do |t|
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.string   "start_date"
+    t.string   "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "guide_id"
