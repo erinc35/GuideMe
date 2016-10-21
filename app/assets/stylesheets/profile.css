@@ -1,15 +1,35 @@
-.profile {
-  background-color: gray;
+.profile-header {
+  background-color: #DBD9DB;
   border-radius: 8px;
   padding: 20px;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.profile-img {
+  float: left;
+  margin: 10px;
+  background-color: #E7EDEC;
+  padding: 10px;
+  border-radius: 10px
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.profile-info {
+  display: inline;
+  background-color: #D3C6CD;
 }
 
 .traveler-h1 {
-  
+  text-align: center;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #E5EBEA;
+  font-size: 50px;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .interests{
-  background-color: red;
+  background-color: #B098A4;
   border-radius: 8px;
   padding: 20px;
 }
