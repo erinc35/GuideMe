@@ -84,8 +84,7 @@ class GuidesController < ApplicationController
 
   def create
     @languages = %w(English Spanish German French Italian Portuguese Japanese Korean Turkish Mandarin Cantonese)
-    p "&0_" * 100
-    p params
+
     @guide = Guide.new(guide_params)
     @guide.language = params[:language]
     if @guide.save
@@ -109,6 +108,9 @@ class GuidesController < ApplicationController
 
   def edit
     @guide = Guide.find(params[:id])
+    @avatar = params[:avatar]
+    p @avatar
+    p params
   end
 
   def update
@@ -132,6 +134,7 @@ class GuidesController < ApplicationController
   end
 
   def guide_params
+
     params.require(:guide).permit(:first_name, :last_name, :email, :password, :password_confirmation, :phone, :location, :has_car, :online)
   end
 
