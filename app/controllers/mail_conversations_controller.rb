@@ -49,4 +49,16 @@ class MailConversationsController < ApplicationController
   def trash
     @mailbox_conversations = current_user.mailbox.trash
   end
+
+  def removing
+    @conversations = []
+    emails = params[:email]
+    emails.each do |number|
+      @conversations.push(current_user.mailbox.conversations.find(number))
+    end
+    @conversations.each do |conversation|
+       conversation.destroy
+     end
+    redirect_to mail_conversations_trash_path
+  end
 end

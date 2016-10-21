@@ -1,12 +1,16 @@
 <div class = "mailList" >
   <ul>
+  <form action="/mail_conversations/removing" method="post">
     <% @mailbox_conversations.each do |email|  %>
     <div class = "mailItem">
       <li>
+        <input id="email[]" name="email[<% email.id %>]" type="checkbox" value="<%= email.id %>" />
         <%= link_to email.subject, mail_conversation_path(email)%>
         <%= email.updated_at.strftime("%m/%d/%Y") %>
       </li>
     </div>
     <% end %>
+    <input class="glyphicon glyphicon-trash", type="submit" value="Delete Forever">
+  </form>
   </ul>
 </div>

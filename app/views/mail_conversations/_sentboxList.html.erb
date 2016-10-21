@@ -5,9 +5,9 @@
 <br>
 <div class = "mailList" >
   <% if @mailbox_conversations.count <= 0 %>
-  <p>
-    "Empty Outbox"
-  </p>
+  <h4>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"You have no messages."
+  </h4>
   <% else %>
   <ul>
   <form action="/mail_conversations/trashing" method="post">
