@@ -80,5 +80,30 @@
 
 <% end %>
 
+<h3>Reviews</h3>
+<% if @guide.reviews %>
+
+  <% @guide.reviews.reverse.each do |review| %>
+    <div class="border-bot">
+    <p>
+      <b>Rating</b>: <%= review.rating %>
+    </p>  
+    <p>
+      <b><%= Traveler.find(review.traveler_id).first_name + " " + Traveler.find(review.traveler_id).last_name %></b>: <%= review.comment %>
+    </p>
+    </div>
+  <% end %>
+<% else %>
+  <p> No reviews yet! </p>
+<% end %>
+
+<%= form_tag guide_reviews_path(@guide) do %>
+  <div class="form-group"><%= text_field_tag :rating, nil , placeholder: "Rating", size: "5" %><br></div>
+  <div class="form-group"><%= text_area_tag :comment, nil , placeholder: "Write a review", size: "35" %><br></div>
+  <%= submit_tag "Submit", class: "btn btn-primary" %>
+
+<% end %>
+
 </div>
 </div>
+

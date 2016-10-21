@@ -14,8 +14,8 @@
 
   <div class="guides-in-header">
 
-    <h3>Guides in <%= @location %> who speak <%= @language %> </h3>
-    <h4>Dates chosen: <%= @start_date %> - <%= @end_date %></h4>
+    <h2>Guides in <%= @location %> who speak <%= @language %> </h2>
+    <h3>Dates chosen: <%= @start_date %> - <%= @end_date %></h3>
     <% if session[:traveler_id] %>
       <%= link_to 'Checkout', traveler_checkout_path(session[:traveler_id], location: @location, start_date: @start_date, end_date: @end_date) %>
     <% else %>
@@ -33,7 +33,8 @@
       <input type="text" class="form-radius" id="to" name="to" value="<%= @end_date %>">
 
        <select class="form-language" name='language' required>
-        <option value="" default selected>Language</option>
+        <option value="" default selected class="language-but
+        ">Language</option>
         <% @languages.each do |language| %>
           <option value=<%= language %>><%= language %></option>
         <% end %>
