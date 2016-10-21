@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="profile-container">
 <div class="profile-header">
   <h1 class="traveler-h1 fran"><%= @traveler.first_name + " " + @traveler.last_name %></h1>
   <div class="profile-img">
@@ -13,11 +13,15 @@
   </div>
 </div>
 
-<div class="interests">
-  <% @trips.each do |trip| %>
-  	<%= link_to trip.location, trip_path(trip) %><br>
-  <% end %>
+<div class="trips-header">
+  <center><h2>Trips</h2></center>
 </div>
+
+<% @trips.each do |trip| %>
+  <div class="trips">
+    	<%= link_to trip.location, trip_path(trip) %><br>
+  </div>
+<% end %>
 
 <% if current_user.class == Traveler %>
   <% @traveler = Traveler.find(params[:id]) %>
