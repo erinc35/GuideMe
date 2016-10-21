@@ -34,11 +34,13 @@ class SessionsController < ApplicationController
     if session[:guide_id]
       @guide = Guide.find(session[:guide_id])
       @guide.online = "no"
+      @guide.save
       session[:guide_id] = nil
       redirect_to root_path
     elsif session[:traveler_id]
       @traveler = Traveler.find(session[:traveler_id])
       @traveler.online = "no"
+      @traveler.save
       session[:traveler_id] = nil
       redirect_to root_path
     end
