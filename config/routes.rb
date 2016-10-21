@@ -26,6 +26,8 @@ Rails.application.routes.draw do
   end
 
   get 'mail_conversations/trash'
+  post 'mail_conversations/trashing'
+  post 'mail_conversations/removing'
   get 'mail_conversations/outbox'
 
   resources :mail_conversations do

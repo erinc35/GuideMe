@@ -7,7 +7,6 @@ class GuidesController < ApplicationController
   def add_guide
     session["guide"] = Guide.find(params[:guide_id]).email
     if request.xhr?
-      p "%" * 200
       render partial: 'remove_guide', layout: false, locals: { guide: Guide.find_by(email: session["guide"]) }
     end
   end
@@ -44,19 +43,15 @@ class GuidesController < ApplicationController
     @language = params[:language]
     @guides = Guide.all.where(location: @location)
     @guides_array = []
-    p "*" * 50
-    p params
-   
+
+
     @potential_guides = Guide.all.where(location: @location)
     @potential_guides.each do |guide|
       logged_trips = guide.trips
-      p logged_trips
       logged_trips.each do |trip|
         if trip.end_date
           if trip.end_date < @start_date
             @guides_array << trip.guide
-            p "guides" * 30
-            p @guides
           end
         end
       end
@@ -71,9 +66,9 @@ class GuidesController < ApplicationController
     @restaurants_call = Yelp.client.search(@location, { term: 'restaurants', limit: 16 }).businesses
     @attractions_call = Yelp.client.search(@location, { term: 'attractions', limit: 16 }).businesses
 
-    p @events_locations = @events_call.map { |event| event.location.display_address[0] }.join("&markers=")
-    p @restaurants_locations = @restaurants_call.map { |restaurant| restaurant.location.display_address[0] }.join("&markers=")
-    p @attractions_locations = @attractions_call.map { |attraction| attraction.location.display_address[0] }.join("&markers=")
+     @events_locations = @events_call.map { |event| event.location.display_address[0] }.join("&markers=")
+     @restaurants_locations = @restaurants_call.map { |restaurant| restaurant.location.display_address[0] }.join("&markers=")
+     @attractions_locations = @attractions_call.map { |attraction| attraction.location.display_address[0] }.join("&markers=")
 
   end
 
@@ -109,8 +104,7 @@ class GuidesController < ApplicationController
   def edit
     @guide = Guide.find(params[:id])
     @avatar = params[:avatar]
-    p @avatar
-    p params
+    @avatar
   end
 
   def update
