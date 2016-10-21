@@ -1,17 +1,32 @@
-<h1>Guides#show</h1>
-<p>Find me in app/views/guides/show.html.erb</p>
+<div class="profile-bg">
+<div class="profile-container">
+<div class="profile-header">
+  <h1 class="traveler-h1 fran"><%= @guide.first_name + " " + @guide.last_name %></h1>
+  <div class="profile-img">
+    <% if @guide.photo %>
+      <%= image_tag(@guide.photo) %>
+    <% else %>
+      <p>No Image</p>
+    <% end %>
+  </div>
+  <div class="profile-info">
+    <p><b>Email: </b><%= @guide.email %></p>
+    <p><b>Total trips: </b><%= @guide.trips.count %></p>
+    <p><b>Language: </b><%= @guide.language %></p>
+    <p><b>Phone: </b><%= @guide.phone %></p>
+  </div>
+</div>
 
+<div class="trips-header">
+  <center><h2>Trips</h2></center>
+</div>
 
 <% if current_user %>
 <% if current_user.class == Guide %>
-  <% @guide = Guide.find(params[:id]) %>
+  <% @guide = Guide.find(current_user.id) %>
 
   <% if @guide.id == current_user.id %>
-
-  <%= form_for @guide, url: guides_path, html: { multipart: true } do |form| %>
-    <%= form.file_field :avatar %>
-  <% end %>
-
+  
     <%= render "partials/available_dates" %>
     <div class="chatbar pull-right">
       <% if @conversations != nil %>
@@ -57,3 +72,6 @@
 <% end %>
 
 <% end %>
+
+</div>
+</div>
