@@ -1,4 +1,3 @@
-<h1>Guides#show</h1>
 <div class="profile-bg">
 <div class="profile-container">
 <div class="profile-header">
@@ -15,6 +14,13 @@
     <p><b>Total trips: </b><%= @guide.trips.count %></p>
     <p><b>Language: </b><%= @guide.language %></p>
     <p><b>Phone: </b><%= @guide.phone %></p>
+    <p><h3>Reviews: </h3>
+        <% @guide.reviews.each do |review| %>
+          <b>Reviewer: </b> <%= review.traveler.first_name %><br>
+          <%= review.comment %><br>
+          <b>Rating: </b> <%= review.rating %><br>
+        <% end %>
+    </p>
   </div>
 </div>
 
@@ -27,11 +33,7 @@
   <% @guide = Guide.find(current_user.id) %>
 
   <% if @guide.id == current_user.id %>
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> 250d9b5d687886e2afadadce48b4b7852ebf1e40
     <%= render "partials/available_dates" %>
     <div class="chatbar pull-right">
       <% if @conversations != nil %>
