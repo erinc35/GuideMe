@@ -22,8 +22,6 @@ class TripsController < ApplicationController
     @unsplash_object = Unsplash::Photo.search(@location)
     @pic = @unsplash_object[0].urls["full"]
     @guide = Guide.find(@trip.guide_id)
-
-
   end
 
   def edit

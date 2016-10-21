@@ -1,0 +1,57 @@
+.profile-container {
+  padding-left: 20%;
+  width: 60%;
+}
+
+.profile-header {
+  background-color: #E8F4F8;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  height: 300px;
+}
+
+.profile-img {
+  float: left;
+  margin: 10px;
+  background-color: #FFFFFF;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.profile-info {
+  font-family: 'Nunito', sans-serif !important;
+  background-color: #FAFBFB;
+  margin-left: 120px;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.traveler-h1 {
+  text-align: center;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #E5EBEA;
+  font-size: 50px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.trips-header {
+  font-family: 'Nunito', sans-serif !important;
+  margin-bottom: 5px;
+  margin-left: 200px;
+  margin-right: 200px;
+  background-color: #E7EDEC;
+  border-radius: 8px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.trips{
+  margin-bottom: 8px;
+  background-color: #F5F7F7;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}

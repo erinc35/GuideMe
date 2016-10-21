@@ -1,20 +1,34 @@
-<h1>Travelers#show</h1>
-<p>Find me in app/views/travelers/show.html.erb</p>
+<div class="profile-bg">
+<div class="profile-container">
+<div class="profile-header">
+  <h1 class="traveler-h1 fran"><%= @traveler.first_name + " " + @traveler.last_name %></h1>
+  <div class="profile-img">
+    <% if @traveler.photo %>
+      <%= image_tag(@traveler.photo) %>
+    <% else %>
+      <p>No Image</p>
+    <% end %>
+  </div>
+  <div class="profile-info">
+    <p><b>Email: </b><%= @traveler.email %></p>
+    <p><b>Total trips: </b><%= @traveler.trips.count %></p>
+    <p><b>Language: </b><%= @traveler.language %></p>
+    <p><b>Phone: </b><%= @traveler.phone %></p>
+  </div>
+</div>
 
-<%= form_tag yelps_path, url: url_for(action: 'create', controller: 'yelps'), :method => 'post' do %>
-<p>
-  <%= text_field_tag :location, placeholder="location"%>
-  <%= text_field_tag :keyword, placeholder="keywords" %>
-  <%= submit_tag "Search", :name => nil %>
-</p>
-<% end %>
+<div class="trips-header">
+  <center><h2>Trips</h2></center>
+</div>
 
 <% @trips.each do |trip| %>
-	<%= link_to trip.location, trip_path(trip) %><br>
+  <div class="trips">
+    	<%= link_to trip.location, trip_path(trip) %><br>
+  </div>
 <% end %>
 
 <% if current_user.class == Traveler %>
-  <% @traveler = Traveler.find(params[:id]) %>
+  <% @traveler = Traveler.find(current_user.id) %>
   <% if @traveler.id == current_user.id %>
       <div class="chatbar pull-right">
         <% if @conversations != nil %>
@@ -40,9 +54,8 @@
             <h2>You haven't talked to anyone yet, go talk to one of our guides!</h2>
         <% end %>
       </div>
-    </div>
-    <div class="col-md-4">
-    </div>
-  </div>
 <% end %>
 <% end %>
+
+</div>
+</div>
