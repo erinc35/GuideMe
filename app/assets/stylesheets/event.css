@@ -1,11 +1,18 @@
 .container{
   width: 40%;
-  margin: 0 auto;
+  /*margin: 0 auto;*/
   background-color: white;
   opacity: 0.9;
   border-radius: 8px;
 }
 
+.trip-container{
+  width: 40%;
+  /*margin: 0 auto;*/
+  background-color: white;
+  opacity: 0.9;
+  border-radius: 8px;
+}
 ul.tabs{
   margin: 0px;
   padding: 0px;
@@ -28,7 +35,9 @@ ul.tabs li.current{
   background: #e1e8f4;
   color: black;
 }
-
+.tab-link.current{
+  margin-left: 52px;
+}
 .tab-content{
   display: none;
   background: #ededed;
@@ -103,6 +112,9 @@ ul.tabs li.current{
   position: relative;
   padding-left: 107px;
   bottom: 37px;
+}
+.hide-tripdetail{
+  display: none;
 }
 .detail{
   padding-left: 3%;
