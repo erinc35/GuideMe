@@ -9,7 +9,7 @@ $(document).ready(function() {
 })
 
 function addEvent() {
-  $(".container").on('click', '#add_event', function(event) {
+  $(".float-left").on('click', '#add_event', function(event) {
     event.preventDefault();
     var that = this;
     var saveAction = $(this).attr('href');
@@ -24,7 +24,7 @@ function addEvent() {
     })
     .done(function(result) {
       $(that).parent().remove();
-      $('.container').children('.events').prepend(result);
+      $('.float-left').children('.events').prepend(result);
       // $('.events').prepend('.saved_event')
     })
   });
@@ -53,7 +53,7 @@ function removeEvent() {
 }
 
 function addRestaurant() {
-  $(".container").on('click', '#add_restaurant', function(event) {
+  $(".float-left").on('click', '#add_restaurant', function(event) {
     event.preventDefault;
     console.log("bbbbb")
     
@@ -78,7 +78,7 @@ function addRestaurant() {
 }
 
 function removeRestaurant() {
-  $(".container").on('click', '#remove_restaurant', function(event) {
+  $(".float-left").on('click', '#remove_restaurant', function(event) {
     event.preventDefault;
     var that = this;
     var removeAction = $(this).attr('href');
@@ -111,7 +111,7 @@ function tabContent() {
 }
 
 function addAttraction() {
-  $(".container").on('click', '#add_attraction', function(event) {
+  $(".float-left").on('click', '#add_attraction', function(event) {
     event.preventDefault;
     
     var that = this;
@@ -133,7 +133,7 @@ function addAttraction() {
 }
 
 function removeAttraction() {
-  $(".container").on('click', '#remove_attraction', function(event) {
+  $(".float-left").on('click', '#remove_attraction', function(event) {
     event.preventDefault;
     var that = this;
     var removeAction = $(this).attr('href');
