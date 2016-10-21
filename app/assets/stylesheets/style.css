@@ -82,10 +82,12 @@ input {
 }
 
 .guide {
+  margin-top: 4%;
+  margin-left: 6.7%;
   display: inline-block;
   border: 1px solid black;
   width: 40%;
-  margin: 10px;
+  /*margin: 10px;*/
   float: left;
   opacity: 0.8;
   border-radius: 5px;

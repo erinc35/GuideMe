@@ -35,7 +35,9 @@ ul.tabs li.current{
   background: #e1e8f4;
   color: black;
 }
-
+.tab-link.current{
+  margin-left: 52px;
+}
 .tab-content{
   display: none;
   background: #ededed;
