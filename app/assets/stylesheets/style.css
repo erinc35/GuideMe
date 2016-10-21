@@ -1,6 +1,12 @@
 .fran{
   font-family: "Sue Ellen Francisco";
 }
+.guide:hover{
+  background-color: #acc2e5;
+}
+.allign{
+  text-align: center;
+}
 .margin-bot10{
   margin-bottom: 10%;
 }
@@ -18,6 +24,11 @@
 
 .trip-location{
   font-size: 20px;
+}
+
+.inline{
+  font-size: 16px;
+  display: inline;
 }
 
 .trip-details{

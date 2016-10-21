@@ -1,5 +1,6 @@
 <style>
   body{
+
     background-image: url(<%=@pic%>);
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -9,7 +10,7 @@
   }
 </style>
 <div id="parent-div" class="container margin-top5">
-  <h1 class="center_h1 margin-bot5">Trips</h1>
+  <h1 class="center_h1 margin-bot5 fran">Trips</h1>
     <% if @trips.length == 0 %>
       <p>You haven't booked any trips yet!</p>
       <p><%= link_to 'Book a Trip!', root_path %></p>
