@@ -91,6 +91,7 @@ input {
 }
 
 #imgmap {
+  border-radius: 8px;
   margin-left: -9%;
   width: 100%;
   height: 100%;
@@ -123,7 +124,9 @@ input {
 .saved_attraction {
   background-color: #c9cefd;
 }
-
+.language-but{
+  font-size:20px;
+}
 .guides-in-header{
   font-family: "Sue Ellen Francisco";
   width: auto;
@@ -261,11 +264,11 @@ html,body{
 }
 
 .login-form > *{
-  font-size: 20px;
+  font-size: 21px;
 }
 
 .login-via{
-  font-size: 20px;
+  font-size: 30px;
 }
 
 /*.signup-form{

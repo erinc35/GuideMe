@@ -19,6 +19,8 @@ Rails.application.routes.draw do
 
   resources :guides do
 
+    resources :reviews
+
     post 'add_guide'
 
     post 'remove_guide'

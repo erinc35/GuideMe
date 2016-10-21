@@ -82,9 +82,28 @@
 
 <% end %>
 
+<h3>Reviews</h3>
+<% if @guide.reviews %>
+
+  <% @guide.reviews.each do |review| %>
+    <p>
+      <b><%= Traveler.find(review.traveler_id).first_name + " " + Traveler.find(review.traveler_id).last_name %></b>: <%= review.comment %>
+    </p>
+    <p>
+      <b>Rating</b>: <%= review.rating %>
+    </p>  
+  <% end %>
+<% else %>
+  <p> No reviews yet! </p>
+<% end %>
+
+<%= form_tag guide_reviews_path(@guide) do %>
+  <div class="form-group"><%= text_field_tag :rating, nil , placeholder: "Rating", size: "5" %><br></div>
+  <div class="form-group"><%= text_area_tag :comment, nil , placeholder: "Write a review", size: "35" %><br></div>
+  <%= submit_tag "Submit", class: "btn btn-primary" %>
+
+<% end %>
+
 </div>
 </div>
 
-<%= form_tag review_path do %>
-   10      <div class="form-group"><%= text_area_tag :review, nil , placeholder: "Write a review", size: "35" %><br></div>
-<% end %>
