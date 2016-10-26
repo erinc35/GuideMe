@@ -21,8 +21,8 @@
 
           <li class="bold trip-location"><%= @location%></li>
           <%= @trip.start_date %><br><br>
-          <%= link_to 'show', trip_path(session[:traveler_id], guide_id: trip.guide_id), class: "show-detail" %>
-          <a href="#" class="hide-tripdetail">hide</a>
+          <%= link_to 'show ▼', trip_path(session[:traveler_id], guide_id: trip.guide_id), class: "show-detail" %>
+          <a href="#" class="hide-tripdetail">hide ▲</a>
           <%= render partial: '/partials/trip_detail' %>
       </ul>
     <% end %>
