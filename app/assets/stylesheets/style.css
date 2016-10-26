@@ -197,10 +197,6 @@ html,body{
   background-color: #e9e9e9;
 }
 
-.search-form{
-  margin-bottom: 15%;
-}
-
 .form-radius{
   border-radius: 4px;
 }
@@ -388,12 +384,15 @@ html,body{
     clear:both;
     padding:14px;
 }
+
 #login-dp .social-buttons{
     margin:12px 0
 }
+
 #login-dp .social-buttons a{
     width: 49%;
 }
+
 #login-dp .form-group {
     margin-bottom: 10px;
 }
@@ -645,13 +644,12 @@ html,body{
 
     .carousel .item {
       height: 500px;
+      margin-bottom: -20%;
     }
     .carousel img {
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
-      width: 100vw;
-      height: 100vh;
     }
 
     .carousel-caption {
@@ -724,7 +722,7 @@ html,body{
 
     /* RESPONSIVE CSS
     -------------------------------------------------- */
-
+/*
     @media (max-width: 979px) {
 
       .container.navbar-wrapper {
@@ -740,8 +738,8 @@ html,body{
         height: 500px;
       }
       .carousel img {
-       /* width: auto;
-        height: 500px;*/
+        width: auto;
+        height: 500px;
       }
 
       .featurette {
@@ -755,10 +753,10 @@ html,body{
         max-width: 40%;
         margin: 0 auto 20px;
       }
-    }
+    }*/
 
 
-    @media (max-width: 767px) {
+    /*@media (max-width: 767px) {
 
       .navbar-inner {
         margin: -20px;
@@ -785,6 +783,7 @@ html,body{
       .carousel-inner{
         bottom: 20px !important;
         overflow: visible !important;
+        margin-bottom: -30%;
       }
       .carousel-caption h1 {
         font-size: 30px;
@@ -806,5 +805,5 @@ html,body{
         line-height: 1.5;
       }
 
-    }
+    }*/
 

@@ -44,7 +44,7 @@
   </div>
 
   <div class="float-right">
-    <img id='imgmap' src="https://maps.googleapis.com/maps/api/staticmap?center=<%= @full_location %>&zoom=12&size=1000x400&markers=<%= @full_location %>&markers=<%= @events_locations %>&markers=<%= @restaurants_locations %>&markers=<%= @attractions_locations %>">
+    <img id='imgmap' src="https://maps.googleapis.com/maps/api/staticmap?center=<%= @full_location %>&zoom=12&size=1000x400&markers=<%= @full_location %>&markers=<%= @events_locations %>&markers=<%= @restaurants_locations %>&markers=<%= @attractions_locations %>&key=<%=ENV['google_static_map']%>">
   </div>
     <div class="float-left-div">
     <div class="float-left">
