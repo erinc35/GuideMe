@@ -258,6 +258,9 @@ html,body{
 
 }
 
+.navbar-default .navbar-toggle .icon-bar{
+  background-color: white;
+}
 #traveler{
   position: absolute;
   /*z-index: 999;*/
