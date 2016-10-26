@@ -12,6 +12,7 @@
         <label class="signup-group">Language:</label>
         <select class="form-language buu form-padding" name='language' required>
             <option value="" default selected>Choose a language</option>
+                <% @languages = %w(English Spanish German French Italian Portuguese Japanese Korean Turkish Mandarin Cantonese) %>
                 <% @languages.each do |language| %>
             <option value=<%= language %>><%= language %></option>
             <% end %>
