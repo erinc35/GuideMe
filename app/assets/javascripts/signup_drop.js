@@ -4,9 +4,9 @@ $(document).ready(function(){
 });
 
 function signUpHover()  {
-   $(".signup-link").mouseover(function () {
+   $(".signup-link").on("click", function () {
      $('.signup-drop').toggle()
    }
-     )
+  )
 
 }

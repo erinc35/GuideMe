@@ -1,6 +1,6 @@
 <div>
   <div class="navbar navbar-static-top">
-      <button class="navbar-toggle" style="background-color:none !important" data-toggle="collapse" data-target =".navHeaderCollapse">
+      <button class="navbar-toggle bg" data-toggle="collapse" data-target =".navHeaderCollapse">
         &udarr; 
         
       </button>
@@ -20,7 +20,7 @@
             <li><%= link_to 'SIGN UP',"#", class: "signup-link"  %>
 
               <%= render partial: "/layouts/signup" %></li>
-          <li><%= link_to 'LOGIN', new_sessions_path, class: "login-link" %>
+            <li><%= link_to 'LOGIN', new_sessions_path, class: "login-link" %>
 
               <%= render partial: "/sessions/login_form"%></li>
           <% end %>

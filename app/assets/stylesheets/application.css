@@ -17,3 +17,5 @@
  *= require jquery-ui
  */
 
+@import "font-awesome-sprockets";
+@import "font-awesome";
