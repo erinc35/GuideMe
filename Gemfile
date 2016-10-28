@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby "2.3.1"
 gem 'mailboxer'
 gem 'private_pub'
 gem 'thin'
