@@ -43,9 +43,94 @@
     </form>
   </div>
 
-  <div class="float-right">
-    <img id='imgmap' src="https://maps.googleapis.com/maps/api/staticmap?center=<%= @full_location %>&zoom=12&size=1000x400&markers=<%= @full_location %>&markers=<%= @events_locations %>&markers=<%= @restaurants_locations %>&markers=<%= @attractions_locations %>&key=<%=ENV['google_static_map']%>">
-  </div>
+<center>
+  <div id="map" class="float-right"></div>
+</center>
+    <script>
+      // Note: This example requires that you consent to location sharing when
+      // prompted by your browser. If you see the error "The Geolocation service
+      // failed.", it means you probably did not give permission for the browser to
+      // locate you.
+
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 12
+        });
+        var infoWindow = new google.maps.InfoWindow({map: map});
+
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Location found.');
+            map.setCenter(pos);
+
+            
+            var events = <%= @events_longlat %>;
+            for (i=0; i < events.length; i++) {
+              var pos = {lat: events[i][1], lng: events[i][0]};
+              var marker = new google.maps.Marker({
+                position: pos,
+                map: map,
+                title: "hi"
+              });
+              marker.addListener('click', function() {
+                infowindow.open(map, marker);
+              });
+            };
+
+            var restaurants = <%= @restaurants_longlat %>;
+            for (i=0; i < restaurants.length; i++) {
+              var pos = {lat: restaurants[i][1], lng: restaurants[i][0]};
+              var marker = new google.maps.Marker({
+                position: pos,
+                map: map,
+                title: "hi"
+              });
+              marker.addListener('click', function() {
+                infowindow.open(map, marker);
+              });
+            };
+
+            var attractions = <%= @attractions_longlat %>;
+            for (i=0; i < attractions.length; i++) {
+              var pos = {lat: attractions[i][1], lng: attractions[i][0]};
+              var marker = new google.maps.Marker({
+                position: pos,
+                map: map,
+                title: "hi"
+              });
+              marker.addListener('click', function() {
+                infowindow.open(map, marker);
+              });
+            };
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+      }
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+      }
+    </script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['google_api']%>&callback=initMap">
+</script>
+
+
     <div class="float-left-div">
     <div class="float-left">
       <ul class="tabs">
