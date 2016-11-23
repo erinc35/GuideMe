@@ -1,0 +1,56 @@
+<h1>Travelers#edit</h1>
+<p>Find me in app/views/travelers/edit.html.erb</p>
+
+<%= form_for :traveler, url: traveler_path(@traveler), html: { multipart: true }, method: :patch do |f| %>
+ 
+  <% if @traveler.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@traveler.errors.count, "error") %> prohibited
+        these changes from being saved:
+      </h2>
+      <ul>
+        <% @traveler.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %>
+  </p>
+ 
+  <p>
+    <%= f.label :last_name %><br>
+    <%= f.text_area :last_name %>
+  </p>
+  <p>
+  	<%= f.label :email %><br>
+    <%= f.text_area :email %>
+  </p>
+  <p>
+  	<%= f.label :password %><br>
+    <%= f.text_area :password %>
+  </p>
+  <p>
+  	<%= f.label :language %><br>
+    <%= f.text_area :language %>
+  </p>
+  <p>
+  	<%= f.label :phone %><br>
+    <%= f.text_area :phone %>
+  </p>
+  <p>
+  	<%= f.file_field :avatar %><br>
+  		
+  	</p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Delete Account', traveler_path(@traveler), method: :delete, data: { confirm: 'Are you sure?' } %>
+ 
+<%= link_to 'Back', traveler_path(@traveler) %>

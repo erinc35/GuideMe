@@ -1,0 +1,30 @@
+<div class="signup-form">
+<div class="signup-atts">
+  <h1>Be GuideMe Member!</h1>
+
+  <% if @traveler.errors.any? %>
+    <div id="error_explanation">
+      <div class="alert alert-danger">
+        The form contains <%= pluralize(@traveler.errors.count, "error") %>.
+      <ul>
+      <% @traveler.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <%= form_for :traveler, url: '/travelers' do |f| %>
+<div class="signup-group">First name: <%= f.text_field :first_name, class: "buu"%></div><br>
+    <div class="signup-group">Last name: <%= f.text_field :last_name, class: "buu" %></div><br>
+    <div class="signup-group">Email: <%= f.text_field :email, class: "buu" %></div><br>
+    <div class="signup-group">Language: <%= f.text_field :language, class: "buu" %></div><br>
+    <div class="signup-group">Phone: <%= f.text_field :phone, class: "buu" %></div><br>
+    <div class="signup-group">Password: <%= f.password_field :password , class: "buu"%></div><br>
+    <div class="signup-group">Password Confirmation: <%= f.password_field :password_confirmation , class: "buu"%><br><br>
+        <%= f.submit "Submit", class: "signup-but"%>
+
+  <% end %>
+</div>
+</div>

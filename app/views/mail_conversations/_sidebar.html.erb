@@ -1,0 +1,11 @@
+<div class="sideMailBar">
+  <ul>
+    <li><%= link_to "Compose", new_mail_conversation_path, class: "btn btn-danger" %></li>
+    <br>
+    <li><%= link_to "Inbox(#{current_user.mailbox.inbox.count})", mail_conversations_path, class: "btn btn-primary" %></li>
+    <br>
+    <li><%= link_to "Outbox(#{current_user.mailbox.sentbox.count})",mail_conversations_outbox_path, class: "btn btn-success" %></li>
+    <br>
+    <li><%= link_to "Trash(#{current_user.mailbox.trash.count})", mail_conversations_trash_path, class: "btn btn-warning" %></li>
+  </ul>
+</div>

@@ -1,0 +1,32 @@
+<%= render 'sidebar' %>
+<div id="newMessage">
+  <div id="mailTitle">
+    <h2>New Message</h2>
+  </div>
+<br>
+<br>
+<% if @errors %>
+  <% @errors.each do |error| %>
+  <ul>
+    <li><%= error %></li>
+  </ul>
+  <% end %>
+<% end %>
+
+  <%= form_tag mail_conversations_path, method: :post do %>
+    <div>
+      <%= select_tag :guide_id, options_from_collection_for_select(Guide.all, :id, :first_name) %>
+    </div>
+
+    <div>
+      <%= text_field_tag :subject,nil, placeholder: "Subject" %>
+    </div>
+
+    <div>
+      <%= text_area_tag :body, nil, placeholder: "Enter Your Message" %>
+    </div>
+
+    <%= submit_tag 'Send Message', class: "btn btn-danger" %>
+
+  <% end %>
+</div>

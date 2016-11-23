@@ -1,0 +1,19 @@
+<div class="guide">
+  <p>
+    <%= link_to guide.first_name + " " + guide.last_name, guide_path(guide, from: @start_date, to: @end_date) %>
+  </p>
+
+  <p>
+    <b> <img src="<%= guide.photo %>"> </b>
+  </p>
+
+  <% if guide.reviews != [] %>
+    <p><b>Rating: </b><%= (guide.reviews.where(guide_id: guide.id).pluck(:rating).reduce(0) {|total, rating| total + rating}) / guide.reviews.where(guide_id: guide.id).pluck(:rating).count %></p>
+  <% else %>
+    <p>No reviews yet!</p>
+  <% end %>
+
+  <p><b>Car Available:</b> <%= guide.has_car %></p>
+
+  <%= link_to 'Book', guide_add_guide_path(guide), method: :post, id: "add_guide" %>
+</div>

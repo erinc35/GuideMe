@@ -1,0 +1,11 @@
+<div class="saved_event">
+  <img src="<%= event.image_url %>" alt="edit" />
+  <a href="<%=event.url%>" target="_blank" class="event-name"><%= event.name %></a>
+  <%= link_to 'Remove', yelps_remove_path(session[:traveler_id], event: event.name, location: @location), method: :post, id: 'remove_event', class: "add-remove-but" %>
+  <div class="address">
+    <%= event.location.display_address[0] +" "+ event.location.display_address[-1]%></div>
+    <a href="#"  class="click-detail">Show details ▼</a>
+    <a href="#" class="hide-detail">Hide details ▲</a>
+
+    <%= render partial: '/partials/saved_detail', locals: { event: event} %>
+</div>

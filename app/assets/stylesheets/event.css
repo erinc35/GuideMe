@@ -1,0 +1,133 @@
+.container{
+  width: 40%;
+  /*margin: 0 auto;*/
+  background-color: white;
+  opacity: 0.9;
+  border-radius: 8px;
+}
+
+.trip-container{
+  width: 40%;
+  /*margin: 0 auto;*/
+  background-color: white;
+  opacity: 0.9;
+  border-radius: 8px;
+}
+ul.tabs{
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+ul.tabs li{
+  background: none;
+  color: gray;
+  display: inline-block;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.tabs{
+  border-bottom: 1px solid black;
+}
+
+ul.tabs li.current{
+  border-radius: 8px;
+  background: #e1e8f4;
+  color: black;
+}
+.tab-link.current{
+  margin-left: 52px;
+}
+.tab-content{
+  display: none;
+  background: #ededed;
+}
+
+.tab-content.current{
+  display: inherit;
+}
+
+.add-remove-but{
+  margin-top: 0;
+  float: right;
+  margin-right: 2%;
+}
+
+.address{
+  font-size: 13px;
+  position: relative;
+  padding-left: 107px;
+  bottom: 77px;
+}
+
+.click-detail{
+  font-size: 13px;
+  position: relative;
+  padding-left: 107px;
+  bottom: 37px;
+
+}
+
+.saved_event > img{
+  position: relative;
+}
+.restaurant > img{
+  position: relative;
+}
+.event-name{
+  position: relative;
+  bottom: 37px;
+}
+.event > img{
+  position: relative;
+}
+.restaurant-name{
+  position: relative;
+  bottom: 37px;
+}
+.saved_attraction > img{
+  border-radius: 8px;
+}
+
+.attraction > img{
+  border-radius: 8px;
+}
+.saved_event > img{
+  border-radius: 8px;
+}
+
+.event > img{
+  border-radius: 8px;
+}
+
+.restaurant > img{
+  border-radius: 8px;
+}
+.saved-event{
+  display: none;
+}
+.hide-detail{
+  display: none;
+  font-size: 13px;
+  position: relative;
+  padding-left: 107px;
+  bottom: 37px;
+}
+.hide-tripdetail{
+  display: none;
+}
+.detail{
+  padding-left: 3%;
+}
+
+.carousel-images{
+  border-style: {
+        /*background-image: url("pichu.jpg");*/
+        background-repeat: no-repeat;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        background-position: center center;
+      }
+}

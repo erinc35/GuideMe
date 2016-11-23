@@ -1,0 +1,150 @@
+<style>
+  body{
+    background-image: url(<%=@pic%>);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center center;
+
+  }
+</style>
+
+<div class="guide-page">
+
+  <div class="guides-in-header">
+
+    <h2>Guides in <%= @location %> who speak <%= @language %> </h2>
+    <h3>Dates chosen: <%= @start_date %> - <%= @end_date %></h3>
+    <% if session[:traveler_id] %>
+      <%= link_to 'Checkout', traveler_checkout_path(session[:traveler_id], location: @location, start_date: @start_date, end_date: @end_date) %>
+    <% else %>
+      <%= link_to 'Checkout', "#" %>
+    <% end %>
+  </div>
+
+  <div class="form-header">
+    <form id="search_form" action="/guides" method="get">
+
+      <input id="city" class="form-radius" type="text" name="location" placeholder= "Destination City" size="50" value="<%= @full_location %>" required>
+      <label for="from">From</label>
+      <input type="text" class="form-radius" id="from" name="from" value="<%= @start_date %>">
+      <label for="to">to</label>
+      <input type="text" class="form-radius" id="to" name="to" value="<%= @end_date %>">
+
+       <select class="form-language" name='language' required>
+        <option value="" default selected class="language-but
+        ">Language</option>
+        <% @languages.each do |language| %>
+          <option value=<%= language %>><%= language %></option>
+        <% end %>
+      </select>
+      <input id = "guide-search-but" class="form-radius" type="submit" value="Search">
+    </form>
+  </div>
+
+<center>
+  <div id="map" class="float-right"></div>
+</center>
+    <script>
+      // Note: This example requires that you consent to location sharing when
+      // prompted by your browser. If you see the error "The Geolocation service
+      // failed.", it means you probably did not give permission for the browser to
+      // locate you.
+
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 12
+        });
+        var infoWindow = new google.maps.InfoWindow({map: map});
+
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Location found.');
+            map.setCenter(pos);
+
+            
+            var events = <%= @events_longlat %>;
+            for (i=0; i < events.length; i++) {
+              var pos = {lat: events[i][1], lng: events[i][0]};
+              var marker = new google.maps.Marker({
+                position: pos,
+                map: map,
+                title: "hi"
+              });
+              marker.addListener('click', function() {
+                infowindow.open(map, marker);
+              });
+            };
+
+            var restaurants = <%= @restaurants_longlat %>;
+            for (i=0; i < restaurants.length; i++) {
+              var pos = {lat: restaurants[i][1], lng: restaurants[i][0]};
+              var marker = new google.maps.Marker({
+                position: pos,
+                map: map,
+                title: "hi"
+              });
+              marker.addListener('click', function() {
+                infowindow.open(map, marker);
+              });
+            };
+
+            var attractions = <%= @attractions_longlat %>;
+            for (i=0; i < attractions.length; i++) {
+              var pos = {lat: attractions[i][1], lng: attractions[i][0]};
+              var marker = new google.maps.Marker({
+                position: pos,
+                map: map,
+                title: "hi"
+              });
+              marker.addListener('click', function() {
+                infowindow.open(map, marker);
+              });
+            };
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+      }
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+      }
+    </script>
+
+    <div class="float-left-div">
+    <div class="float-left">
+      <ul class="tabs">
+        <li class="tab-link current" data-tab="tab-1">Guides</li>
+        <li class="tab-link" data-tab="tab-2">Attractions</li>
+        <li class="tab-link" data-tab="tab-3">Restaurants</li>
+        <li class="tab-link" data-tab="tab-4">Events</li>
+      </ul>
+
+      <%= render 'guides' %>
+      <%= render 'attractions' %>
+      <%= render 'events' %>
+      <%= render 'restaurants' %>
+    </div>
+    </div>
+  <div id='map'></div>
+  <div id='city'></div>
+
+</div>
+
+  <div class="row"></div>

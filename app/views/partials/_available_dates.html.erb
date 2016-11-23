@@ -1,0 +1,12 @@
+
+
+  <h3>Tell us when you're available!</h3>
+  <form action="/available_dates" method="post">
+    <label for="from">From</label>
+      <input type="text" class="form-radius" id="from" name="available_date[start_date]", required>
+      <label for="to">to</label>
+      <input type="text" class="form-radius" id="to" name="available_date[end_date]", required>
+
+      <input type="hidden" name="available_date[guide_id]" value="<%= @guide.id %>">
+      <input type="submit" value="Submit">
+  </form>

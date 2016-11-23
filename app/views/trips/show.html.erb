@@ -1,0 +1,32 @@
+<style>
+  body{
+    background-image: url(<%=@pic%>);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center center;
+  }
+</style>
+<div class="container margin-top10">
+
+   <p><b>Guide: </b><%= link_to @guide.first_name + " " + @guide.last_name, guide_path(@guide) %></p>
+
+   <p><b>Traveler: </b><%= link_to @traveler.first_name + " " + @traveler.last_name, traveler_path(@traveler) %></p>
+
+
+  <p><b>Location: </b><%= @trip.location %></p>
+  <p><b>Start Date: </b><%= @trip.start_date %></p>
+  <p><b>End Date: </b><%= @trip.end_date %></p>
+
+  <h3>Interests</h3>
+  <% if @trip.interests %>
+    <% @trip.interests.split(", ").each do |interest| %>
+      <p><%= interest %></p>
+    <% end %>
+  <% else %>
+    <p>No interests were selected</p>
+  <% end %>
+</div>
+
+

@@ -1,0 +1,35 @@
+<%= render 'sidebar' %>
+<div id="messageContainer">
+  <div id="mailTitle">
+    <h2><%= @mailbox_conversation.subject %></h2>
+  </div>
+  <br>
+  <br>
+  <% @mailbox_conversation.receipts_for(current_user).each do |receipt| %>
+    <div id="senderPhoto">
+      <img src="<%= receipt.message.sender.photo %>" />
+    </div>
+    <div id="senderName">
+      <b><%= receipt.message.sender.first_name %></b>
+      <p>Date: <%= receipt.message.created_at.strftime("%m/%d/%Y") %></p>
+      <p>Time: <%= receipt.message.created_at.strftime("%I:%M%p")%></p>
+    </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    <div id="senderBody">
+      <%= receipt.message.body %><br><br>
+    </div>
+    <% end %>
+
+<div id="replyForm">
+  <%= form_tag mail_conversation_mail_messages_path(@mailbox_conversation), method: :post do %>
+    <div>
+      <%= text_area_tag :body %>
+    </div>
+    <%= submit_tag 'Reply', class: "btn btn-success"%>
+    <% end %>
+  </div>
+</div>

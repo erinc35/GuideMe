@@ -1,0 +1,67 @@
+<style>
+  a:hover {
+    background-color: none;
+}
+</style>
+ <div class="main-container ">
+  <header>
+
+       <div id="myCarousel" class="carousel slide ">
+      <div class="carousel-inner" style="overflow: visible !important; bottom: 20px !important;">
+        <div class="item active ">
+          <span class="carousel-images"><%= image_tag("bbb.jpg")%><span>
+          <div class="container">
+
+          </div>
+        </div>
+        <div class="item">
+          <span class="carousel-images"><%= image_tag("eee.jpg")%></span>
+          <div class="container">
+
+          </div>
+        </div>
+        <div class="item">
+          <span class="carousel-images"><%= image_tag("cappa.jpg")%></span>
+          <div class="container">
+
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next" >›</a>
+
+    <%= render 'social_media' %>
+
+    <div class="homeform">
+      <h3 class="form-header">LET'S FIND A GUIDE..</h3>
+      <div class="search-form">
+        <form id="search_form" action="/guides" method="get">
+
+          <input id="city" class="form-radius" type="text" name="location" placeholder= " Destination City" size="50" required>
+          <label for="from">From</label>
+          <input type="text" class="form-radius" id="from" name="from">
+          <label for="to">to</label>
+          <input type="text" class="form-radius" id="to" name="to">
+
+          <select class="form-language" name='language' required>
+            <option value="" default selected>Language</option>
+            <% @languages.each do |language| %>
+
+            <option value=<%= language %>><%= language %></option>
+            <% end %>
+          </select>
+          <input id = "guide-search-but" class="form-radius" type="submit" value="Search">
+        </form>
+      </div>
+    </div>
+</div>
+</div>
+    <!-- Modal -->
+    
+    </header>
+
+
+
+
+
+

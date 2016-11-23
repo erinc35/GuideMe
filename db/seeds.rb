@@ -1,7 +1,36 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
+# Traveler.destroy_all
+
+languages = ["English", "Spanish", "German", "French", "Italian", "Portuguese", "Japanese", "Korean", "Turkish", "Mandarin", "Cantonese"]
+locations = ["Hong Kong", "Las Vegas", "San Francisco", "New York", "Paris", "Los Angeles"]
+has_car = ["yes", "no"]
+comments = ["Was a great guide", "Very pleasant experience", "Had a great time"]
+start_dates = ["2016-10-01 00:00:00 -0500", "2016-10-05 00:00:00 -0500"]
+end_dates = ["2016-10-25 00:00:00 -0500", "2016-10-30 00:00:00 -0500"]
+online = ["yes", "no"]
+
+25.times do
+	travelers = Traveler.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: "password", password_confirmation: "password", phone: Faker::PhoneNumber.cell_phone, photo: Faker::Avatar.image("my-own-slug", "50x50"))
+end
+
+75.times do
+	guides = Guide.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: "password", password_confirmation: "password", phone: Faker::PhoneNumber.cell_phone, language: languages.sample, location: locations.sample, has_car: has_car.sample, photo: Faker::Avatar.image("my-own-slug", "50x50"), online: online.sample)
+end
+
+guide_array = Guide.all
+guide_array.each do |guide|
+	guide.available_dates << AvailableDate.create(start_date: start_dates.sample, end_date: end_dates.sample)
+end
+
+50.times do
+	trips = Trip.create(guide_id: rand(1..51), traveler_id: rand(1..51), location: locations.sample, start_date: start_dates.sample, end_date: end_dates.sample)
+end
+
+100.times do
+	reviews = Review.create(rating: rand(1..5), comment: comments.sample, guide_id: rand(1..51), traveler_id: rand(1..51))
+end
+
+Traveler.create(first_name: "Katie", last_name: "Johnson", email: "katiejohnson@gmail.com", password: "password", password_confirmation: "password", phone: "1234567", photo: Faker::Avatar.image("my-own-slug", "50x50"))
+Guide.create(first_name: "Guy", last_name: "Smith", email: "guysmith@gmail.com", password: "password", password_confirmation: "password", phone: "1234567", language: languages.sample, location: locations.sample, has_car: has_car.sample, photo: Faker::Avatar.image("my-own-slug", "50x50"), online: "yes")
+Trip.create(guide_id: 51, traveler_id: 51, location: locations.sample, start_date: start_dates.sample, end_date: end_dates.sample)

@@ -1,0 +1,24 @@
+// Place all the styles related to the Guides controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+li.media {
+  position: relative;
+}
+
+li.media a {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  text-decoration: none;
+  z-index: 10;
+  background-color: #FFF;
+  opacity: 0;
+  filter: alpha(opacity=1);
+}

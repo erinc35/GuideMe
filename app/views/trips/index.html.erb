@@ -1,0 +1,31 @@
+<style>
+  body{
+
+    background-image: url(<%=@pic%>);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center center;
+  }
+</style>
+<div id="parent-div" class="container margin-top5">
+  <h1 class="center_h1 margin-bot5 fran">Trips</h1>
+
+    <% if @trips.length == 0 || @trips == nil %>
+      <p>You haven't booked any trips yet!</p>
+      <p><%= link_to 'Book a Trip!', root_path %></p>
+    <% end %>
+
+      <ul><% @trips.each do |trip| %>
+
+          <li class="bold trip-location"><%= @location%></li>
+          <%= @trip.start_date %><br><br>
+          <%= link_to 'show ▼', trip_path(session[:traveler_id], guide_id: trip.guide_id), class: "show-detail" %>
+          <a href="#" class="hide-tripdetail">hide ▲</a>
+          <%= render partial: '/partials/trip_detail' %>
+      </ul>
+    <% end %>
+
+</div>
+
