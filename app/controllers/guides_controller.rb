@@ -61,13 +61,17 @@ class GuidesController < ApplicationController
 
     ##########---------YELP---------##########
 
-    @events_call = Yelp.client.search(@location, { term: 'events', limit: 16 }).businesses
-    @restaurants_call = Yelp.client.search(@location, { term: 'restaurants', limit: 16 }).businesses
-    @attractions_call = Yelp.client.search(@location, { term: 'attractions', limit: 16 }).businesses
+    @events_call = Yelp.client.search(@location, { term: 'events', limit: 10 }).businesses
+    @restaurants_call = Yelp.client.search(@location, { term: 'restaurants', limit: 10 }).businesses
+    @attractions_call = Yelp.client.search(@location, { term: 'attractions', limit: 10 }).businesses
 
-    @events_locations = @events_call.map { |event| event.location.display_address[0] }.join("&markers=")
-    @restaurants_locations = @restaurants_call.map { |restaurant| restaurant.location.display_address[0] }.join("&markers=")
-    @attractions_locations = @attractions_call.map { |attraction| attraction.location.display_address[0] }.join("&markers=")
+    # @events_locations = @events_call.map { |event| event.location.display_address[0] }.join("&markers=")
+    # @restaurants_locations = @restaurants_call.map { |restaurant| restaurant.location.display_address[0] }.join("&markers=")
+    # @attractions_locations = @attractions_call.map { |attraction| attraction.location.display_address[0] }.join("&markers=")
+
+    @events_longlat = @events_call.map {|event| [event.location.coordinate.longitude, event.location.coordinate.latitude]}
+    @restaurants_longlat = @restaurants_call.map {|restaurant| [restaurant.location.coordinate.longitude, restaurant.location.coordinate.latitude]}
+    @attractions_longlat = @attractions_call.map {|attraction| [attraction.location.coordinate.longitude, attraction.location.coordinate.latitude]}
   end
 
   def new
