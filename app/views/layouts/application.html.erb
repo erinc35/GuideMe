@@ -28,8 +28,6 @@
   <link href="https://fonts.googleapis.com/css?family=Sue+Ellen+Francisco" rel="stylesheet">
 
 
-
-
 </div>
 <div class="container">
   <% if alert %>
@@ -64,6 +62,8 @@
 </script>
 <%= subscribe_to "/notifications" + current_user.id.to_s %>
 <% end %>
+<div id='map' hidden></div>
+<div id='city' hidden></div>
 </html>
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
