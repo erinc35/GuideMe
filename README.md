@@ -61,8 +61,7 @@ $ heroku open
 
 * [Ruby on Rails](http://api.rubyonrails.org/) - Backend API framework used
 * [jQuery](https://jquery.com/) - Write less, do more with jQuery
-* [Ajax](https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started) - Write less, do more with jQuery
-) -The use of the XMLHttpRequest object to communicate with server-side scripts.
+* [Ajax](https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started) -The use of the XMLHttpRequest object to communicate with server-side scripts.
 
 * [Stripe](https://stripe.com/docs/api) - Authenticates credit card payments
 * [Google Api](https://console.developers.google.com/?pli=1) - Google API Console lets you discover and use Google APIs, such as Google Maps and YouTube.
