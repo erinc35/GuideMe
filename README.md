@@ -1,2 +1,85 @@
 # GuideMe
-app that helps you find a guide in your travel destination
+
+Have you ever thought it would be nice to book your guide before you visit somewhere you have never been before and tell him/her what places you wish to visit?
+
+You are in the right spot!
+
+GuideMe is a Ruby on Rails application built in a two weeks for travelers who would like to find a guide in a specific city. It's meant for an easy way for travelers to book a guide and communicate with them instantly. In addition to being the team lead, my role in this project was front-end developer. We've implemented various API's including Google Maps, Stripe, Yelp, PixaBay and unslash
+
+You can check out the live version [here] (http://guideme-2016.herokuapp.com/).
+
+![homepage] (https://github.com/everysum1/insiderAPI/blob/development/app/assets/images/SmarterBearHomepage.png)
+
+![company-page] (https://github.com/everysum1/insiderAPI/blob/development/app/assets/images/SmarterBearCompany.png)
+
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+
+### Prerequisites
+
+```
+ruby 2.3.1
+bundler 1.12.5
+rails 5.0.0
+```
+
+### Installing
+From the command terminal, clone the repository to your local directory...
+```
+$ git clone https://github.com/erinc35/GuideMe.git
+$ cd GuideMe
+```
+
+Then run bundle command to install all dependencies and run the server.
+
+```
+$ bundle install
+$ rails server
+```
+
+
+## Running ALL the tests
+
+```
+bundle exec rspec spec
+```
+
+## Deployment
+
+You must have Heroku CLI installed and be logged in to Heroku in order to deploy live via Heroku servers
+(Please see the [documentation](https://devcenter.heroku.com) to get set up with Heroku)
+
+Then, after installation and login, via the command line...
+```
+$ heroku create
+$ git push heroku master
+$ heroku open
+```
+## Built With
+
+* [Ruby on Rails](http://api.rubyonrails.org/) - Backend API framework used
+* [React](https://facebook.github.io/react) - Front end UI framework used
+* [Highcharts](https://www.highcharts.com) - Data visualization library
+* [Redux](https://www.reduxjs.org) - Predictable state container used in front end application
+* [Nokogiri](https://nokogiri.org) - XML parser used
+* [PostgreSQL](https://www.postgresql.org/docs/) - Database used
+* [HTTParty](https://github.com/jnunemaker/httparty) - Library used for making HTTP requests
+
+## Authors
+
+* **Israel Matos** - [Github](https://github.com/everysum1)
+* **Kim Stephenson** - [Github](https://github.com/kimstephenson)
+* **Sam Parker** - [Github](https://github.com/samuelparker)
+* **Youna Yang** - [Github](https://github.com/y0una)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+Thank you for all your help!!
+* Jeff Tchang
+* Dave Cheng
+* Sally Park
