@@ -10,9 +10,15 @@ You can check out the live version [here] (https://guideme-2016.herokuapp.com/).
 
 ![signup] (https://github.com/erinc35/GuideMe/blob/development/app/assets/images/signup.gif)
 
+User signup.
+
 ![search] (https://github.com/erinc35/GuideMe/blob/development/app/assets/images/search.gif)
 
+Searching cities and find the guide.
+
 ![chat] (https://github.com/erinc35/GuideMe/blob/development/app/assets/images/chat.gif)
+
+Chat feature.
 
 ## Getting Started
 
@@ -55,7 +61,7 @@ $ heroku open
 
 * [Ruby on Rails](http://api.rubyonrails.org/) - Backend API framework used
 * [jQuery](https://jquery.com/) - Write less, do more with jQuery
-* [Ajax](* [jQuery](https://jquery.com/) - Write less, do more with jQuery
+* [Ajax](https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started) - Write less, do more with jQuery
 ) -The use of the XMLHttpRequest object to communicate with server-side scripts.
 
 * [Stripe](https://stripe.com/docs/api) - Authenticates credit card payments
