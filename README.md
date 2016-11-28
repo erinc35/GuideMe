@@ -38,13 +38,6 @@ $ bundle install
 $ rails server
 ```
 
-
-## Running ALL the tests
-
-```
-bundle exec rspec spec
-```
-
 ## Deployment
 
 You must have Heroku CLI installed and be logged in to Heroku in order to deploy live via Heroku servers
@@ -56,30 +49,29 @@ $ heroku create
 $ git push heroku master
 $ heroku open
 ```
-## Built With
+## Tech Used
 
 * [Ruby on Rails](http://api.rubyonrails.org/) - Backend API framework used
-* [React](https://facebook.github.io/react) - Front end UI framework used
-* [Highcharts](https://www.highcharts.com) - Data visualization library
-* [Redux](https://www.reduxjs.org) - Predictable state container used in front end application
-* [Nokogiri](https://nokogiri.org) - XML parser used
-* [PostgreSQL](https://www.postgresql.org/docs/) - Database used
+* [jQuery](https://jquery.com/) - Write less, do more with jQuery
+* [Ajax](* [jQuery](https://jquery.com/) - Write less, do more with jQuery
+) -The use of the XMLHttpRequest object to communicate with server-side scripts.
+
+* [Stripe](https://stripe.com/docs/api) - Authenticates credit card payments
+* [Google Api](https://console.developers.google.com/?pli=1) - Google API Console lets you discover and use Google APIs, such as Google Maps and YouTube.
+* [Unsplash](https://unsplash.com/developers) - Library for high-res photos
+* [Chatty](http://josephndungu.com/tutorials/) -Gmail Like Chat Application
+* [Yelp Api](https://www.yelp.com/developers/documentation/v2/overview) -Search for businesses by location, keyword and category
+gmail-like-chat-application-in-ruby-on-rails
 * [HTTParty](https://github.com/jnunemaker/httparty) - Library used for making HTTP requests
 
 ## Authors
 
-* **Israel Matos** - [Github](https://github.com/everysum1)
-* **Kim Stephenson** - [Github](https://github.com/kimstephenson)
-* **Sam Parker** - [Github](https://github.com/samuelparker)
-* **Youna Yang** - [Github](https://github.com/y0una)
+* **Erinç Emer** - [Github](https://github.com/erinc35)
+* **Johnny Choo** - [Github](https://github.com/jchoo157)
+* **Angelica Pilarca** - [Github](https://github.com/APilarca)
+* **Hakim Joseph** - [Github](https://github.com/HakimJoseph)
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-## Acknowledgments
-
-Thank you for all your help!!
-* Jeff Tchang
-* Dave Cheng
-* Sally Park
