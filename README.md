@@ -8,9 +8,11 @@ GuideMe is a Ruby on Rails application built in a two weeks for travelers who wo
 
 You can check out the live version [here] (https://guideme-2016.herokuapp.com/).
 
-![homepage] (https://github.com/everysum1/insiderAPI/blob/development/app/assets/images/SmarterBearHomepage.png)
+![signup] (https://github.com/erinc35/GuideMe/blob/development/app/assets/images/signup.gif)
 
-![company-page] (https://github.com/everysum1/insiderAPI/blob/development/app/assets/images/SmarterBearCompany.png)
+![search] (https://github.com/erinc35/GuideMe/blob/development/app/assets/images/search.gif)
+
+![chat] (https://github.com/erinc35/GuideMe/blob/development/app/assets/images/chat.gif)
 
 ## Getting Started
 
