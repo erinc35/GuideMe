@@ -43,8 +43,6 @@
 <%= yield %>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['google_api']%>&libraries=places&callback=initMap" async defer></script>
 
-
-
 <audio id="chatAudio"><source src="/sounds/back_to_the_future.mp3" type="audio/mpeg"></audio>
 </body>
 
@@ -64,6 +62,7 @@
 <% end %>
 <div id='map' hidden></div>
 <div id='city' hidden></div>
+
 </html>
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
