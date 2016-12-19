@@ -71,7 +71,7 @@
             infoWindow.setContent('Location found.');
             map.setCenter(pos);
 
-            
+
             var events = <%= @events_longlat %>;
             for (i=0; i < events.length; i++) {
               var pos = {lat: events[i][1], lng: events[i][0]};
