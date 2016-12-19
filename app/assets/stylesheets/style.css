@@ -224,6 +224,13 @@ html,body{
   background-color: #333;
   /*padding: 25px 0 0 0 ;*/
 }
+
+.nav > li > a{
+  color: beige;
+}
+.nav > li > a:hover{
+  color: black;
+}
 .navbar > li {
   float: left;
   border-right:1px solid #bbb;
