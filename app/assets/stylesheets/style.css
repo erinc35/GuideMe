@@ -137,7 +137,7 @@ input {
   font-size:20px;
 }
 .guides-in-header{
-  font-family: "Sue Ellen Francisco";
+  font-family: "Circular";
   width: auto;
   font-size: 30px;
   border: 1px solid white;
@@ -149,8 +149,8 @@ input {
 }
 
 .form-header{
-  font-family: "Sue Ellen Francisco";
-  font-size: 30px;
+  font-family: "Circular";
+  font-size: 25px;
   width: auto;
   background-color: white;
   text-align: center;
