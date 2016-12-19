@@ -1,3 +1,10 @@
+@media screen and (min-width: 40.5em) {
+  .product-img {
+    width: 50%;
+    float: left;
+  }
+}
+
 .fran{
   font-family: "Sue Ellen Francisco";
 }
