@@ -19,7 +19,7 @@
     <% if session[:traveler_id] %>
       <%= link_to 'Checkout', traveler_checkout_path(session[:traveler_id], location: @location, start_date: @start_date, end_date: @end_date) %>
     <% else %>
-      <%= link_to 'Checkout', "#" %>
+      <%= link_to 'Checkout', new_traveler_path %>
     <% end %>
   </div>
 
@@ -130,10 +130,10 @@
     <div class="float-left-div">
     <div class="float-left">
       <ul class="tabs">
-        <li class="tab-link" data-tab="tab-1">Guides</li>
         <li class="tab-link current" data-tab="tab-2">Attractions</li>
         <li class="tab-link" data-tab="tab-3">Restaurants</li>
         <li class="tab-link" data-tab="tab-4">Events</li>
+        <li class="tab-link" data-tab="tab-1">Guides</li>
       </ul>
 
       <%= render 'guides' %>

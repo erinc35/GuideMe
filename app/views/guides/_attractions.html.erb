@@ -1,4 +1,4 @@
-<div id="tab-2" class="tab-content attractions">
+<div id="tab-2" class="tab-content current attractions">
   <% @attractions_call.each do |attraction| %>
     <% if session["events"].include?(attraction.name) %>
       <%= render partial: 'add_attraction', locals: { attraction: attraction, location: @location } %>
