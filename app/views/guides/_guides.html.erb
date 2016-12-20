@@ -1,4 +1,4 @@
-<div id="tab-1" class="tab-content current guides">
+<div id="tab-1" class="tab-content guides">
   <% unless session["guide"].empty? %>
     <%= render partial: 'remove_guide', locals: { guide: Guide.find_by(email: session["guide"]) } %>
   <% end %>
