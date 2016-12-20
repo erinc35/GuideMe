@@ -4,9 +4,17 @@ $( function() {
         .datepicker({
           defaultDate: "+1w",
           changeMonth: true,
-          numberOfMonths: 2
+          numberOfMonths: 2,
+          onSelect: function(){
+             var dees = $(this);
+        setTimeout(function() { dees.closest('.fields')
+           .find('#to').datepicker('show');
+                              }, 100);
+            // $("#to").focus();
+          }
         })
-        .on( "change", function() {
+
+        .on( "onselect", function() {
           to.datepicker( "option", "minDate", getDate( this ) );
         }),
       to = $( "#to" ).datepicker({
@@ -17,7 +25,7 @@ $( function() {
       .on( "change", function() {
         from.datepicker( "option", "maxDate", getDate( this ) );
       });
-
+$("#to").datepicker();
     function getDate( element ) {
       var date;
       try {

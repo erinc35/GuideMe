@@ -24,7 +24,7 @@
   </div>
 
   <div class="form-header">
-    <form id="search_form" action="/guides" method="get">
+    <form id="search_form" class="fields" action="/guides" method="get">
 
       <input id="city" class="form-radius" type="text" name="location" placeholder= "Destination City" size="50" value="<%= @full_location %>" required>
       <label for="from">From</label>
@@ -130,8 +130,8 @@
     <div class="float-left-div">
     <div class="float-left">
       <ul class="tabs">
-        <li class="tab-link current" data-tab="tab-1">Guides</li>
-        <li class="tab-link" data-tab="tab-2">Attractions</li>
+        <li class="tab-link" data-tab="tab-1">Guides</li>
+        <li class="tab-link current" data-tab="tab-2">Attractions</li>
         <li class="tab-link" data-tab="tab-3">Restaurants</li>
         <li class="tab-link" data-tab="tab-4">Events</li>
       </ul>
@@ -142,7 +142,7 @@
       <%= render 'restaurants' %>
     </div>
     </div>
-  <div id='map'></div>
+  <!-- <div id='map'></div> -->
   <div id='city'></div>
 
 </div>
