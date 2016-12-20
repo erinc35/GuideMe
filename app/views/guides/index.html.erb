@@ -56,7 +56,7 @@
           center: {lat: -34.397, lng: 150.644},
           zoom: 12
         });
-        var infoWindow = new google.maps.InfoWindow({map: map});
+        // var infoWindow = new google.maps.InfoWindow({map: map});
 
         // Try HTML5 geolocation.
         if (1 == 1) {
@@ -66,8 +66,8 @@
               lng: <%= @coordinates["lng"] %>
             };
 
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('Location found.');
+            // infoWindow.setPosition(pos);
+            // infoWindow.setContent('<b>Location Found</b>');
             map.setCenter(pos);
 
 
