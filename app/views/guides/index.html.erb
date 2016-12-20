@@ -13,7 +13,7 @@
 <div class="guide-page">
 
   <div class="guides-in-header">
-
+    <h1><%= @coordinates["lat"] %></h1>
     <h2>Guides in <%= @location %> who speak <%= @language %> </h2>
     <h3>Dates chosen: <%= @start_date %> - <%= @end_date %></h3>
     <% if session[:traveler_id] %>
@@ -60,11 +60,11 @@
         var infoWindow = new google.maps.InfoWindow({map: map});
 
         // Try HTML5 geolocation.
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
+        if (1 == 1) {
+            console.log("asdfj;alsdfjalsdjf");
             var pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
+              lat: <%= @coordinates["lat"] %>,
+              lng: <%= @coordinates["lng"] %>
             };
 
             infoWindow.setPosition(pos);
@@ -110,9 +110,7 @@
                 infowindow.open(map, marker);
               });
             };
-          }, function() {
-            handleLocationError(true, infoWindow, map.getCenter());
-          });
+          
         } else {
           // Browser doesn't support Geolocation
           handleLocationError(false, infoWindow, map.getCenter());

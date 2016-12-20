@@ -24,6 +24,9 @@ class GuidesController < ApplicationController
     @languages = %w(English Spanish German French Italian Portuguese Japanese Korean Turkish Mandarin Cantonese)
     @location = params[:location].split(",")[0]
     @full_location = params[:location]
+    @location_response = HTTParty.get("http://maps.google.com/maps/api/geocode/json?address=#{@full_location}}")
+    @location_json = JSON.parse(@location_response.body)
+    @coordinates = @location_json["results"][0]["geometry"]["location"]
 
     @start_date = params[:from]
     @end_date = params[:to]
