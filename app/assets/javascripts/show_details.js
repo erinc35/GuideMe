@@ -11,9 +11,7 @@ $(document).ready(function(){
 function showDetailsAttractions(){
   $("#tab-2").on('click', '.click-detail', function(e){
     e.preventDefault();
-    // console.log($(this));
     $(this).siblings('.saved-event').slideDown();
-    console.log("zzzz")
       $(this).hide();
         $(this).siblings(".hide-detail").show();
   })
@@ -31,9 +29,7 @@ function hideDetailsAttractions(){
 function showDetailsRestaurants(){
   $("#tab-3").on('click', '.click-detail', function(e){
     e.preventDefault();
-    // console.log($(this));
     $(this).siblings('.saved-event').slideDown();
-    console.log("zzzz")
       $(this).hide();
         $(this).siblings(".hide-detail").show();
   })
@@ -50,7 +46,6 @@ function hideDetailsRestaurants(){
 function showDetailsEvents(){
   $("#tab-4").on('click', '.click-detail', function(e){
     e.preventDefault();
-    // console.log($(this));
     $(this).siblings('.saved-event').slideDown();
     console.log("zzzz")
       $(this).hide();
