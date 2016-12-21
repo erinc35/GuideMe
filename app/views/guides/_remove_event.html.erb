@@ -1,7 +1,7 @@
 <div class="attraction">
   <img src="<%= event.image_url %>" alt="edit" />
   <a href="<%=event.url%>" target="_blank" class="event-name"><%= event.name %></a>
-  <%= link_to 'Add', yelps_add_path(session[:traveler_id], event: event.name, location: @location), method: :post, id: 'add_event', class: "add-remove-but" %>
+  <%= link_to 'Add', yelps_add_path(session[:traveler_id], event: event.name, location: @location), method: :post, id: 'add_event', class: "add-remove-but hvr-wobble-horizontal" %>
   <div class="address">
     <%= event.location.display_address[0] +" "+ event.location.display_address[-1]%></div>
     <a href="#"  class="click-detail">Show details ▼</a>

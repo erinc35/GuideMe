@@ -10,7 +10,7 @@
 }
 
 .nav > li > a:active {
-  color: black; 
+  color: black;
 }
 
 .fran{
@@ -27,6 +27,8 @@
 }
 
 .float-left {
+  /*font-family: "serif";*/
+  font-size: 20px;
   border-radius: 8px;
   margin-left: 40px;
   float: left !important;

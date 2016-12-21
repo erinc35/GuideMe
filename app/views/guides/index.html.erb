@@ -60,7 +60,6 @@
 
         // Try HTML5 geolocation.
         if (1 == 1) {
-            console.log("asdfj;alsdfjalsdjf");
             var pos = {
               lat: <%= @coordinates["lat"] %>,
               lng: <%= @coordinates["lng"] %>
@@ -109,7 +108,7 @@
                 infowindow.open(map, marker);
               });
             };
-          
+
         } else {
           // Browser doesn't support Geolocation
           handleLocationError(false, infoWindow, map.getCenter());
