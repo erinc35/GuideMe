@@ -19,8 +19,6 @@ function mouseLeaveBlack2(){
  })
 }
 
-
-
 function mouseEnterWhite2(){
  $(".signup-link").on("mouseenter", function(){
    $(".signup-link").css("background-color", "white")
