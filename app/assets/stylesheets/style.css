@@ -5,6 +5,14 @@
   }
 }
 
+.nav > li > a {
+  color: beige;
+}
+
+.nav > li > a:active {
+  color: black; 
+}
+
 .fran{
   font-family: "Sue Ellen Francisco";
 }
@@ -232,9 +240,6 @@ html,body{
   /*padding: 25px 0 0 0 ;*/
 }
 
-.nav > li > a{
-  color: beige;
-}
 .nav > li > a:hover{
   color: black;
 }
@@ -248,14 +253,6 @@ html,body{
   float: right;
 }
 
-.navbar > li > a{
-  font-size: 1.5em;
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
 
 .navbar > li > a:hover:not(.active) {
   background-color: #111;
