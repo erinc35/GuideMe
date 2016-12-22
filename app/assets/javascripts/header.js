@@ -1,15 +1,16 @@
 $(document).ready(function(){
   loginFormPress();
-   // mouseLeaveBlack();
-
+  mouseLeaveSignup();
+  mouseLeaveLogin();
 });
 
 function loginFormPress()  {
   $(".login-link").on("click", function(event){
    event.preventDefault();
-   $(".login-form").toggle();
+   $(".login-form").slideDown();
    mouseLeaveBlack();
    mouseEnterWhite();
+
  })
 
 }
@@ -22,7 +23,6 @@ function mouseLeaveBlack(){
    $(".login-link").css("background-color", "#333333 ")
    // alert("fffff")
    $(".login-link").css("color", "beige");
-
  })
 }
 
@@ -37,4 +37,14 @@ function mouseEnterWhite(){
  })
 }
 
+function mouseLeaveLogin(){
+  $(".login-form").on("mouseleave", function(){
+    $(".login-form").slideUp();
+  })
+}
 
+function mouseLeaveSignup(){
+  $(".signup-drop").on("mouseleave", function(){
+    $(".signup-drop").slideUp();
+  })
+}
