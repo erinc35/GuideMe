@@ -609,9 +609,6 @@ li.media a {
   font-size: 60px;
 }
 
-.navbar {
-  font-family: "Sue Ellen Francisco";
-}
 
 body{
   padding-top: 0;
@@ -796,6 +793,7 @@ html,body{
 }
 
 .login-form{
+  font-family: 'circular' !important;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
   position: absolute;
   z-index: 999;
@@ -1469,7 +1467,7 @@ li.media a {
   top: 0;
   left: 0;
   text-decoration: none;
-  z-index: 10; 
+  z-index: 10;
   opacity: 0;
   filter: alpha(opacity=1);
 }

@@ -89,7 +89,7 @@
   font-size: 60px;
 }
 
-.navbar {
+.navbar > div> ul > li {
   font-family: "Sue Ellen Francisco";
 }
 
@@ -258,6 +258,14 @@ html,body{
 
 .navbar > li > a:hover:not(.active) {
   background-color: #111;
+}
+
+#email{
+  width: 240px;
+}
+
+#password{
+  width: 240px;
 }
 
 .active {
