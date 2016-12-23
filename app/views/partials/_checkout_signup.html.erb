@@ -1,0 +1,28 @@
+<!-- <div id="traveler" class="signup-form">
+    <h1>Create Guide Account</h1>
+ -->
+<div>
+    <div class="signup-atts">
+
+        <%= form_for :traveler, url: '/travelers' do |f| %>
+
+        <div class="signup-group">First name: <%= f.text_field :first_name, class: "buu"%></div><br>
+        <div class="signup-group">Last name: <%= f.text_field :last_name, class: "buu" %></div><br>
+        <div class="signup-group">Email: <%= f.text_field :email, class: "buu" %></div><br>
+        <label class="signup-group">Language:</label>
+        <select class="form-language buu form-padding" name='language' required>
+            <option value="" default selected>Choose a language</option>
+                <% @languages = %w(English Spanish German French Italian Portuguese Japanese Korean Turkish Mandarin Cantonese) %>
+                <% @languages.each do |language| %>
+            <option value=<%= language %>><%= language %></option>
+            <% end %>
+        </select>
+        <div class="signup-group">Phone: <%= f.text_field :phone, class: "buu" %></div><br>
+        <div class="signup-group">Password: <%= f.password_field :password , class: "buu"%></div><br>
+        <div class="signup-group">Password Confirmation: <%= f.password_field :password_confirmation , class: "buu"%><br><br>
+            <%= f.submit "Submit", class: "signup-but"%>
+
+            <% end %>
+        </div>
+    </div>
+</div>
