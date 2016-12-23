@@ -158,7 +158,6 @@ input {
   width: auto;
   font-size: 30px;
   border: 1px solid white;
-  border-radius: 8px;
   background-color: white;
   text-align: center;
   opacity: 0.7;
@@ -281,7 +280,16 @@ html,body{
   border-radius: 8px;
   height: 310px;
   width: 250px;
-
+}
+.co-login-form{
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  z-index: 999;
+  background-color: #eaecef;
+  display: none;
+  border-radius: 8px;
+  height: 310px;
+  width: 250px;
 }
 
 .-default .navbar-toggle .icon-bar{

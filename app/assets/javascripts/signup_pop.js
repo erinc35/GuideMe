@@ -1,5 +1,6 @@
 $(document).ready(function() {
   signupPop();
+
 });
 
 function signupPop(){

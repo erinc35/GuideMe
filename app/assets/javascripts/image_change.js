@@ -4,7 +4,7 @@ $(document).ready(function() {
 var bgImgChange = function(){
   $("#guide-search-but").on("click", function(){
 
-    console.log("******")
+
   //   $.ajax({
   //     method: "GET",
   //     url:
