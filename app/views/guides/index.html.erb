@@ -18,7 +18,7 @@
     <% if session[:traveler_id] %>
       <%= link_to 'Checkout', traveler_checkout_path(session[:traveler_id], location: @location, start_date: @start_date, end_date: @end_date) %>
     <% else %>
-     <%= link_to 'Checkout', guides_path, 'data-toggle' => 'modal', 'data-target' => '#myModal' %>
+     <%= link_to 'Checkout', guides_path, 'data-toggle' => 'modal', 'data-target' => '#checkout' %>
     <% end %>
   </div>
 

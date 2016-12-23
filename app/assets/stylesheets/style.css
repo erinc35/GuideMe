@@ -116,6 +116,16 @@ input {
       background-position: center center;
 }
 
+.checkout-content{
+      border: 8px solid #f4f7f8;
+      background-repeat: no-repeat;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      background-position: center center;
+}
+
 #imgmap {
   border-radius: 8px;
   margin-left: -9%;
