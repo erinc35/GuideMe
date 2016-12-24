@@ -494,7 +494,7 @@ li.media a {
 }
 
 .profile-info {
-  font-family: 'Nunito', sans-serif !important;
+  /*font-family: 'Nunito', sans-serif !important;*/
   background-color: #FAFBFB;
   margin-left: 120px;
   padding: 10px;
@@ -1360,7 +1360,7 @@ html,body{
     }*/
 
 .signup-atts {
-  font-family: 'Nunito', sans-serif !important;
+  /*font-family: 'Nunito', sans-serif !important;*/
   color: black;
   max-width: 600px;
   margin: 10px auto;
@@ -1496,13 +1496,13 @@ li.media a {
  */
 /* FONT PATH
  * -------------------------- */
-@font-face {
+/*@font-face {
   font-family: 'FontAwesome';
   src: url("/assets/font-awesome/fontawesome-webfont-7bfcab6db99d5cfbf1705ca0536ddc78585432cc5fa41bbd7ad0f009033b2979.eot?v=4.7.0");
   src: url("/assets/font-awesome/fontawesome-webfont-7bfcab6db99d5cfbf1705ca0536ddc78585432cc5fa41bbd7ad0f009033b2979.eot?v=4.7.0#iefix") format("embedded-opentype"), url("/assets/font-awesome/fontawesome-webfont-2adefcbc041e7d18fcf2d417879dc5a09997aa64d675b7a3c4b6ce33da13f3fe.woff2?v=4.7.0") format("woff2"), url("/assets/font-awesome/fontawesome-webfont-ba0c59deb5450f5cb41b3f93609ee2d0d995415877ddfa223e8a8a7533474f07.woff?v=4.7.0") format("woff"), url("/assets/font-awesome/fontawesome-webfont-aa58f33f239a0fb02f5c7a6c45c043d7a9ac9a093335806694ecd6d4edc0d6a8.ttf?v=4.7.0") format("truetype"), url("/assets/font-awesome/fontawesome-webfont-ad6157926c1622ba4e1d03d478f1541368524bfc46f51e42fe0d945f7ef323e4.svg?v=4.7.0#fontawesomeregular") format("svg");
   font-weight: normal;
   font-style: normal;
-}
+}*/
 /* line 4, /Users/jchoo/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/font-awesome-sass-4.7.0/assets/stylesheets/font-awesome/_core.scss */
 .fa {
   display: inline-block;
@@ -5275,7 +5275,7 @@ li.media a {
 ----------------------------------*/
 
 .ui-widget {
-	font-family: Verdana,Arial,sans-serif/*{ffDefault}*/;
+	/*font-family: Verdana,Arial,sans-serif/*{ffDefault}*/;*/
 	font-size: 1.1em/*{fsDefault}*/;
 }
 .ui-widget .ui-widget {
@@ -5285,7 +5285,7 @@ li.media a {
 .ui-widget select,
 .ui-widget textarea,
 .ui-widget button {
-	font-family: Verdana,Arial,sans-serif/*{ffDefault}*/;
+	/*font-family: Verdana,Arial,sans-serif*//*{ffDefault}*/;
 	font-size: 1em;
 }
 .ui-widget-content {

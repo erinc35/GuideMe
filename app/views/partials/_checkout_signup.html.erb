@@ -41,12 +41,14 @@
         <div class="form-group"><%= text_field_tag :email,nil , placeholder: "Email address", size: "35" %><br></div>
         <div class="form-group"><%= password_field_tag :password, nil, placeholder: "Password", size: "35" %><br></div>
         <div ><a href>Forgot password?</a></div>
-        <%= submit_tag "Login", class: "btn btn-primary btn-block" %>
+        <%= submit_tag "Login", class: "btn btn-primary", id: "marg" %>
         <% end %>
         <div class="checkbox">
         </div>
     </div>
-    <span class="already_member">Don't have an account?</span><input id = "checkout-signup-but" class="form-radius" type="submit" value="Sign up">
+    <div class="checkout-have-account">
+        <span class="already_member">Don't have an account?</span><input id = "checkout-signup-but" class="form-radius" type="submit" value="Sign up">
+    </div>
     </div>
 
 </div>

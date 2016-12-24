@@ -343,6 +343,14 @@ html,body{
   width: 250px;
 }
 
+#marg{
+  margin-top: 4%;
+}
+.checkout-have-account{
+  padding-top: 3%;
+  border-top: 1px solid beige;
+}
+
 .-default .navbar-toggle .icon-bar{
   background-color: white;
 }
