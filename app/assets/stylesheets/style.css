@@ -239,10 +239,16 @@ html,body{
   color: #ffffff ;
 }
 #checkout-login-but{
+  height: 35px;
+  width: 80px;
   background-color: white;
   float: right;
   color: #4bc970;
   border: 2px solid #4bc970;
+}
+#checkout-login-but:hover{
+  background-color: #4bc970;
+  color: white;
 }
 .form-language{
 /*  position: relative;
@@ -378,13 +384,6 @@ html,body{
   height: auto;
   z-index: 100;
   overflow: auto;
-}
-
-.signup-but{
-  margin-left: 2%;
-  background-color: #7ba9f2;
-  float: right;
-  border-radius: 8px;
 }
 
 .buu{
