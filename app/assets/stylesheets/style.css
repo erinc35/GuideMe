@@ -174,6 +174,8 @@ input {
   font-weight: bold;
 }
 
+
+
 .form-header{
   font-family: "Circular";
   font-size: 25px;
@@ -228,6 +230,7 @@ html,body{
 }
 
 .form-radius{
+
   border-radius: 4px;
 }
 
@@ -235,7 +238,12 @@ html,body{
   background-color: #1f3e70;
   color: #ffffff ;
 }
-
+#checkout-login-but{
+  background-color: white;
+  float: right;
+  color: #4bc970;
+  border: 2px solid #4bc970;
+}
 .form-language{
 /*  position: relative;
 */  line-height: 100px;
@@ -393,6 +401,11 @@ html,body{
 .signup-group{
   font-size: 25px;
   margin: 0;
+}
+.already_member{
+
+  font-size: 25px;
+  margin-top: 2%;
 }
 
 .signup-elements {
