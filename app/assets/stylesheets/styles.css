@@ -1,3 +1,4 @@
+
 @media screen and (min-width: 40.5em) {
   .product-img {
     width: 50%;
@@ -117,6 +118,7 @@ input {
 }
 
 .checkout-content{
+  border-radius: 8px;
   background-color: white;
       border: 8px solid #f4f7f8;
       background-repeat: no-repeat;
@@ -307,6 +309,17 @@ html,body{
   width: 240px;
 }
 
+#checkout_email{
+  font-size: 20px;
+  height: 40px;
+  width: 350px;
+}
+
+#checkout_password{
+  font-size: 20px;
+  height: 40px;
+  width: 350px;
+}
 .active {
  /* background-color: #4CAF50;*/
 }
@@ -344,6 +357,7 @@ html,body{
 }
 
 #marg{
+  width: 350px;
   margin-top: 4%;
 }
 .checkout-have-account{
