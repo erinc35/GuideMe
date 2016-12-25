@@ -38,8 +38,8 @@
         <h4>or</h4>
     <div class="form-group">
         <%= form_tag sessions_path do %>
-        <div class="form-group"><%= text_field_tag :email,nil , placeholder: "Email address", size: "35" %><br></div>
-        <div class="form-group"><%= password_field_tag :password, nil, placeholder: "Password", size: "35" %><br></div>
+        <div class="form-group"><%= text_field_tag :checkout_email,nil , placeholder: "Email address", size: "35", class: "form-radius" %><br></div>
+        <div class="form-group"><%= password_field_tag :checkout_password, nil, placeholder: "Password", size: "35", class: "form-radius" %><br></div>
         <div ><a href>Forgot password?</a></div>
         <%= submit_tag "Login", class: "btn btn-primary", id: "marg" %>
         <% end %>

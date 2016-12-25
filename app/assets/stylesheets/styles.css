@@ -1,3 +1,4 @@
+
 @media screen and (min-width: 40.5em) {
   .product-img {
     width: 50%;
@@ -117,6 +118,7 @@ input {
 }
 
 .checkout-content{
+  border-radius: 8px;
   background-color: white;
       border: 8px solid #f4f7f8;
       background-repeat: no-repeat;
@@ -254,11 +256,12 @@ html,body{
 }
 
 #checkout-signup-but{
+  margin-left: 34px;
+  padding: 0;
   font-size: 20px;
-  height: 35px;
-  width: 101px;
+  height: 30px;
+  width: 80px;
   background-color: white;
-  float: right;
   color: #337ab7;
   border: 2px solid #337ab7;
 }
@@ -307,6 +310,17 @@ html,body{
   width: 240px;
 }
 
+#checkout_email{
+  font-size: 20px;
+  height: 40px;
+  width: 350px;
+}
+
+#checkout_password{
+  font-size: 20px;
+  height: 40px;
+  width: 350px;
+}
 .active {
  /* background-color: #4CAF50;*/
 }
@@ -322,7 +336,6 @@ html,body{
   width: 250px;
 }
 .checkout-login-form{
-  display: none;
   text-align: center;
   /*box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);*/
  /* position: absolute;
@@ -344,6 +357,7 @@ html,body{
 }
 
 #marg{
+  width: 350px;
   margin-top: 4%;
 }
 .checkout-have-account{
@@ -438,7 +452,7 @@ html,body{
 }
 .already_member{
 
-  font-size: 25px;
+  font-size: 20px;
   margin-top: 2%;
 }
 

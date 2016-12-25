@@ -1,102 +1,104 @@
 <div class="profile-bg">
-<div class="profile-container">
-<div class="profile-header">
-  <h1 class="traveler-h1 fran"><%= @guide.first_name + " " + @guide.last_name %></h1>
-  <div class="profile-img">
-    <% if @guide.photo %>
-      <%= image_tag(@guide.photo) %>
-    <% else %>
-      <p>No Image</p>
-    <% end %>
-  </div>
-  <div class="profile-info">
-    
-    <p><b>Email: </b><%= @guide.email %></p>
-    <p><b>Total trips: </b><%= @guide.trips.count %></p>
-    <p><b>Language: </b><%= @guide.language %></p>
-    <p><b>Phone: </b><%= @guide.phone %></p>
-  </div>
-</div>
+  <div class="profile-container">
+    <div class="profile-header">
+      <h1 class="traveler-h1 fran"><%= @guide.first_name + " " + @guide.last_name %></h1>
+      <div class="profile-img">
+        <% if @guide.photo %>
+        <%= image_tag(@guide.photo) %>
+        <% else %>
+        <p>No Image</p>
+        <% end %>
+      </div>
+      <div class="profile-info">
 
-<div class="trips-header">
-  <center><h2>Trips</h2></center>
-</div>
+        <p><b>Email: </b><%= @guide.email %></p>
+        <p><b>Total trips: </b><%= @guide.trips.count %></p>
+        <p><b>Language: </b><%= @guide.language %></p>
+        <p><b>Phone: </b><%= @guide.phone %></p>
+      </div>
+    </div>
 
-<% if current_user %>
-<% if current_user.class == Guide %>
-  <% @guide = Guide.find(params[:id]) %>
-
-  <% if @guide.id == current_user.id %>
-
-    <%= render "partials/available_dates" %>
-    <div class="chatbar pull-right">
-      <% if @conversations != nil %>
-        <ul class="media-list">
-          <% @conversations.each do |conversation| %>
-          <li class="media">
-            <div class="chatbarphoto">
-              <img src="<%= conversation_interlocutor(conversation).photo %>">
-            </div>
-            <div class="media-body">
-              <%= link_to "", conversation_path(conversation), class: "conversation", "data-cid" => conversation.id %>
-              <h4 class="media-heading" style=""><%= conversation_interlocutor(conversation).first_name %></h4>
-              <% if conversation_interlocutor(conversation).online == "yes" %>
-                <i class='fa fa-asterisk' style="color:green"></i>
-              <% end %>
-            </div>
-          </li>
-
-          <% end %>
-        </ul>
-      <% end %>
-</div>
-</div>
-<div class="col-md-4">
-</div>
-</div>
-  <% else %>
-    <% if @guide.online == "yes" %>
-      <%= link_to "Chat Now", "#", class: "btn btn-success btn-xs start-conversation",
-      "data-sid" => current_user.id, "data-rip" => @guide.id %>
-    <% else %>
-      <%= link_to "Send A Message", new_mail_conversation_path %>
-    <% end %>
-<% end %>
-
-<% else %>
-  <% if @guide.online == "yes" %>
-    <%= link_to "Chat Now", "#", class: "btn btn-success btn-xs start-conversation",
-    "data-sid" => current_user.id, "data-rip" => @guide.id %>
-  <% else %>
-    <%= link_to "Send A Message", new_mail_conversation_path %>
-  <% end %>
-<% end %>
-
-<% end %>
-
+    <div class="trips-header">
+      <center><h2>Trips</h2></center>
+    </div>
+    <div class="profile-header">
 <h3>Reviews</h3>
 <% if @guide.reviews %>
 
-  <% @guide.reviews.reverse.each do |review| %>
-    <div class="border-bot">
-    <p>
-      <b>Rating</b>: <%= review.rating %>
-    </p>  
-    <p>
-      <b><%= Traveler.find(review.traveler_id).first_name + " " + Traveler.find(review.traveler_id).last_name %></b>: <%= review.comment %>
-    </p>
-    </div>
-  <% end %>
+<% @guide.reviews.reverse.each do |review| %>
+<div class="border-bot">
+  <p>
+    <b>Rating</b>: <%= review.rating %>
+  </p>
+  <p>
+    <b><%= Traveler.find(review.traveler_id).first_name + " " + Traveler.find(review.traveler_id).last_name %></b>: <%= review.comment %>
+  </p>
+</div>
+<% end %>
 <% else %>
   <p> No reviews yet! </p>
 <% end %>
 
 <%= form_tag guide_reviews_path(@guide) do %>
-  <div class="form-group"><%= text_field_tag :rating, nil , placeholder: "Rating", size: "5" %><br></div>
-  <div class="form-group"><%= text_area_tag :comment, nil , placeholder: "Write a review", size: "35" %><br></div>
-  <%= submit_tag "Submit", class: "btn btn-primary" %>
+<div class="form-group "><%= text_field_tag :rating, nil , placeholder: "Rating", size: "5", class: "form-radius" %><br></div>
+<div class="form-group"><%= text_area_tag :comment, nil , placeholder: "Write a review", size: "35", class: "form-radius" %><br></div>
+<%= submit_tag "Submit", class: "btn btn-primary" %>
 
 <% end %>
+</div>
+    <% if current_user %>
+    <% if current_user.class == Guide %>
+    <% @guide = Guide.find(params[:id]) %>
+
+    <% if @guide.id == current_user.id %>
+
+    <%= render "partials/available_dates" %>
+    <div class="chatbar pull-right">
+      <% if @conversations != nil %>
+      <ul class="media-list">
+        <% @conversations.each do |conversation| %>
+        <li class="media">
+          <div class="chatbarphoto">
+            <img src="<%= conversation_interlocutor(conversation).photo %>">
+          </div>
+          <div class="media-body">
+            <%= link_to "", conversation_path(conversation), class: "conversation", "data-cid" => conversation.id %>
+            <h4 class="media-heading" style=""><%= conversation_interlocutor(conversation).first_name %></h4>
+            <% if conversation_interlocutor(conversation).online == "yes" %>
+            <i class='fa fa-asterisk' style="color:green"></i>
+            <% end %>
+          </div>
+        </li>
+
+        <% end %>
+      </ul>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-md-4">
+  </div>
+</div>
+<% else %>
+<% if @guide.online == "yes" %>
+<%= link_to "Chat Now", "#", class: "btn btn-success btn-xs start-conversation",
+"data-sid" => current_user.id, "data-rip" => @guide.id %>
+<% else %>
+<%= link_to "Send A Message", new_mail_conversation_path %>
+<% end %>
+<% end %>
+
+<% else %>
+<% if @guide.online == "yes" %>
+<%= link_to "Chat Now", "#", class: "btn btn-success btn-xs start-conversation",
+"data-sid" => current_user.id, "data-rip" => @guide.id %>
+<% else %>
+<%= link_to "Send A Message", new_mail_conversation_path %>
+<% end %>
+<% end %>
+
+<% end %>
+
+
 
 </div>
 </div>
