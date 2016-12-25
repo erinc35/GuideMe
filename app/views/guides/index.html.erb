@@ -51,11 +51,13 @@
       // failed.", it means you probably did not give permission for the browser to
       // locate you.
 
-      function initMap() {
+            function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: -34.397, lng: 150.644},
           zoom: 12
         });
+
+
         // var infoWindow = new google.maps.InfoWindow({map: map});
 
         // Try HTML5 geolocation.
@@ -83,6 +85,7 @@
               });
             };
 
+
             var restaurants = <%= @restaurants_longlat %>;
             for (i=0; i < restaurants.length; i++) {
               var pos = {lat: restaurants[i][1], lng: restaurants[i][0]};
@@ -90,19 +93,51 @@
                 position: pos,
                 map: map,
                 title: "hi"
+
               });
               marker.addListener('click', function() {
                 infowindow.open(map, marker);
               });
             };
 
+
+            var markers = [];
+
+        function drop() {
+        clearMarkers();
+        for (var i = 0; i < attractions.length; i++) {
+          addMarkerWithTimeout(pos, i * 90);
+        }
+      }
+
+      function addMarkerWithTimeout(position, timeout) {
+        window.setTimeout(function() {
+          markers.push(new google.maps.Marker({
+            position: pos,
+            map: map,
+            animation: google.maps.Animation.DROP
+          }));
+        }, timeout);
+      }
+
+      function clearMarkers() {
+        for (var i = 0; i < markers.length; i++) {
+          markers[i].setMap(null);
+        }
+        markers = [];
+      }
+
+
+
             var attractions = <%= @attractions_longlat %>;
             for (i=0; i < attractions.length; i++) {
               var pos = {lat: attractions[i][1], lng: attractions[i][0]};
+
               var marker = new google.maps.Marker({
                 position: pos,
                 map: map,
-                title: "hi"
+                title: "hi",
+                animation: google.maps.Animation.DROP
               });
               marker.addListener('click', function() {
                 infowindow.open(map, marker);
@@ -114,6 +149,7 @@
           handleLocationError(false, infoWindow, map.getCenter());
         }
       }
+
 
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
