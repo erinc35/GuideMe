@@ -6,7 +6,7 @@
  <div class="main-container ">
   <header>
 
-       <div id="myCarousel" class="carousel slide ">
+       <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner" style="overflow: visible !important; bottom: 20px !important;">
         <div class="item active ">
           <span class="carousel-images"><%= image_tag("bbb.jpg")%><span>
@@ -27,7 +27,7 @@
           </div>
         </div>
       </div>
-      <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev" id="trigger-but">‹</a>
       <a class="right carousel-control" href="#myCarousel" data-slide="next" >›</a>
 
     <%= render 'social_media' %>
