@@ -24,6 +24,7 @@ ul.tabs{
   list-style: none;
 }
 ul.tabs li{
+  overflow: auto;
   background: none;
   color: gray;
   display: inline-block;
