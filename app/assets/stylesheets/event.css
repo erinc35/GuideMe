@@ -18,11 +18,13 @@
   border-bottom: 1px solid;
 }
 ul.tabs{
+  overflow: auto;
   margin: 0px;
   padding: 0px;
   list-style: none;
 }
 ul.tabs li{
+  overflow: auto;
   background: none;
   color: gray;
   display: inline-block;
