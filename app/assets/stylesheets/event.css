@@ -126,9 +126,9 @@ ul.tabs li.current{
   padding-left: 3%;
 }
 
-/*.carousel-images{
+.carousel-images{
   border-style: {
-        background-image: url("pichu.jpg");
+        /*background-image: url("pichu.jpg");*/
         background-repeat: no-repeat;
         -webkit-background-size: cover;
         -moz-background-size: cover;
@@ -136,4 +136,26 @@ ul.tabs li.current{
         background-size: cover;
         background-position: center center;
       }
-}*/
+}
+
+
+.intro-message{
+  font-family: 'sue ellen francisco';
+  bottom: 90px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 69px;
+  position: relative;
+  width: 70%;
+  overflow: auto;
+  text-align: center;
+}
+
+#fade p {
+  opacity: 0;
+  -webkit-transition: opacity 2s ease-in;
+  -moz-transition: opacity 2s ease-in;
+  -o-transition: opacity 2s ease-in;
+  -ms-transition: opacity 2s ease-in;
+  transition: opacity 2s ease-in;
+}
