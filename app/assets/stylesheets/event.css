@@ -126,9 +126,9 @@ ul.tabs li.current{
   padding-left: 3%;
 }
 
-/*.carousel-images{
+.carousel-images{
   border-style: {
-        background-image: url("pichu.jpg");
+        /*background-image: url("pichu.jpg");*/
         background-repeat: no-repeat;
         -webkit-background-size: cover;
         -moz-background-size: cover;
@@ -136,4 +136,4 @@ ul.tabs li.current{
         background-size: cover;
         background-position: center center;
       }
-}*/
+}
