@@ -274,6 +274,7 @@ html,body{
 .form-language{
 /*  position: relative;
 */  line-height: 100px;
+    height: 38px;
 }
 
 .navbar{
