@@ -24,6 +24,7 @@ function addGuide() {
       $(that).parent().remove();
       $('.saved_guide').remove();
       $('.float-left').children('.guides').prepend(result);
+      location.reload();
       // $('.events').prepend('.saved_event')
     });
   });
