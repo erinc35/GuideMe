@@ -10,15 +10,16 @@
   }
 </style>
 
+
 <div class="guide-page">
 
   <div class="guides-in-header">
     <h2>Guides in <%= @location %> who speak <%= @language %> </h2>
     <h3>Dates chosen: <%= @start_date %> - <%= @end_date %></h3>
     <% if session[:traveler_id] %>
-      <%= link_to 'Checkout', traveler_checkout_path(session[:traveler_id], location: @location, start_date: @start_date, end_date: @end_date) %>
+      <%= link_to 'Checkout', traveler_checkout_path(session[:traveler_id], location: @location, start_date: @start_date, end_date: @end_date), id: "checkoutLoggedIn", class: "checkout-but" %>
     <% else %>
-     <%= link_to 'Checkout', guides_path, 'data-toggle' => 'modal', 'data-target' => '#checkout' %>
+     <%= link_to 'Checkout', guides_path, 'data-toggle' => 'modal', 'data-target' => '#checkout', id: "checkoutLoggedOut", class: "checkout-but" %>
     <% end %>
   </div>
 
@@ -157,6 +158,26 @@
                               'Error: The Geolocation service failed.' :
                               'Error: Your browser doesn\'t support geolocation.');
       }
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        noGuide();
+      })
+
+      function noGuide() {
+        if ("<%= session["guide"] %>"){
+
+        }else{
+          $(".checkout-but").on("click", function(event){
+            event.preventDefault();
+          alert("Please choose a guide!")
+
+          })
+        }
+
+
+      }
+
     </script>
 
     <div class="float-left-div">

@@ -46,7 +46,7 @@ class GuidesController < ApplicationController
     @language = params[:language]
     @guides = Guide.all.where(location: @location)
     @guides_array = []
-    
+
     @potential_guides = Guide.all.where(location: @location)
     @potential_guides.each do |guide|
       logged_trips = guide.trips
