@@ -329,6 +329,7 @@ html,body{
 }
 
 .login-form{
+  overflow: auto;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
   position: absolute;
   z-index: 999;
@@ -509,7 +510,9 @@ html,body{
 #login-dp .form-group {
     margin-bottom: 10px;
 }
-
+.overflowAuto{
+  overflow: auto;
+}
 
 .btn-fb{
     color: #fff;
@@ -642,7 +645,7 @@ html,body{
   border-radius: 50%;
   width: 40px;
   height: 40px;
-  font-size: 20px;
+  font-size: 21px;
   background: #ffffff;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
