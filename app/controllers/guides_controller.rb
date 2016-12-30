@@ -60,7 +60,11 @@ class GuidesController < ApplicationController
     end
 
     @unsplash_object = Unsplash::Photo.search(@location)
-    @pic = @unsplash_object[0].urls["full"]
+    if @pic == nil
+      @pic = "beach.jpg"
+    else
+      @pic = @unsplash_object[0].urls["full"]
+    end
 
     ##########---------YELP---------##########
 
