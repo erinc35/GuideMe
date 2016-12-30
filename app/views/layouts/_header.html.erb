@@ -1,12 +1,12 @@
 <div>
   <div class="navbar navbar-static-top">
       <button class="navbar-toggle bg" data-toggle="collapse" data-target =".navHeaderCollapse">
-        &udarr; 
-        
+        &udarr;
+
       </button>
       <div class="collapse navbar-collapse navHeaderCollapse">
         <ul class="nav navbar-nav">
-          <li><%= link_to 'GUIDE ME', root_path %></li>
+          <li><%= link_to 'GUIDE ME', root_path, id: "guideme-home" %></li>
           <% if session[:guide_id] %>
             <li><%= link_to 'PROFILE', guide_path(session[:guide_id]) %></li>
             <li><%= link_to 'INBOX', mail_conversations_path %></li>
