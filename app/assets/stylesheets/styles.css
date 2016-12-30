@@ -510,7 +510,9 @@ html,body{
 #login-dp .form-group {
     margin-bottom: 10px;
 }
-
+.overflowAuto{
+  overflow: auto;
+}
 
 .btn-fb{
     color: #fff;
