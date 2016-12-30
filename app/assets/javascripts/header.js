@@ -15,6 +15,18 @@ function loginFormPress()  {
 
 }
 
+function homeButton(){
+  $("#guideme-home").on("click", function(event){
+    event.preventDefault();
+
+  })
+}
+function mouseLeaveGuideme(){
+  $("#guideme-home").on("mouseleave", function(){
+    $("#guideme-home").css("background-color", "#333333");
+    $("#guideme-home").css("color", "beige");
+  })
+}
 
 function mouseLeaveBlack(){
  $(".login-link").on("mouseleave", function(){
@@ -25,6 +37,8 @@ function mouseLeaveBlack(){
    $(".login-link").css("color", "beige");
  })
 }
+
+
 
 function mouseEnterWhite(){
  $(".login-link").on("mouseenter", function(){
