@@ -91,7 +91,8 @@
 }
 
 .navbar > div> ul > li {
-  font-family: "Sue Ellen Francisco";
+  font-family: 'Rokkitt', serif;
+  border-right: 1px solid #d3d3d3;
 }
 
 body{
@@ -278,7 +279,7 @@ html,body{
 }
 
 .navbar{
-  font-size: 27px;
+  font-size: 20px;
   list-style-type: none;
   text-align: center;
   margin: 0;
@@ -427,10 +428,10 @@ html,body{
 }
 
 .signup-drop{
-  font-size: 15px;
+  font-size: 10px;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
   position: absolute;
-  width: 115px;
+  width: 125px;
   background-color: #eaecef;
   display: none;
   border-radius: 8px;
@@ -461,7 +462,7 @@ html,body{
 }
 
 .signup-elements {
-  font-size: 20px;
+  font-size: 16px;
   text-align: left;
 }
 
