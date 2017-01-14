@@ -140,13 +140,12 @@ ul.tabs li.current{
 
 
 .intro-message{
-  font-family: 'sue ellen francisco';
+  font-family: 'Nunito', sans-serif;
   margin-left: auto;
   margin-right: auto;
   font-size: 69px;
   position: relative;
   width: 70%;
-  overflow: auto;
   text-align: center;
 }
 
