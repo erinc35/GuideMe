@@ -184,7 +184,6 @@ input {
   color: #0039a1;
   font-family: 'Josefin Slab', serif;
   font-size: 30px;
-  background-color: white;
   text-align: center;
   opacity: 0.7;
   font-weight: bold;
@@ -765,6 +764,7 @@ html,body{
     .carousel .item {
       position: absolute;
       height: 350px;
+      margin-top: -20px;
     }
     .carousel img {
       position: fixed;
