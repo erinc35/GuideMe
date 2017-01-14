@@ -149,6 +149,16 @@ ul.tabs li.current{
   text-align: center;
 }
 
+.p-intro-message{
+  font-family: 'Nunito', sans-serif;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 20px;
+  position: relative;
+  width: 70%;
+  text-align: center;
+}
+
 #fade p {
   opacity: 0;
   -webkit-transition: opacity 2s ease-in;

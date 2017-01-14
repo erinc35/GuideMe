@@ -27,17 +27,18 @@
           </div>
         </div>
       </div>
+      <div id="fade">
+        <h1 class="intro-message">GuideMe</h1>
+        <p class="intro-message">Quickly find a Guide</p>
+      </div>
       <a class="left carousel-control" href="#myCarousel" data-slide="prev" id="trigger-but">‹</a>
       <a class="right carousel-control" href="#myCarousel" data-slide="next" >›</a>
-      <div id="fade">
-        <p class="intro-message">GuideMe</p>
-      </div>
 
     <%= render 'social_media' %>
 
     <div class="homeform">
       <div class="search-form">
-      <h3 class="form-header">LET'S FIND A GUIDE..</h3>
+      <h3 class="form-header">Let's find a Guide</h3>
         <form id="search_form" class="fields" action="/guides" method="get">
 
           <input id="city" class="form-radius" type="text" name="location" placeholder= " Destination City" size="50" required>
