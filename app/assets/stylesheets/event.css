@@ -148,7 +148,6 @@ ul.tabs li.current{
   font-size: 69px;
   position: relative;
   width: 220px;
-  border: 3px solid #f7f8ff;
   border-radius: 10px;
   text-align: center;
 }
@@ -157,6 +156,7 @@ ul.tabs li.current{
   font-family: 'Sorts Mill Goudy', serif;
   margin-left: auto;
   margin-right: auto;
+  color: #5b5b5b;
   font-size: 20px;
   position: relative;
   width: 70%;

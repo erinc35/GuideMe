@@ -181,7 +181,6 @@ input {
 
 
 .form-header{
-  color: #0039a1;
   font-family: 'Josefin Slab', serif;
   font-size: 30px;
   text-align: center;
@@ -211,6 +210,7 @@ html,body{
 
 .homeform{
   margin: 100px auto;
+  padding-bottom: 10px;
   position: relative;
   width: 70%;
   overflow: auto;
