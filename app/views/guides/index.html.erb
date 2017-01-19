@@ -86,9 +86,12 @@
                 map: map,
                 animation: google.maps.Animation.DROP
               });
-              marker.addListener('click', function() {
-                infotext.open(map, marker);
-              });
+              marker.addListener('click', (function(marker, content, infotext) {
+                return function() {
+                infotext.setContent(content);
+                infotext.open(map,marker);
+        };
+              })(marker, content, infotext));
             };
 
 
