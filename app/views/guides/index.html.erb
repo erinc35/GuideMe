@@ -17,9 +17,9 @@
     <h2>Guides in <%= @location %> who speak <%= @language %> </h2>
     <h3>Dates chosen: <%= @start_date %> - <%= @end_date %></h3>
     <% if session[:traveler_id] %>
-      <%= link_to 'Checkout', traveler_checkout_path(session[:traveler_id], location: @location, start_date: @start_date, end_date: @end_date), id: "checkoutLoggedIn", class: "checkout-but" %>
+    <%= link_to 'Checkout', traveler_checkout_path(session[:traveler_id], location: @location, start_date: @start_date, end_date: @end_date), id: "checkoutLoggedIn", class: "checkout-but" %>
     <% else %>
-     <%= link_to 'Checkout', guides_path, 'data-toggle' => 'modal', 'data-target' => '#checkout', id: "checkoutLoggedOut", class: "checkout-but" %>
+    <%= link_to 'Checkout', guides_path, 'data-toggle' => 'modal', 'data-target' => '#checkout', id: "checkoutLoggedOut", class: "checkout-but" %>
     <% end %>
   </div>
 
@@ -32,58 +32,61 @@
       <label for="to">to</label>
       <input type="text" class="form-radius" id="to" name="to" value="<%= @end_date %>">
 
-       <select class="form-language" name='language' required>
+      <select class="form-language" name='language' required>
         <option value="" default selected class="language-but
         ">Language</option>
         <% @languages.each do |language| %>
-          <option value=<%= language %>><%= language %></option>
+        <option value=<%= language %>><%= language %></option>
         <% end %>
       </select>
       <input id = "guide-search-but" class="form-radius" type="submit" value="Search">
     </form>
   </div>
 
-<center>
-  <div id="map" class="float-right"></div>
-</center>
-    <script>
+  <center>
+    <div id="map" class="float-right"></div>
+  </center>
+  <script>
       // Note: This example requires that you consent to location sharing when
       // prompted by your browser. If you see the error "The Geolocation service
       // failed.", it means you probably did not give permission for the browser to
       // locate you.
 
-            function initMap() {
+      function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: -34.397, lng: 150.644},
           zoom: 12
         });
 
 
-        // var infoWindow = new google.maps.InfoWindow({map: map});
+         var attractions_content = <%= raw @attractions_names %>;
+         var restaurants_content = <%= raw @restaurants_names %>;
+         var events_content = <%= raw @events_names %>;
+         var infotext =  new google.maps.InfoWindow();
 
-        // Try HTML5 geolocation.
         if (1 == 1) {
-            var pos = {
-              lat: <%= @coordinates["lat"] %>,
-              lng: <%= @coordinates["lng"] %>
-            };
+          var pos = {
+            lat: <%= @coordinates["lat"] %>,
+            lng: <%= @coordinates["lng"] %>
+          };
 
-            // infoWindow.setPosition(pos);
-            // infoWindow.setContent('<b>Location Found</b>');
             map.setCenter(pos);
-
-
             var events = <%= @events_longlat %>;
-            for (i=0; i < events.length; i++) {
+            for (i=0; i < events.length;  i++) {
               var pos = {lat: events[i][1], lng: events[i][0]};
+
               var marker = new google.maps.Marker({
                 position: pos,
                 map: map,
-                title: "hi"
+                animation: google.maps.Animation.DROP
               });
-              marker.addListener('click', function() {
-                infowindow.open(map, marker);
-              });
+
+              marker.addListener('click', (function(marker, events_content, infotext) {
+                return function() {
+                infotext.setContent(events_content);
+                infotext.open(map,marker);
+        };
+              })(marker, events_content[i], infotext));
             };
 
 
@@ -93,40 +96,44 @@
               var marker = new google.maps.Marker({
                 position: pos,
                 map: map,
-                title: "hi"
+                animation: google.maps.Animation.DROP
 
               });
-              marker.addListener('click', function() {
-                infowindow.open(map, marker);
-              });
+
+               marker.addListener('click', (function(marker, restaurants_content, infotext) {
+                return function() {
+                infotext.setContent(restaurants_content);
+                infotext.open(map,marker);
+        };
+              })(marker, restaurants_content[i], infotext));
             };
 
 
             var markers = [];
 
-        function drop() {
-        clearMarkers();
-        for (var i = 0; i < attractions.length; i++) {
-          addMarkerWithTimeout(pos, i * 90);
-        }
-      }
+            function drop() {
+              clearMarkers();
+              for (var i = 0; i < attractions.length; i++) {
+                addMarkerWithTimeout(pos, i * 90);
+              }
+            }
 
-      function addMarkerWithTimeout(position, timeout) {
-        window.setTimeout(function() {
-          markers.push(new google.maps.Marker({
-            position: pos,
-            map: map,
-            animation: google.maps.Animation.DROP
-          }));
-        }, timeout);
-      }
+            function addMarkerWithTimeout(position, timeout) {
+              window.setTimeout(function() {
+                markers.push(new google.maps.Marker({
+                  position: pos,
+                  map: map,
+                  animation: google.maps.Animation.DROP
+                }));
+              }, timeout);
+            }
 
-      function clearMarkers() {
-        for (var i = 0; i < markers.length; i++) {
-          markers[i].setMap(null);
-        }
-        markers = [];
-      }
+            function clearMarkers() {
+              for (var i = 0; i < markers.length; i++) {
+                markers[i].setMap(null);
+              }
+              markers = [];
+            }
 
 
 
@@ -137,26 +144,33 @@
               var marker = new google.maps.Marker({
                 position: pos,
                 map: map,
-                title: "hi",
                 animation: google.maps.Animation.DROP
               });
-              marker.addListener('click', function() {
-                infowindow.open(map, marker);
-              });
+              marker.addListener('click', (function(marker, attractions_content, infotext) {
+                return function() {
+                infotext.setContent(attractions_content);
+                infotext.open(map,marker);
+        };
+              })(marker, attractions_content[i], infotext));
             };
 
-        } else {
+          } else {
           // Browser doesn't support Geolocation
           handleLocationError(false, infoWindow, map.getCenter());
         }
       }
 
 
+
+      // var marker = new google.maps.Marker({
+      //   position:
+      // })
+
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
         infoWindow.setContent(browserHasGeolocation ?
-                              'Error: The Geolocation service failed.' :
-                              'Error: Your browser doesn\'t support geolocation.');
+          'Error: The Geolocation service failed.' :
+          'Error: Your browser doesn\'t support geolocation.');
       }
     </script>
     <script type="text/javascript">
@@ -170,7 +184,7 @@
         }else{
           $(".checkout-but").on("click", function(event){
             event.preventDefault();
-          alert("Please choose a guide!")
+            alert("Please choose a guide!")
 
           })
         }
@@ -181,23 +195,23 @@
     </script>
 
     <div class="float-left-div">
-    <div class="float-left">
-      <ul class="tabs">
-        <li class="tab-link current" data-tab="tab-2">Attractions</li>
-        <li class="tab-link" data-tab="tab-3">Restaurants</li>
-        <li class="tab-link" data-tab="tab-4">Events</li>
-        <li class="tab-link" data-tab="tab-1">Guides</li>
-      </ul>
+      <div class="float-left">
+        <ul class="tabs">
+          <li class="tab-link current" data-tab="tab-2">Attractions</li>
+          <li class="tab-link" data-tab="tab-3">Restaurants</li>
+          <li class="tab-link" data-tab="tab-4">Events</li>
+          <li class="tab-link" data-tab="tab-1">Guides</li>
+        </ul>
 
-      <%= render 'guides' %>
-      <%= render 'attractions' %>
-      <%= render 'events' %>
-      <%= render 'restaurants' %>
+        <%= render 'guides' %>
+        <%= render 'attractions' %>
+        <%= render 'events' %>
+        <%= render 'restaurants' %>
+      </div>
     </div>
-    </div>
-  <!-- <div id='map'></div> -->
-  <div id='city'></div>
+    <!-- <div id='map'></div> -->
+    <div id='city'></div>
 
-</div>
+  </div>
 
   <div class="row"></div>
