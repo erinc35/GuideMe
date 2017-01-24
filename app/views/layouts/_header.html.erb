@@ -6,25 +6,25 @@
       </button>
       <div class="collapse navbar-collapse navHeaderCollapse">
         <ul class="nav navbar-nav">
-          <li><%= link_to 'GUIDE ME', root_path, id: "guideme-home" %></li>
+          <li><%= link_to 'GuideMe', root_path, id: "guideme-home" %></li>
           <% if session[:guide_id] %>
-            <li><%= link_to 'PROFILE', guide_path(session[:guide_id]) %></li>
-            <li><%= link_to 'INBOX', mail_conversations_path %></li>
-            <li><%= link_to 'LOG OUT', sessions_path, method: :delete, data: { confirm: 'Are you sure?'} %></li>
+            <li><%= link_to 'Profile', guide_path(session[:guide_id]) %></li>
+            <li><%= link_to 'Inbox', mail_conversations_path %></li>
+            <li><%= link_to 'Log Out', sessions_path, method: :delete, data: { confirm: 'Are you sure?'} %></li>
           <% elsif session[:traveler_id] %>
-            <li><%= link_to 'PROFILE', traveler_path(session[:traveler_id]) %></li>
-            <li><%= link_to 'INBOX', mail_conversations_path %></li>
-            <li><%= link_to 'TRIPS', trips_path %></li>
-            <li><%= link_to 'LOG OUT', sessions_path, method: :delete, data: { confirm: 'Are you sure?'} %></li>
+            <li><%= link_to 'Profile', traveler_path(session[:traveler_id]) %></li>
+            <li><%= link_to 'Inbox', mail_conversations_path %></li>
+            <li><%= link_to 'Trips', trips_path %></li>
+            <li><%= link_to 'Log Out', sessions_path, method: :delete, data: { confirm: 'Are you sure?'} %></li>
           <% else %>
-            <li><%= link_to 'SIGN UP',"#", class: "signup-link"  %>
+            <li><%= link_to 'Sign Up',"#", class: "signup-link"  %>
 
               <%= render partial: "/layouts/signup" %></li>
-            <li><%= link_to 'LOGIN', new_sessions_path, class: "login-link" %>
+            <li><%= link_to 'Login', new_sessions_path, class: "login-link" %>
 
               <%= render partial: "/sessions/login_form"%></li>
           <% end %>
-          <li><%= link_to 'ABOUT US', about_us_path%></li>
+          <li><%= link_to 'About Us', about_us_path%></li>
         </ul>
       </div>
   </div>

@@ -91,7 +91,8 @@
 }
 
 .navbar > div> ul > li {
-  font-family: "Sue Ellen Francisco";
+  font-family: 'Rokkitt', serif;
+  border-right: 1px solid #d3d3d3;
 }
 
 body{
@@ -180,17 +181,15 @@ input {
 
 
 .form-header{
-  color: #0039a1;
-  font-family: "Circular";
-  font-size: 25px;
-  width: auto;
-  background-color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 30px;
   text-align: center;
   opacity: 0.7;
   font-weight: bold;
   padding-top: 10px;
   padding-bottom: 10px;
   margin-bottom: 10px;
+  color: black;
 }
 
 /*.form-guides-page{
@@ -211,11 +210,12 @@ html,body{
 }
 
 .homeform{
+  margin: 100px auto;
+  padding-bottom: 10px;
   position: relative;
   width: 70%;
   overflow: auto;
   text-align: center;
-  margin: auto;
   border-radius: 10px;
   opacity: 0.8;
   background-color: #e9e9e9;
@@ -278,7 +278,7 @@ html,body{
 }
 
 .navbar{
-  font-size: 27px;
+  font-size: 20px;
   list-style-type: none;
   text-align: center;
   margin: 0;
@@ -427,10 +427,10 @@ html,body{
 }
 
 .signup-drop{
-  font-size: 15px;
+  font-size: 10px;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
   position: absolute;
-  width: 115px;
+  width: 125px;
   background-color: #eaecef;
   display: none;
   border-radius: 8px;
@@ -461,7 +461,7 @@ html,body{
 }
 
 .signup-elements {
-  font-size: 20px;
+  font-size: 16px;
   text-align: left;
 }
 
@@ -763,8 +763,9 @@ html,body{
     }
 
     .carousel .item {
-      height: 500px;
-      margin-bottom: -20%;
+      position: absolute;
+      height: 350px;
+      margin-top: -20px;
     }
     .carousel img {
       position: fixed;
