@@ -63,6 +63,8 @@
          //       maxWidth: 200
          //      })
          var content = "hi";
+            var events_call = <%= raw @events_names %>;
+         var contente = events_call
          var infotext =  new google.maps.InfoWindow();
         // var infoWindow = new google.maps.InfoWindow({map: map});
 
@@ -73,25 +75,25 @@
             lng: <%= @coordinates["lng"] %>
           };
 
-            // infoWindow.setPosition(pos);
-            // infoWindow.setContent('<b>Location Found</b>');
             map.setCenter(pos);
 
-
+            console.log(events_call)
             var events = <%= @events_longlat %>;
-            for (i=0; i < events.length; i++) {
+            for (i=0; i < events.length;  i++) {
               var pos = {lat: events[i][1], lng: events[i][0]};
+
               var marker = new google.maps.Marker({
                 position: pos,
                 map: map,
                 animation: google.maps.Animation.DROP
               });
-              marker.addListener('click', (function(marker, content, infotext) {
+
+              marker.addListener('click', (function(marker, contente, infotext) {
                 return function() {
-                infotext.setContent(content);
+                infotext.setContent(contente);
                 infotext.open(map,marker);
         };
-              })(marker, content, infotext));
+              })(marker, contente[i], infotext));
             };
 
 
@@ -104,6 +106,7 @@
                 animation: google.maps.Animation.DROP
 
               });
+
                marker.addListener('click', (function(marker, content, infotext) {
                 return function() {
                 infotext.setContent(content);

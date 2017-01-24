@@ -71,7 +71,7 @@ class GuidesController < ApplicationController
     @events_call = Yelp.client.search(@location, { term: 'events', limit: 10 }).businesses
     @restaurants_call = Yelp.client.search(@location, { term: 'restaurants', limit: 10 }).businesses
     @attractions_call = Yelp.client.search(@location, { term: 'attractions', limit: 10 }).businesses
-
+    @events_names = @events_call.map{|event| event.name}
     # @events_locations = @events_call.map { |event| event.location.display_address[0] }.join("&markers=")
     # @restaurants_locations = @restaurants_call.map { |restaurant| restaurant.location.display_address[0] }.join("&markers=")
     # @attractions_locations = @attractions_call.map { |attraction| attraction.location.display_address[0] }.join("&markers=")
