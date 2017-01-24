@@ -58,17 +58,12 @@
           zoom: 12
         });
 
-         // var infotext= new google.maps.InfoWindow({
-         //    content: "hi",
-         //       maxWidth: 200
-         //      })
-         var content = "hi";
-            var events_call = <%= raw @events_names %>;
-         var contente = events_call
-         var infotext =  new google.maps.InfoWindow();
-        // var infoWindow = new google.maps.InfoWindow({map: map});
 
-        // Try HTML5 geolocation.
+         var attractions_content = <%= raw @attractions_names %>;
+         var restaurants_content = <%= raw @restaurants_names %>;
+         var events_content = <%= raw @events_names %>;
+         var infotext =  new google.maps.InfoWindow();
+
         if (1 == 1) {
           var pos = {
             lat: <%= @coordinates["lat"] %>,
@@ -76,8 +71,6 @@
           };
 
             map.setCenter(pos);
-
-            console.log(events_call)
             var events = <%= @events_longlat %>;
             for (i=0; i < events.length;  i++) {
               var pos = {lat: events[i][1], lng: events[i][0]};
@@ -88,12 +81,12 @@
                 animation: google.maps.Animation.DROP
               });
 
-              marker.addListener('click', (function(marker, contente, infotext) {
+              marker.addListener('click', (function(marker, events_content, infotext) {
                 return function() {
-                infotext.setContent(contente);
+                infotext.setContent(events_content);
                 infotext.open(map,marker);
         };
-              })(marker, contente[i], infotext));
+              })(marker, events_content[i], infotext));
             };
 
 
@@ -107,12 +100,12 @@
 
               });
 
-               marker.addListener('click', (function(marker, content, infotext) {
+               marker.addListener('click', (function(marker, restaurants_content, infotext) {
                 return function() {
-                infotext.setContent(content);
+                infotext.setContent(restaurants_content);
                 infotext.open(map,marker);
         };
-              })(marker, content, infotext));
+              })(marker, restaurants_content[i], infotext));
             };
 
 
@@ -153,12 +146,12 @@
                 map: map,
                 animation: google.maps.Animation.DROP
               });
-              marker.addListener('click', (function(marker, content, infotext) {
+              marker.addListener('click', (function(marker, attractions_content, infotext) {
                 return function() {
-                infotext.setContent(content);
+                infotext.setContent(attractions_content);
                 infotext.open(map,marker);
         };
-              })(marker, content, infotext));
+              })(marker, attractions_content[i], infotext));
             };
 
           } else {
