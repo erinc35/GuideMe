@@ -10,7 +10,7 @@ You can check out the live version [here] (https://guideme-2016.herokuapp.com/).
 
 ## User signup
 
-![signup] (./app/assets/images/signup.gif)
+![signup] (/app/assets/images/signup.gif)
 
 ## Searching cities and booking a guide
 
