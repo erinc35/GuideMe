@@ -14,7 +14,7 @@ You can check out the live version [here] (https://guideme-2016.herokuapp.com/).
 
 ## Searching cities and booking a guide
 
-![search] (https://github.com/erinc35/GuideMe/blob/development/app/assets/images/search.gif)
+![search](https://github.com/erinc35/GuideMe/blob/development/app/assets/images/search.gif)
 
 ## Chat feature
 
